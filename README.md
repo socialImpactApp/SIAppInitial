@@ -2,7 +2,7 @@
 
 Title - Helping Hand
 
-Short description of your app
+Short description:
 
 Find volunteering opportunities or make some with your friends! With a selection of multiple preferences to choose from, the options are limitless.
 App enables user to connect with community.
