@@ -52,5 +52,4 @@ down vote
 accepted
 Try this markdown:
 
-![Wireframes]
-(https://i.imgur.com/gJliM3b.jpg)
+<img src="https://i.imgur.com/gJliM3b.jpg" />
