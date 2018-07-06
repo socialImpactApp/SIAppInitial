@@ -52,4 +52,5 @@ down vote
 accepted
 Try this markdown:
 
-https://i.imgur.com/gJliM3b.jpg
+![Wireframes]
+(https://i.imgur.com/gJliM3b.jpg)
