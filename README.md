@@ -52,4 +52,4 @@ down vote
 accepted
 Try this markdown:
 
-![alt text](https://imgur.com/a/l2PoznH)
+https://i.imgur.com/gJliM3b.jpg
