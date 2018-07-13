@@ -50,6 +50,26 @@ Optional (nice to have) user stories:
 
 down vote
 accepted
+
+Parse Dynamic Properties
+- Post Model
+    - postID (NSString)
+    - userID (NSString)
+    - author (PFUser)
+    - description (NSString) 
+    - image (PFFile)
+    - hours (NSString) 
+    - title (NSString)
+    - location (NSString)
+    - spots left (NSNumber) 
+    - contact (NSString)
+    
+- User Model 
+    - profileImage (PFUser) 
+    - contactNumber (NSString)
+    - oppsDone (NSNumber)
+    - email (NSString)
+    
 Try this markdown:
 
 <img src="https://i.imgur.com/gJliM3b.jpg" />
