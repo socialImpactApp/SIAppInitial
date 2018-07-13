@@ -76,18 +76,30 @@ This is an updated wireframe
 <img src="https://i.imgur.com/TG2goK5.jpg" />
 
 # Questions to think about
-What is your product pitch?
-Start with a problem statement and follow up with a solution.
-Focus on engaging your audience with a relatable need.
-Who are the key stakeholders for this app?
-Who will be using this?
-What will they be using this for?
-What are the core flows?
-What are the key functions?
-What screens will each user see?
-What will your final demo look like?
-Describe the flow of your final demo
-What mobile features do you leverage?
-Leverage at least two mobile-oriented features (i.e. maps and camera)
-What are your technical concerns?
-What technical features do you need help or resources for?
+- What is your product pitch?
+    - Start with a problem statement and follow up with a solution.
+    - Focus on engaging your audience with a relatable need.
+    -    
+- Who are the key stakeholders for this app?
+    - 
+- Who will be using this?
+    - Anyone and everyone seeking to give back to community
+- What will they be using this for?
+    - To sign up for volunteer events that create socail good.
+- What are the core flows?
+    -
+- What are the key functions?
+- What screens will each user see?
+    - Login, allm volunteer opp timeline, detailed view, saved vied, personal timeline, profile view
+- What will your final demo look like?
+    -
+- Describe the flow of your final demo
+    - 
+- What mobile features do you leverage?
+    - 
+- Leverage at least two mobile-oriented features (i.e. maps and camera)
+    - We want to implement location and a camera picker view for volunteer picture and profie 
+- What are your technical concerns?
+    - Working with parse and backend technicalities
+- What technical features do you need help or resources for?
+    - We need resources for git hub branching
