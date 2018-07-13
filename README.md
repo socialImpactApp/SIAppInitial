@@ -5,7 +5,7 @@
 Short description:
 
 Find volunteering opportunities or make some with your friends! With a selection of multiple preferences to choose from, the options are limitless.
-This app enables the user to connect with community.
+This app enables the user to connect with community, while also allowing volunteer providers to easily create more opportunities.
 
 # User stories:
 
