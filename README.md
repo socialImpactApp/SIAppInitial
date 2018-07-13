@@ -53,6 +53,8 @@ accepted
 Try this markdown:
 
 <img src="https://i.imgur.com/gJliM3b.jpg" />
+This is an updated wireframe
+<img src="https://i.imgur.com/TG2goK5.jpg" />
 
 What is your product pitch?
 Start with a problem statement and follow up with a solution.
