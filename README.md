@@ -1,6 +1,6 @@
 # SIAppInitial
 
-Title - Helping Hand
+#Title - Helping Hand
 
 Short description:
 
@@ -51,7 +51,7 @@ Optional (nice to have) user stories:
 down vote
 accepted
 
-Parse Dynamic Properties
+#Parse Dynamic Properties
 - Post Model
     - postID (NSString)
     - userID (NSString)
@@ -70,12 +70,12 @@ Parse Dynamic Properties
     - oppsDone (NSNumber)
     - email (NSString)
     
-Try this markdown:
-
+# Wireframes
 <img src="https://i.imgur.com/gJliM3b.jpg" />
 This is an updated wireframe
 <img src="https://i.imgur.com/TG2goK5.jpg" />
 
+#Questions to think about
 What is your product pitch?
 Start with a problem statement and follow up with a solution.
 Focus on engaging your audience with a relatable need.
