@@ -1,13 +1,13 @@
 # SIAppInitial
 
-#Title - Helping Hand
+# Title - Helping Hand
 
 Short description:
 
 Find volunteering opportunities or make some with your friends! With a selection of multiple preferences to choose from, the options are limitless.
 This app enables the user to connect with community.
 
-User stories:
+# User stories:
 
 1 - User sees Table View with volunteer opportunities
 
@@ -32,7 +32,7 @@ User stories:
 7 - Background check
 
 
-Optional (nice to have) user stories: 
+# Optional (nice to have) user stories: 
 
 - Generate volunteer sheet (for highschoolers)
 
@@ -51,7 +51,7 @@ Optional (nice to have) user stories:
 down vote
 accepted
 
-#Parse Dynamic Properties
+# Parse Dynamic Properties
 - Post Model
     - postID (NSString)
     - userID (NSString)
@@ -75,7 +75,7 @@ accepted
 This is an updated wireframe
 <img src="https://i.imgur.com/TG2goK5.jpg" />
 
-#Questions to think about
+# Questions to think about
 What is your product pitch?
 Start with a problem statement and follow up with a solution.
 Focus on engaging your audience with a relatable need.
