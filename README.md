@@ -79,7 +79,9 @@ This is an updated wireframe
 - What is your product pitch?
     - Start with a problem statement and follow up with a solution.
     - Focus on engaging your audience with a relatable need.
-    -    
+    
+    - People don't know all of the volunteer opportunities out there. Especially high school students need to find opportunities for their hours. It's the hub for volunteer opportunities. Volunteer enthusiasts or anyone who wants to volunteer can use this app.
+    
 - Who are the key stakeholders for this app?
     - 
 - Who will be using this?
