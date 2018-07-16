@@ -10,8 +10,6 @@
 		355718C320FC534D00D735EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C220FC534D00D735EA /* LoginViewController.m */; };
 		355718C620FC53AD00D735EA /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C520FC53AD00D735EA /* MenuViewController.m */; };
 		355718C920FC53E600D735EA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C820FC53E600D735EA /* DetailViewController.m */; };
-		35CF4CE720FD1A7B00796AE5 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CF4CE620FD1A7B00796AE5 /* Post.m */; };
-		35CF4CEB20FD387300796AE5 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CF4CEA20FD387300796AE5 /* PostCell.m */; };
 		35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53420EFE03E00B5D12C /* AppDelegate.m */; };
 		35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53720EFE03E00B5D12C /* ViewController.m */; };
 		35D8D53B20EFE03E00B5D12C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D53920EFE03E00B5D12C /* Main.storyboard */; };
@@ -20,15 +18,9 @@
 		35D8D54320EFE04000B5D12C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D54220EFE04000B5D12C /* main.m */; };
 		35D8D54D20EFE04000B5D12C /* socialImpactAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D54C20EFE04000B5D12C /* socialImpactAppTests.m */; };
 		35D8D55820EFE04000B5D12C /* socialImpactAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D55720EFE04000B5D12C /* socialImpactAppUITests.m */; };
-<<<<<<< HEAD
 		47D8A038FCB35C7777A968A0 /* libPods-socialImpactApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B5A5065D470831F56D7DE /* libPods-socialImpactApp.a */; };
 		51216213CEC3A0D4FAF43C93 /* libPods-socialImpactAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D1B2DFDE6B4F153928CCBB /* libPods-socialImpactAppUITests.a */; };
 		83391D8B8F392FDFD7EE65B7 /* libPods-socialImpactAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C54D53F8DF8C1846F5D92C /* libPods-socialImpactAppTests.a */; };
-=======
-		5B1444AB48682B8CE8FF09EB /* libPods-socialImpactAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7CFC36BDA8444CC48C09DF /* libPods-socialImpactAppTests.a */; };
-		8D98BA51A5C25F5F52137B14 /* libPods-socialImpactAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E6906D0F91A34D9C35099F /* libPods-socialImpactAppUITests.a */; };
-		D62FBE6A535A7E5015BDD56E /* libPods-socialImpactApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3CE5930062788E84F309C0 /* libPods-socialImpactApp.a */; };
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,24 +41,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
 		0920CAF78102BC2876E695E8 /* Pods-socialImpactAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactAppTests/Pods-socialImpactAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		29C54D53F8DF8C1846F5D92C /* libPods-socialImpactAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-socialImpactAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-=======
-		185E9EEC67E8C3501C34EDA2 /* Pods-socialImpactAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactAppUITests/Pods-socialImpactAppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		18EC0F9A8F6A4634744C3391 /* Pods-socialImpactApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp.debug.xcconfig"; sourceTree = "<group>"; };
-		2B3CE5930062788E84F309C0 /* libPods-socialImpactApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-socialImpactApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 		355718C120FC534D00D735EA /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		355718C220FC534D00D735EA /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		355718C420FC53AD00D735EA /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		355718C520FC53AD00D735EA /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		355718C720FC53E600D735EA /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		355718C820FC53E600D735EA /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		35CF4CE520FD1A7B00796AE5 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
-		35CF4CE620FD1A7B00796AE5 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
-		35CF4CE920FD387300796AE5 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
-		35CF4CEA20FD387300796AE5 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		35D8D53020EFE03E00B5D12C /* socialImpactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socialImpactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D8D53320EFE03E00B5D12C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35D8D53420EFE03E00B5D12C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -83,7 +65,6 @@
 		35D8D55320EFE04000B5D12C /* socialImpactAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = socialImpactAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D8D55720EFE04000B5D12C /* socialImpactAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = socialImpactAppUITests.m; sourceTree = "<group>"; };
 		35D8D55920EFE04000B5D12C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		4A2B5A5065D470831F56D7DE /* libPods-socialImpactApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-socialImpactApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E94ED86BAEE91CC6196636C /* Pods-socialImpactApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp.debug.xcconfig"; sourceTree = "<group>"; };
 		63271D50F8E957B54EE730BF /* Pods-socialImpactApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,14 +72,6 @@
 		82D1B2DFDE6B4F153928CCBB /* libPods-socialImpactAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-socialImpactAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3B0A2E856F5A84C19262B7 /* Pods-socialImpactAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactAppUITests/Pods-socialImpactAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E19E763DFD24563E71E7D3E8 /* Pods-socialImpactAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactAppUITests/Pods-socialImpactAppUITests.release.xcconfig"; sourceTree = "<group>"; };
-=======
-		3A7CFC36BDA8444CC48C09DF /* libPods-socialImpactAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-socialImpactAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		52AA3E0627E8059878335CBD /* Pods-socialImpactAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactAppTests/Pods-socialImpactAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		627C13C19E851C6FF4823B51 /* Pods-socialImpactAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactAppTests/Pods-socialImpactAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8763DFB0D9C85C45475B8919 /* Pods-socialImpactAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactAppUITests/Pods-socialImpactAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		B4E6906D0F91A34D9C35099F /* libPods-socialImpactAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-socialImpactAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0350F69757636A886E19154 /* Pods-socialImpactApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp.release.xcconfig"; sourceTree = "<group>"; };
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				47D8A038FCB35C7777A968A0 /* libPods-socialImpactApp.a in Frameworks */,
-=======
-				D62FBE6A535A7E5015BDD56E /* libPods-socialImpactApp.a in Frameworks */,
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,11 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				83391D8B8F392FDFD7EE65B7 /* libPods-socialImpactAppTests.a in Frameworks */,
-=======
-				5B1444AB48682B8CE8FF09EB /* libPods-socialImpactAppTests.a in Frameworks */,
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,11 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				51216213CEC3A0D4FAF43C93 /* libPods-socialImpactAppUITests.a in Frameworks */,
-=======
-				8D98BA51A5C25F5F52137B14 /* libPods-socialImpactAppUITests.a in Frameworks */,
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,24 +115,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		35CF4CE820FD1A8600796AE5 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				35CF4CE520FD1A7B00796AE5 /* Post.h */,
-				35CF4CE620FD1A7B00796AE5 /* Post.m */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		35CF4CEC20FD388600796AE5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				35CF4CE920FD387300796AE5 /* PostCell.h */,
-				35CF4CEA20FD387300796AE5 /* PostCell.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		35D8D52720EFE03E00B5D12C = {
 			isa = PBXGroup;
 			children = (
@@ -179,13 +122,8 @@
 				35D8D54B20EFE04000B5D12C /* socialImpactAppTests */,
 				35D8D55620EFE04000B5D12C /* socialImpactAppUITests */,
 				35D8D53120EFE03E00B5D12C /* Products */,
-<<<<<<< HEAD
 				60B4327F47C819993A5E07EC /* Pods */,
 				B869D6796AE17E91CF0BB5B8 /* Frameworks */,
-=======
-				5CF60727469C75372D2AB0E3 /* Pods */,
-				AFA1E4A418ACE7F7B2437179 /* Frameworks */,
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			);
 			sourceTree = "<group>";
 		};
@@ -202,8 +140,6 @@
 		35D8D53220EFE03E00B5D12C /* socialImpactApp */ = {
 			isa = PBXGroup;
 			children = (
-				35CF4CEC20FD388600796AE5 /* Views */,
-				35CF4CE820FD1A8600796AE5 /* Models */,
 				355718C020FC533B00D735EA /* ViewControllers */,
 				35D8D53320EFE03E00B5D12C /* AppDelegate.h */,
 				35D8D53420EFE03E00B5D12C /* AppDelegate.m */,
@@ -236,7 +172,6 @@
 			path = socialImpactAppUITests;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		60B4327F47C819993A5E07EC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,36 +181,16 @@
 				0920CAF78102BC2876E695E8 /* Pods-socialImpactAppTests.release.xcconfig */,
 				9E3B0A2E856F5A84C19262B7 /* Pods-socialImpactAppUITests.debug.xcconfig */,
 				E19E763DFD24563E71E7D3E8 /* Pods-socialImpactAppUITests.release.xcconfig */,
-=======
-		5CF60727469C75372D2AB0E3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				18EC0F9A8F6A4634744C3391 /* Pods-socialImpactApp.debug.xcconfig */,
-				D0350F69757636A886E19154 /* Pods-socialImpactApp.release.xcconfig */,
-				627C13C19E851C6FF4823B51 /* Pods-socialImpactAppTests.debug.xcconfig */,
-				52AA3E0627E8059878335CBD /* Pods-socialImpactAppTests.release.xcconfig */,
-				8763DFB0D9C85C45475B8919 /* Pods-socialImpactAppUITests.debug.xcconfig */,
-				185E9EEC67E8C3501C34EDA2 /* Pods-socialImpactAppUITests.release.xcconfig */,
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		B869D6796AE17E91CF0BB5B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				4A2B5A5065D470831F56D7DE /* libPods-socialImpactApp.a */,
 				29C54D53F8DF8C1846F5D92C /* libPods-socialImpactAppTests.a */,
 				82D1B2DFDE6B4F153928CCBB /* libPods-socialImpactAppUITests.a */,
-=======
-		AFA1E4A418ACE7F7B2437179 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2B3CE5930062788E84F309C0 /* libPods-socialImpactApp.a */,
-				3A7CFC36BDA8444CC48C09DF /* libPods-socialImpactAppTests.a */,
-				B4E6906D0F91A34D9C35099F /* libPods-socialImpactAppUITests.a */,
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -287,19 +202,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35D8D55C20EFE04000B5D12C /* Build configuration list for PBXNativeTarget "socialImpactApp" */;
 			buildPhases = (
-<<<<<<< HEAD
 				F897CC7FB8D90790581CF142 /* [CP] Check Pods Manifest.lock */,
 				35D8D52C20EFE03E00B5D12C /* Sources */,
 				35D8D52D20EFE03E00B5D12C /* Frameworks */,
 				35D8D52E20EFE03E00B5D12C /* Resources */,
 				EE68753B51F452C1AE6BC386 /* [CP] Copy Pods Resources */,
-=======
-				DA40BF81220123EA1D60535A /* [CP] Check Pods Manifest.lock */,
-				35D8D52C20EFE03E00B5D12C /* Sources */,
-				35D8D52D20EFE03E00B5D12C /* Frameworks */,
-				35D8D52E20EFE03E00B5D12C /* Resources */,
-				D27709805489E18D87751E5E /* [CP] Copy Pods Resources */,
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			);
 			buildRules = (
 			);
@@ -314,11 +221,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35D8D55F20EFE04000B5D12C /* Build configuration list for PBXNativeTarget "socialImpactAppTests" */;
 			buildPhases = (
-<<<<<<< HEAD
 				24F62BF0863DD1D3BD5DE81C /* [CP] Check Pods Manifest.lock */,
-=======
-				FC5B6D446E927255ABF62147 /* [CP] Check Pods Manifest.lock */,
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 				35D8D54420EFE04000B5D12C /* Sources */,
 				35D8D54520EFE04000B5D12C /* Frameworks */,
 				35D8D54620EFE04000B5D12C /* Resources */,
@@ -337,11 +240,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35D8D56220EFE04000B5D12C /* Build configuration list for PBXNativeTarget "socialImpactAppUITests" */;
 			buildPhases = (
-<<<<<<< HEAD
 				E3783BE2FE50453421278C16 /* [CP] Check Pods Manifest.lock */,
-=======
-				08D79A329C61A5A5FA907A09 /* [CP] Check Pods Manifest.lock */,
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 				35D8D54F20EFE04000B5D12C /* Sources */,
 				35D8D55020EFE04000B5D12C /* Frameworks */,
 				35D8D55120EFE04000B5D12C /* Resources */,
@@ -426,11 +325,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-<<<<<<< HEAD
 		24F62BF0863DD1D3BD5DE81C /* [CP] Check Pods Manifest.lock */ = {
-=======
-		08D79A329C61A5A5FA907A09 /* [CP] Check Pods Manifest.lock */ = {
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -441,28 +336,19 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-<<<<<<< HEAD
 				"$(DERIVED_FILE_DIR)/Pods-socialImpactAppTests-checkManifestLockResult.txt",
-=======
-				"$(DERIVED_FILE_DIR)/Pods-socialImpactAppUITests-checkManifestLockResult.txt",
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-<<<<<<< HEAD
 		E3783BE2FE50453421278C16 /* [CP] Check Pods Manifest.lock */ = {
-=======
-		D27709805489E18D87751E5E /* [CP] Copy Pods Resources */ = {
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-<<<<<<< HEAD
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
@@ -476,33 +362,11 @@
 			showEnvVarsInLog = 0;
 		};
 		EE68753B51F452C1AE6BC386 /* [CP] Copy Pods Resources */ = {
-=======
-				"${SRCROOT}/Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
-				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj",
-				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj",
-				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/pt-BR.lproj",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Parse.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fr.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pt-BR.lproj",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DA40BF81220123EA1D60535A /* [CP] Check Pods Manifest.lock */ = {
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-<<<<<<< HEAD
 				"${SRCROOT}/Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
 			);
@@ -516,21 +380,6 @@
 			showEnvVarsInLog = 0;
 		};
 		F897CC7FB8D90790581CF142 /* [CP] Check Pods Manifest.lock */ = {
-=======
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-socialImpactApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FC5B6D446E927255ABF62147 /* [CP] Check Pods Manifest.lock */ = {
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -541,11 +390,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-<<<<<<< HEAD
 				"$(DERIVED_FILE_DIR)/Pods-socialImpactApp-checkManifestLockResult.txt",
-=======
-				"$(DERIVED_FILE_DIR)/Pods-socialImpactAppTests-checkManifestLockResult.txt",
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -562,11 +407,9 @@
 				355718C320FC534D00D735EA /* LoginViewController.m in Sources */,
 				35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */,
 				35D8D54320EFE04000B5D12C /* main.m in Sources */,
-				35CF4CEB20FD387300796AE5 /* PostCell.m in Sources */,
 				35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */,
 				355718C620FC53AD00D735EA /* MenuViewController.m in Sources */,
 				355718C920FC53E600D735EA /* DetailViewController.m in Sources */,
-				35CF4CE720FD1A7B00796AE5 /* Post.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,11 +576,7 @@
 		};
 		35D8D55D20EFE04000B5D12C /* Debug */ = {
 			isa = XCBuildConfiguration;
-<<<<<<< HEAD
 			baseConfigurationReference = 5E94ED86BAEE91CC6196636C /* Pods-socialImpactApp.debug.xcconfig */;
-=======
-			baseConfigurationReference = 18EC0F9A8F6A4634744C3391 /* Pods-socialImpactApp.debug.xcconfig */;
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -755,11 +594,7 @@
 		};
 		35D8D55E20EFE04000B5D12C /* Release */ = {
 			isa = XCBuildConfiguration;
-<<<<<<< HEAD
 			baseConfigurationReference = 63271D50F8E957B54EE730BF /* Pods-socialImpactApp.release.xcconfig */;
-=======
-			baseConfigurationReference = D0350F69757636A886E19154 /* Pods-socialImpactApp.release.xcconfig */;
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -777,11 +612,7 @@
 		};
 		35D8D56020EFE04000B5D12C /* Debug */ = {
 			isa = XCBuildConfiguration;
-<<<<<<< HEAD
 			baseConfigurationReference = 71027CDC2FDD0873B9C15059 /* Pods-socialImpactAppTests.debug.xcconfig */;
-=======
-			baseConfigurationReference = 627C13C19E851C6FF4823B51 /* Pods-socialImpactAppTests.debug.xcconfig */;
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -801,11 +632,7 @@
 		};
 		35D8D56120EFE04000B5D12C /* Release */ = {
 			isa = XCBuildConfiguration;
-<<<<<<< HEAD
 			baseConfigurationReference = 0920CAF78102BC2876E695E8 /* Pods-socialImpactAppTests.release.xcconfig */;
-=======
-			baseConfigurationReference = 52AA3E0627E8059878335CBD /* Pods-socialImpactAppTests.release.xcconfig */;
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -825,11 +652,7 @@
 		};
 		35D8D56320EFE04000B5D12C /* Debug */ = {
 			isa = XCBuildConfiguration;
-<<<<<<< HEAD
 			baseConfigurationReference = 9E3B0A2E856F5A84C19262B7 /* Pods-socialImpactAppUITests.debug.xcconfig */;
-=======
-			baseConfigurationReference = 8763DFB0D9C85C45475B8919 /* Pods-socialImpactAppUITests.debug.xcconfig */;
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8MAYBN4P6;
@@ -848,11 +671,7 @@
 		};
 		35D8D56420EFE04000B5D12C /* Release */ = {
 			isa = XCBuildConfiguration;
-<<<<<<< HEAD
 			baseConfigurationReference = E19E763DFD24563E71E7D3E8 /* Pods-socialImpactAppUITests.release.xcconfig */;
-=======
-			baseConfigurationReference = 185E9EEC67E8C3501C34EDA2 /* Pods-socialImpactAppUITests.release.xcconfig */;
->>>>>>> 5f15a619a5bccf90fc585d6044504c4eecf530c3
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8MAYBN4P6;
