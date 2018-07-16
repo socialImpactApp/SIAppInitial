@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		355718B820F99A9400D735EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718B720F99A9400D735EA /* LoginViewController.m */; };
-		355718BC20FC4CA000D735EA /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718BB20FC4CA000D735EA /* MenuViewController.m */; };
-		355718BF20FC4D6700D735EA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718BE20FC4D6700D735EA /* DetailViewController.m */; };
+		355718C320FC534D00D735EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C220FC534D00D735EA /* LoginViewController.m */; };
 		35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53420EFE03E00B5D12C /* AppDelegate.m */; };
 		35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53720EFE03E00B5D12C /* ViewController.m */; };
 		35D8D53B20EFE03E00B5D12C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D53920EFE03E00B5D12C /* Main.storyboard */; };
@@ -38,12 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		355718B620F99A9400D735EA /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		355718B720F99A9400D735EA /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		355718BA20FC4CA000D735EA /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		355718BB20FC4CA000D735EA /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
-		355718BD20FC4D6700D735EA /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		355718BE20FC4D6700D735EA /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		355718C120FC534D00D735EA /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		355718C220FC534D00D735EA /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		35D8D53020EFE03E00B5D12C /* socialImpactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socialImpactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D8D53320EFE03E00B5D12C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35D8D53420EFE03E00B5D12C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -87,18 +81,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		355718B920F99A9B00D735EA /* ViewControllers */ = {
+		355718C020FC533B00D735EA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				355718B720F99A9400D735EA /* LoginViewController.m */,
-				355718B620F99A9400D735EA /* LoginViewController.h */,
-				355718BA20FC4CA000D735EA /* MenuViewController.h */,
-				355718BB20FC4CA000D735EA /* MenuViewController.m */,
-				355718BD20FC4D6700D735EA /* DetailViewController.h */,
-				355718BE20FC4D6700D735EA /* DetailViewController.m */,
+				355718C120FC534D00D735EA /* LoginViewController.h */,
+				355718C220FC534D00D735EA /* LoginViewController.m */,
 			);
-			name = ViewControllers;
-			path = ..;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		35D8D52720EFE03E00B5D12C = {
@@ -124,7 +113,7 @@
 		35D8D53220EFE03E00B5D12C /* socialImpactApp */ = {
 			isa = PBXGroup;
 			children = (
-				355718B920F99A9B00D735EA /* ViewControllers */,
+				355718C020FC533B00D735EA /* ViewControllers */,
 				35D8D53320EFE03E00B5D12C /* AppDelegate.h */,
 				35D8D53420EFE03E00B5D12C /* AppDelegate.m */,
 				35D8D53620EFE03E00B5D12C /* ViewController.h */,
@@ -286,12 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				355718B820F99A9400D735EA /* LoginViewController.m in Sources */,
+				355718C320FC534D00D735EA /* LoginViewController.m in Sources */,
 				35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */,
 				35D8D54320EFE04000B5D12C /* main.m in Sources */,
 				35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */,
-				355718BC20FC4CA000D735EA /* MenuViewController.m in Sources */,
-				355718BF20FC4D6700D735EA /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

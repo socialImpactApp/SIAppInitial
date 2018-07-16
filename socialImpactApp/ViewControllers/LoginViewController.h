@@ -1,5 +1,5 @@
 //
-//  MenuViewController.h
+//  LoginViewController.h
 //  socialImpactApp
 //
 //  Created by Roesha Nigos on 7/15/18.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenuViewController : UIViewController
+@interface LoginViewController : UIViewController
 
 @end

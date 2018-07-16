@@ -1,18 +1,18 @@
 //
-//  DetailViewController.m
+//  LoginViewController.m
 //  socialImpactApp
 //
 //  Created by Roesha Nigos on 7/15/18.
 //  Copyright © 2018 teamMorgan. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "LoginViewController.h"
 
-@interface DetailViewController ()
+@interface LoginViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
