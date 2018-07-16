@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <Parse/ Parse.h>
+#import "Parse/Parse.h"
 
 @interface AppDelegate ()
 
@@ -15,7 +15,10 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(  NSDictionary *)launchOptions {
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
     
     ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         
@@ -25,13 +28,7 @@
     }];
     
     [Parse initializeWithConfiguration:config];
-    
-    return YES;
-}
 
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     return YES;
 }
 
