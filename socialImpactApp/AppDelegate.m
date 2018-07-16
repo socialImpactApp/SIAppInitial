@@ -7,12 +7,27 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/ Parse.h>
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(  NSDictionary *)launchOptions {
+    
+    ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        
+        configuration.applicationId = @"codepathInstagram";
+        configuration.clientKey = @"codepathInstagramMaster";
+        configuration.server = @"http://codepathfbinstagram.herokuapp.com/parse";
+    }];
+    
+    [Parse initializeWithConfiguration:config];
+    
+    return YES;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
