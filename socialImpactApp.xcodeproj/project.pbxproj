@@ -10,6 +10,8 @@
 		355718C320FC534D00D735EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C220FC534D00D735EA /* LoginViewController.m */; };
 		355718C620FC53AD00D735EA /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C520FC53AD00D735EA /* MenuViewController.m */; };
 		355718C920FC53E600D735EA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C820FC53E600D735EA /* DetailViewController.m */; };
+		35CF4CE720FD1A7B00796AE5 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CF4CE620FD1A7B00796AE5 /* Post.m */; };
+		35CF4CEB20FD387300796AE5 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CF4CEA20FD387300796AE5 /* PostCell.m */; };
 		35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53420EFE03E00B5D12C /* AppDelegate.m */; };
 		35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53720EFE03E00B5D12C /* ViewController.m */; };
 		35D8D53B20EFE03E00B5D12C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D53920EFE03E00B5D12C /* Main.storyboard */; };
@@ -50,6 +52,10 @@
 		355718C520FC53AD00D735EA /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		355718C720FC53E600D735EA /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		355718C820FC53E600D735EA /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		35CF4CE520FD1A7B00796AE5 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		35CF4CE620FD1A7B00796AE5 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		35CF4CE920FD387300796AE5 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
+		35CF4CEA20FD387300796AE5 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		35D8D53020EFE03E00B5D12C /* socialImpactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socialImpactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D8D53320EFE03E00B5D12C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35D8D53420EFE03E00B5D12C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -115,6 +121,24 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		35CF4CE820FD1A8600796AE5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				35CF4CE520FD1A7B00796AE5 /* Post.h */,
+				35CF4CE620FD1A7B00796AE5 /* Post.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		35CF4CEC20FD388600796AE5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				35CF4CE920FD387300796AE5 /* PostCell.h */,
+				35CF4CEA20FD387300796AE5 /* PostCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		35D8D52720EFE03E00B5D12C = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +164,8 @@
 		35D8D53220EFE03E00B5D12C /* socialImpactApp */ = {
 			isa = PBXGroup;
 			children = (
+				35CF4CEC20FD388600796AE5 /* Views */,
+				35CF4CE820FD1A8600796AE5 /* Models */,
 				355718C020FC533B00D735EA /* ViewControllers */,
 				35D8D53320EFE03E00B5D12C /* AppDelegate.h */,
 				35D8D53420EFE03E00B5D12C /* AppDelegate.m */,
@@ -351,10 +377,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/pt-BR.lproj",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Parse.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fr.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pt-BR.lproj",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -407,9 +439,11 @@
 				355718C320FC534D00D735EA /* LoginViewController.m in Sources */,
 				35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */,
 				35D8D54320EFE04000B5D12C /* main.m in Sources */,
+				35CF4CEB20FD387300796AE5 /* PostCell.m in Sources */,
 				35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */,
 				355718C620FC53AD00D735EA /* MenuViewController.m in Sources */,
 				355718C920FC53E600D735EA /* DetailViewController.m in Sources */,
+				35CF4CE720FD1A7B00796AE5 /* Post.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
