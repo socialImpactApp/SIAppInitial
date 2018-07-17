@@ -23,6 +23,7 @@ xcuserdata/
 *.xcscmblueprint
 *.project.pbxproj
 *.Podfile.lock
+*.DS_Store
 
 ## Obj-C/Swift specific
 *.hmap
