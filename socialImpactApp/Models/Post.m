@@ -27,7 +27,18 @@
     return @"Post";
 }
 
-+ (void) postUserOpp: ( UIImage * _Nullable )image withTitle:( NSString * _Nullable )title withDescripton:( NSString * _Nullable )description withHours:( NSString * _Nullable )hours withSpots:( NSString * _Nullable )spots withCompletion: (PFBooleanResultBlock  _Nullable)completion{
++ (void) postUserOpp: ( UIImage * _Nullable )image withTitle:( NSString * _Nullable )title withDescripton:( NSString * _Nullable )description withHours:( NSString * _Nullable )hours withSpots:( NSNumber * _Nullable )spots withCompletion: (PFBooleanResultBlock  _Nullable)completion{
+    Post *newPost = [Post new];
+    newPost.image = [self getPFFileFromImage:image];
+    newPost.author = [PFUser currentUser];
+    newPost.description = description;
+    newPost.title = title;
+    newPost.hours= hours;
+    newPost.spotsLeft = spots;
+    
+    [newPost saveInBackgroundWithBlock:completion];
+
+    
     NSLog(@"Hello we are making a post");
 
 }
