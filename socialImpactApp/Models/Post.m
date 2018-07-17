@@ -17,7 +17,7 @@
 @dynamic description;
 @dynamic image;
 @dynamic hours;
-@dynamic contact;
+//@dynamic contact;
 @dynamic spotsLeft;
 @dynamic lng;
 @dynamic lat;
@@ -27,7 +27,7 @@
     return @"Post";
 }
 
-+ (void) postUserOpp: ( UIImage * _Nullable )image withTitle:( NSString * _Nullable )title withDescripton:( NSString * _Nullable )description withHours:( NSString * _Nullable )hours withContact:( NSString * _Nullable )contact withSpots:( NSString * _Nullable )spots withCompletion: (PFBooleanResultBlock  _Nullable)completion{
++ (void) postUserOpp: ( UIImage * _Nullable )image withTitle:( NSString * _Nullable )title withDescripton:( NSString * _Nullable )description withHours:( NSString * _Nullable )hours withSpots:( NSString * _Nullable )spots withCompletion: (PFBooleanResultBlock  _Nullable)completion{
     NSLog(@"Hello we are making a post");
 
 }
