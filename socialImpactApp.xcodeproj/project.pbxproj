@@ -20,6 +20,9 @@
 		35D8D55820EFE04000B5D12C /* socialImpactAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D55720EFE04000B5D12C /* socialImpactAppUITests.m */; };
 		47D8A038FCB35C7777A968A0 /* libPods-socialImpactApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B5A5065D470831F56D7DE /* libPods-socialImpactApp.a */; };
 		51216213CEC3A0D4FAF43C93 /* libPods-socialImpactAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D1B2DFDE6B4F153928CCBB /* libPods-socialImpactAppUITests.a */; };
+		66BF560120FD7A5B00C1E39B /* AddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560020FD7A5B00C1E39B /* AddPostViewController.m */; };
+		66BF560520FD7A7300C1E39B /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560320FD7A7300C1E39B /* PostCell.m */; };
+		66BF560920FD7B5600C1E39B /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560820FD7B5600C1E39B /* Post.m */; };
 		83391D8B8F392FDFD7EE65B7 /* libPods-socialImpactAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C54D53F8DF8C1846F5D92C /* libPods-socialImpactAppTests.a */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +71,12 @@
 		4A2B5A5065D470831F56D7DE /* libPods-socialImpactApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-socialImpactApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E94ED86BAEE91CC6196636C /* Pods-socialImpactApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp.debug.xcconfig"; sourceTree = "<group>"; };
 		63271D50F8E957B54EE730BF /* Pods-socialImpactApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp.release.xcconfig"; sourceTree = "<group>"; };
+		66BF55FF20FD7A5A00C1E39B /* AddPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPostViewController.h; sourceTree = "<group>"; };
+		66BF560020FD7A5B00C1E39B /* AddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPostViewController.m; sourceTree = "<group>"; };
+		66BF560320FD7A7300C1E39B /* PostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
+		66BF560420FD7A7300C1E39B /* PostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
+		66BF560720FD7B5600C1E39B /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		66BF560820FD7B5600C1E39B /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		71027CDC2FDD0873B9C15059 /* Pods-socialImpactAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactAppTests/Pods-socialImpactAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		82D1B2DFDE6B4F153928CCBB /* libPods-socialImpactAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-socialImpactAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3B0A2E856F5A84C19262B7 /* Pods-socialImpactAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactAppUITests/Pods-socialImpactAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +120,8 @@
 				355718C520FC53AD00D735EA /* MenuViewController.m */,
 				355718C720FC53E600D735EA /* DetailViewController.h */,
 				355718C820FC53E600D735EA /* DetailViewController.m */,
+				66BF55FF20FD7A5A00C1E39B /* AddPostViewController.h */,
+				66BF560020FD7A5B00C1E39B /* AddPostViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -147,7 +158,9 @@
 				35D8D53720EFE03E00B5D12C /* ViewController.m */,
 				35D8D53920EFE03E00B5D12C /* Main.storyboard */,
 				35D8D53C20EFE04000B5D12C /* Assets.xcassets */,
+				66BF560620FD7B5600C1E39B /* Models */,
 				35D8D53E20EFE04000B5D12C /* LaunchScreen.storyboard */,
+				66BF560220FD7A7300C1E39B /* Views */,
 				35D8D54120EFE04000B5D12C /* Info.plist */,
 				35D8D54220EFE04000B5D12C /* main.m */,
 			);
@@ -183,6 +196,24 @@
 				E19E763DFD24563E71E7D3E8 /* Pods-socialImpactAppUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		66BF560220FD7A7300C1E39B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				66BF560320FD7A7300C1E39B /* PostCell.m */,
+				66BF560420FD7A7300C1E39B /* PostCell.h */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		66BF560620FD7B5600C1E39B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				66BF560720FD7B5600C1E39B /* Post.h */,
+				66BF560820FD7B5600C1E39B /* Post.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B869D6796AE17E91CF0BB5B8 /* Frameworks */ = {
@@ -410,8 +441,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66BF560120FD7A5B00C1E39B /* AddPostViewController.m in Sources */,
 				355718C320FC534D00D735EA /* LoginViewController.m in Sources */,
 				35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */,
+				66BF560520FD7A7300C1E39B /* PostCell.m in Sources */,
+				66BF560920FD7B5600C1E39B /* Post.m in Sources */,
 				35D8D54320EFE04000B5D12C /* main.m in Sources */,
 				35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */,
 				355718C620FC53AD00D735EA /* MenuViewController.m in Sources */,
@@ -586,13 +620,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S8MAYBN4P6;
+				DEVELOPMENT_TEAM = 6H3UNJFN69;
 				INFOPLIST_FILE = socialImpactApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezrazelle.socialImpactApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -604,13 +638,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S8MAYBN4P6;
+				DEVELOPMENT_TEAM = 6H3UNJFN69;
 				INFOPLIST_FILE = socialImpactApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezrazelle.socialImpactApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
