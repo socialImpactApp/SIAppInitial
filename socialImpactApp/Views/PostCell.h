@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Post.h"
+#import <ParseUI/ParseUI.h>
 
 @interface PostCell : UITableViewCell
+@property (strong, nonatomic)  Post *post;
+@property (weak, nonatomic) IBOutlet PFImageView *oppImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hoursLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
+
+//going to access this publicly in MenuViewController
+-(void)configureCell: (Post *) post;
 @end

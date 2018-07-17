@@ -8,8 +8,10 @@
 
 
 //THINGS TO DO HERE
-// have placeholder text
+// HAVE A SCROLL ONCE DESCRIPTION GETS TOUCHED
+//HAVE THE HUD PROGRESS IMAGE SHOW UP
 #import "AddPostViewController.h"
+#import "Post.h"
 #import <UIKit/UIKit.h>
 
 
@@ -26,8 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    //Do any additional setup after loading the view.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -45,6 +48,29 @@
 - (IBAction)didTapImage:(id)sender {
     [self getImage];
 }
+
+//spots is a NSNumber
+- (IBAction)didTapPost:(id)sender {
+    if(![self.postImageView.image isEqual:[UIImage imageNamed:@"placeholder"]] && ![self.titleView.text isEqualToString:@""]){
+        [Post postUserOpp:self.postImageView.image withTitle:self.titleView.text withDescripton:self.descriptionView.text withHours:self.hoursView.text withSpots:self.spotsView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            if(succeeded){
+                self.postImageView.image = [UIImage imageNamed:@"placeholder"];
+                self.titleView.text = @"";
+                self.hoursView.text = @"";
+                self.spotsView.text = @"";
+                self.descriptionView.text = @"";
+                
+                NSLog(@"posted!!");
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+            else {
+                NSLog(@"ERROR: @%" , error.localizedDescription);
+            }
+            
+        }];
+    }
+}
+
 
 -(void)getImage{
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
@@ -84,7 +110,7 @@
     
     //ASK
     // Getting image captured by the PickerController
-    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    //UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     
     // Do something with the images (based on your use case)

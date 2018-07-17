@@ -7,7 +7,7 @@
 //
 
 #import "PFObject.h"
-#import "Parse/Parse.h"
+#import <Parse/Parse.h>
 
 @interface Post : PFObject<PFSubclassing>
 @property (nonatomic, strong) NSString *postID;
@@ -21,10 +21,10 @@
 @property (nonatomic, strong) NSNumber *spotsLeft;
 @property (nonatomic, strong) NSNumber *lng;
 @property (nonatomic, strong) NSNumber *lat;
+//@property (nonatomic, strong) NSString *date;
 
 
-+ (void) postUserOpp: ( UIImage * _Nullable )image withTitle:( NSString * _Nullable )title withDescripton:( NSString * _Nullable )description withHours:( NSString * _Nullable )hours withSpots:( NSString * _Nullable )spots withCompletion: (PFBooleanResultBlock  _Nullable)completion;
-
++ (void) postUserOpp: ( UIImage * _Nullable )image withTitle:( NSString * _Nullable )title withDescripton:( NSString * _Nullable )description withHours:( NSString * _Nullable )hours withSpots:( NSNumber * _Nullable )spotsLeft withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 + (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image;
 
 
