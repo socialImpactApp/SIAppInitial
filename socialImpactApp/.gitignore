@@ -21,8 +21,8 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
-*.project.pbxproj
-*.Podfile.lock
+*.pbxproj
+*.lock
 *.DS_Store
 
 ## Obj-C/Swift specific
