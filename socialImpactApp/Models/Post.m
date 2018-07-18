@@ -21,12 +21,14 @@
 @dynamic spotsLeft;
 @dynamic lng;
 @dynamic lat;
+//@gnamic date
 
 //this is the parse class name that we have to instantiate
 + (nonnull NSString *)parseClassName {
     return @"Post";
 }
 
+//method to make a post
 + (void) postUserOpp: ( UIImage * _Nullable )image withTitle:( NSString * _Nullable )title withDescripton:( NSString * _Nullable )description withHours:( NSString * _Nullable )hours withSpots:( NSNumber * _Nullable )spots withCompletion: (PFBooleanResultBlock  _Nullable)completion{
     Post *newPost = [Post new];
     newPost.image = [self getPFFileFromImage:image];
@@ -36,19 +38,12 @@
     newPost.hours= hours;
     newPost.spotsLeft = spots;
     
-    [newPost saveInBackgroundWithBlock:completion];
-
-    
-    NSLog(@"Hello we are making a post");
-
+    [newPost saveInBackgroundWithBlock:completion]; 
 }
-
-
 
 
 + (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image {
     
-    // check if image is not nil
     if (!image) {
         return nil;
     }

@@ -25,7 +25,37 @@
     // Do any additional setup after loading the view.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.rowHeight = 150;
+
+    [self fetch]; 
 }
+
+
+-(void)fetch {
+    //[self.refreshIndicator startAnimating];
+    
+    //PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    PFQuery *query = [Post query];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"author"];
+    //  [query whereKey:@"likesCount" greaterThan:@100];
+    //query.limit = post_count;
+    
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self.posts = posts;
+            [self.tableView reloadData];
+            
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+            //[self.tableView reloadData];
+        }
+        //[self.refreshIndicator stopAnimating];
+    }];
+    //[self.refreshControl endRefreshing];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -37,7 +67,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return self.posts.count;
     
 }
 
@@ -47,9 +77,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"we are in cellforRow");
     PostCell *postCell = [self.tableView dequeueReusableCellWithIdentifier:@"postCell"];
-    
+    Post *post = self.posts[indexPath.row];
+    [postCell configureCell:post];
     return postCell;
 }
+
+
 
 
 
