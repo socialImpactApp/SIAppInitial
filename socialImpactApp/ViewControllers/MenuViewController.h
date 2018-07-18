@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Post.h"
 
 @interface MenuViewController : UIViewController
+
+@property (nonatomic, strong) Post *currentPost;
+
 
 @end

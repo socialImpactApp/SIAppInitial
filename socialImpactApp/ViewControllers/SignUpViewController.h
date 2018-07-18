@@ -1,16 +1,18 @@
 //
-//  LoginViewController.h
+//  SignUpViewController.h
 //  socialImpactApp
 //
-//  Created by Roesha Nigos on 7/15/18.
+//  Created by Ezra Bekele on 7/18/18.
 //  Copyright © 2018 teamMorgan. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+@interface SignUpViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
+
 
 
 

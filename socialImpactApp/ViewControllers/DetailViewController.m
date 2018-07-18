@@ -21,19 +21,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
     [self configureCell:self.post];
     
 }
 
 -(void)configureCell: (Post *) post {
-    self.backgroundPic = post[@"image"];
+    self.backgroundPic.file = post[@"image"];
+    
     User *user = [User currentUser];
-    self.largeDescription.text = post[@"description"];
-    self.Location.text = [[post[@"lat"] stringByAppendingString:@" "] stringByAppendingString:post[@"lng"]];
+    self.largeDescription.text = post[@"description"]; // good
+//    self.Location.text = [[self.post[@"lat"] stringByAppendingString:@" "] stringByAppendingString:self.post[@"lng"]];
     self.contactInfo.text = post[@"author"];
-    self.hours.text = post[@"hours"];
-    self.spotsLeft.text = post[@"spotsLeft"];
-    self.volunteerOppTitle.text = post[@"volunteerOppTitle"];
+    self.hours.text = post[@"hours"]; // good
+    self.spotsLeft.text = post[@"spotsLeft"]; //good
+    self.volunteerOppTitle.text = post[@"title"];
 
 }
 

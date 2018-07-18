@@ -7,9 +7,11 @@
 //
 
 #import "SavedViewController.h"
+#import "SavedViewCell.h"
 
-@interface SavedViewController ()
+@interface SavedViewController () <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *savedPosts;
 
 @end
 
@@ -17,6 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -39,18 +44,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return self.savedPosts.count;
+
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
     // Configure the cell...
+    SavedViewCell *postCell = [self.tableView dequeueReusableCellWithIdentifier:@"savedCell"];
+    Post *post = self.savedPosts[indexPath.row];
+    [postCell configureCell:post];
+    return postCell;
     
-    return cell;
+    return postCell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -7,6 +7,7 @@
 //
 
 #import "PFObject.h"
+#import "Constants.h"
 #import "Post.h"
 
 @implementation Post
@@ -37,6 +38,8 @@
     newPost.title = title;
     newPost.hours= hours;
     newPost.spotsLeft = spots;
+    //(@"%@", Tags.animal);
+    //NSLog(Tags.);
     
     [newPost saveInBackgroundWithBlock:completion]; 
 }

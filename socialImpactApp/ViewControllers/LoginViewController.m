@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+#import <ParseUI/ParseUI.h>
+#import <Parse/Parse.h>
 
 @interface LoginViewController ()
 
@@ -23,6 +25,32 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)loginUser {
+    NSString *username = self.username.text;
+    NSString *password = self.password.text;
+    
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+        if (error != nil) {
+            NSLog(@"User log in failed: %@", error.localizedDescription);
+        } else {
+            NSLog(@"User logged in successfully");
+            [self performSegueWithIdentifier:@"firstSegue" sender:nil];
+            // display view controller that needs to shown after successful login
+        }
+    }];
+
+}
+
+
+- (IBAction)didTapLogin:(id)sender {
+    [self loginUser];
+
+}
+
+
+
+
 
 /*
 #pragma mark - Navigation
