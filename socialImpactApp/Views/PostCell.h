@@ -10,6 +10,7 @@
 #import "Post.h"
 #import <ParseUI/ParseUI.h>
 
+
 @interface PostCell : UITableViewCell
 @property (strong, nonatomic)  Post *post;
 @property (weak, nonatomic) IBOutlet PFImageView *oppImageView;
@@ -21,4 +22,5 @@
 
 //going to access this publicly in MenuViewController
 -(void)configureCell: (Post *) post;
+
 @end

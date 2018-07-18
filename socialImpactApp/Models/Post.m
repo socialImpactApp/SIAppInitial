@@ -29,18 +29,16 @@
 }
 
 //method to make a post
-+ (void) postUserOpp: ( UIImage * _Nullable )image withTitle:( NSString * _Nullable )title withDescripton:( NSString * _Nullable )description withHours:( NSString * _Nullable )hours withSpots:( NSNumber * _Nullable )spotsLeft withCompletion: (PFBooleanResultBlock  _Nullable)completion{
-    NSLog(@"Hello we are making a post");
++ (void) postUserOpp: ( UIImage * _Nullable )image withTitle:( NSString * _Nullable )title withDescripton:( NSString * _Nullable )description withHours:( NSString * _Nullable )hours withSpots:( NSNumber * _Nullable )spots withCompletion: (PFBooleanResultBlock  _Nullable)completion{
     Post *newPost = [Post new];
-    //calling method to self since defined in this file
     newPost.image = [self getPFFileFromImage:image];
     newPost.author = [PFUser currentUser];
-    newPost.title = title;
     newPost.description = description;
-    newPost.hours = hours;
-    newPost.spotsLeft = spotsLeft;
+    newPost.title = title;
+    newPost.hours= hours;
+    newPost.spotsLeft = spots;
     
-    [newPost saveInBackgroundWithBlock:completion];
+    [newPost saveInBackgroundWithBlock:completion]; 
 }
 
 

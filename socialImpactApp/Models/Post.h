@@ -23,9 +23,8 @@
 @property (nonatomic, strong) NSNumber *lat;
 //@property (nonatomic, strong) NSString *date;
 
-
 + (void) postUserOpp: ( UIImage * _Nullable )image withTitle:( NSString * _Nullable )title withDescripton:( NSString * _Nullable )description withHours:( NSString * _Nullable )hours withSpots:( NSNumber * _Nullable )spotsLeft withCompletion: (PFBooleanResultBlock  _Nullable)completion;
-+ (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image;
 
++ (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image;
 
 @end
