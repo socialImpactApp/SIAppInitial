@@ -22,8 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *hoursView;
 @property (weak, nonatomic) IBOutlet UITextView *spotsView;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionView;
-@property (weak, nonatomic) IBOutlet UITextView *dateView;
-@property (weak, nonatomic) UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UITextField *dateView;
+@property (strong, nonatomic) UIDatePicker *datePicker;
 @property (weak, nonatomic) AddTagViewController *tagViewController;
 
 
@@ -34,23 +34,36 @@
     NSMutableArray<NSString *> *_collectionOfTags;
 }
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //Do any additional setup after loading the view.
+    //Do any additional setup after loading the view
     
-    //LOOK UP WHAT THIS MEANS
-    self.datePicker = [[UIDatePicker alloc] init];
-    self.datePicker.datePickerMode = UIDatePickerModeDate;
+    //we declare this in the segue view controller
     //self.tagViewController.delegate = self;
     
+    [self.hoursView setKeyboardType:UIKeyboardTypeDecimalPad];
+    [self.spotsView setKeyboardType:UIKeyboardTypeDecimalPad];
     
-  
-    
+    //LOOK UP WHAT THIS MEANS
+    self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectZero];
+    [self.datePicker setDatePickerMode:UIDatePickerModeDate];
+    [self.datePicker addTarget:self action:@selector(onDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
+    self.dateView.inputView = self.datePicker;
+
+
 }
 
--(void)showSelectedDate {
-    self.dateView.text = [NSString stringWithFormat:@"%@",self.datePicker.date];
+
+- (void)onDatePickerValueChanged:(UIDatePicker *)datePicker
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"dd MMMM YYYY";
+    //self.dateView.text = [dateFormatter stringFromDate:[NSDate date]];
+    self.dateView.text = [dateFormatter stringFromDate:datePicker.date];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
