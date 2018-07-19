@@ -22,24 +22,17 @@
 //@property (nonatomic, strong) NSNumber *lng;
 //@property (nonatomic, strong) NSNumber *lat;
 //@property (nonatomic, strong) NSString *date;
-
 //***These are the tags for each volunteer post***
-//@property (nonatomic) BOOL didTapAnimal;
-//@property (nonatomic) BOOL didTapChildYouth;
-//@property (nonatomic) BOOL didTapConstruct;
-//@property (nonatomic) BOOL didTapEducation;
-//@property (nonatomic) BOOL didTapEnvironment;
-//@property (nonatomic) BOOL didTapFood;
-//@property (nonatomic) BOOL didTapFund;
-//@property (nonatomic) BOOL didTapMed;
-
-@property (nonatomic, strong) NSArray <NSString *> *tags;
+@property (nonatomic, strong) NSMutableArray <NSString *> *tags;
 
 
++ (PFObject *) postUserOpp: ( UIImage * _Nullable )image
+                 withTitle:( NSString * _Nullable )title
+            withDescripton:( NSString * _Nullable )description
+                 withHours:( NSString * _Nullable )hours withSpots:( NSNumber * _Nullable )spotsLeft
+                  withTags:(NSMutableArray <NSString * > *_Nullable)tags
+            withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
-
-+ (PFObject *) postUserOpp: ( UIImage * _Nullable )image withTitle:( NSString * _Nullable )title withDescripton:( NSString * _Nullable )description withHours:( NSString * _Nullable )hours withSpots:( NSNumber * _Nullable )spotsLeft withCompletion: (PFBooleanResultBlock  _Nullable)completion;
-
-+ (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image;
++ (PFFile *_Nullable)getPFFileFromImage: (UIImage * _Nullable)image;
 
 @end

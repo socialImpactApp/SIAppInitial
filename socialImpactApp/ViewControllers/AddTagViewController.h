@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "Post.h"
 
 @protocol AddTagViewControllerDelegate
 
@@ -19,6 +18,6 @@
 @interface AddTagViewController : UIViewController
 
 @property (strong, nonatomic) id<AddTagViewControllerDelegate> delegate;
-@property (strong, nonatomic)  Post *post;
+//@property (strong, nonatomic)  Post *post;
 
 @end
