@@ -7,6 +7,7 @@
 //
 
 #import "PFObject.h"
+#import "Constants.h"
 #import "Post.h"
 
 @implementation Post
@@ -52,6 +53,7 @@
     //newPost.tags = 
     [newPost saveInBackgroundWithBlock:completion];
     return newPost;
+
 }
 
 

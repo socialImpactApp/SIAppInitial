@@ -21,6 +21,8 @@
 		35D8D55820EFE04000B5D12C /* socialImpactAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D55720EFE04000B5D12C /* socialImpactAppUITests.m */; };
 		47D8A038FCB35C7777A968A0 /* libPods-socialImpactApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B5A5065D470831F56D7DE /* libPods-socialImpactApp.a */; };
 		51216213CEC3A0D4FAF43C93 /* libPods-socialImpactAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D1B2DFDE6B4F153928CCBB /* libPods-socialImpactAppUITests.a */; };
+
+		66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66379C9520FFF02D00487A3D /* SignUpViewController.m */; };
 		66BF560D20FE5DAF00C1E39B /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560C20FE5DAF00C1E39B /* Post.m */; };
 		66BF561120FE5DBB00C1E39B /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560F20FE5DBB00C1E39B /* PostCell.m */; };
 		66BF561420FE5DF600C1E39B /* AddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF561320FE5DF600C1E39B /* AddPostViewController.m */; };
@@ -77,6 +79,11 @@
 		4A2B5A5065D470831F56D7DE /* libPods-socialImpactApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-socialImpactApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E94ED86BAEE91CC6196636C /* Pods-socialImpactApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp.debug.xcconfig"; sourceTree = "<group>"; };
 		63271D50F8E957B54EE730BF /* Pods-socialImpactApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp.release.xcconfig"; sourceTree = "<group>"; };
+
+		66198B8520FFFEB7009C7B66 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		66379C9420FFF02D00487A3D /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		66379C9520FFF02D00487A3D /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+
 		66BF560B20FE5DAF00C1E39B /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		66BF560C20FE5DAF00C1E39B /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		66BF560F20FE5DBB00C1E39B /* PostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
@@ -136,11 +143,16 @@
 				66BF561320FE5DF600C1E39B /* AddPostViewController.m */,
 				66BF561820FE932E00C1E39B /* SavedViewController.h */,
 				66BF561920FE932E00C1E39B /* SavedViewController.m */,
+
 				3529DCEA20FFCA150057F133 /* AddTagViewController.h */,
 				3529DCEB20FFCA150057F133 /* AddTagViewController.m */,
 				66BF561B20FE967400C1E39B /* SavedViewCell.h */,
 				66BF561C20FE967400C1E39B /* SavedViewCell.m */,
 				66BF560A20FE5DAF00C1E39B /* Models */,
+
+				66379C9420FFF02D00487A3D /* SignUpViewController.h */,
+				66379C9520FFF02D00487A3D /* SignUpViewController.m */,
+
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -170,6 +182,7 @@
 		35D8D53220EFE03E00B5D12C /* socialImpactApp */ = {
 			isa = PBXGroup;
 			children = (
+				66198B8420FFFE92009C7B66 /* Utility */,
 				66BF560E20FE5DBB00C1E39B /* Views */,
 				355718C020FC533B00D735EA /* ViewControllers */,
 				35D8D53320EFE03E00B5D12C /* AppDelegate.h */,
@@ -216,6 +229,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+
+		66198B8420FFFE92009C7B66 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				66198B8520FFFEB7009C7B66 /* Constants.h */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		66BF560A20FE5DAF00C1E39B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +254,8 @@
 			children = (
 				66BF560F20FE5DBB00C1E39B /* PostCell.m */,
 				66BF561020FE5DBB00C1E39B /* PostCell.h */,
+				66BF561B20FE967400C1E39B /* SavedViewCell.h */,
+				66BF561C20FE967400C1E39B /* SavedViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -472,6 +496,7 @@
 				66BF561D20FE967400C1E39B /* SavedViewCell.m in Sources */,
 				355718C620FC53AD00D735EA /* MenuViewController.m in Sources */,
 				355718C920FC53E600D735EA /* DetailViewController.m in Sources */,
+				66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */,
 				66BF560D20FE5DAF00C1E39B /* Post.m in Sources */,
 				3529DCEC20FFCA150057F133 /* AddTagViewController.m in Sources */,
 			);

@@ -10,6 +10,7 @@
 #import "Post.h"
 #import "AppDelegate.h"
 #import "PostCell.h"
+#import "DetailViewController.h"
 
 
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -84,14 +85,27 @@
 
 
 
+
 /*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    UITableViewCell *tappedCell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+    Post *theCurrentPost = self.posts[indexPath.row];
+    
+    if ([segue.identifier isEqualToString:@"detailsSegue"])
+    {
+        //        UINavigationController *newController = segue.destinationViewController;
+        DetailViewController *detailedController = [segue destinationViewController];
+        detailedController.post = theCurrentPost;
+        NSLog(@"checking detailedPost");
 }
-*/
+}
 
 @end
