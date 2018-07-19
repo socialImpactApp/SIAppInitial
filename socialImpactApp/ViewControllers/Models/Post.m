@@ -40,7 +40,6 @@
                  withSpots:( NSNumber * _Nullable )spots
             withTags:(NSMutableArray <NSString * > *_Nullable)tags
             withDate:(NSString * _Nullable)date
-
             withCompletion: (PFBooleanResultBlock  _Nullable)completion{
     Post *newPost = [Post new];
     newPost.image = [self getPFFileFromImage:image];
