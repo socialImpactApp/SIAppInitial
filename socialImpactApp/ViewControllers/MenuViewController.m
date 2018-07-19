@@ -102,8 +102,7 @@
 
 
 
-
-
+/*
 
 #pragma mark - Navigation
 
@@ -124,5 +123,7 @@
         NSLog(@"checking detailedPost");
 }
 }
+ 
+ */
 
 @end
