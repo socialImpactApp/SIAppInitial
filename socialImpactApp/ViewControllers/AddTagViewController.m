@@ -7,7 +7,9 @@
 //
 
 #import "AddTagViewController.h"
+#import "Constants.h"
 #import "Post.h"
+
 
 @interface AddTagViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *animalButton;
@@ -29,42 +31,57 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    tagCollection = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)didTapAnimal:(id)sender {
-    
-    //    if(self.post.didTapAnimal) {
-    //        self.animalButton.selected = NO;
-    //        self.post.didTapAnimal = NO;
-    //        [self.post saveInBackground];
-    //
-    //    }
-    //    else {
-    //        self.animalButton.selected = YES;
-    //        self.post.didTapAnimal = YES;
-    //        [self.post saveInBackground];
-    //
-    //    }
-    
-}
+
 
 - (IBAction)didTapTag:(UIButton *)sender
 {
+    
     switch(sender.tag) {
         case 0:
-            [self _triggerCollectionStateChange:@"Animal Welfare"
+            [self _triggerCollectionStateChange:Tags.animalWelfare
                                          sender:sender];
-            
+            break;
+        case 1:
+            [self _triggerCollectionStateChange:Tags.childrenAndYouth
+                                         sender:sender];
+            break;
+        case 2:
+            [self _triggerCollectionStateChange:Tags.construction
+                                         sender:sender];
+            break;
+        case 3:
+            [self _triggerCollectionStateChange:Tags.education
+                                         sender:sender];
+            break;
+        case 4:
+            [self _triggerCollectionStateChange:Tags.environmental
+                                         sender:sender];
+            break;
+        case 5:
+            [self _triggerCollectionStateChange:Tags.foodService
+                                         sender:sender];
+            break;
+        case 6:
+            [self _triggerCollectionStateChange:Tags.fundraising
+                                         sender:sender];
+            break;
+        case 7:
+            [self _triggerCollectionStateChange:Tags.medical
+                                         sender:sender];
+            break;
     }
-    
 }
 
 - (void)_triggerCollectionStateChange:(NSString *)tagType
                                sender:(UIButton *)sender {
+    NSLog(@"%@", tagType);
     if ([tagCollection containsObject:tagType]) {
         [tagCollection removeObject:tagType];
         sender.backgroundColor = UIColor.whiteColor;
@@ -77,7 +94,7 @@
 
 
 - (IBAction)didTapSaveFilter:(id)sender {
-    [self.delegate didTapSaveFilter:self.post];
+    [self.delegate didTapSaveFilter:tagCollection];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

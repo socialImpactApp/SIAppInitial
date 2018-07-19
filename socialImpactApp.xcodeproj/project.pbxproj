@@ -146,8 +146,7 @@
 
 				3529DCEA20FFCA150057F133 /* AddTagViewController.h */,
 				3529DCEB20FFCA150057F133 /* AddTagViewController.m */,
-				66BF561B20FE967400C1E39B /* SavedViewCell.h */,
-				66BF561C20FE967400C1E39B /* SavedViewCell.m */,
+
 				66BF560A20FE5DAF00C1E39B /* Models */,
 
 				66379C9420FFF02D00487A3D /* SignUpViewController.h */,

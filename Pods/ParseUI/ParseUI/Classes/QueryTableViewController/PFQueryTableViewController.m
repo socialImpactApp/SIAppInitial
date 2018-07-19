@@ -218,6 +218,7 @@
 }
 
 - (BFTask<NSArray<__kindof PFObject *> *> *)loadObjects:(NSInteger)page clear:(BOOL)clear {
+    
     self.loading = YES;
     [self objectsWillLoad];
 

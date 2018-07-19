@@ -31,7 +31,7 @@
 
 @implementation AddPostViewController {
     //this is where our tags of strings array is
-    NSArray<NSString *> *_collectionOfTags;
+    NSMutableArray<NSString *> *_collectionOfTags;
 }
 
 - (void)viewDidLoad {
@@ -41,7 +41,10 @@
     //LOOK UP WHAT THIS MEANS
     self.datePicker = [[UIDatePicker alloc] init];
     self.datePicker.datePickerMode = UIDatePickerModeDate;
-    self.tagViewController.delegate = self;
+    //self.tagViewController.delegate = self;
+    
+    
+  
     
 }
 
@@ -66,6 +69,12 @@
     [self getImage];
 }
 
+-(void)didTapSaveFilter:(NSMutableArray<NSString *> *)tags {
+    _collectionOfTags = [[NSMutableArray alloc] init ];
+    _collectionOfTags = [tags copy];
+}
+
+
 //spots is a NSNumber
 - (IBAction)didTapPost:(id)sender {
     if(![self.postImageView.image isEqual:[UIImage imageNamed:@"placeholder"]] && ![self.titleView.text isEqualToString:@""]){
@@ -74,9 +83,10 @@
            withDescripton:self.descriptionView.text
                 withHours:self.hoursView.text
                 withSpots:self.spotsView.text
-                 //withTags:_collectionOfTags
+            withTags:_collectionOfTags
            withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                if(succeeded){
+                   NSLog(@"%@", _collectionOfTags);
                    self.postImageView.image = [UIImage imageNamed:@"placeholder"];
                    self.titleView.text = @"";
                    self.hoursView.text = @"";
@@ -86,7 +96,7 @@
                    [self dismissViewControllerAnimated:YES completion:nil];
                }
                else {
-                   NSLog(@"ERROR: @%" , error.localizedDescription);
+                   NSLog(@"ERROR:@%" , error.localizedDescription);
                }
            }];
     }
@@ -140,19 +150,22 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)didTapSaveFilter:(NSArray<NSString *> *)tags {
-    _collectionOfTags = [tags copy];
-}
 
 
-/*
+
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
+     
+     if ([segue.identifier isEqualToString:@"tagsSeg"]) {
+         AddTagViewController *tagViewController =
+         segue.destinationViewController;
+         tagViewController.delegate = self;
+     }
  }
- */
+
 
 @end

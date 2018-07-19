@@ -7,7 +7,7 @@
 //
 
 #import "PFObject.h"
-#import "Constants.h"
+//#import "Constants.h" WHY IS THIS CAUSING AN ERROR
 #import "Post.h"
 
 @implementation Post
@@ -23,16 +23,7 @@
 //@dynamic lng;
 //@dynamic lat;
 //@dynamic date
-//@dynamic didTapAnimal;
-//@dynamic didTapChildYouth;
-//@dynamic didTapConstruct;
-//@dynamic didTapEducation;
-//@dynamic didTapEnvironment;
-//@dynamic didTapFood;
-//@dynamic didTapFund;
-//@dynamic didTapMed;
-
-
+@dynamic tags;
 
 
 //this is the parse class name that we have to instantiate
@@ -42,7 +33,13 @@
 
 //method to make a post
 //postUserOppWithoutTags
-+ (PFObject *) postUserOpp: ( UIImage * _Nullable )image withTitle:( NSString * _Nullable )title withDescripton:( NSString * _Nullable )description withHours:( NSString * _Nullable )hours withSpots:( NSNumber * _Nullable )spots withCompletion: (PFBooleanResultBlock  _Nullable)completion{
++ (PFObject *) postUserOpp: ( UIImage * _Nullable )image
+                 withTitle:( NSString * _Nullable )title
+            withDescripton:( NSString * _Nullable )description
+                 withHours:( NSString * _Nullable )hours
+                 withSpots:( NSNumber * _Nullable )spots
+            withTags:(NSMutableArray <NSString * > *_Nullable)tags
+            withCompletion: (PFBooleanResultBlock  _Nullable)completion{
     Post *newPost = [Post new];
     newPost.image = [self getPFFileFromImage:image];
     newPost.author = [PFUser currentUser];
@@ -50,7 +47,7 @@
     newPost.title = title;
     newPost.hours= hours;
     newPost.spotsLeft = spots;
-    //newPost.tags = 
+    newPost.tags = tags;
     [newPost saveInBackgroundWithBlock:completion];
     return newPost;
 
@@ -58,8 +55,6 @@
 
 
 //modified post with tags
-
-
 + (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image {
     
     if (!image) {
