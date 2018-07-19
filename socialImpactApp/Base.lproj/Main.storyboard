@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,15 +55,24 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="atJ-p2-vl0" appends="YES" id="N2q-GY-TJT"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="password" destination="xUR-zI-ClW" id="tPT-7O-7HU"/>
                         <outlet property="username" destination="ekX-DW-kFy" id="fZS-8V-27a"/>
-                        <segue destination="QAA-bc-b2T" kind="presentation" id="nou-Xg-BJy"/>
+                        <segue destination="QAA-bc-b2T" kind="presentation" identifier="loginSegue" id="nou-Xg-BJy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="atJ-p2-vl0">
+                    <connections>
+                        <action selector="didTapAway:" destination="BYZ-38-t0r" id="LbB-mi-FVt"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="271" y="130"/>
         </scene>
@@ -252,11 +261,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Bi-wW-dfR">
-                                            <rect key="frame" x="333" y="106" width="26" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button" image="launch"/>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyE-dL-RRe">
                                             <rect key="frame" x="256" y="32" width="36" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -264,11 +268,20 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Bi-wW-dfR">
+                                            <rect key="frame" x="307" y="106" width="26" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button" image="launch"/>
+                                            <connections>
+                                                <action selector="didTapFavorite:" destination="Ptq-m0-OIo" eventType="touchUpInside" id="ejm-0x-N2d"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="vyE-dL-RRe" id="sfZ-52-hwp"/>
                                     <outlet property="descriptionLabel" destination="GrB-qh-qD0" id="bqD-jR-Jlg"/>
+                                    <outlet property="favoritedButton" destination="9Bi-wW-dfR" id="jaF-dk-hUL"/>
                                     <outlet property="hoursLabel" destination="aWf-lq-Hcm" id="mhO-dc-spa"/>
                                     <outlet property="oppImageView" destination="kNy-Vc-hIm" id="mVS-vw-Tf3"/>
                                     <outlet property="titleLabel" destination="vA5-Mf-j1U" id="K5Z-45-Bsd"/>
@@ -278,6 +291,11 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" id="Vhb-bm-GIJ">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="FpR-U8-gdY">
+                            <connections>
+                                <action selector="didTapLogout:" destination="g4g-at-agw" id="SzM-Ds-k1T"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="neQ-KG-jAi">
                             <connections>
                                 <action selector="didTapAdd:" destination="g4g-at-agw" id="a24-Yb-MzW"/>
@@ -562,7 +580,11 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="afn-RG-8El"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Aen-rT-YFI" appends="YES" id="V8Z-eP-WGi"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="password" destination="iEW-5o-kc4" id="UhX-3V-gWv"/>
@@ -571,6 +593,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0sK-Ti-rcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1MF-cA-KbR" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="Aen-rT-YFI">
+                    <connections>
+                        <action selector="didTapAway:" destination="YUF-0V-0VZ" id="C5s-xw-agK"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="270" y="935"/>
         </scene>

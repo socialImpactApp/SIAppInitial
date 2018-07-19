@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Post.h"
+#import "User.h"
 
 @interface MenuViewController : UIViewController
 
 @property (nonatomic, strong) Post *currentPost;
+@property (strong,nonatomic) User *loggedInUser;
 
 
 @end

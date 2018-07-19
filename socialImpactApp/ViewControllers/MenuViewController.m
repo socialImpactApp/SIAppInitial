@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "PostCell.h"
 #import "DetailViewController.h"
+#import "LoginViewController.h"
 
 
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -81,6 +82,21 @@
     Post *post = self.posts[indexPath.row];
     [postCell configureCell:post];
     return postCell;
+}
+
+- (IBAction)didTapLogout:(id)sender {
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        // PFUser.current() will now be nil
+        
+        // [self performSegueWithIdentifier:@"backSegue" sender:nil]; DONT DO THIS!
+        
+        //creating a new app delegate (configuration file) has a delegate property (an object) ACCESS THAT APP DEL OBJECT
+        // instantiating a VC and want it to show completely and tell app delegate do this
+        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        appDelegate.window.rootViewController = loginViewController;
+    }];
 }
 
 

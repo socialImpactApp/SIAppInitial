@@ -7,9 +7,12 @@
 //
 
 #import "SignUpViewController.h"
+#import "LoginViewController.h"
 #import "User.h"
 
 @interface SignUpViewController ()
+
+@property (strong,nonatomic) User *loggedInUser;
 
 @end
 
@@ -65,12 +68,20 @@
             }
             else {
                 NSLog(@"User registered sucessfully");
+                self.loggedInUser = [User currentUser];
+                NSLog(self.loggedInUser.username );
                 [self performSegueWithIdentifier:@"signup" sender:nil];
                 
             }
         }];
     }
 }
+
+
+- (IBAction)didTapAway:(id)sender {
+    [self.view endEditing:YES];
+}
+
 
 
 - (IBAction)didTapSignUp:(id)sender {
