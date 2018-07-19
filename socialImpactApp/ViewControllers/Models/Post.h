@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSNumber *spotsLeft;
 //@property (nonatomic, strong) NSNumber *lng;
 //@property (nonatomic, strong) NSNumber *lat;
-//@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSString *date;
 //***These are the tags for each volunteer post***
 @property (nonatomic, strong) NSMutableArray <NSString *> *tags;
 
@@ -31,6 +31,7 @@
             withDescripton:( NSString * _Nullable )description
                  withHours:( NSString * _Nullable )hours withSpots:( NSNumber * _Nullable )spotsLeft
                   withTags:(NSMutableArray <NSString * > *_Nullable)tags
+                  withDate:(NSString * _Nullable)date
             withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 + (PFFile *_Nullable)getPFFileFromImage: (UIImage * _Nullable)image;

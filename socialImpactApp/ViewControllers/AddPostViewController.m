@@ -48,9 +48,10 @@
     
     //LOOK UP WHAT THIS MEANS
     self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectZero];
-    [self.datePicker setDatePickerMode:UIDatePickerModeDate];
+    [self.datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
     [self.datePicker addTarget:self action:@selector(onDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     self.dateView.inputView = self.datePicker;
+    
 
 
 }
@@ -59,7 +60,7 @@
 - (void)onDatePickerValueChanged:(UIDatePicker *)datePicker
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"dd MMMM YYYY";
+    dateFormatter.dateFormat = @"hh:mm MMMM dd,yyyy";
     //self.dateView.text = [dateFormatter stringFromDate:[NSDate date]];
     self.dateView.text = [dateFormatter stringFromDate:datePicker.date];
 }
@@ -97,6 +98,7 @@
                 withHours:self.hoursView.text
                 withSpots:self.spotsView.text
             withTags:_collectionOfTags
+        withDate:self.dateView.text
            withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                if(succeeded){
                    NSLog(@"%@", _collectionOfTags);

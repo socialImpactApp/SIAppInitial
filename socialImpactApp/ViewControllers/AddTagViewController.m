@@ -87,7 +87,7 @@
         sender.backgroundColor = UIColor.whiteColor;
     } else {
         [tagCollection addObject:tagType];
-        sender.backgroundColor = UIColor.redColor;
+        sender.backgroundColor = UIColor.grayColor;
     }
 }
 

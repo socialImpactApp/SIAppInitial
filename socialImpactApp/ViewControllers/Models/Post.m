@@ -39,6 +39,8 @@
                  withHours:( NSString * _Nullable )hours
                  withSpots:( NSNumber * _Nullable )spots
             withTags:(NSMutableArray <NSString * > *_Nullable)tags
+            withDate:(NSString * _Nullable)date
+
             withCompletion: (PFBooleanResultBlock  _Nullable)completion{
     Post *newPost = [Post new];
     newPost.image = [self getPFFileFromImage:image];
@@ -48,6 +50,7 @@
     newPost.hours= hours;
     newPost.spotsLeft = spots;
     newPost.tags = tags;
+    newPost.date = date; 
     [newPost saveInBackgroundWithBlock:completion];
     return newPost;
 
