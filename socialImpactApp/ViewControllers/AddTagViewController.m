@@ -8,7 +8,7 @@
 
 #import "AddTagViewController.h"
 #import "Constants.h"
-#import "Post.h"
+#import "VolunteerOpportunity.h"
 
 
 @interface AddTagViewController ()

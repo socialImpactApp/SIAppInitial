@@ -1,5 +1,5 @@
 //
-//  AddPostViewController.h
+//  AddVolunteerOpportunityViewController.h
 //  socialImpactApp
 //
 //  Created by Roesha Nigos on 7/16/18.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface AddPostViewController : UIViewController
+@interface AddVolunteerOpportunityViewController : UIViewController
 
 
 @end

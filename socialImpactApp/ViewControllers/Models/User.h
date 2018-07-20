@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PFUser.h"
 #import <Parse/Parse.h>
-#import "Post.h"
+#import "VolunteerOpportunity.h"
 
 @interface User : PFUser<PFSubclassing>
 

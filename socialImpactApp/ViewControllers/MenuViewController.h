@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Post.h"
+#import "VolunteerOpportunity.h"
 #import "User.h"
 
 @interface MenuViewController : UIViewController
 
-@property (nonatomic, strong) Post *currentPost;
+@property (nonatomic, strong) VolunteerOpportunity *currentPost;
 @property (strong,nonatomic) User *loggedInUser;
 
 

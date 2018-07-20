@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <ParseUI/ParseUI.h>
-#import "Post.h"
+#import "VolunteerOpportunity.h"
 #import "User.h"
 
 @interface DetailViewController : UIViewController
@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *contactInfo;
 @property (weak, nonatomic) IBOutlet UILabel *hours;
 @property (weak, nonatomic) IBOutlet UILabel *spotsLeft;
-@property (strong, nonatomic) Post *post;
+@property (strong, nonatomic) VolunteerOpportunity *post;
 @property (strong, nonatomic) User *user;
 @property (weak, nonatomic) IBOutlet UILabel *volunteerOppTitle;
 

@@ -7,8 +7,8 @@
 //
 
 #import "DetailViewController.h"
-#import "Post.h"
-#import "PostCell.h"
+#import "VolunteerOpportunity.h"
+#import "VolunteerOpportunityCell.h"
 #import <ParseUI/ParseUI.h>
 #import "User.h"
 
@@ -26,13 +26,13 @@
     
 }
 
--(void)configureCell: (Post *) post {
+-(void)configureCell: (VolunteerOpportunity *) post {
     self.backgroundPic.file = post[@"image"];
     
     User *user = [User currentUser];
     self.largeDescription.text = post[@"description"]; // good
 //    self.Location.text = [[self.post[@"lat"] stringByAppendingString:@" "] stringByAppendingString:self.post[@"lng"]];
-    self.contactInfo.text = post[@"author"];
+    self.contactInfo.text = user[@"contactNumber"];
     self.hours.text = post[@"hours"]; // good
     self.spotsLeft.text = post[@"spotsLeft"]; //good
     self.volunteerOppTitle.text = post[@"title"];
