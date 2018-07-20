@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3529DCEC20FFCA150057F133 /* AddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3529DCEB20FFCA150057F133 /* AddTagViewController.m */; };
 		354307EE21013B660045A8FD /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354307ED21013B660045A8FD /* UserProfileViewController.m */; };
+		354307F4210149B70045A8FD /* EditUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354307F3210149B70045A8FD /* EditUserProfileViewController.m */; };
 		355718C320FC534D00D735EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C220FC534D00D735EA /* LoginViewController.m */; };
 		355718C620FC53AD00D735EA /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C520FC53AD00D735EA /* MenuViewController.m */; };
 		355718C920FC53E600D735EA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C820FC53E600D735EA /* DetailViewController.m */; };
@@ -57,6 +58,8 @@
 		3529DCEB20FFCA150057F133 /* AddTagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddTagViewController.m; sourceTree = "<group>"; };
 		354307EC21013B650045A8FD /* UserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
 		354307ED21013B660045A8FD /* UserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
+		354307F2210149B70045A8FD /* EditUserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditUserProfileViewController.h; sourceTree = "<group>"; };
+		354307F3210149B70045A8FD /* EditUserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditUserProfileViewController.m; sourceTree = "<group>"; };
 		355718C120FC534D00D735EA /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		355718C220FC534D00D735EA /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		355718C420FC53AD00D735EA /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
@@ -150,9 +153,11 @@
 				3529DCEB20FFCA150057F133 /* AddTagViewController.m */,
 				354307EC21013B650045A8FD /* UserProfileViewController.h */,
 				354307ED21013B660045A8FD /* UserProfileViewController.m */,
-				66BF560A20FE5DAF00C1E39B /* Models */,
 				66379C9420FFF02D00487A3D /* SignUpViewController.h */,
 				66379C9520FFF02D00487A3D /* SignUpViewController.m */,
+				354307F2210149B70045A8FD /* EditUserProfileViewController.h */,
+				354307F3210149B70045A8FD /* EditUserProfileViewController.m */,
+				66BF560A20FE5DAF00C1E39B /* Models */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 				66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */,
 				66BF560D20FE5DAF00C1E39B /* Post.m in Sources */,
 				3529DCEC20FFCA150057F133 /* AddTagViewController.m in Sources */,
+				354307F4210149B70045A8FD /* EditUserProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

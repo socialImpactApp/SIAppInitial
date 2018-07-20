@@ -7,13 +7,23 @@
 //
 
 #import "User.h"
+#import <ParseUI/ParseUI.h>
 
 @implementation User
 @dynamic profileImage;
+
 //@dynamic favoritedOpps;
 
+@dynamic contactNumber;
+@dynamic name; 
+@dynamic username;
+@dynamic oppsDone;
+@dynamic email;
+
+
+
 //if plus cant do self plus is only class
-- (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image {
++ (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image {
     
     // check if image is not nil
     if (!image) {
@@ -28,5 +38,11 @@
 }
 
 
+//+ (PFFile *)getPFFileFromPFImage: (PFImageView * _Nullable)image{
+//    NSData *imageData = UIImagePNGRepresentation(image);
+//    return [PFFile fileWithName:@"image.png" data:imageData];
+//    
+//}
+ 
 
 @end

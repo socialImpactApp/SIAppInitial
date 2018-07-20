@@ -41,7 +41,7 @@ This app enables the user to connect with community, while also allowing volunte
 - Bookmarked (heart)
 
 - Customed messages or messaging
-
+- Notifcations 
 - Profile
   -bio
   -volunteer interests
