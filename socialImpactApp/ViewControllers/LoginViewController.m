@@ -45,6 +45,7 @@
 
 - (IBAction)didTapLogin:(id)sender {
     [self loginUser];
+    [self dismissViewControllerAnimated:true completion:nil];
 
 }
 
