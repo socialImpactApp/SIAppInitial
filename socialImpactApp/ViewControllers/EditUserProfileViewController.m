@@ -17,7 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *usernameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *emailLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contactLabel;
-@property (weak, nonatomic) IBOutlet PFImageView *proImageView;
+//@property (weak, nonatomic) IBOutlet PFImageView *proImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *proImageView;
 
 
 @end
@@ -36,21 +37,28 @@
 - (IBAction)didTapSaveUser:(id)sender {
     //do something here to pass the data back
     User *user = [User currentUser];
+    UIImage *image = self.proImageView.image;
+    if (image) {
+        user.profileImage = [User getPFFileFromImage:image];
+    }
     [self.delegate didTapSaveUser:user]; 
     user.name = self.nameLabel.text;
     user.username = self.usernameLabel.text;
     user.email = self.emailLabel.text;
     user.contactNumber = self.contactLabel.text;
-    user.profileImage = [User getPFFileFromImage:self.proImageView.image];
     [user saveInBackground];
-
     [self dismissViewControllerAnimated:true completion:nil];
 }
+
+
 - (IBAction)didTapCancel:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
 - (IBAction)didTapImage:(id)sender {
     [self getImage];
+}
+- (IBAction)didTapAway:(id)sender {
+    [self.view endEditing:YES];   
 }
 
 -(void) getImage {

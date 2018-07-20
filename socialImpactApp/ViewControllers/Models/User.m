@@ -32,9 +32,10 @@
     }
     return [PFFile fileWithName:@"image.png" data:imageData];
 }
-//
-//+ (PFImageView *)getPFImageViewFromPFFile: (PFFile * _Nullable)file{
-//    return [PFImageView ]
+
+//+ (PFFile *)getPFFileFromPFImage: (PFImageView * _Nullable)image{
+//    NSData *imageData = UIImagePNGRepresentation(image);
+//    return [PFFile fileWithName:@"image.png" data:imageData];
 //    
 //}
 

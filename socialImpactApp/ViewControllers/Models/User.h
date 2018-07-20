@@ -12,12 +12,13 @@
 
 @interface User : PFUser<PFSubclassing>
 
-@property PFFile *profileImage;
-@property NSString *name;
-@property NSString *username;
-@property NSString *contactNumber;
-@property NSMutableArray *oppsDone;
-@property NSString *email;
+@property PFFile * _Nullable profileImage;
+@property NSString * _Nullable name;
+@property NSString * _Nullable username;
+@property NSString * _Nullable contactNumber;
+@property NSMutableArray * _Nullable oppsDone;
+@property NSString * _Nullable email;
 
-+ (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image; 
++ (PFFile *_Nullable)getPFFileFromImage: (UIImage * _Nullable)image;
+//+ (PFFile *)getPFFileFromPFImage: (PFImageView * _Nullable)image;
 @end

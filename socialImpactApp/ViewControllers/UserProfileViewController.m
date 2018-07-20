@@ -29,20 +29,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.user = [User currentUser];
-    self.nameLabel.text = self.user.name;
-    self.usernameLabel.text = self.user.username;
-    self.contactLabel.text = self.user.contactNumber;
-    self.emailLabel.text = self.user.email;
+    
+    User *user = [User currentUser];
+    PFFile *profile_image = user.profileImage;
+    self.userImageView.file = profile_image;
+    [self.userImageView loadInBackground];
+    
+    self.nameLabel.text = user.name;
+    self.usernameLabel.text = user.username;
+    self.contactLabel.text = user.contactNumber;
+    self.emailLabel.text = user.email;
+
 
 }
 
 - (void) viewDidAppear:(BOOL)animated{
-    self.user = [User currentUser];
-    self.nameLabel.text = self.user.name;
-    self.usernameLabel.text = self.user.username;
-    self.contactLabel.text = self.user.contactNumber;
-    self.emailLabel.text = self.user.email;
+    User *user = [User currentUser];
+    self.nameLabel.text = user.name;
+    self.usernameLabel.text = user.username;
+    self.contactLabel.text = user.contactNumber;
+    self.emailLabel.text = user.email;
+    self.userImageView.file = user.profileImage;
+    [self.userImageView loadInBackground];
+
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -54,8 +64,9 @@
     self.usernameLabel.text = user.username;
     self.contactLabel.text = user.contactNumber;
     self.emailLabel.text = user.email;
-    //problem 
-    self.userImageView = user.profileImage;
+    self.userImageView.file = user.profileImage;
+    [self.userImageView loadInBackground];
+
 }
 
 

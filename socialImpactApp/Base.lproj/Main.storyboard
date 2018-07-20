@@ -603,9 +603,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Brk-0k-sdK" customClass="PFImageView">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Brk-0k-sdK" customClass="PFImageView">
                                 <rect key="frame" x="67" y="78" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lF-5H-E2N">
                                 <rect key="frame" x="31" y="297" width="328" height="21"/>
@@ -658,7 +659,7 @@
                         <outlet property="emailLabel" destination="ET4-ME-lMc" id="bJ2-1v-zlW"/>
                         <outlet property="nameLabel" destination="nHc-vc-3F0" id="SpD-gu-ICe"/>
                         <outlet property="oppsDoneLabel" destination="pW9-ga-16g" id="TVI-D5-bub"/>
-                        <outlet property="userImageView" destination="Brk-0k-sdK" id="Vex-B6-5uL"/>
+                        <outlet property="userImageView" destination="Brk-0k-sdK" id="e8t-qy-Lde"/>
                         <outlet property="usernameLabel" destination="cvt-w5-9rb" id="6gF-kd-8bH"/>
                     </connections>
                 </viewController>
@@ -738,8 +739,8 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MXq-Zk-1G0" customClass="PFImageView">
-                                <rect key="frame" x="104" y="80" width="170" height="85"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MXq-Zk-1G0">
+                                <rect key="frame" x="104" y="79" width="170" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -749,7 +750,11 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="WwE-Fl-zGf"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="syT-1z-FJS" appends="YES" id="LD6-K4-n9L"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="U3T-P3-wDb">
                         <barButtonItem key="leftBarButtonItem" title="Cancel " id="1f3-7F-Pub">
@@ -761,6 +766,7 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VYt-Kg-ern">
                                 <rect key="frame" x="276" y="6" width="83" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
@@ -773,7 +779,7 @@
                         <outlet property="contactLabel" destination="svl-gB-xyA" id="SRM-bG-kYA"/>
                         <outlet property="emailLabel" destination="Ndm-w2-LOx" id="Rkn-rC-BON"/>
                         <outlet property="nameLabel" destination="4xw-SF-kAz" id="xMd-wg-faa"/>
-                        <outlet property="proImageView" destination="MXq-Zk-1G0" id="tdh-va-nIM"/>
+                        <outlet property="proImageView" destination="MXq-Zk-1G0" id="R1H-dW-73N"/>
                         <outlet property="usernameLabel" destination="5Q5-hh-aC0" id="m8w-vr-MjP"/>
                     </connections>
                 </viewController>
@@ -781,6 +787,11 @@
                 <tapGestureRecognizer id="uub-Ji-kYG">
                     <connections>
                         <action selector="didTapImage:" destination="8c3-fH-hYq" id="wbG-Cc-qHO"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="syT-1z-FJS">
+                    <connections>
+                        <action selector="didTapAway:" destination="8c3-fH-hYq" id="zie-LO-WLM"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
