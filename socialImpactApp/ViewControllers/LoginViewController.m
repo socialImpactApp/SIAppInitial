@@ -30,9 +30,23 @@
 }
 
 - (void) loginUser {
+    
+    User *newUser = [User user];
+    newUser.favoritedOpps = @[
+                              @"test"
+                              ];
+    newUser.email = @"test@test123.com";
+    newUser.password = @"234523452345";
+    newUser.username = @"test@test123.com";
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+     
+    }];
+    [User logInWithUsername:@"test@test123.com"
+                   password:@"234523452345"];
     NSString *username = self.username.text;
     NSString *password = self.password.text;
-    
+    User *currentUser = [User currentUser];
+    NSLog(@"%@", currentUser.email);
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * _Nullable user, NSError * _Nullable error) {
         //checking if there is an error
         if (error != nil) {
