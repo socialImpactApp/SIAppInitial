@@ -1,5 +1,5 @@
 //
-//  Post.h
+//  VolunteerOpportunity.h
 //  socialImpactApp
 //
 //  Created by Roesha Nigos on 7/16/18.
@@ -9,7 +9,7 @@
 #import "PFObject.h"
 #import <Parse/Parse.h>
 
-@interface Post : PFObject<PFSubclassing>
+@interface VolunteerOpportunity : PFObject<PFSubclassing>
 @property (nonatomic, strong) NSString * _Nullable postID;
 @property (nonatomic, strong) NSString * _Nullable title;
 @property (nonatomic, strong) NSString * _Nullable userID;

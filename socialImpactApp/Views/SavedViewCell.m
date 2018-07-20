@@ -7,7 +7,7 @@
 //
 
 #import "SavedViewCell.h"
-#import "Post.h"
+#import "VolunteerOpportunity.h"
 #import <ParseUI/ParseUI.h>
 #import <Parse/Parse.h>
 #import "User.h"
@@ -25,7 +25,7 @@
     // Configure the view for the selected state
 }
 
--(void)configureCell: (Post *) post {
+-(void)configureCell: (VolunteerOpportunity *) post {
     self.post = post;
     User *user = [User currentUser];
     self.savedDescription.text = post[@"description"];

@@ -33,14 +33,18 @@
     User *user = [User currentUser];
     PFFile *profile_image = user.profileImage;
     self.userImageView.file = profile_image;
+    self.userImageView.layer.cornerRadius= self.userImageView.frame.size.height/2;
+
     [self.userImageView loadInBackground];
     
     self.nameLabel.text = user.name;
     self.usernameLabel.text = user.username;
     self.contactLabel.text = user.contactNumber;
     self.emailLabel.text = user.email;
+    
+}
 
-- (void) viewDidAppear:(BOOL)animated{
+- (void)viewDidAppear {
     User *user = [User currentUser];
     self.nameLabel.text = user.name;
     self.usernameLabel.text = user.username;

@@ -1,5 +1,5 @@
 //
-//  PostCell.h
+//  VolunteerOpportunityCell.h
 //  socialImpactApp
 //
 //  Created by Roesha Nigos on 7/16/18.
@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Post.h"
+#import "VolunteerOpportunity.h"
 #import <ParseUI/ParseUI.h>
 
 
 
 
-@interface PostCell : UITableViewCell
-@property (strong, nonatomic)  Post *post;
+@interface VolunteerOpportunityCell : UITableViewCell
+@property (strong, nonatomic)  VolunteerOpportunity *post;
 @property (weak, nonatomic) IBOutlet PFImageView *oppImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hoursLabel;
@@ -24,6 +24,6 @@
 
 
 //going to access this publicly in MenuViewController
--(void)configureCell: (Post *) post;
+-(void)configureCell: (VolunteerOpportunity *) volunOpp;
 
 @end
