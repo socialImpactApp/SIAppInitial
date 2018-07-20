@@ -23,6 +23,7 @@
 		47D8A038FCB35C7777A968A0 /* libPods-socialImpactApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B5A5065D470831F56D7DE /* libPods-socialImpactApp.a */; };
 		51216213CEC3A0D4FAF43C93 /* libPods-socialImpactAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D1B2DFDE6B4F153928CCBB /* libPods-socialImpactAppUITests.a */; };
 		66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66379C9520FFF02D00487A3D /* SignUpViewController.m */; };
+		66B950712101698800F954CD /* UserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B950702101698800F954CD /* UserSession.m */; };
 		66BF560D20FE5DAF00C1E39B /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560C20FE5DAF00C1E39B /* Post.m */; };
 		66BF561120FE5DBB00C1E39B /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560F20FE5DBB00C1E39B /* PostCell.m */; };
 		66BF561420FE5DF600C1E39B /* AddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF561320FE5DF600C1E39B /* AddPostViewController.m */; };
@@ -84,6 +85,8 @@
 		66198B8520FFFEB7009C7B66 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		66379C9420FFF02D00487A3D /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		66379C9520FFF02D00487A3D /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		66B9506F2101694000F954CD /* UserSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSession.h; sourceTree = "<group>"; };
+		66B950702101698800F954CD /* UserSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSession.m; sourceTree = "<group>"; };
 		66BF560B20FE5DAF00C1E39B /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		66BF560C20FE5DAF00C1E39B /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		66BF560F20FE5DBB00C1E39B /* PostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
@@ -229,7 +232,9 @@
 		66198B8420FFFE92009C7B66 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				66B9506F2101694000F954CD /* UserSession.h */,
 				66198B8520FFFEB7009C7B66 /* Constants.h */,
+				66B950702101698800F954CD /* UserSession.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -492,6 +497,7 @@
 				66BF561420FE5DF600C1E39B /* AddPostViewController.m in Sources */,
 				66BF561D20FE967400C1E39B /* SavedViewCell.m in Sources */,
 				355718C620FC53AD00D735EA /* MenuViewController.m in Sources */,
+				66B950712101698800F954CD /* UserSession.m in Sources */,
 				355718C920FC53E600D735EA /* DetailViewController.m in Sources */,
 				66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */,
 				66BF560D20FE5DAF00C1E39B /* Post.m in Sources */,

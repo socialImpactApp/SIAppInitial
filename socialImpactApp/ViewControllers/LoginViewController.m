@@ -61,6 +61,7 @@
         else {
             NSLog(@"User logged in sucessfully");
             self.loggedInUser = [User currentUser];
+
             NSLog( @"%@", self.loggedInUser.username );
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
