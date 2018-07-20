@@ -1,5 +1,5 @@
 //
-//  Post.m
+//  VolunteerOpportunity.m
 //  socialImpactApp
 //
 //  Created by Roesha Nigos on 7/16/18.
@@ -8,9 +8,9 @@
 
 #import "PFObject.h"
 //#import "Constants.h" WHY IS THIS CAUSING AN ERROR
-#import "Post.h"
+#import "VolunteerOpportunity.h"
 
-@implementation Post
+@implementation VolunteerOpportunity
 @dynamic postID;
 @dynamic title;
 @dynamic userID;
@@ -28,7 +28,7 @@
 
 //this is the parse class name that we have to instantiate
 + (nonnull NSString *)parseClassName {
-    return @"Post";
+    return @"VolunteerOpportunity";
 }
 
 //method to make a post
@@ -41,7 +41,7 @@
             withTags:(NSMutableArray <NSString * > *_Nullable)tags
             withDate:(NSString * _Nullable)date
             withCompletion: (PFBooleanResultBlock  _Nullable)completion{
-    Post *newPost = [Post new];
+    VolunteerOpportunity *newPost = [VolunteerOpportunity new];
     newPost.image = [self getPFFileFromImage:image];
     newPost.author = [PFUser currentUser];
     newPost.description = description;

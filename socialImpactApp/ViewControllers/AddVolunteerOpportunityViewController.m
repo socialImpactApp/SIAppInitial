@@ -1,5 +1,5 @@
 //
-//  AddPostViewController.m
+//  AddVolunteerOpportunityViewController.m
 //  socialImpactApp
 //
 //  Created by Roesha Nigos on 7/16/18.
@@ -10,13 +10,13 @@
 //THINGS TO DO HERE
 // HAVE A SCROLL ONCE DESCRIPTION GETS TOUCHED
 //HAVE THE HUD PROGRESS IMAGE SHOW UP
-#import "AddPostViewController.h"
+#import "AddVolunteerOpportunityViewController.h"
 #import "AddTagViewController.h"
-#import "Post.h"
+#import "VolunteerOpportunity.h"
 #import <UIKit/UIKit.h>
 
 
-@interface AddPostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, AddTagViewControllerDelegate>
+@interface AddVolunteerOpportunityViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, AddTagViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *titleView;
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
 @property (weak, nonatomic) IBOutlet UITextView *hoursView;
@@ -29,7 +29,7 @@
 
 @end
 
-@implementation AddPostViewController {
+@implementation AddVolunteerOpportunityViewController {
     //this is where our tags of strings array is
     NSMutableArray<NSString *> *_collectionOfTags;
 }
@@ -92,7 +92,7 @@
 //spots is a NSNumber
 - (IBAction)didTapPost:(id)sender {
     if(![self.postImageView.image isEqual:[UIImage imageNamed:@"placeholder"]] && ![self.titleView.text isEqualToString:@""]){
-        [Post postUserOpp:self.postImageView.image
+        [VolunteerOpportunity postUserOpp:self.postImageView.image
                 withTitle:self.titleView.text
            withDescripton:self.descriptionView.text
                 withHours:self.hoursView.text
@@ -101,7 +101,7 @@
         withDate:self.dateView.text
            withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                if(succeeded){
-                   NSLog(@"%@", _collectionOfTags);
+                   NSLog(@"%@", self->_collectionOfTags);
                    self.postImageView.image = [UIImage imageNamed:@"placeholder"];
                    self.titleView.text = @"";
                    self.hoursView.text = @"";

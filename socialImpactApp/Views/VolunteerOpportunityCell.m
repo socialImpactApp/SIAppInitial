@@ -1,5 +1,5 @@
 //
-//  PostCell.m
+//  VolunteerOpportunityCell.m
 //  socialImpactApp
 //
 //  Created by Roesha Nigos on 7/16/18.
@@ -8,13 +8,13 @@
 
 //QUESTIONS AND CONCERNS
 //why does it need to loadInBackground???? LINE 31
-#import "PostCell.h"
+#import "VolunteerOpportunityCell.h"
 #import "Parse/Parse.h"
 #import <ParseUI/ParseUI.h>
 #import "User.h"
-#import "Post.h"
+#import "VolunteerOpportunity.h"
 
-@implementation PostCell
+@implementation VolunteerOpportunityCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -27,13 +27,13 @@
     // Configure the view for the selected state
 }
 
--(void)configureCell: (Post *) post {
-    self.post = post;
-    self.oppImageView.file = post[@"image"];
+-(void)configureCell: (VolunteerOpportunity *) volunOpp {
+    self.post = volunOpp;
+    self.oppImageView.file = volunOpp[@"image"];
     [self.oppImageView loadInBackground];
-    self.titleLabel.text = post[@"title"];
-    self.hoursLabel.text = post[@"hours"];
-    self.descriptionLabel.text = post[@"description"];
+    self.titleLabel.text = volunOpp[@"title"];
+    self.hoursLabel.text = volunOpp[@"hours"];
+    self.descriptionLabel.text = volunOpp[@"description"];
 }
 
 - (IBAction)didTapFavorite:(id)sender {

@@ -7,11 +7,12 @@
 //
 
 #import "MenuViewController.h"
-#import "Post.h"
+#import "VolunteerOpportunity.h"
 #import "AppDelegate.h"
-#import "PostCell.h"
+#import "VolunteerOpportunityCell.h"
 #import "DetailViewController.h"
 #import "LoginViewController.h"
+
 
 
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -37,7 +38,7 @@
     //[self.refreshIndicator startAnimating];
     
     //PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    PFQuery *query = [Post query];
+    PFQuery *query = [VolunteerOpportunity query];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
     //  [query whereKey:@"likesCount" greaterThan:@100];
@@ -78,8 +79,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"we are in cellforRow");
-    PostCell *postCell = [self.tableView dequeueReusableCellWithIdentifier:@"postCell"];
-    Post *post = self.posts[indexPath.row];
+    VolunteerOpportunityCell *postCell = [self.tableView dequeueReusableCellWithIdentifier:@"postCell"];
+    VolunteerOpportunity *post = self.posts[indexPath.row];
     [postCell configureCell:post];
     return postCell;
 }
@@ -99,10 +100,18 @@
     }];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+
+    return 10.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    
+    return 00.0;
+}
 
 
 
-/*
 
 #pragma mark - Navigation
 
@@ -113,17 +122,15 @@
     
     UITableViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-    Post *theCurrentPost = self.posts[indexPath.row];
+    VolunteerOpportunity *theCurrentVolunOpp = self.posts[indexPath.row];
     
     if ([segue.identifier isEqualToString:@"detailsSegue"])
     {
-        //        UINavigationController *newController = segue.destinationViewController;
         DetailViewController *detailedController = [segue destinationViewController];
-        detailedController.post = theCurrentPost;
+        detailedController.post = theCurrentVolunOpp;
         NSLog(@"checking detailedPost");
 }
 }
- 
- */
+
 
 @end

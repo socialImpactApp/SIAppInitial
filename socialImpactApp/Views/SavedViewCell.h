@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Post.h"
+#import "VolunteerOpportunity.h"
 
 @interface SavedViewCell : UITableViewCell
 
@@ -15,9 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *savedTitle;
 @property (weak, nonatomic) IBOutlet UILabel *savedLocation;
 @property (weak, nonatomic) IBOutlet UIImageView *savedImage;
-@property (strong, nonatomic) Post *post;
+@property (strong, nonatomic) VolunteerOpportunity *post;
 
--(void)configureCell: (Post *) post;
+-(void)configureCell: (VolunteerOpportunity *) post;
 
 
 @end
