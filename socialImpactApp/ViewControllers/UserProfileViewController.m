@@ -39,7 +39,8 @@
     self.usernameLabel.text = user.username;
     self.contactLabel.text = user.contactNumber;
     self.emailLabel.text = user.email;
-
+}
+    
 - (void) viewDidAppear:(BOOL)animated{
     User *user = [User currentUser];
     self.nameLabel.text = user.name;

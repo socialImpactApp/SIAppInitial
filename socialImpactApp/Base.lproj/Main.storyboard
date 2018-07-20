@@ -66,7 +66,6 @@
                         <outlet property="username" destination="ekX-DW-kFy" id="fZS-8V-27a"/>
                         <segue destination="QAA-bc-b2T" kind="presentation" identifier="loginSegue" id="nou-Xg-BJy"/>
 
-                        <segue destination="QAA-bc-b2T" kind="presentation" identifier="firstSegue" id="nou-Xg-BJy"/>
 
                     </connections>
                 </viewController>
