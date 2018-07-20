@@ -10,23 +10,23 @@
 #import <Parse/Parse.h>
 
 @interface Post : PFObject<PFSubclassing>
-@property (nonatomic, strong) NSString *postID;
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *userID;
-@property (nonatomic, strong) PFUser *author;
-@property (nonatomic, strong) NSString *description;
-@property (nonatomic, strong) PFFile *image;
-@property (nonatomic, strong) NSString *hours;
+@property (nonatomic, strong) NSString * _Nullable postID;
+@property (nonatomic, strong) NSString * _Nullable title;
+@property (nonatomic, strong) NSString * _Nullable userID;
+@property (nonatomic, strong) PFUser * _Nullable author;
+@property (nonatomic, strong) NSString * _Nullable description;
+@property (nonatomic, strong) PFFile * _Nullable image;
+@property (nonatomic, strong) NSString * _Nullable hours;
 //@property (nonatomic, strong) NSString *contact;
-@property (nonatomic, strong) NSNumber *spotsLeft;
+@property (nonatomic, strong) NSNumber * _Nullable spotsLeft;
 //@property (nonatomic, strong) NSNumber *lng;
 //@property (nonatomic, strong) NSNumber *lat;
-@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSString * _Nullable date;
 //***These are the tags for each volunteer post***
-@property (nonatomic, strong) NSMutableArray <NSString *> *tags;
+@property (nonatomic, strong) NSMutableArray <NSString *> * _Nullable tags;
 
 
-+ (PFObject *) postUserOpp: ( UIImage * _Nullable )image
++ (PFObject *_Nullable) postUserOpp: ( UIImage * _Nullable )image
                  withTitle:( NSString * _Nullable )title
             withDescripton:( NSString * _Nullable )description
                  withHours:( NSString * _Nullable )hours withSpots:( NSNumber * _Nullable )spotsLeft

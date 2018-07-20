@@ -14,11 +14,15 @@
 @interface User : PFUser<PFSubclassing>
 
 @property NSMutableArray <NSString *> *favoritedOpps;
-@property PFFile *profileImage;
-@property NSString *username;
-@property NSString *contactNumber;
-@property NSArray *oppsDone;
-@property NSString *email;
- 
 
+@property PFFile * _Nullable profileImage;
+@property NSString * _Nullable name;
+@property NSString * _Nullable username;
+@property NSString * _Nullable contactNumber;
+@property NSMutableArray * _Nullable oppsDone;
+@property NSString * _Nullable email;
+
+
++ (PFFile *_Nullable)getPFFileFromImage: (UIImage * _Nullable)image;
+//+ (PFFile *)getPFFileFromPFImage: (PFImageView * _Nullable)image;
 @end
