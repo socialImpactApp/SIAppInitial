@@ -73,7 +73,6 @@
                         <outlet property="password" destination="xUR-zI-ClW" id="tPT-7O-7HU"/>
                         <outlet property="username" destination="ekX-DW-kFy" id="fZS-8V-27a"/>
                         <segue destination="QAA-bc-b2T" kind="presentation" identifier="loginSegue" id="nou-Xg-BJy"/>
-
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
