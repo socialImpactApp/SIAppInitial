@@ -47,6 +47,13 @@
     user.email = self.emailLabel.text;
     user.contactNumber = self.contactLabel.text;
     [user saveInBackground];
+    
+    
+    
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.frame = CGRectMake(0.0f, self.nameLabel.frame.size.height - 1, self.nameLabel.frame.size.width, 1.0f);
+    bottomBorder.backgroundColor = [UIColor grayColor].CGColor;
+    [self.nameLabel.layer addSublayer:bottomBorder];
     [self dismissViewControllerAnimated:true completion:nil];
 }
 

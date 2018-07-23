@@ -10,6 +10,7 @@
 #import "EditUserProfileViewController.h"
 #import <ParseUI/ParseUI.h>
 #import "User.h"
+#import "Colours.h"
 
 
 @interface UserProfileViewController () <EditUserProfileViewControllerDelegate>
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *oppsDoneLabel;
 @property (weak, nonatomic) User *user;
+@property (strong, nonatomic) IBOutlet UIView *userView;
 
 @end
 
@@ -41,6 +43,7 @@
     self.usernameLabel.text = user.username;
     self.contactLabel.text = user.contactNumber;
     self.emailLabel.text = user.email;
+     self.userView.backgroundColor = [UIColor snowColor];
     
 }
 

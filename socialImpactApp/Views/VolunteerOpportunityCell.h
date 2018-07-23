@@ -21,7 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *favoritedButton;
-
+@property (weak, nonatomic) IBOutlet UIView *backCellView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 //going to access this publicly in MenuViewController
 -(void)configureCell: (VolunteerOpportunity *) volunOpp;

@@ -8,6 +8,7 @@ target 'socialImpactApp' do
   # Pods for socialImpactApp
   pod 'Parse'
   pod 'ParseUI' 
+  pod 'Colours'
 
   target 'socialImpactAppTests' do
     inherit! :search_paths
