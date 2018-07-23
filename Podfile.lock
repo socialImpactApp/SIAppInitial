@@ -1,5 +1,8 @@
 PODS:
   - Bolts/Tasks (1.9.0)
+  - Colours (5.13.0):
+    - Colours/ObjC (= 5.13.0)
+  - Colours/ObjC (5.13.0)
   - Parse (1.17.1):
     - Parse/Core (= 1.17.1)
   - Parse/Core (1.17.1):
@@ -9,20 +12,23 @@ PODS:
     - Parse (~> 1.9)
 
 DEPENDENCIES:
+  - Colours
   - Parse
   - ParseUI
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Bolts
+    - Colours
     - Parse
     - ParseUI
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Colours: f24220c38f13deac88612667e9b4a7fb96b871d4
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
   ParseUI: 2b37a0bc692a3e7666cf0c37b5521dfddd74a1af
 
-PODFILE CHECKSUM: 4a418e63196f553afb2ed3deb1e14b4f01f9eaa1
+PODFILE CHECKSUM: b0671f36cfda5cd9c5e034b90f60c8768d4486cf
 
 COCOAPODS: 1.5.3

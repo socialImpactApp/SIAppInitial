@@ -14,6 +14,7 @@
 #import "AddTagViewController.h"
 #import "VolunteerOpportunity.h"
 #import <UIKit/UIKit.h>
+#import "Colours.h"
 
 
 @interface AddVolunteerOpportunityViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, AddTagViewControllerDelegate>
@@ -25,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *dateView;
 @property (strong, nonatomic) UIDatePicker *datePicker;
 @property (weak, nonatomic) AddTagViewController *tagViewController;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UITextView *locationView;
 
 
 @end
@@ -51,9 +54,41 @@
     [self.datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
     [self.datePicker addTarget:self action:@selector(onDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     self.dateView.inputView = self.datePicker;
+    self.scrollView.backgroundColor = [UIColor snowColor];
     
 
-
+    
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.frame = CGRectMake(0.0f, self.titleView.frame.size.height - 1, self.titleView.frame.size.width, 1.0f);
+    bottomBorder.backgroundColor = [UIColor grayColor].CGColor;
+    [self.titleView.layer addSublayer:bottomBorder];
+    
+    
+    CALayer *bottomBorder1 = [CALayer layer];
+    bottomBorder1.frame = CGRectMake(0.0f, self.locationView.frame.size.height - 1, self.locationView.frame.size.width, 1.0f);
+    bottomBorder1.backgroundColor = [UIColor grayColor].CGColor;
+    [self.locationView.layer addSublayer:bottomBorder1];
+    
+    CALayer *bottomBorder2 = [CALayer layer];
+    bottomBorder2.frame = CGRectMake(0.0f, self.hoursView.frame.size.height - 1, self.hoursView.frame.size.width, 1.0f);
+    bottomBorder2.backgroundColor = [UIColor grayColor].CGColor;
+    [self.hoursView.layer addSublayer:bottomBorder2];
+    
+    CALayer *bottomBorder3 = [CALayer layer];
+    bottomBorder3.frame = CGRectMake(0.0f, self.spotsView.frame.size.height - 1, self.spotsView.frame.size.width, 1.0f);
+    bottomBorder3.backgroundColor = [UIColor grayColor].CGColor;
+    [self.spotsView.layer addSublayer:bottomBorder3];
+    
+    CALayer *bottomBorder4 = [CALayer layer];
+    bottomBorder4.frame = CGRectMake(0.0f, self.dateView.frame.size.height - 1, self.dateView.frame.size.width, 1.0f);
+    bottomBorder4.backgroundColor = [UIColor grayColor].CGColor;
+    [self.dateView.layer addSublayer:bottomBorder4];
+    
+    CALayer *bottomBorder5 = [CALayer layer];
+    bottomBorder5.frame = CGRectMake(0.0f, self.descriptionView.frame.size.height - 1, self.descriptionView.frame.size.width, 1.0f);
+    bottomBorder5.backgroundColor = [UIColor grayColor].CGColor;
+    [self.descriptionView.layer addSublayer:bottomBorder5];
+    
 }
 
 

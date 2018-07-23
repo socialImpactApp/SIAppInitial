@@ -13,6 +13,8 @@
 #import "DetailViewController.h"
 #import "LoginViewController.h"
 
+#import "Colours.h"
+
 
 
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -28,8 +30,9 @@
     // Do any additional setup after loading the view.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.rowHeight = 150;
-
+    self.tableView.rowHeight = 200;
+    self.tableView.backgroundColor = [UIColor snowColor];
+    
     [self fetch]; 
 }
 
@@ -102,7 +105,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
 
-    return 10.0;
+    return 00.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

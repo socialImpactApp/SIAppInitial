@@ -9,6 +9,7 @@
 #import "AddTagViewController.h"
 #import "Constants.h"
 #import "VolunteerOpportunity.h"
+#import "Colours.h"
 
 
 @interface AddTagViewController ()
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *foodButton;
 @property (weak, nonatomic) IBOutlet UIButton *fundraisingButton;
 @property (weak, nonatomic) IBOutlet UIButton *medicalButton;
+@property (strong, nonatomic) IBOutlet UIView *backView;
 
 
 @end
@@ -32,6 +34,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     tagCollection = [[NSMutableArray alloc] init];
+     self.backView.backgroundColor = [UIColor snowColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,10 +87,12 @@
     NSLog(@"%@", tagType);
     if ([tagCollection containsObject:tagType]) {
         [tagCollection removeObject:tagType];
-        sender.backgroundColor = UIColor.whiteColor;
+        sender.selected = NO;
+       
     } else {
         [tagCollection addObject:tagType];
-        sender.backgroundColor = UIColor.grayColor;
+        sender.selected = YES; 
+       
     }
 }
 

@@ -13,6 +13,7 @@
 #import <ParseUI/ParseUI.h>
 #import "User.h"
 #import "VolunteerOpportunity.h"
+#import "Colours.h"
 
 @implementation VolunteerOpportunityCell
 
@@ -31,9 +32,22 @@
     self.post = volunOpp;
     self.oppImageView.file = volunOpp[@"image"];
     [self.oppImageView loadInBackground];
+    self.oppImageView.layer.cornerRadius = self.oppImageView.frame.size.height/2;
     self.titleLabel.text = volunOpp[@"title"];
     self.hoursLabel.text = volunOpp[@"hours"];
     self.descriptionLabel.text = volunOpp[@"description"];
+    self.backCellView.backgroundColor = [UIColor whiteColor];
+    self.backCellView.layer.cornerRadius = 2.0;
+    //NSArray *colorArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:0.941],[NSNumber numberWithInt:0.941],[NSNumber numberWithInt:0.941],[NSNumber numberWithInt:1.0], nil];
+    self.contentView.backgroundColor = [UIColor snowColor];
+    self.backCellView.layer.masksToBounds = NO;
+    
+    //NSArray *colorTwoArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1.0],[NSNumber numberWithInt:1.0],[NSNumber numberWithInt:1.0],[NSNumber numberWithInt:0.2], nil];
+    self.backCellView.layer.shadowColor = [[UIColor coolGrayColor] CGColor];
+    self.backCellView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+    self.backCellView.layer.shadowOpacity = 0.5;
+    
+    
 }
 
 - (IBAction)didTapFavorite:(id)sender {
