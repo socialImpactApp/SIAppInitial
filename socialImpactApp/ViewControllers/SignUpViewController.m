@@ -31,6 +31,8 @@
 
 
 - (void) registerUser {
+    
+ 
     //checking if empty
     if ([self.username.text isEqual:@""] || [self.password.text isEqual:@""]) {
         // we crete a new alert
@@ -56,6 +58,7 @@
     else {
         // initalizes a new user object ..  making a new user
         User *newUser = [User user];
+        newUser.favoritedOpps = @[@"signUp"];
         
         // set user properties
         newUser.username = self.username.text;

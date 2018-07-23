@@ -51,24 +51,23 @@
 }
 
 - (IBAction)didTapFavorite:(id)sender {
-//    User *loggedInUser = [[User alloc] init];
-    User *user = [User currentUser];
+    User *loggedInUser = [User currentUser];
     PFQuery *friendQuery = [PFUser query];
-    NSLog(@"%@", user.contactNumber);
-    //[friendQuery whereKey:@"username" equalTo:loggedInUser.username];
-//    [friendQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error)
-//    {
-//        /* This is how you add 'userNameToAdd' to the Array called friendsList that
-//         * belongs to the special parse class called User (PFUser type): */
-//
-//        // This is your current user
-//        // Adds object to friendList array
-//        [loggedInUser.favoritedOpps addObject:self.post.postID];
-//
-//        // Saves the changes on the Parse server. This is necessary to update the actual Parse server. If you don't "save" then the changes will be lost
-//        [loggedInUser saveInBackground];
-//        NSLog(@"added to favoriteOpps");
-//    }];
+    //NSLog(@"%@", user.contactNumber);
+    [friendQuery whereKey:@"username" equalTo:loggedInUser.username];
+    [friendQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error)
+    {
+        /* This is how you add 'userNameToAdd' to the Array called friendsList that
+         * belongs to the special parse class called User (PFUser type): */
+
+        // This is your current user
+        // Adds object to friendList array
+        [loggedInUser.favoritedOpps addObject:self.post.postID];
+
+        // Saves the changes on the Parse server. This is necessary to update the actual Parse server. If you don't "save" then the changes will be lost
+        [loggedInUser saveInBackground];
+        NSLog(@"added to favoriteOpps");
+    }];
 
 //    if (self.favoritedButton.selected)
 //    {
