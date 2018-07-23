@@ -13,6 +13,9 @@
 		355718C320FC534D00D735EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C220FC534D00D735EA /* LoginViewController.m */; };
 		355718C620FC53AD00D735EA /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C520FC53AD00D735EA /* MenuViewController.m */; };
 		355718C920FC53E600D735EA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C820FC53E600D735EA /* DetailViewController.m */; };
+		35B7627021067B500089739D /* NewsCycle-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626D21067B4E0089739D /* NewsCycle-Regular.ttf */; };
+		35B7627121067B500089739D /* NewsCycle-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626E21067B4E0089739D /* NewsCycle-Bold.ttf */; };
+		35B7627221067B500089739D /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626F21067B4E0089739D /* OFL.txt */; };
 		35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53420EFE03E00B5D12C /* AppDelegate.m */; };
 		35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53720EFE03E00B5D12C /* ViewController.m */; };
 		35D8D53B20EFE03E00B5D12C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D53920EFE03E00B5D12C /* Main.storyboard */; };
@@ -66,6 +69,9 @@
 		355718C520FC53AD00D735EA /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		355718C720FC53E600D735EA /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		355718C820FC53E600D735EA /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		35B7626D21067B4E0089739D /* NewsCycle-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewsCycle-Regular.ttf"; sourceTree = "<group>"; };
+		35B7626E21067B4E0089739D /* NewsCycle-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewsCycle-Bold.ttf"; sourceTree = "<group>"; };
+		35B7626F21067B4E0089739D /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		35D8D53020EFE03E00B5D12C /* socialImpactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socialImpactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D8D53320EFE03E00B5D12C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35D8D53420EFE03E00B5D12C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -162,6 +168,17 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		35B7626C21067B4E0089739D /* News_Cycle */ = {
+			isa = PBXGroup;
+			children = (
+				35B7626D21067B4E0089739D /* NewsCycle-Regular.ttf */,
+				35B7626E21067B4E0089739D /* NewsCycle-Bold.ttf */,
+				35B7626F21067B4E0089739D /* OFL.txt */,
+			);
+			name = News_Cycle;
+			path = "../../../../Downloads/fonts (1)/News_Cycle";
+			sourceTree = "<group>";
+		};
 		35D8D52720EFE03E00B5D12C = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +204,7 @@
 		35D8D53220EFE03E00B5D12C /* socialImpactApp */ = {
 			isa = PBXGroup;
 			children = (
+				35B7626C21067B4E0089739D /* News_Cycle */,
 				66198B8420FFFE92009C7B66 /* Utility */,
 				66BF560E20FE5DBB00C1E39B /* Views */,
 				355718C020FC533B00D735EA /* ViewControllers */,
@@ -383,9 +401,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35B7627221067B500089739D /* OFL.txt in Resources */,
 				35D8D54020EFE04000B5D12C /* LaunchScreen.storyboard in Resources */,
+				35B7627021067B500089739D /* NewsCycle-Regular.ttf in Resources */,
 				35D8D53D20EFE04000B5D12C /* Assets.xcassets in Resources */,
 				35D8D53B20EFE03E00B5D12C /* Main.storyboard in Resources */,
+				35B7627121067B500089739D /* NewsCycle-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

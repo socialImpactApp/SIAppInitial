@@ -36,6 +36,7 @@
     self.titleLabel.text = volunOpp[@"title"];
     self.hoursLabel.text = volunOpp[@"hours"];
     self.descriptionLabel.text = volunOpp[@"description"];
+    self.dateLabel.text = volunOpp[@"date"];
     self.backCellView.backgroundColor = [UIColor whiteColor];
     self.backCellView.layer.cornerRadius = 2.0;
     //NSArray *colorArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:0.941],[NSNumber numberWithInt:0.941],[NSNumber numberWithInt:0.941],[NSNumber numberWithInt:1.0], nil];
