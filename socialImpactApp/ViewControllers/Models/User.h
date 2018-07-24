@@ -13,7 +13,7 @@
 
 @interface User : PFUser<PFSubclassing>
 
-@property NSMutableArray <NSString *> *favoritedOpps;
+@property NSMutableArray <NSString *> * _Nullable favoritedOpps;
 
 @property PFFile * _Nullable profileImage;
 @property NSString * _Nullable name;
