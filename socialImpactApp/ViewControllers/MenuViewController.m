@@ -18,8 +18,10 @@
 
 
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *posts;
+@property (nonatomic,strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -33,33 +35,34 @@
     self.tableView.rowHeight = 200;
     self.tableView.backgroundColor = [UIColor snowColor];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+     [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
     [self fetch]; 
 }
 
+-(void)refreshTableView {
+    [self.tableView reloadData];
+    //[self.refreshIndicator stopAnimating];
+    [self.refreshControl endRefreshing];
+    
+}
 
 -(void)fetch {
-    //[self.refreshIndicator startAnimating];
-    
-    //PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+   
     PFQuery *query = [VolunteerOpportunity query];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
-    //  [query whereKey:@"likesCount" greaterThan:@100];
-    //query.limit = post_count;
-    
+
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.posts = posts;
             [self.tableView reloadData];
-            
         } else {
             NSLog(@"%@", error.localizedDescription);
-            //[self.tableView reloadData];
         }
-        //[self.refreshIndicator stopAnimating];
     }];
-    //[self.refreshControl endRefreshing];
 }
 
 
@@ -90,10 +93,8 @@
 
 - (IBAction)didTapLogout:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        // PFUser.current() will now be nil
         
         // [self performSegueWithIdentifier:@"backSegue" sender:nil]; DONT DO THIS!
-        
         //creating a new app delegate (configuration file) has a delegate property (an object) ACCESS THAT APP DEL OBJECT
         // instantiating a VC and want it to show completely and tell app delegate do this
         AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;

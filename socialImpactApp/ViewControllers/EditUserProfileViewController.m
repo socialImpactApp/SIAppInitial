@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *usernameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *emailLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contactLabel;
-//@property (weak, nonatomic) IBOutlet PFImageView *proImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *proImageView;
 
 
@@ -28,6 +27,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.frame = CGRectMake(0.0f, self.nameLabel.frame.size.height - 1, self.nameLabel.frame.size.width, 1.0f);
+    bottomBorder.backgroundColor = [UIColor grayColor].CGColor;
+    [self.nameLabel.layer addSublayer:bottomBorder];
+    
+    CALayer *bottomBorder1 = [CALayer layer];
+    bottomBorder1.frame = CGRectMake(0.0f, self.emailLabel.frame.size.height - 1, self.emailLabel.frame.size.width, 1.0f);
+    bottomBorder1.backgroundColor = [UIColor grayColor].CGColor;
+    [self.emailLabel.layer addSublayer:bottomBorder1];
+   
+    
+    CALayer *bottomBorder2 = [CALayer layer];
+    bottomBorder2.frame = CGRectMake(0.0f, self.usernameLabel.frame.size.height - 1, self.usernameLabel.frame.size.width, 1.0f);
+    bottomBorder2.backgroundColor = [UIColor grayColor].CGColor;
+    [self.usernameLabel.layer addSublayer:bottomBorder2];
+    
+    CALayer *bottomBorder3 = [CALayer layer];
+    bottomBorder3.frame = CGRectMake(0.0f, self.contactLabel.frame.size.height - 1, self.contactLabel.frame.size.width, 1.0f);
+    bottomBorder3.backgroundColor = [UIColor grayColor].CGColor;
+    [self.contactLabel.layer addSublayer:bottomBorder3];
+    
+    self.proImageView.layer.cornerRadius= self.proImageView.frame.size.height/2;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,14 +70,10 @@
     user.email = self.emailLabel.text;
     user.contactNumber = self.contactLabel.text;
     [user saveInBackground];
-    
-    
-    
-    CALayer *bottomBorder = [CALayer layer];
-    bottomBorder.frame = CGRectMake(0.0f, self.nameLabel.frame.size.height - 1, self.nameLabel.frame.size.width, 1.0f);
-    bottomBorder.backgroundColor = [UIColor grayColor].CGColor;
-    [self.nameLabel.layer addSublayer:bottomBorder];
     [self dismissViewControllerAnimated:true completion:nil];
+
+    
+    
 }
 
 

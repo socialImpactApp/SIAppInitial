@@ -44,9 +44,7 @@
     self.contactLabel.text = user.contactNumber;
     self.emailLabel.text = user.email;
 
-     self.userView.backgroundColor = [UIColor snowColor];
-
-    
+     self.userView.backgroundColor = [UIColor snowColor];    
 }
 
 - (void)viewDidAppear {
