@@ -89,6 +89,11 @@
     bottomBorder5.backgroundColor = [UIColor grayColor].CGColor;
     [self.descriptionView.layer addSublayer:bottomBorder5];
     
+    self.navigationItem.title = @"Create a Vopp!";
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont fontWithName:@"News Cycle" size:21]}];
+    
 }
 
 
@@ -131,7 +136,7 @@
                 withTitle:self.titleView.text
            withDescripton:self.descriptionView.text
                 withHours:self.hoursView.text
-                withSpots:self.spotsView.text
+                withSpots:[NSNumber numberWithInteger:[self.spotsView.text integerValue]]  
             withTags:_collectionOfTags
         withDate:self.dateView.text
            withCompletion:^(BOOL succeeded, NSError * _Nullable error) {

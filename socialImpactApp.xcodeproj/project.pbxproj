@@ -3,8 +3,6 @@
 	archiveVersion = 1;
 	classes = {
 	};
-
-
 	objectVersion = 50;
 	objects = {
 
@@ -18,6 +16,12 @@
 		35B7627021067B500089739D /* NewsCycle-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626D21067B4E0089739D /* NewsCycle-Regular.ttf */; };
 		35B7627121067B500089739D /* NewsCycle-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626E21067B4E0089739D /* NewsCycle-Bold.ttf */; };
 		35B7627221067B500089739D /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626F21067B4E0089739D /* OFL.txt */; };
+		35B762772106B06D0089739D /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B762762106B06D0089739D /* LocationViewController.m */; };
+		35B762792106CB3A0089739D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B762782106CB3A0089739D /* MapKit.framework */; };
+		35B7627B2107895E0089739D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7627A2107895E0089739D /* CoreLocation.framework */; };
+		35B762812107AF370089739D /* SearchLocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B762802107AF370089739D /* SearchLocationTableViewController.m */; };
+		35B76288210814D50089739D /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B76287210814D50089739D /* LocationCell.m */; };
+		35B762D12108E4E60089739D /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B762D02108E4E60089739D /* SearchTableViewCell.m */; };
 		35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53420EFE03E00B5D12C /* AppDelegate.m */; };
 		35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53720EFE03E00B5D12C /* ViewController.m */; };
 		35D8D53B20EFE03E00B5D12C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D53920EFE03E00B5D12C /* Main.storyboard */; };
@@ -29,8 +33,6 @@
 		47D8A038FCB35C7777A968A0 /* libPods-socialImpactApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B5A5065D470831F56D7DE /* libPods-socialImpactApp.a */; };
 		51216213CEC3A0D4FAF43C93 /* libPods-socialImpactAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D1B2DFDE6B4F153928CCBB /* libPods-socialImpactAppUITests.a */; };
 		66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66379C9520FFF02D00487A3D /* SignUpViewController.m */; };
-
-		66B950712101698800F954CD /* UserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B950702101698800F954CD /* UserSession.m */; };
 		66BF560D20FE5DAF00C1E39B /* VolunteerOpportunity.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560C20FE5DAF00C1E39B /* VolunteerOpportunity.m */; };
 		66BF561120FE5DBB00C1E39B /* VolunteerOpportunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560F20FE5DBB00C1E39B /* VolunteerOpportunityCell.m */; };
 		66BF561420FE5DF600C1E39B /* AddVolunteerOpportunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF561320FE5DF600C1E39B /* AddVolunteerOpportunityViewController.m */; };
@@ -75,6 +77,16 @@
 		35B7626D21067B4E0089739D /* NewsCycle-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewsCycle-Regular.ttf"; sourceTree = "<group>"; };
 		35B7626E21067B4E0089739D /* NewsCycle-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewsCycle-Bold.ttf"; sourceTree = "<group>"; };
 		35B7626F21067B4E0089739D /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		35B762752106B06D0089739D /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		35B762762106B06D0089739D /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		35B762782106CB3A0089739D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		35B7627A2107895E0089739D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		35B7627F2107AF370089739D /* SearchLocationTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchLocationTableViewController.h; sourceTree = "<group>"; };
+		35B762802107AF370089739D /* SearchLocationTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchLocationTableViewController.m; sourceTree = "<group>"; };
+		35B76286210814D50089739D /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
+		35B76287210814D50089739D /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
+		35B762CF2108E4E60089739D /* SearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
+		35B762D02108E4E60089739D /* SearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
 		35D8D53020EFE03E00B5D12C /* socialImpactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socialImpactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D8D53320EFE03E00B5D12C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35D8D53420EFE03E00B5D12C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -97,9 +109,6 @@
 		66198B8520FFFEB7009C7B66 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		66379C9420FFF02D00487A3D /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		66379C9520FFF02D00487A3D /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-
-		66B9506F2101694000F954CD /* UserSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSession.h; sourceTree = "<group>"; };
-		66B950702101698800F954CD /* UserSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSession.m; sourceTree = "<group>"; };
 		66BF560B20FE5DAF00C1E39B /* VolunteerOpportunity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolunteerOpportunity.h; sourceTree = "<group>"; };
 		66BF560C20FE5DAF00C1E39B /* VolunteerOpportunity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolunteerOpportunity.m; sourceTree = "<group>"; };
 		66BF560F20FE5DBB00C1E39B /* VolunteerOpportunityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolunteerOpportunityCell.m; sourceTree = "<group>"; };
@@ -123,6 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35B7627B2107895E0089739D /* CoreLocation.framework in Frameworks */,
+				35B762792106CB3A0089739D /* MapKit.framework in Frameworks */,
 				47D8A038FCB35C7777A968A0 /* libPods-socialImpactApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +178,10 @@
 				66379C9520FFF02D00487A3D /* SignUpViewController.m */,
 				354307F2210149B70045A8FD /* EditUserProfileViewController.h */,
 				354307F3210149B70045A8FD /* EditUserProfileViewController.m */,
+				35B762752106B06D0089739D /* LocationViewController.h */,
+				35B762762106B06D0089739D /* LocationViewController.m */,
+				35B7627F2107AF370089739D /* SearchLocationTableViewController.h */,
+				35B762802107AF370089739D /* SearchLocationTableViewController.m */,
 				66BF560A20FE5DAF00C1E39B /* Models */,
 			);
 			path = ViewControllers;
@@ -282,6 +297,10 @@
 				66BF561020FE5DBB00C1E39B /* VolunteerOpportunityCell.h */,
 				66BF561B20FE967400C1E39B /* SavedViewCell.h */,
 				66BF561C20FE967400C1E39B /* SavedViewCell.m */,
+				35B76286210814D50089739D /* LocationCell.h */,
+				35B76287210814D50089739D /* LocationCell.m */,
+				35B762CF2108E4E60089739D /* SearchTableViewCell.h */,
+				35B762D02108E4E60089739D /* SearchTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -289,6 +308,8 @@
 		B869D6796AE17E91CF0BB5B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35B7627A2107895E0089739D /* CoreLocation.framework */,
+				35B762782106CB3A0089739D /* MapKit.framework */,
 				4A2B5A5065D470831F56D7DE /* libPods-socialImpactApp.a */,
 				29C54D53F8DF8C1846F5D92C /* libPods-socialImpactAppTests.a */,
 				82D1B2DFDE6B4F153928CCBB /* libPods-socialImpactAppUITests.a */,
@@ -514,13 +535,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35B76288210814D50089739D /* LocationCell.m in Sources */,
 				354307EE21013B660045A8FD /* UserProfileViewController.m in Sources */,
 				66BF561720FE6A3E00C1E39B /* User.m in Sources */,
 				355718C320FC534D00D735EA /* LoginViewController.m in Sources */,
 				35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */,
+				35B762772106B06D0089739D /* LocationViewController.m in Sources */,
 				35D8D54320EFE04000B5D12C /* main.m in Sources */,
 				66BF561120FE5DBB00C1E39B /* VolunteerOpportunityCell.m in Sources */,
 				66BF561A20FE932E00C1E39B /* SavedViewController.m in Sources */,
+				35B762D12108E4E60089739D /* SearchTableViewCell.m in Sources */,
 				35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */,
 				66BF561420FE5DF600C1E39B /* AddVolunteerOpportunityViewController.m in Sources */,
 				66BF561D20FE967400C1E39B /* SavedViewCell.m in Sources */,
@@ -529,6 +553,7 @@
 				66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */,
 				66BF560D20FE5DAF00C1E39B /* VolunteerOpportunity.m in Sources */,
 				3529DCEC20FFCA150057F133 /* AddTagViewController.m in Sources */,
+				35B762812107AF370089739D /* SearchLocationTableViewController.m in Sources */,
 				354307F4210149B70045A8FD /* EditUserProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

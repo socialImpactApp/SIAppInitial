@@ -34,10 +34,11 @@
     self.tableView.delegate = self;
     self.tableView.rowHeight = 200;
     self.tableView.backgroundColor = [UIColor snowColor];
-    
     self.refreshControl = [[UIRefreshControl alloc] init];
      [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:self.refreshControl];
+    self.refreshControl.layer.zPosition = -1;
+    [self.view addSubview:self.refreshControl];
+    
     [self fetch]; 
 }
 
@@ -57,7 +58,7 @@
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            self.posts = posts;
+            self.posts = [posts mutableCopy];
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -113,9 +114,6 @@
     
     return 00.0;
 }
-
-
-
 
 #pragma mark - Navigation
 
