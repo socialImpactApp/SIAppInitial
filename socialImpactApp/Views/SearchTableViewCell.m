@@ -21,8 +21,9 @@
     // Configure the view for the selected state
 }
 
--(void)configureCell:(NSString *)string{
-    self.resultLabel.text = string;    
+-(void)configureCell:(NSString *)resultString withAddress:(NSString *) addressString;{
+    self.resultLabel.text = resultString;
+    self.addressLabel.text = addressString;
 }
 
 

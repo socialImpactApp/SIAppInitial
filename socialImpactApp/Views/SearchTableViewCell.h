@@ -10,7 +10,8 @@
 
 @interface SearchTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
--(void)configureCell: (NSString *) string;
+-(void)configureCell: (NSString *) resultString withAddress:(NSString *) addressString;
 
 @end
