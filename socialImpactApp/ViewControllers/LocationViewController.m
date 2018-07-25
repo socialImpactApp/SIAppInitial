@@ -44,6 +44,7 @@
     
     //setting textfield to self
     self.searchField.delegate = self;
+    self.searchField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     self.resultsTableView.delegate=self;
     self.resultsTableView.dataSource=self;
@@ -100,7 +101,6 @@ replacementString:(NSString *)string {
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
             NSLog(@"%f",placemark.location.coordinate.latitude);
             NSLog(@"%f",placemark.location.coordinate.longitude);
-            //NSLog(@"%@",[NSString stringWithFormat:@"%@",[placemark description]]);
             
             CLLocationCoordinate2D center = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude);
             MKCoordinateSpan span;

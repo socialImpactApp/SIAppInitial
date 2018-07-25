@@ -19,8 +19,6 @@
 		35B762772106B06D0089739D /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B762762106B06D0089739D /* LocationViewController.m */; };
 		35B762792106CB3A0089739D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B762782106CB3A0089739D /* MapKit.framework */; };
 		35B7627B2107895E0089739D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7627A2107895E0089739D /* CoreLocation.framework */; };
-		35B762812107AF370089739D /* SearchLocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B762802107AF370089739D /* SearchLocationTableViewController.m */; };
-		35B76288210814D50089739D /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B76287210814D50089739D /* LocationCell.m */; };
 		35B762D12108E4E60089739D /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B762D02108E4E60089739D /* SearchTableViewCell.m */; };
 		35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53420EFE03E00B5D12C /* AppDelegate.m */; };
 		35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53720EFE03E00B5D12C /* ViewController.m */; };
@@ -81,10 +79,6 @@
 		35B762762106B06D0089739D /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		35B762782106CB3A0089739D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		35B7627A2107895E0089739D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		35B7627F2107AF370089739D /* SearchLocationTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchLocationTableViewController.h; sourceTree = "<group>"; };
-		35B762802107AF370089739D /* SearchLocationTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchLocationTableViewController.m; sourceTree = "<group>"; };
-		35B76286210814D50089739D /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
-		35B76287210814D50089739D /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
 		35B762CF2108E4E60089739D /* SearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
 		35B762D02108E4E60089739D /* SearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
 		35D8D53020EFE03E00B5D12C /* socialImpactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socialImpactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,8 +174,6 @@
 				354307F3210149B70045A8FD /* EditUserProfileViewController.m */,
 				35B762752106B06D0089739D /* LocationViewController.h */,
 				35B762762106B06D0089739D /* LocationViewController.m */,
-				35B7627F2107AF370089739D /* SearchLocationTableViewController.h */,
-				35B762802107AF370089739D /* SearchLocationTableViewController.m */,
 				66BF560A20FE5DAF00C1E39B /* Models */,
 			);
 			path = ViewControllers;
@@ -297,8 +289,6 @@
 				66BF561020FE5DBB00C1E39B /* VolunteerOpportunityCell.h */,
 				66BF561B20FE967400C1E39B /* SavedViewCell.h */,
 				66BF561C20FE967400C1E39B /* SavedViewCell.m */,
-				35B76286210814D50089739D /* LocationCell.h */,
-				35B76287210814D50089739D /* LocationCell.m */,
 				35B762CF2108E4E60089739D /* SearchTableViewCell.h */,
 				35B762D02108E4E60089739D /* SearchTableViewCell.m */,
 			);
@@ -535,7 +525,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35B76288210814D50089739D /* LocationCell.m in Sources */,
 				354307EE21013B660045A8FD /* UserProfileViewController.m in Sources */,
 				66BF561720FE6A3E00C1E39B /* User.m in Sources */,
 				355718C320FC534D00D735EA /* LoginViewController.m in Sources */,
@@ -553,7 +542,6 @@
 				66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */,
 				66BF560D20FE5DAF00C1E39B /* VolunteerOpportunity.m in Sources */,
 				3529DCEC20FFCA150057F133 /* AddTagViewController.m in Sources */,
-				35B762812107AF370089739D /* SearchLocationTableViewController.m in Sources */,
 				354307F4210149B70045A8FD /* EditUserProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
