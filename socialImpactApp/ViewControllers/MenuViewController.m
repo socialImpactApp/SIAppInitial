@@ -35,7 +35,7 @@
     self.tableView.rowHeight = 200;
     self.tableView.backgroundColor = [UIColor snowColor];
     self.refreshControl = [[UIRefreshControl alloc] init];
-     [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
+     [self.refreshControl addTarget:self action:@selector(fetch) forControlEvents:UIControlEventValueChanged];
     self.refreshControl.layer.zPosition = -1;
     [self.view addSubview:self.refreshControl];
     
@@ -64,6 +64,8 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+    [self.refreshControl endRefreshing];
+
 }
 
 

@@ -20,7 +20,11 @@
 
 @end
 
-@implementation LocationViewController
+@implementation LocationViewController {
+    NSString *tappedLocation;
+    NSString *tappedAddress;
+
+}
 
 @synthesize locationManager;
 
@@ -46,9 +50,11 @@
     self.searchField.delegate = self;
     self.searchField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
+    //setting tableview delegates
     self.resultsTableView.delegate=self;
     self.resultsTableView.dataSource=self;
     
+    //want it to be hidden first and show after results are called to tableview
     [self.resultsTableView setHidden:YES];
 }
 
@@ -60,6 +66,11 @@
     [self.view endEditing:YES];
       self.resultsTableView.hidden = true;
 }
+- (IBAction)didTapAddLocation:(id)sender withAddress:(id)senderTwo {
+    [self.delegate didTapAddLocation:tappedLocation withAddress:tappedAddress];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range
 replacementString:(NSString *)string {
@@ -94,6 +105,8 @@ replacementString:(NSString *)string {
     MKLocalSearchCompletion *resultCell = self.results[indexPath.row];
     NSString *address = [NSString stringWithFormat:@"%@ %@", resultCell.title,resultCell.subtitle];
     self.searchField.text = address;
+    tappedLocation = resultCell.title;
+    tappedAddress = resultCell.subtitle;
     NSLog(@"%@", address);
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:address completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
@@ -115,7 +128,6 @@ replacementString:(NSString *)string {
             point.coordinate = center;
             [self.mapView addAnnotation:point];
             [self.mapView setRegion:locationRegion animated:true];
-
         }
         else {
             NSLog(@"%@", error.localizedDescription);

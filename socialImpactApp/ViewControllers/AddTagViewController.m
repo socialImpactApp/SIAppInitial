@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *medicalButton;
 @property (strong, nonatomic) IBOutlet UIView *backView;
 
-
 @end
 
 @implementation AddTagViewController {

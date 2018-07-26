@@ -109,7 +109,7 @@
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
-//delegagte method
+//delegagte method for image taking
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     
@@ -136,6 +136,8 @@
     return newImage;
     
 }
+
+
 
 /*
 #pragma mark - Navigation

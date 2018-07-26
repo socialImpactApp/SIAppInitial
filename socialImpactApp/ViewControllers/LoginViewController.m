@@ -32,12 +32,6 @@
 - (void) loginUser {
     
     
-//    newUser.email = @"test@test123.com";
-//    newUser.password = @"234523452345";
-//    newUser.username = @"test@test123.com";
-//    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//     
-//    }];
     [User logInWithUsername:self.username.text
                    password:self.password.text];
     NSString *username = self.username.text;

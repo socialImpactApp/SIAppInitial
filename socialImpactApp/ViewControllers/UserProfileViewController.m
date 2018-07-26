@@ -15,7 +15,6 @@
 
 
 @interface UserProfileViewController () <EditUserProfileViewControllerDelegate, UIScrollViewDelegate>
-//@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (weak, nonatomic) IBOutlet PFImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
@@ -63,8 +62,6 @@
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:customRefreshControlFrame];
     
     [self.userView addSubview:self.refreshControl];
-    
-    
 }
 
 

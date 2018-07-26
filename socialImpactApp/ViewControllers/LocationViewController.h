@@ -10,8 +10,16 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+@protocol AddLocationViewControllerDelegate
+
+-(void)didTapAddLocation:(NSString *) locationName withAddress:(NSString *) addressName;
+
+@end
+
 @interface LocationViewController : UIViewController<CLLocationManagerDelegate>
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
+@property (strong, nonatomic) id<AddLocationViewControllerDelegate> delegate;
+
 
 @end

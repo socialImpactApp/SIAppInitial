@@ -13,11 +13,12 @@
 #import "AddVolunteerOpportunityViewController.h"
 #import "AddTagViewController.h"
 #import "VolunteerOpportunity.h"
+#import "LocationViewController.h"
 #import <UIKit/UIKit.h>
 #import "Colours.h"
 
 
-@interface AddVolunteerOpportunityViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, AddTagViewControllerDelegate>
+@interface AddVolunteerOpportunityViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, AddTagViewControllerDelegate, AddLocationViewControllerDelegate> 
 @property (weak, nonatomic) IBOutlet UITextView *titleView;
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
 @property (weak, nonatomic) IBOutlet UITextView *hoursView;
@@ -35,6 +36,8 @@
 @implementation AddVolunteerOpportunityViewController {
     //this is where our tags of strings array is
     NSMutableArray<NSString *> *_collectionOfTags;
+    NSString *_volunteerLocation;
+    NSString *_volunteerAddress;
 }
 
 
@@ -55,8 +58,6 @@
     [self.datePicker addTarget:self action:@selector(onDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     self.dateView.inputView = self.datePicker;
     self.scrollView.backgroundColor = [UIColor snowColor];
-    
-
     
     CALayer *bottomBorder = [CALayer layer];
     bottomBorder.frame = CGRectMake(0.0f, self.titleView.frame.size.height - 1, self.titleView.frame.size.width, 1.0f);
@@ -128,6 +129,11 @@
     _collectionOfTags = [tags copy];
 }
 
+-(void)didTapAddLocation:(NSString *)locationName withAddress:(NSString *)addressName{
+    _volunteerLocation = locationName;
+    _volunteerAddress = addressName;
+    self.locationView.text = _volunteerLocation;
+}
 
 //spots is a NSNumber
 - (IBAction)didTapPost:(id)sender {
@@ -136,9 +142,10 @@
                 withTitle:self.titleView.text
            withDescripton:self.descriptionView.text
                 withHours:self.hoursView.text
-                withSpots:[NSNumber numberWithInteger:[self.spotsView.text integerValue]]  
+                withSpots:self.spotsView.text  
             withTags:_collectionOfTags
         withDate:self.dateView.text
+         withLocation:[NSString stringWithFormat:@"%@ %@" , _volunteerLocation, _volunteerAddress]
            withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                if(succeeded){
                    NSLog(@"%@", self->_collectionOfTags);
@@ -147,6 +154,7 @@
                    self.hoursView.text = @"";
                    self.spotsView.text = @"";
                    self.descriptionView.text = @"";
+                   self.locationView.text = @"";
                    NSLog(@"posted!!");
                    [self dismissViewControllerAnimated:YES completion:nil];
                }
@@ -193,7 +201,6 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     // Getting image captured by the PickerController
-    //UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     
     // Do something with the images (based on your use case)
@@ -204,8 +211,6 @@
     //Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
 
 
  #pragma mark - Navigation
@@ -219,6 +224,10 @@
          AddTagViewController *tagViewController =
          segue.destinationViewController;
          tagViewController.delegate = self;
+     }
+     else if ([segue.identifier isEqualToString:@"locationSeg"]){
+         LocationViewController *locationViewController = segue.destinationViewController;
+         locationViewController.delegate = self;
      }
  }
 
