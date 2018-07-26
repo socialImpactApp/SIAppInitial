@@ -32,7 +32,6 @@
 		51216213CEC3A0D4FAF43C93 /* libPods-socialImpactAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D1B2DFDE6B4F153928CCBB /* libPods-socialImpactAppUITests.a */; };
 		661BAE7A21062579007363CC /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 661BAE7921062579007363CC /* ActionViewController.m */; };
 		661BAE7D21062579007363CC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 661BAE7B21062579007363CC /* MainInterface.storyboard */; };
-		661BAE8121062579007363CC /* SavedViewController.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 661BAE7621062579007363CC /* SavedViewController.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66379C9520FFF02D00487A3D /* SignUpViewController.m */; };
 		66BF560D20FE5DAF00C1E39B /* VolunteerOpportunity.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560C20FE5DAF00C1E39B /* VolunteerOpportunity.m */; };
 		66BF561120FE5DBB00C1E39B /* VolunteerOpportunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560F20FE5DBB00C1E39B /* VolunteerOpportunityCell.m */; };
@@ -57,28 +56,7 @@
 			remoteGlobalIDString = 35D8D52F20EFE03E00B5D12C;
 			remoteInfo = socialImpactApp;
 		};
-		661BAE7F21062579007363CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 35D8D52820EFE03E00B5D12C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 661BAE7521062579007363CC;
-			remoteInfo = SavedViewController;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		661BAE8521062579007363CC /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				661BAE8121062579007363CC /* SavedViewController.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0920CAF78102BC2876E695E8 /* Pods-socialImpactAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactAppTests/Pods-socialImpactAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -333,12 +311,8 @@
 			children = (
 				66BF560F20FE5DBB00C1E39B /* VolunteerOpportunityCell.m */,
 				66BF561020FE5DBB00C1E39B /* VolunteerOpportunityCell.h */,
-
-				66BF561B20FE967400C1E39B /* SavedViewCell.h */,
-				66BF561C20FE967400C1E39B /* SavedViewCell.m */,
 				35B762CF2108E4E60089739D /* SearchTableViewCell.h */,
 				35B762D02108E4E60089739D /* SearchTableViewCell.m */,
-
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -367,12 +341,10 @@
 				35D8D52D20EFE03E00B5D12C /* Frameworks */,
 				35D8D52E20EFE03E00B5D12C /* Resources */,
 				EE68753B51F452C1AE6BC386 /* [CP] Copy Pods Resources */,
-				661BAE8521062579007363CC /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				661BAE8021062579007363CC /* PBXTargetDependency */,
 			);
 			name = socialImpactApp;
 			productName = socialImpactApp;
@@ -661,11 +633,6 @@
 			target = 35D8D52F20EFE03E00B5D12C /* socialImpactApp */;
 			targetProxy = 35D8D55420EFE04000B5D12C /* PBXContainerItemProxy */;
 		};
-		661BAE8021062579007363CC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 661BAE7521062579007363CC /* SavedViewController */;
-			targetProxy = 661BAE7F21062579007363CC /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -728,7 +695,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -786,7 +753,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -813,13 +780,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6H3UNJFN69;
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = socialImpactApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaxezra.socialImpactApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -833,13 +800,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6H3UNJFN69;
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = socialImpactApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaxezra.socialImpactApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -851,9 +818,9 @@
 			baseConfigurationReference = 71027CDC2FDD0873B9C15059 /* Pods-socialImpactAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = socialImpactAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -873,9 +840,9 @@
 			baseConfigurationReference = 0920CAF78102BC2876E695E8 /* Pods-socialImpactAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = socialImpactAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -894,9 +861,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E3B0A2E856F5A84C19262B7 /* Pods-socialImpactAppUITests.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = socialImpactAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -915,9 +882,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E19E763DFD24563E71E7D3E8 /* Pods-socialImpactAppUITests.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = socialImpactAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -935,9 +902,9 @@
 		661BAE8321062579007363CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6H3UNJFN69;
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = SavedViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -954,9 +921,9 @@
 		661BAE8421062579007363CC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6H3UNJFN69;
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = SavedViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
