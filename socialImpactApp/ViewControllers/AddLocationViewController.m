@@ -1,16 +1,16 @@
 //
-//  LocationViewController.m
+//  AddLocationViewController.m
 //  socialImpactApp
 //
 //  Created by Roesha Nigos on 7/23/18.
 //  Copyright © 2018 teamMorgan. All rights reserved.
 //
 
-#import "LocationViewController.h"
+#import "AddLocationViewController.h"
 #import "SearchTableViewCell.h"
 #import "Colours.h"
 
-@interface LocationViewController () <CLLocationManagerDelegate,MKLocalSearchCompleterDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface AddLocationViewController () <CLLocationManagerDelegate,MKLocalSearchCompleterDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
 @property (weak, nonatomic) IBOutlet UITableView *resultsTableView;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation LocationViewController {
+@implementation AddLocationViewController {
     NSString *tappedLocation;
     NSString *tappedAddress;
 

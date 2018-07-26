@@ -13,7 +13,7 @@
 #import "AddVolunteerOpportunityViewController.h"
 #import "AddTagViewController.h"
 #import "VolunteerOpportunity.h"
-#import "LocationViewController.h"
+#import "AddLocationViewController.h"
 #import <UIKit/UIKit.h>
 #import "Colours.h"
 
@@ -226,7 +226,7 @@
          tagViewController.delegate = self;
      }
      else if ([segue.identifier isEqualToString:@"locationSeg"]){
-         LocationViewController *locationViewController = segue.destinationViewController;
+         AddLocationViewController *locationViewController = segue.destinationViewController;
          locationViewController.delegate = self;
      }
  }

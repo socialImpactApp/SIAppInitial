@@ -12,7 +12,6 @@
 
 
 
-
 @interface VolunteerOpportunityCell : UITableViewCell
 @property (strong, nonatomic)  VolunteerOpportunity *post;
 @property (weak, nonatomic) IBOutlet PFImageView *oppImageView;
@@ -24,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIView *backCellView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UIButton *locationButton;
 
 //going to access this publicly in MenuViewController
 -(void)configureCell: (VolunteerOpportunity *) volunOpp;

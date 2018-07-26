@@ -14,12 +14,15 @@
 #import "User.h"
 #import "VolunteerOpportunity.h"
 #import "Colours.h"
+#import "ShowLocationViewController.h"
+
 
 @implementation VolunteerOpportunityCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -27,6 +30,9 @@
 
     // Configure the view for the selected state
 }
+
+
+
 
 -(void)configureCell: (VolunteerOpportunity *) volunOpp {
     self.post = volunOpp;
@@ -74,6 +80,15 @@
 //
 //    }
 
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+//    if ([segue.identifier isEqualToString:@"showLocationSeg"]) {
+//        ShowLocationViewController *showController =
+//        segue.destinationViewController;
+//        showController.delegate = self;
+//    }
+    
 }
 
 

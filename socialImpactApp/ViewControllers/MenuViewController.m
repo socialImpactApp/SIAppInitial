@@ -12,6 +12,7 @@
 #import "VolunteerOpportunityCell.h"
 #import "DetailViewController.h"
 #import "LoginViewController.h"
+#import "ShowLocationViewController.h"
 
 #import "Colours.h"
 
@@ -25,7 +26,10 @@
 
 @end
 
-@implementation MenuViewController
+@implementation MenuViewController{
+    NSString *volunteerLocation;
+    NSIndexPath *indexPathLocation;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -89,9 +93,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"we are in cellforRow");
     VolunteerOpportunityCell *postCell = [self.tableView dequeueReusableCellWithIdentifier:@"postCell"];
+    postCell.locationButton.tag = indexPath.row;
+    [postCell.locationButton addTarget:self action:@selector(didTapLocation:) forControlEvents:UIControlEventTouchUpInside];
+
     VolunteerOpportunity *post = self.posts[indexPath.row];
     [postCell configureCell:post];
     return postCell;
+}
+- (IBAction)didTapLocation:(id)sender {
+    UITableViewCell *postCell = (UITableViewCell *)[sender superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:postCell];
+    indexPathLocation = indexPath;
 }
 
 - (IBAction)didTapLogout:(id)sender {
@@ -106,6 +118,7 @@
         appDelegate.window.rootViewController = loginViewController;
     }];
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
 
@@ -127,13 +140,22 @@
     UITableViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
     VolunteerOpportunity *theCurrentVolunOpp = self.posts[indexPath.row];
-    
+    NSLog(@"we are here1 %@", theCurrentVolunOpp[@"location"]);
     if ([segue.identifier isEqualToString:@"detailsSegue"])
     {
+        NSLog(@"we are here2 %@", theCurrentVolunOpp[@"location"]);
         DetailViewController *detailedController = [segue destinationViewController];
         detailedController.post = theCurrentVolunOpp;
+        NSLog(@"we are here3 %@", theCurrentVolunOpp[@"location"]);
         NSLog(@"checking detailedPost");
 }
+    else if ([segue.identifier isEqualToString:@"showLocationSeg"])
+    {
+        NSLog(@"we are here4 %@", theCurrentVolunOpp[@"location"]);
+        ShowLocationViewController *showLocationController = [segue destinationViewController];
+        showLocationController.post = theCurrentVolunOpp;
+
+    }
 }
 
 
