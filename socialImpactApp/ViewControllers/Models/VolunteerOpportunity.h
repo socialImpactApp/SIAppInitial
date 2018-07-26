@@ -28,6 +28,7 @@
 @property (nonatomic, strong) NSString * _Nullable location;
 //***These are the tags for each volunteer post***
 @property (nonatomic, strong) NSMutableArray <NSString *> * _Nullable tags;
+@property (nonatomic) BOOL favorited;
 
 
 + (PFObject *_Nullable) postUserOpp: ( UIImage * _Nullable )image

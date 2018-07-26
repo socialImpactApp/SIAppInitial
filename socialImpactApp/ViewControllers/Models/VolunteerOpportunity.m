@@ -71,7 +71,6 @@
     
     [newPost saveInBackgroundWithBlock:completion];
     return newPost;
-
 }
 
 

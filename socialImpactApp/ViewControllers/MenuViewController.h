@@ -16,5 +16,4 @@
 @property (nonatomic, strong) VolunteerOpportunity *currentPost;
 @property (strong,nonatomic) User *loggedInUser;
 
-
 @end
