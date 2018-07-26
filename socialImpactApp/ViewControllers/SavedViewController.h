@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VolunteerOpportunityCell.h"
 
 @interface SavedViewController : UIViewController
-
-
 
 @end

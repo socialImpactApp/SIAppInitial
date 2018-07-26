@@ -52,7 +52,6 @@
     newPost.date = date; 
     [newPost saveInBackgroundWithBlock:completion];
     return newPost;
-
 }
 
 
