@@ -12,20 +12,20 @@
 #import "VolunteerOpportunityCell.h"
 #import "DetailViewController.h"
 #import "LoginViewController.h"
-
 #import "Colours.h"
-
-
 
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) NSMutableArray *volunteerOpportunities;
 
 @end
 
-@implementation MenuViewController
+@implementation MenuViewController{
+    NSMutableArray *postsOne;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,6 +40,8 @@
     [self.view addSubview:self.refreshControl];
     
     [self fetch]; 
+    self.volunteerOpportunities = [[NSMutableArray alloc] init];
+    NSLog(@"%@", self.volunteerOpportunities);
 }
 
 -(void)refreshTableView {
@@ -51,14 +53,24 @@
 
 -(void)fetch {
    
+    User *currentUser = [User currentUser];
+    postsOne = [[NSMutableArray alloc] init];
+    self->postsOne = self.volunteerOpportunities;
+
     PFQuery *query = [VolunteerOpportunity query];
+    
+    //in the future we will filter the data
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
+
             self.posts = [posts mutableCopy];
+
+            self.volunteerOpportunities = posts;
+            self->postsOne = posts; 
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -66,7 +78,10 @@
     }];
     [self.refreshControl endRefreshing];
 
+    //[self.refreshControl endRefreshing];
 }
+
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -79,7 +94,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.posts.count;
+    return self.volunteerOpportunities.count;
     
 }
 
@@ -89,8 +104,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"we are in cellforRow");
     VolunteerOpportunityCell *postCell = [self.tableView dequeueReusableCellWithIdentifier:@"postCell"];
-    VolunteerOpportunity *post = self.posts[indexPath.row];
+    NSLog(@"%@", postCell.volunteerOpportunity.postID);
+    NSLog(@"%@", postCell.descriptionLabel.text);
+    NSLog(@"%@", postCell);
+    VolunteerOpportunity *post = self.volunteerOpportunities[indexPath.row];
+    NSLog(@"checking post");
+    NSLog(@"%@", post.postID);
     [postCell configureCell:post];
+    
+    
+    
     return postCell;
 }
 
@@ -126,7 +149,7 @@
     
     UITableViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-    VolunteerOpportunity *theCurrentVolunOpp = self.posts[indexPath.row];
+    VolunteerOpportunity *theCurrentVolunOpp = self.volunteerOpportunities[indexPath.row];
     
     if ([segue.identifier isEqualToString:@"detailsSegue"])
     {

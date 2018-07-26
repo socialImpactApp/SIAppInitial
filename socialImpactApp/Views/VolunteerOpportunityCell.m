@@ -14,22 +14,28 @@
 #import "User.h"
 #import "VolunteerOpportunity.h"
 #import "Colours.h"
+#import "SavedViewController.h"
 
 @implementation VolunteerOpportunityCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.loggedInUser = [User currentUser];
+    if (self.loggedInUser.favoritedOpps == NULL)
+    {
+        self.loggedInUser.favoritedOpps = [[NSMutableArray alloc] init];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 
 -(void)configureCell: (VolunteerOpportunity *) volunOpp {
-    self.post = volunOpp;
+    self.volunteerOpportunity = volunOpp;
+    //NSLog(@"%@", volunOpp.objectId);
     self.oppImageView.file = volunOpp[@"image"];
     [self.oppImageView loadInBackground];
     self.oppImageView.layer.cornerRadius = self.oppImageView.frame.size.height/2;
@@ -47,34 +53,73 @@
     self.backCellView.layer.shadowOpacity = 0.5;
     
     
+    User *loggedInUser = [User currentUser];
+    if ([loggedInUser.favoritedOpps containsObject:volunOpp.objectId])
+    {
+        self.favoritedButton.selected = YES;
+    }
+    else
+    {
+        self.favoritedButton.selected = NO;
+    }
 }
 
 - (IBAction)didTapFavorite:(id)sender {
-    User *loggedInUser = [User currentUser];
+    if (self.favoritedButton.selected)
+    {
+        PFQuery *friendQuery = [PFUser query];
+        //NSLog(@"%@", user.contactNumber);
+        //Ask Morgan about whereKey
+        [friendQuery whereKey:@"username" equalTo:self.loggedInUser.username];
+        [friendQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error)
+         {
+             self.volunteerOpportunity.favorited = NO;
+             NSLog(@"PRE DELETE");
+            NSLog(@"%@", self.loggedInUser.favoritedOpps);
+
+          
+             [self.loggedInUser.favoritedOpps removeObject:self.volunteerOpportunity.objectId];
+             
+             NSLog(@"POST DELETE");
+
+             NSLog(@"%@", self.loggedInUser.favoritedOpps);
+             
+
+             [self.loggedInUser setObject:self.loggedInUser.favoritedOpps forKey:@"favoritedOpps"];
+            [self.loggedInUser saveInBackground];
+             
+             NSLog(@"deleted from favoriteOpps and saved in Parse");
+             self.favoritedButton.selected = NO;
+         }];
+        
+        
+    }
+
+else {
+{
     PFQuery *friendQuery = [PFUser query];
     //NSLog(@"%@", user.contactNumber);
-    [friendQuery whereKey:@"username" equalTo:loggedInUser.username];
+    //Ask Morgan about whereKey
+    [friendQuery whereKey:@"username" equalTo:self.loggedInUser.username];
     [friendQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error)
-    {
-        /* This is how you add 'userNameToAdd' to the Array called friendsList that
-         * belongs to the special parse class called User (PFUser type): */
-
-        // This is your current user
-        // Adds object to friendList array
-        [loggedInUser.favoritedOpps addObject:self.post.postID];
-
-        // Saves the changes on the Parse server. This is necessary to update the actual Parse server. If you don't "save" then the changes will be lost
-        [loggedInUser saveInBackground];
-        NSLog(@"added to favoriteOpps");
-    }];
-
-//    if (self.favoritedButton.selected)
-//    {
-//
-//
-//    }
+     {
+         NSLog(@"test post ID for null");
+         NSLog(@"%@", self.volunteerOpportunity.postID);
+         [self.loggedInUser.favoritedOpps addObject:self.volunteerOpportunity.objectId];
+         NSLog(@"%@", self.loggedInUser.favoritedOpps);
+         self.loggedInUser[@"favoritedOpps"] = self.loggedInUser.favoritedOpps;
+         [self.loggedInUser saveInBackground];
+         NSLog(@"%lu", self.loggedInUser.favoritedOpps);
+         NSLog(@"added to favoriteOpps");
+         self.favoritedButton.selected = YES;
+     }];
+    
+    }
+    
+}
 
 }
+
 
 
 

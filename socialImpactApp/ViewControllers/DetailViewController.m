@@ -31,7 +31,7 @@
     
     User *user = [User currentUser];
     self.largeDescription.text = post[@"description"]; // good
-//    self.Location.text = [[self.post[@"lat"] stringByAppendingString:@" "] stringByAppendingString:self.post[@"lng"]];
+//    self.Location.text = [[self.post[@"lat"] // might use this for location later stringByAppendingString:@" "] stringByAppendingString:self.post[@"lng"]];
     self.contactInfo.text = user[@"contactNumber"];
     self.hours.text = post[@"hours"]; // good
     self.spotsLeft.text = post[@"spotsLeft"]; //good

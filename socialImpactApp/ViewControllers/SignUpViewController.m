@@ -58,7 +58,7 @@
     else {
         // initalizes a new user object ..  making a new user
         User *newUser = [User user];
-        newUser.favoritedOpps = @[@"signUp"];
+        newUser.favoritedOpps = [[NSMutableArray alloc] init];
         
         // set user properties
         newUser.username = self.username.text;

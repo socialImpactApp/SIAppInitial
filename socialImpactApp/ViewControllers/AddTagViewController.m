@@ -95,12 +95,11 @@
     }
 }
 
-
-
 - (IBAction)didTapSaveFilter:(id)sender {
     [self.delegate didTapSaveFilter:tagCollection];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 /*
  #pragma mark - Navigation
