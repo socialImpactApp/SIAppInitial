@@ -881,7 +881,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVc-fq-z8t">
                                 <rect key="frame" x="329" y="280" width="30" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -890,7 +889,6 @@
                                     <segue destination="Qbv-O1-qFO" kind="presentation" identifier="showLocSeg" id="E0p-CQ-pIu"/>
                                 </connections>
                             </button>
-
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7d-QW-0Sz">
                                 <rect key="frame" x="26" y="380" width="71" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1024,13 +1022,11 @@
                                     </label>
                                 </subviews>
                             </scrollView>
-
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Brk-0k-sdK" customClass="PFImageView">
                                 <rect key="frame" x="112" y="74" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0U2-RE-iqw"/>
@@ -1565,12 +1561,8 @@
         <image name="placeholder" width="1200" height="900"/>
     </resources>
     <inferredMetricsTieBreakers>
-
         <segue reference="8hU-Bg-jgR"/>
-        <segue reference="X9I-PM-5Rg"/>
-
         <segue reference="nou-Xg-BJy"/>
         <segue reference="GAf-6l-e0s"/>
-
     </inferredMetricsTieBreakers>
 </document>
