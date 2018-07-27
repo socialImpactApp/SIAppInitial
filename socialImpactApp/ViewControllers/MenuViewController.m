@@ -34,10 +34,11 @@
     self.tableView.delegate = self;
     self.tableView.rowHeight = 200;
     self.tableView.backgroundColor = [UIColor snowColor];
-    
     self.refreshControl = [[UIRefreshControl alloc] init];
-     [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:self.refreshControl];
+     [self.refreshControl addTarget:self action:@selector(fetch) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl.layer.zPosition = -1;
+    [self.view addSubview:self.refreshControl];
+    
     [self fetch]; 
     self.volunteerOpportunities = [[NSMutableArray alloc] init];
     NSLog(@"%@", self.volunteerOpportunities);
@@ -65,6 +66,9 @@
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
+
+            self.posts = [posts mutableCopy];
+
             self.volunteerOpportunities = posts;
             self->postsOne = posts; 
             [self.tableView reloadData];
@@ -72,6 +76,8 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+    [self.refreshControl endRefreshing];
+
     //[self.refreshControl endRefreshing];
 }
 
@@ -143,9 +149,6 @@
     
     return 00.0;
 }
-
-
-
 
 #pragma mark - Navigation
 

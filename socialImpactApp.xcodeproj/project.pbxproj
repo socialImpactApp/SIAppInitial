@@ -16,6 +16,10 @@
 		35B7627021067B500089739D /* NewsCycle-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626D21067B4E0089739D /* NewsCycle-Regular.ttf */; };
 		35B7627121067B500089739D /* NewsCycle-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626E21067B4E0089739D /* NewsCycle-Bold.ttf */; };
 		35B7627221067B500089739D /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626F21067B4E0089739D /* OFL.txt */; };
+		35B762772106B06D0089739D /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B762762106B06D0089739D /* LocationViewController.m */; };
+		35B762792106CB3A0089739D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B762782106CB3A0089739D /* MapKit.framework */; };
+		35B7627B2107895E0089739D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7627A2107895E0089739D /* CoreLocation.framework */; };
+		35B762D12108E4E60089739D /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B762D02108E4E60089739D /* SearchTableViewCell.m */; };
 		35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53420EFE03E00B5D12C /* AppDelegate.m */; };
 		35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53720EFE03E00B5D12C /* ViewController.m */; };
 		35D8D53B20EFE03E00B5D12C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D53920EFE03E00B5D12C /* Main.storyboard */; };
@@ -92,6 +96,8 @@
 		};
 /* End PBXCopyFilesBuildPhase section */
 
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0920CAF78102BC2876E695E8 /* Pods-socialImpactAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactAppTests/Pods-socialImpactAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		29C54D53F8DF8C1846F5D92C /* libPods-socialImpactAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-socialImpactAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +116,12 @@
 		35B7626D21067B4E0089739D /* NewsCycle-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewsCycle-Regular.ttf"; sourceTree = "<group>"; };
 		35B7626E21067B4E0089739D /* NewsCycle-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewsCycle-Bold.ttf"; sourceTree = "<group>"; };
 		35B7626F21067B4E0089739D /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		35B762752106B06D0089739D /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		35B762762106B06D0089739D /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		35B762782106CB3A0089739D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		35B7627A2107895E0089739D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		35B762CF2108E4E60089739D /* SearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
+		35B762D02108E4E60089739D /* SearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
 		35D8D53020EFE03E00B5D12C /* socialImpactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socialImpactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D8D53320EFE03E00B5D12C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35D8D53420EFE03E00B5D12C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -168,6 +180,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35B7627B2107895E0089739D /* CoreLocation.framework in Frameworks */,
+				35B762792106CB3A0089739D /* MapKit.framework in Frameworks */,
 				47D8A038FCB35C7777A968A0 /* libPods-socialImpactApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,6 +242,8 @@
 				354307F3210149B70045A8FD /* EditUserProfileViewController.m */,
 				662885FF21092C9D0014196F /* TimelineViewController.h */,
 				6628860021092C9D0014196F /* TimelineViewController.m */,
+				35B762752106B06D0089739D /* LocationViewController.h */,
+				35B762762106B06D0089739D /* LocationViewController.m */,
 				66BF560A20FE5DAF00C1E39B /* Models */,
 			);
 			path = ViewControllers;
@@ -378,6 +394,8 @@
 				66BF560F20FE5DBB00C1E39B /* VolunteerOpportunityCell.m */,
 				66BF561020FE5DBB00C1E39B /* VolunteerOpportunityCell.h */,
 				667632832107AC6600538E9B /* News_Cycle */,
+				35B762CF2108E4E60089739D /* SearchTableViewCell.h */,
+				35B762D02108E4E60089739D /* SearchTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -385,6 +403,8 @@
 		B869D6796AE17E91CF0BB5B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35B7627A2107895E0089739D /* CoreLocation.framework */,
+				35B762782106CB3A0089739D /* MapKit.framework */,
 				4A2B5A5065D470831F56D7DE /* libPods-socialImpactApp.a */,
 				29C54D53F8DF8C1846F5D92C /* libPods-socialImpactAppTests.a */,
 				82D1B2DFDE6B4F153928CCBB /* libPods-socialImpactAppUITests.a */,
@@ -404,13 +424,13 @@
 				35D8D52D20EFE03E00B5D12C /* Frameworks */,
 				35D8D52E20EFE03E00B5D12C /* Resources */,
 				EE68753B51F452C1AE6BC386 /* [CP] Copy Pods Resources */,
-				661BAE8521062579007363CC /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				661BAE8021062579007363CC /* PBXTargetDependency */,
 				667632982107ACCB00538E9B /* PBXTargetDependency */,
+
 			);
 			name = socialImpactApp;
 			productName = socialImpactApp;
@@ -679,9 +699,11 @@
 				66BF561720FE6A3E00C1E39B /* User.m in Sources */,
 				355718C320FC534D00D735EA /* LoginViewController.m in Sources */,
 				35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */,
+				35B762772106B06D0089739D /* LocationViewController.m in Sources */,
 				35D8D54320EFE04000B5D12C /* main.m in Sources */,
 				66BF561120FE5DBB00C1E39B /* VolunteerOpportunityCell.m in Sources */,
 				66BF561A20FE932E00C1E39B /* SavedViewController.m in Sources */,
+				35B762D12108E4E60089739D /* SearchTableViewCell.m in Sources */,
 				35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */,
 				66BF561420FE5DF600C1E39B /* AddVolunteerOpportunityViewController.m in Sources */,
 				6628860121092C9D0014196F /* TimelineViewController.m in Sources */,
@@ -749,6 +771,7 @@
 			target = 6676328D2107ACCB00538E9B /* newsCycleFont */;
 			targetProxy = 667632972107ACCB00538E9B /* PBXContainerItemProxy */;
 		};
+
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -819,7 +842,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -877,7 +900,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -904,13 +927,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6H3UNJFN69;
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = socialImpactApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaxezra.socialImpactApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -924,13 +947,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6H3UNJFN69;
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = socialImpactApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaxezra.socialImpactApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -942,9 +965,9 @@
 			baseConfigurationReference = 71027CDC2FDD0873B9C15059 /* Pods-socialImpactAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = socialImpactAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -964,9 +987,9 @@
 			baseConfigurationReference = 0920CAF78102BC2876E695E8 /* Pods-socialImpactAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = socialImpactAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -985,9 +1008,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E3B0A2E856F5A84C19262B7 /* Pods-socialImpactAppUITests.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = socialImpactAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1006,9 +1029,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E19E763DFD24563E71E7D3E8 /* Pods-socialImpactAppUITests.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = socialImpactAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1026,9 +1049,9 @@
 		661BAE8321062579007363CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6H3UNJFN69;
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = SavedViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1045,9 +1068,9 @@
 		661BAE8421062579007363CC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6H3UNJFN69;
+				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = SavedViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

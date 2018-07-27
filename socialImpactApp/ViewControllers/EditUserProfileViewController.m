@@ -7,6 +7,7 @@
 //
 
 #import "EditUserProfileViewController.h"
+#import "Colours.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 
@@ -18,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *emailLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contactLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *proImageView;
-
+@property (strong, nonatomic) IBOutlet UIView *backView;
 
 @end
 
@@ -50,6 +51,11 @@
     [self.contactLabel.layer addSublayer:bottomBorder3];
     
     self.proImageView.layer.cornerRadius= self.proImageView.frame.size.height/2;
+    
+    self.backView.backgroundColor = [UIColor snowColor];
+
+    
+
 
 }
 
@@ -72,7 +78,6 @@
     [user saveInBackground];
     [self dismissViewControllerAnimated:true completion:nil];
 
-    
     
 }
 
@@ -104,7 +109,7 @@
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
-//delegagte method
+//delegagte method for image taking
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     
@@ -131,6 +136,8 @@
     return newImage;
     
 }
+
+
 
 /*
 #pragma mark - Navigation

@@ -13,8 +13,8 @@
 #import "Colours.h"
 
 
-@interface UserProfileViewController () <EditUserProfileViewControllerDelegate>
-//@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+
+@interface UserProfileViewController () <EditUserProfileViewControllerDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet PFImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *oppsDoneLabel;
 @property (weak, nonatomic) User *user;
 @property (strong, nonatomic) IBOutlet UIView *userView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -44,8 +46,25 @@
     self.contactLabel.text = user.contactNumber;
     self.emailLabel.text = user.email;
 
-     self.userView.backgroundColor = [UIColor snowColor];    
+     self.userView.backgroundColor = [UIColor snowColor];
+    
+    
+    
+    [super viewDidLoad];
+    
+    CGFloat customRefreshControlHeight = 50.0f;
+    CGFloat customRefreshControlWidth = 320.0f;
+    CGRect customRefreshControlFrame = CGRectMake(0.0f,
+                                                  -customRefreshControlHeight,
+                                                  customRefreshControlWidth,
+                                                  customRefreshControlHeight);
+    
+    self.refreshControl = [[UIRefreshControl alloc] initWithFrame:customRefreshControlFrame];
+    
+    [self.userView addSubview:self.refreshControl];
 }
+
+
 
 - (void)viewDidAppear {
     User *user = [User currentUser];

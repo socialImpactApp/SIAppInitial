@@ -8,6 +8,9 @@
 
 #import "PFObject.h"
 #import <Parse/Parse.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
+
 
 @interface VolunteerOpportunity : PFObject<PFSubclassing>
 @property (nonatomic, strong) NSString * _Nullable postID;
@@ -22,6 +25,7 @@
 //@property (nonatomic, strong) NSNumber *lng;
 //@property (nonatomic, strong) NSNumber *lat;
 @property (nonatomic, strong) NSString * _Nullable date;
+@property (nonatomic, strong) NSString * _Nullable location;
 //***These are the tags for each volunteer post***
 @property (nonatomic, strong) NSMutableArray <NSString *> * _Nullable tags;
 @property (nonatomic) BOOL favorited;
@@ -33,6 +37,7 @@
                  withHours:( NSString * _Nullable )hours withSpots:( NSNumber * _Nullable )spotsLeft
                   withTags:(NSMutableArray <NSString * > *_Nullable)tags
                   withDate:(NSString * _Nullable)date
+                       withLocation:(NSString * _Nullable)location
             withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 + (PFFile *_Nullable)getPFFileFromImage: (UIImage * _Nullable)image;

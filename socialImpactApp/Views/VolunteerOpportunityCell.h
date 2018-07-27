@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *favoritedButton;
 @property (weak, nonatomic) IBOutlet UIView *backCellView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
 @property (strong,nonatomic) User *loggedInUser;
 @property (strong, nonatomic) NSMutableArray <NSString *> *favoritedOpps;

@@ -30,6 +30,9 @@
 }
 
 - (void) loginUser {
+    
+    [User logInWithUsername:self.username.text
+                   password:self.password.text];
     NSString *username = self.username.text;
     NSString *password = self.password.text;
 

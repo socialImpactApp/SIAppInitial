@@ -16,12 +16,12 @@
 @property NSMutableArray <NSString *> * _Nullable favoritedOpps;
 @property (strong, nonatomic) NSMutableArray <NSString *> *timelineOpps;
 
-@property PFFile * _Nullable profileImage;
-@property NSString * _Nullable name;
-@property NSString * _Nullable username;
-@property NSString * _Nullable contactNumber;
-@property NSMutableArray * _Nullable oppsDone;
-@property NSString * _Nullable email;
+@property (nonatomic, weak) PFFile * _Nullable profileImage;
+@property (nonatomic, weak) NSString * _Nullable name;
+@property (nonatomic, strong) NSString * _Nullable username;
+@property (nonatomic, weak) NSString * _Nullable contactNumber;
+@property (nonatomic, weak) NSMutableArray * _Nullable oppsDone;
+@property (nonatomic, strong) NSString * _Nullable email;
 
 
 + (PFFile *_Nullable)getPFFileFromImage: (UIImage * _Nullable)image;

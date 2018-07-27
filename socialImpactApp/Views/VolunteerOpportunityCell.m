@@ -54,13 +54,13 @@
     NSLog(@"%@", self.dateLabel.text);
     self.dateLabel.text = dateString;
     
+    //MERGE CONFLICT
+    //self.dateLabel.text = volunOpp[@"date"];
+    self.locationLabel.text = volunOpp[@"location"];
     self.backCellView.backgroundColor = [UIColor whiteColor];
     self.backCellView.layer.cornerRadius = 2.0;
-    //NSArray *colorArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:0.941],[NSNumber numberWithInt:0.941],[NSNumber numberWithInt:0.941],[NSNumber numberWithInt:1.0], nil];
     self.contentView.backgroundColor = [UIColor snowColor];
     self.backCellView.layer.masksToBounds = NO;
-    
-    //NSArray *colorTwoArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1.0],[NSNumber numberWithInt:1.0],[NSNumber numberWithInt:1.0],[NSNumber numberWithInt:0.2], nil];
     self.backCellView.layer.shadowColor = [[UIColor coolGrayColor] CGColor];
     self.backCellView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
     self.backCellView.layer.shadowOpacity = 0.5;
