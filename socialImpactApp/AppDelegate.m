@@ -27,6 +27,11 @@
     
     [Parse initializeWithConfiguration:config];
     
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    UITabBarItem *item = (UITabBarItem *)[tabBarController.tabBar.items objectAtIndex:0];
+    item.image = [UIImage imageNamed:@"imageedit__5380272865"];
+    
     return YES;
 }
 

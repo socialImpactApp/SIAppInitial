@@ -123,6 +123,16 @@
 
     [postCell configureCell:post];
     
+    NSDate *newDate = postCell.volunteerOpportunity.createdAt;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"MM/dd/yy";
+    
+    NSString *dateString =  [dateFormatter stringFromDate:newDate];
+
+    
+    NSLog(@"DATE STRING");
+    NSLog(@"%@", dateString);
+
     
     
     return postCell;
@@ -177,6 +187,7 @@
         detailedController.post = theCurrentVolunOpp;
         NSLog(@"we are here3 %@", theCurrentVolunOpp[@"location"]);
         NSLog(@"checking detailedPost");
+
 }
     else if ([segue.identifier isEqualToString:@"showLocationSeg"])
     {
