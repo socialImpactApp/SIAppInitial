@@ -8,16 +8,18 @@
 
 #import "SavedViewController.h"
 #import "VolunteerOpportunityCell.h"
-
 #import "User.h"
 #import "VolunteerOpportunity.h"
 #import "AppDelegate.h"
+#import "Colours.h"
+#import "DetailViewController.h"
 
 @interface SavedViewController () <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *favoriteOpps;
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (strong, nonatomic) NSMutableArray *favoriteOppsIds;
+@property (strong, nonatomic) NSMutableArray *volunteerOpportunities;
 
 @end
 
@@ -30,7 +32,8 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.rowHeight = 150;
+    self.tableView.rowHeight = 200;
+    self.tableView.backgroundColor = [UIColor snowColor];
     postsOfOpps = [[NSMutableArray alloc]  init];
 
     [self.tableView reloadData];                                                                                if (self.favoriteOpps == NULL)
@@ -42,6 +45,8 @@
         self.posts = [[NSMutableArray alloc] init];
     }
     [self fetch];
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -126,14 +131,25 @@
     return postCell;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    UITableViewCell *tappedCell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+    VolunteerOpportunity *theCurrentVolunOpp = self.posts[indexPath.row];
+    
+    if ([segue.identifier isEqualToString:@"detailsSegue"])
+    {
+        DetailViewController *detailedController = [segue destinationViewController];
+        detailedController.post = theCurrentVolunOpp;
+        NSLog(@"checking detailedPost");
+    }
 }
-*/
+
 
 @end

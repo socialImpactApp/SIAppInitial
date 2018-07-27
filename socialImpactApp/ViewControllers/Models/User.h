@@ -14,6 +14,7 @@
 @interface User : PFUser<PFSubclassing>
 
 @property NSMutableArray <NSString *> * _Nullable favoritedOpps;
+@property (strong, nonatomic) NSMutableArray <NSString *> *timelineOpps;
 
 @property PFFile * _Nullable profileImage;
 @property NSString * _Nullable name;

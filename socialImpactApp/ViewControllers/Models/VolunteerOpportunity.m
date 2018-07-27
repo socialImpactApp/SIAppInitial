@@ -22,7 +22,7 @@
 @dynamic spotsLeft;
 //@dynamic lng;
 //@dynamic lat;
-//@dynamic date
+@dynamic date;
 @dynamic tags;
 
 

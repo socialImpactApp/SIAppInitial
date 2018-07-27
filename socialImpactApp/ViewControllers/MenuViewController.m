@@ -106,6 +106,16 @@
     NSLog(@"%@", post.postID);
     [postCell configureCell:post];
     
+    NSDate *newDate = postCell.volunteerOpportunity.createdAt;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"MM/dd/yy";
+    
+    NSString *dateString =  [dateFormatter stringFromDate:newDate];
+
+    
+    NSLog(@"DATE STRING");
+    NSLog(@"%@", dateString);
+
     
     
     return postCell;
@@ -153,7 +163,7 @@
         DetailViewController *detailedController = [segue destinationViewController];
         detailedController.post = theCurrentVolunOpp;
         NSLog(@"checking detailedPost");
-}
+    }
 }
 
 

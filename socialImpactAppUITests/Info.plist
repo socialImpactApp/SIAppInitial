@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NewsCycle-Bold.ttf</string>
+		<string>NewsCycle-Regular.ttf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -18,10 +23,9 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-    <key>NSPhotoLibraryUsageDescription</key>               <!-- added this for photo library permission -->
-    <string>Need library access to upload images</string> <!-- added this for photo library permission -->
-    <key>NSCameraUsageDescription</key> <!-- added this for camera permission -->
-    <string>Need camera access to take pictures</string> <!-- added this for camera permission -->
-
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need library access to upload images</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Need camera access to take pictures</string>
 </dict>
 </plist>

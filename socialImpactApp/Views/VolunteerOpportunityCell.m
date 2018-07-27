@@ -36,13 +36,24 @@
 -(void)configureCell: (VolunteerOpportunity *) volunOpp {
     self.volunteerOpportunity = volunOpp;
     //NSLog(@"%@", volunOpp.objectId);
+    self.oppImageView.layer.cornerRadius = self.oppImageView.frame.size.height/2;
     self.oppImageView.file = volunOpp[@"image"];
     [self.oppImageView loadInBackground];
-    self.oppImageView.layer.cornerRadius = self.oppImageView.frame.size.height/2;
     self.titleLabel.text = volunOpp[@"title"];
     self.hoursLabel.text = volunOpp[@"hours"];
     self.descriptionLabel.text = volunOpp[@"description"];
-    self.dateLabel.text = volunOpp[@"date"];
+    //self.dateLabel.text = volunOpp[@"date"];
+    
+    NSDate *newDate = volunOpp.createdAt;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"MM/dd/yy";
+    NSString *dateString =  [dateFormatter stringFromDate:newDate];
+    NSLog(@"DATE STRING");
+    NSLog(@"%@", volunOpp[@"date"]);
+    NSLog(@"%@", dateString);
+    NSLog(@"%@", self.dateLabel.text);
+    self.dateLabel.text = dateString;
+    
     self.backCellView.backgroundColor = [UIColor whiteColor];
     self.backCellView.layer.cornerRadius = 2.0;
     //NSArray *colorArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:0.941],[NSNumber numberWithInt:0.941],[NSNumber numberWithInt:0.941],[NSNumber numberWithInt:1.0], nil];
@@ -77,18 +88,18 @@
          {
              self.volunteerOpportunity.favorited = NO;
              NSLog(@"PRE DELETE");
-            NSLog(@"%@", self.loggedInUser.favoritedOpps);
-
-          
+             NSLog(@"%@", self.loggedInUser.favoritedOpps);
+             
+             
              [self.loggedInUser.favoritedOpps removeObject:self.volunteerOpportunity.objectId];
              
              NSLog(@"POST DELETE");
-
+             
              NSLog(@"%@", self.loggedInUser.favoritedOpps);
              
-
+             
              [self.loggedInUser setObject:self.loggedInUser.favoritedOpps forKey:@"favoritedOpps"];
-            [self.loggedInUser saveInBackground];
+             [self.loggedInUser saveInBackground];
              
              NSLog(@"deleted from favoriteOpps and saved in Parse");
              self.favoritedButton.selected = NO;
@@ -96,30 +107,30 @@
         
         
     }
-
-else {
-{
-    PFQuery *friendQuery = [PFUser query];
-    //NSLog(@"%@", user.contactNumber);
-    //Ask Morgan about whereKey
-    [friendQuery whereKey:@"username" equalTo:self.loggedInUser.username];
-    [friendQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error)
-     {
-         NSLog(@"test post ID for null");
-         NSLog(@"%@", self.volunteerOpportunity.postID);
-         [self.loggedInUser.favoritedOpps addObject:self.volunteerOpportunity.objectId];
-         NSLog(@"%@", self.loggedInUser.favoritedOpps);
-         self.loggedInUser[@"favoritedOpps"] = self.loggedInUser.favoritedOpps;
-         [self.loggedInUser saveInBackground];
-         NSLog(@"%lu", self.loggedInUser.favoritedOpps);
-         NSLog(@"added to favoriteOpps");
-         self.favoritedButton.selected = YES;
-     }];
     
+    else {
+        {
+            PFQuery *friendQuery = [PFUser query];
+            //NSLog(@"%@", user.contactNumber);
+            //Ask Morgan about whereKey
+            [friendQuery whereKey:@"username" equalTo:self.loggedInUser.username];
+            [friendQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error)
+             {
+                 NSLog(@"test post ID for null");
+                 NSLog(@"%@", self.volunteerOpportunity.postID);
+                 [self.loggedInUser.favoritedOpps addObject:self.volunteerOpportunity.objectId];
+                 NSLog(@"%@", self.loggedInUser.favoritedOpps);
+                 self.loggedInUser[@"favoritedOpps"] = self.loggedInUser.favoritedOpps;
+                 [self.loggedInUser saveInBackground];
+                 NSLog(@"%lu", self.loggedInUser.favoritedOpps);
+                 NSLog(@"added to favoriteOpps");
+                 self.favoritedButton.selected = YES;
+             }];
+            
+        }
+        
     }
     
-}
-
 }
 
 
