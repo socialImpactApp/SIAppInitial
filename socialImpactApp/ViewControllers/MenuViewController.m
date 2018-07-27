@@ -24,6 +24,7 @@
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSMutableArray *volunteerOpportunities;
+@property (weak, nonatomic) IBOutlet UIView *topView;
 
 @end
 
@@ -43,6 +44,7 @@
     self.tableView.delegate = self;
     self.tableView.rowHeight = 200;
     self.tableView.backgroundColor = [UIColor snowColor];
+    self.topView.backgroundColor = [UIColor snowColor];
     self.refreshControl = [[UIRefreshControl alloc] init];
      [self.refreshControl addTarget:self action:@selector(fetch) forControlEvents:UIControlEventValueChanged];
     self.refreshControl.layer.zPosition = -1;
@@ -65,7 +67,6 @@
     User *currentUser = [User currentUser];
     postsOne = [[NSMutableArray alloc] init];
     self->postsOne = self.volunteerOpportunities;
-
     PFQuery *query = [VolunteerOpportunity query];
     
     //in the future we will filter the data
@@ -86,8 +87,6 @@
         }
     }];
     [self.refreshControl endRefreshing];
-
-    //[self.refreshControl endRefreshing];
 }
 
 
@@ -118,11 +117,7 @@
     [postCell.locationButton addTarget:self action:@selector(didTapLocation:) forControlEvents:UIControlEventTouchUpInside];
 
     VolunteerOpportunity *post = self.posts[indexPath.row];
-
-    NSLog(@"%@", postCell.volunteerOpportunity.postID);
-    NSLog(@"%@", postCell.descriptionLabel.text);
-    NSLog(@"%@", postCell);
-    VolunteerOpportunity *post = self.volunteerOpportunities[indexPath.row];
+//    VolunteerOpportunity *post2 = self.volunteerOpportunities[indexPath.row];
     NSLog(@"checking post");
     NSLog(@"%@", post.postID);
 
@@ -173,10 +168,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
 
     VolunteerOpportunity *theCurrentVolunOpp = self.posts[indexPath.row];
-    NSLog(@"we are here1 %@", theCurrentVolunOpp[@"location"]);
-
-    VolunteerOpportunity *theCurrentVolunOpp = self.volunteerOpportunities[indexPath.row];
-    
+    NSLog(@"we are here1 %@", theCurrentVolunOpp[@"location"]);    
 
     if ([segue.identifier isEqualToString:@"detailsSegue"])
     {

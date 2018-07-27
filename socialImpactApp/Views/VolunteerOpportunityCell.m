@@ -14,27 +14,25 @@
 #import "User.h"
 #import "VolunteerOpportunity.h"
 #import "Colours.h"
-<<<<<<< HEAD
+
 #import "ShowLocationViewController.h"
 
-=======
+
 #import "SavedViewController.h"
->>>>>>> 2847aecec894857ad18814d7ae263a1fc21e7035
+
 
 @implementation VolunteerOpportunityCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-<<<<<<< HEAD
 
-=======
     self.loggedInUser = [User currentUser];
     if (self.loggedInUser.favoritedOpps == NULL)
     {
         self.loggedInUser.favoritedOpps = [[NSMutableArray alloc] init];
     }
->>>>>>> 2847aecec894857ad18814d7ae263a1fc21e7035
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -55,7 +53,7 @@
     self.hoursLabel.text = volunOpp[@"hours"];
     self.descriptionLabel.text = volunOpp[@"description"];
     self.dateLabel.text = volunOpp[@"date"];
-    self.locationLabel.text = volunOpp[@"location"];
+    self.locationLabel.text = volunOpp[@"cityState"];
     self.backCellView.backgroundColor = [UIColor whiteColor];
     self.backCellView.layer.cornerRadius = 2.0;
     self.contentView.backgroundColor = [UIColor snowColor];

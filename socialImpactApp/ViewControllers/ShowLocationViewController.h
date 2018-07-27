@@ -11,11 +11,14 @@
 #import <CoreLocation/CoreLocation.h>
 #import "VolunteerOpportunityCell.h"
 #import "VolunteerOpportunity.h"
+//
+//@protocol showLocationDelegate
+//-(void)didTapShowLocation:(NSString *) location;
+//@end
 
-
-
-@interface ShowLocationViewController : UIViewController
+@interface ShowLocationViewController : UIViewController 
 @property (strong, nonatomic) VolunteerOpportunity *post;
+//@property (strong, nonatomic) id<showLocationDelegate> delegate;
 
 
 

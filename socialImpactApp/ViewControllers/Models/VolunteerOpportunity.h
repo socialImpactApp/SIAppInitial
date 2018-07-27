@@ -26,6 +26,7 @@
 //@property (nonatomic, strong) NSNumber *lat;
 @property (nonatomic, strong) NSString * _Nullable date;
 @property (nonatomic, strong) NSString * _Nullable location;
+@property (nonatomic, strong) NSString * _Nullable cityState;
 //***These are the tags for each volunteer post***
 @property (nonatomic, strong) NSMutableArray <NSString *> * _Nullable tags;
 @property (nonatomic) BOOL favorited;
@@ -38,6 +39,7 @@
                   withTags:(NSMutableArray <NSString * > *_Nullable)tags
                   withDate:(NSString * _Nullable)date
                        withLocation:(NSString * _Nullable)location
+                withCityState:(NSString * _Nullable)cityState
             withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 + (PFFile *_Nullable)getPFFileFromImage: (UIImage * _Nullable)image;

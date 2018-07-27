@@ -25,6 +25,7 @@
 //@dynamic lat;
 @dynamic date;
 @dynamic location;
+@dynamic cityState;
 @dynamic tags;
 
 
@@ -43,6 +44,7 @@
             withTags:(NSMutableArray <NSString * > *_Nullable)tags
             withDate:(NSString * _Nullable)date
             withLocation:(NSString * _Nullable)location
+            withCityState:(NSString * _Nullable)cityState
             withCompletion: (PFBooleanResultBlock  _Nullable)completion{
     VolunteerOpportunity *newPost = [VolunteerOpportunity new];
     newPost.image = [self getPFFileFromImage:image];
@@ -54,19 +56,7 @@
     newPost.tags = tags;
     newPost.date = date;
     newPost.location = location;
-    
-   //will use this to get a map view of the actual place later
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder geocodeAddressString:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-        if(!error){
-            CLPlacemark *placemark = [placemarks objectAtIndex:0];
-            NSLog(@"%f",placemark.location.coordinate.latitude);
-            NSLog(@"%f",placemark.location.coordinate.longitude);
-        }
-        else {
-            NSLog(@"%@", error.localizedDescription);
-        }
-    }];
+    newPost.cityState = cityState;
     
     
     [newPost saveInBackgroundWithBlock:completion];
