@@ -34,6 +34,14 @@
     // Do any additional setup after loading the view.
     tagCollection = [[NSMutableArray alloc] init];
      self.backView.backgroundColor = [UIColor snowColor];
+    self.animalButton.layer.cornerRadius = 10.0;
+    self.childButton.layer.cornerRadius = 10.0;
+    self.constructionButton.layer.cornerRadius = 10.0;
+    self.educationButton.layer.cornerRadius = 10.0;
+    self.environmentalButton.layer.cornerRadius = 10.0;
+    self.foodButton.layer.cornerRadius = 10.0;
+    self.fundraisingButton.layer.cornerRadius = 10.0;
+    self.medicalButton.layer.cornerRadius = 10.0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,11 +94,12 @@
     NSLog(@"%@", tagType);
     if ([tagCollection containsObject:tagType]) {
         [tagCollection removeObject:tagType];
+        sender.backgroundColor = [UIColor clearColor];
         sender.selected = NO;
-       
     } else {
         [tagCollection addObject:tagType];
-        sender.selected = YES; 
+        sender.selected = YES;
+        sender.backgroundColor = [UIColor colorWithRed:3/255.0 green:121/255.0 blue:113/255.0 alpha:0.7];
        
     }
 }

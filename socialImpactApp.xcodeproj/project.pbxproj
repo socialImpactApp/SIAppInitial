@@ -21,6 +21,7 @@
 		35B762792106CB3A0089739D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B762782106CB3A0089739D /* MapKit.framework */; };
 		35B7627B2107895E0089739D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7627A2107895E0089739D /* CoreLocation.framework */; };
 		35B762D12108E4E60089739D /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B762D02108E4E60089739D /* SearchTableViewCell.m */; };
+		35C63C9A210E5888006C8B32 /* ShowAllLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C63C99210E5888006C8B32 /* ShowAllLocationsViewController.m */; };
 		35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53420EFE03E00B5D12C /* AppDelegate.m */; };
 		35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53720EFE03E00B5D12C /* ViewController.m */; };
 		35D8D53B20EFE03E00B5D12C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D53920EFE03E00B5D12C /* Main.storyboard */; };
@@ -33,15 +34,10 @@
 		51216213CEC3A0D4FAF43C93 /* libPods-socialImpactAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D1B2DFDE6B4F153928CCBB /* libPods-socialImpactAppUITests.a */; };
 		661BAE7A21062579007363CC /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 661BAE7921062579007363CC /* ActionViewController.m */; };
 		661BAE7D21062579007363CC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 661BAE7B21062579007363CC /* MainInterface.storyboard */; };
-		661BAE8121062579007363CC /* SavedViewController.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 661BAE7621062579007363CC /* SavedViewController.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6628860121092C9D0014196F /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6628860021092C9D0014196F /* TimelineViewController.m */; };
 		66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66379C9520FFF02D00487A3D /* SignUpViewController.m */; };
-		667632872107AC6800538E9B /* NewsCycle-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 667632842107AC6600538E9B /* NewsCycle-Regular.ttf */; };
-		667632882107AC6800538E9B /* NewsCycle-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 667632852107AC6600538E9B /* NewsCycle-Bold.ttf */; };
-		667632892107AC6800538E9B /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 667632862107AC6600538E9B /* OFL.txt */; };
 		667632922107ACCB00538E9B /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 667632912107ACCB00538E9B /* ActionViewController.m */; };
 		667632952107ACCB00538E9B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 667632932107ACCB00538E9B /* MainInterface.storyboard */; };
-		667632992107ACCB00538E9B /* newsCycleFont.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6676328E2107ACCB00538E9B /* newsCycleFont.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6676329D2107ACD900538E9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D53920EFE03E00B5D12C /* Main.storyboard */; };
 		66BF560D20FE5DAF00C1E39B /* VolunteerOpportunity.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560C20FE5DAF00C1E39B /* VolunteerOpportunity.m */; };
 		66BF561120FE5DBB00C1E39B /* VolunteerOpportunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560F20FE5DBB00C1E39B /* VolunteerOpportunityCell.m */; };
@@ -66,13 +62,6 @@
 			remoteGlobalIDString = 35D8D52F20EFE03E00B5D12C;
 			remoteInfo = socialImpactApp;
 		};
-		661BAE7F21062579007363CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 35D8D52820EFE03E00B5D12C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 661BAE7521062579007363CC;
-			remoteInfo = SavedViewController;
-		};
 		667632972107ACCB00538E9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 35D8D52820EFE03E00B5D12C /* Project object */;
@@ -80,23 +69,6 @@
 			remoteGlobalIDString = 6676328D2107ACCB00538E9B;
 			remoteInfo = newsCycleFont;
 		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		661BAE8521062579007363CC /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				661BAE8121062579007363CC /* SavedViewController.appex in Embed App Extensions */,
-				667632992107ACCB00538E9B /* newsCycleFont.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +97,8 @@
 		35B7627A2107895E0089739D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		35B762CF2108E4E60089739D /* SearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
 		35B762D02108E4E60089739D /* SearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
+		35C63C98210E5888006C8B32 /* ShowAllLocationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowAllLocationsViewController.h; sourceTree = "<group>"; };
+		35C63C99210E5888006C8B32 /* ShowAllLocationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowAllLocationsViewController.m; sourceTree = "<group>"; };
 		35D8D53020EFE03E00B5D12C /* socialImpactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socialImpactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D8D53320EFE03E00B5D12C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35D8D53420EFE03E00B5D12C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -154,9 +128,6 @@
 		6628860021092C9D0014196F /* TimelineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		66379C9420FFF02D00487A3D /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		66379C9520FFF02D00487A3D /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		667632842107AC6600538E9B /* NewsCycle-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewsCycle-Regular.ttf"; sourceTree = "<group>"; };
-		667632852107AC6600538E9B /* NewsCycle-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewsCycle-Bold.ttf"; sourceTree = "<group>"; };
-		667632862107AC6600538E9B /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		6676328E2107ACCB00538E9B /* newsCycleFont.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = newsCycleFont.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		667632902107ACCB00538E9B /* ActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
 		667632912107ACCB00538E9B /* ActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
@@ -243,15 +214,14 @@
 				66379C9520FFF02D00487A3D /* SignUpViewController.m */,
 				354307F2210149B70045A8FD /* EditUserProfileViewController.h */,
 				354307F3210149B70045A8FD /* EditUserProfileViewController.m */,
-				35B762752106B06D0089739D /* AddLocationViewController.h */,
-				35B762762106B06D0089739D /* AddLocationViewController.m */,
 				35AC5DDC210A418A004BF87A /* ShowLocationViewController.h */,
 				35AC5DDD210A418A004BF87A /* ShowLocationViewController.m */,
-
+				35C63C98210E5888006C8B32 /* ShowAllLocationsViewController.h */,
+				35C63C99210E5888006C8B32 /* ShowAllLocationsViewController.m */,
 				662885FF21092C9D0014196F /* TimelineViewController.h */,
 				6628860021092C9D0014196F /* TimelineViewController.m */,
-				35B762752106B06D0089739D /* LocationViewController.h */,
-				35B762762106B06D0089739D /* LocationViewController.m */,
+				35B762752106B06D0089739D /* AddLocationViewController.h */,
+				35B762762106B06D0089739D /* AddLocationViewController.m */,
 				66BF560A20FE5DAF00C1E39B /* Models */,
 			);
 			path = ViewControllers;
@@ -364,16 +334,6 @@
 			path = SavedViewController;
 			sourceTree = "<group>";
 		};
-		667632832107AC6600538E9B /* News_Cycle */ = {
-			isa = PBXGroup;
-			children = (
-				667632842107AC6600538E9B /* NewsCycle-Regular.ttf */,
-				667632852107AC6600538E9B /* NewsCycle-Bold.ttf */,
-				667632862107AC6600538E9B /* OFL.txt */,
-			);
-			path = News_Cycle;
-			sourceTree = "<group>";
-		};
 		6676328F2107ACCB00538E9B /* newsCycleFont */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,10 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				66BF561020FE5DBB00C1E39B /* VolunteerOpportunityCell.h */,
-
 				66BF560F20FE5DBB00C1E39B /* VolunteerOpportunityCell.m */,
-
-				667632832107AC6600538E9B /* News_Cycle */,
 				35B762CF2108E4E60089739D /* SearchTableViewCell.h */,
 				35B762D02108E4E60089739D /* SearchTableViewCell.m */,
 			);
@@ -438,9 +395,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				661BAE8021062579007363CC /* PBXTargetDependency */,
 				667632982107ACCB00538E9B /* PBXTargetDependency */,
-
 			);
 			name = socialImpactApp;
 			productName = socialImpactApp;
@@ -575,11 +530,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				35B7627221067B500089739D /* OFL.txt in Resources */,
-				667632882107AC6800538E9B /* NewsCycle-Bold.ttf in Resources */,
 				35D8D54020EFE04000B5D12C /* LaunchScreen.storyboard in Resources */,
-				667632892107AC6800538E9B /* OFL.txt in Resources */,
 				35B7627021067B500089739D /* NewsCycle-Regular.ttf in Resources */,
-				667632872107AC6800538E9B /* NewsCycle-Regular.ttf in Resources */,
 				35D8D53D20EFE04000B5D12C /* Assets.xcassets in Resources */,
 				35D8D53B20EFE03E00B5D12C /* Main.storyboard in Resources */,
 				35B7627121067B500089739D /* NewsCycle-Bold.ttf in Resources */,
@@ -717,6 +669,7 @@
 				35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */,
 				66BF561420FE5DF600C1E39B /* AddVolunteerOpportunityViewController.m in Sources */,
 				6628860121092C9D0014196F /* TimelineViewController.m in Sources */,
+				35C63C9A210E5888006C8B32 /* ShowAllLocationsViewController.m in Sources */,
 				355718C620FC53AD00D735EA /* MenuViewController.m in Sources */,
 				35AC5DDE210A418A004BF87A /* ShowLocationViewController.m in Sources */,
 				355718C920FC53E600D735EA /* DetailViewController.m in Sources */,
@@ -772,17 +725,11 @@
 			target = 35D8D52F20EFE03E00B5D12C /* socialImpactApp */;
 			targetProxy = 35D8D55420EFE04000B5D12C /* PBXContainerItemProxy */;
 		};
-		661BAE8021062579007363CC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 661BAE7521062579007363CC /* SavedViewController */;
-			targetProxy = 661BAE7F21062579007363CC /* PBXContainerItemProxy */;
-		};
 		667632982107ACCB00538E9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6676328D2107ACCB00538E9B /* newsCycleFont */;
 			targetProxy = 667632972107ACCB00538E9B /* PBXContainerItemProxy */;
 		};
-
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1060,7 +1007,7 @@
 		661BAE8321062579007363CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = SavedViewController/Info.plist;
@@ -1079,7 +1026,7 @@
 		661BAE8421062579007363CC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8MAYBN4P6;
 				INFOPLIST_FILE = SavedViewController/Info.plist;

@@ -49,6 +49,7 @@
             //check if need to allocate
             MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
             point.coordinate = center;
+            point.title = self.post[@"location"];
             [self.mapView addAnnotation:point];
             [self.mapView setRegion:locationRegion animated:true];
         }

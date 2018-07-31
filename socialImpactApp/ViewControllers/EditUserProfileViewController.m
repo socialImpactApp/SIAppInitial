@@ -14,12 +14,15 @@
 
 
 @interface EditUserProfileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-@property (weak, nonatomic) IBOutlet UITextView *nameLabel;
-@property (weak, nonatomic) IBOutlet UITextView *usernameLabel;
-@property (weak, nonatomic) IBOutlet UITextView *emailLabel;
+@property (weak, nonatomic) IBOutlet UITextView *nameView;
+@property (weak, nonatomic) IBOutlet UITextView *usernameView;
+@property (weak, nonatomic) IBOutlet UITextView *emailView;
 @property (weak, nonatomic) IBOutlet UITextView *contactLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *proImageView;
 @property (strong, nonatomic) IBOutlet UIView *backView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UITextView *orgView;
 
 @end
 
@@ -28,27 +31,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.scrollView addSubview:self.contentView];
     
     CALayer *bottomBorder = [CALayer layer];
-    bottomBorder.frame = CGRectMake(0.0f, self.nameLabel.frame.size.height - 1, self.nameLabel.frame.size.width, 1.0f);
+    bottomBorder.frame = CGRectMake(0.0f, self.nameView.frame.size.height - 1, self.nameView.frame.size.width, 1.0f);
     bottomBorder.backgroundColor = [UIColor grayColor].CGColor;
-    [self.nameLabel.layer addSublayer:bottomBorder];
+    [self.nameView.layer addSublayer:bottomBorder];
     
     CALayer *bottomBorder1 = [CALayer layer];
-    bottomBorder1.frame = CGRectMake(0.0f, self.emailLabel.frame.size.height - 1, self.emailLabel.frame.size.width, 1.0f);
+    bottomBorder1.frame = CGRectMake(0.0f, self.emailView.frame.size.height - 1, self.emailView.frame.size.width, 1.0f);
     bottomBorder1.backgroundColor = [UIColor grayColor].CGColor;
-    [self.emailLabel.layer addSublayer:bottomBorder1];
+    [self.emailView.layer addSublayer:bottomBorder1];
    
     
     CALayer *bottomBorder2 = [CALayer layer];
-    bottomBorder2.frame = CGRectMake(0.0f, self.usernameLabel.frame.size.height - 1, self.usernameLabel.frame.size.width, 1.0f);
+    bottomBorder2.frame = CGRectMake(0.0f, self.usernameView.frame.size.height - 1, self.usernameView.frame.size.width, 1.0f);
     bottomBorder2.backgroundColor = [UIColor grayColor].CGColor;
-    [self.usernameLabel.layer addSublayer:bottomBorder2];
+    [self.usernameView.layer addSublayer:bottomBorder2];
     
     CALayer *bottomBorder3 = [CALayer layer];
     bottomBorder3.frame = CGRectMake(0.0f, self.contactLabel.frame.size.height - 1, self.contactLabel.frame.size.width, 1.0f);
     bottomBorder3.backgroundColor = [UIColor grayColor].CGColor;
     [self.contactLabel.layer addSublayer:bottomBorder3];
+    
+    CALayer *bottomBorder4 = [CALayer layer];
+    bottomBorder4.frame = CGRectMake(0.0f, self.orgView.frame.size.height - 1, self.orgView.frame.size.width, 1.0f);
+    bottomBorder4.backgroundColor = [UIColor grayColor].CGColor;
+    [self.orgView.layer addSublayer:bottomBorder4];
     
     self.proImageView.layer.cornerRadius= self.proImageView.frame.size.height/2;
     
@@ -66,19 +75,29 @@
 - (IBAction)didTapSaveUser:(id)sender {
     //do something here to pass the data back
     User *user = [User currentUser];
+    [self.delegate didTapSaveUser:user];
     UIImage *image = self.proImageView.image;
-    if (image) {
+    if (![image isEqual:[UIImage imageNamed:@"placeholder"]]) {
         user.profileImage = [User getPFFileFromImage:image];
     }
-    [self.delegate didTapSaveUser:user]; 
-    user.name = self.nameLabel.text;
-    user.username = self.usernameLabel.text;
-    user.email = self.emailLabel.text;
-    user.contactNumber = self.contactLabel.text;
+    if (![self.nameView.text isEqualToString:@""]){
+    user.name = self.nameView.text;
+    }
+    if (![self.usernameView.text isEqualToString:@""]){
+        user.username = self.usernameView.text;
+    }
+    if (![self.emailView.text isEqualToString:@""]){
+        user.email = self.emailView.text;
+    }
+    if (![self.contactLabel.text isEqualToString:@""]){
+        user.contactNumber = self.contactLabel.text;
+    }
+    if (![self.orgView.text isEqualToString:@""]){
+        user.organization = self.orgView.text;
+    }
+ 
     [user saveInBackground];
-    [self dismissViewControllerAnimated:true completion:nil];
-
-    
+    [self dismissViewControllerAnimated:true completion:nil];    
 }
 
 
@@ -128,7 +147,6 @@
     
     resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
     resizeImageView.image = image;
-    
     UIGraphicsBeginImageContext(size);
     [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();

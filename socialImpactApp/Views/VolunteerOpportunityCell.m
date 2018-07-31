@@ -44,10 +44,12 @@
 
 
 -(void)configureCell: (VolunteerOpportunity *) volunOpp {
+    User *user = [User currentUser];
+    PFObject *postAuthor = volunOpp[@"author"];
     self.volunteerOpportunity = volunOpp;
     //NSLog(@"%@", volunOpp.objectId);
     self.oppImageView.layer.cornerRadius = self.oppImageView.frame.size.height/2;
-    self.oppImageView.file = volunOpp[@"image"];
+    self.oppImageView.file = postAuthor[@"profileImage"];
     [self.oppImageView loadInBackground];
     self.titleLabel.text = volunOpp[@"title"];
     self.hoursLabel.text = volunOpp[@"hours"];
@@ -66,10 +68,9 @@
     NSLog(@"%@", dateString);
     NSLog(@"%@", self.dateLabel.text);
     self.dateLabel.text = dateString;
-    
+    self.organizationLabel.text = postAuthor[@"organization"];
     //MERGE CONFLICT
     //self.dateLabel.text = volunOpp[@"date"];
-    self.locationLabel.text = volunOpp[@"location"];
     self.backCellView.backgroundColor = [UIColor whiteColor];
     self.backCellView.layer.cornerRadius = 2.0;
     self.contentView.backgroundColor = [UIColor snowColor];
@@ -147,7 +148,6 @@
 }
 
 
-}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
 //    if ([segue.identifier isEqualToString:@"showLocationSeg"]) {

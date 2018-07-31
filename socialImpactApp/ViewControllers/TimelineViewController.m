@@ -45,7 +45,7 @@
 }
 
 -(void)fetch {
-    User *currentUser = [User currentUser];
+
     //    postsOne = [[NSMutableArray alloc] init];
     //    self->postsOne = self.volunteerOpportunities;
     

@@ -11,14 +11,13 @@
 
 @implementation User
 @dynamic profileImage;
-
-//@dynamic favoritedOpps;
-
+@dynamic favoritedOpps;
 @dynamic contactNumber;
 @dynamic name; 
 @dynamic username;
 @dynamic oppsDone;
 @dynamic email;
+@dynamic organization;
 
 
 

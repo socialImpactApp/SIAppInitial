@@ -28,15 +28,22 @@
     UIFont * customFont = [UIFont fontWithName:@"NewsCycle" size:12]; //custom font
     NSString * text = [self description];
     
-    CGSize labelSize = [text sizeWithFont:customFont constrainedToSize:CGSizeMake(380, 20) lineBreakMode:NSLineBreakByTruncatingTail];
+    CGRect labelSize = [text boundingRectWithSize:CGSizeMake(380.0, 20.0)
+                                          options:NSStringDrawingTruncatesLastVisibleLine
+                                       attributes:nil
+                                          context:nil];
+                        
     
-    UILabel *fromLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 50, labelSize.width, labelSize.height)];
+
+    
+//                        boundingRectWithSize:CGSizeMake(380.00, 20.00) options:NSStringDrawingTruncatesLastVisibleLine attributes:nil context:nil];
+    
+    UILabel *fromLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 50, 20, 10)];
     fromLabel.text = text;
     fromLabel.font = customFont;
     fromLabel.numberOfLines = 1;
     fromLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
     fromLabel.adjustsFontSizeToFitWidth = YES;
-    fromLabel.adjustsLetterSpacingToFitWidth = YES;
     fromLabel.minimumScaleFactor = 10.0f/12.0f;
     fromLabel.clipsToBounds = YES;
     fromLabel.backgroundColor = [UIColor clearColor];
@@ -77,7 +84,7 @@
 }
 
 
-/*
+
 
 #pragma mark - Navigation
 
