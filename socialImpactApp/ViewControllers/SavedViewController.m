@@ -60,27 +60,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) filterPosts
-{
-    User *loggedInUser = [User currentUser];
-    NSArray *favPostIDs = loggedInUser.favoritedOpps;
-    NSLog(@"%@", loggedInUser.favoritedOpps);
-    NSLog(@"posts of opps");
-    NSLog(@"%@", postsOfOpps);
-    NSInteger count = 0;
-    VolunteerOpportunity *volunOpp = [[VolunteerOpportunity alloc] init];
-    for (VolunteerOpportunity* post in postsOfOpps)
-    {
-        if (post.objectId == favPostIDs[count])
-        {
-            volunOpp = postsOfOpps[count];
-            [self.favoriteOpps addObject:volunOpp];
-        }
-        count+=1;
-    }
-}
-
-
 
 -(void)fetch {
     PFQuery *query = [VolunteerOpportunity query];

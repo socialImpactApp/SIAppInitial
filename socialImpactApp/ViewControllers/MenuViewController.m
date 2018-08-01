@@ -14,12 +14,13 @@
 #import "LoginViewController.h"
 #import "ShowLocationViewController.h"
 #import "ShowAllLocationsViewController.h"
+#import "AddTagViewController.h"
 #import <Parse/Parse.h>
 
 
 #import "Colours.h"
 
-@interface MenuViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+@interface MenuViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddTagViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
@@ -37,8 +38,11 @@
     NSIndexPath *indexPathLocation;
     NSMutableArray *postsOne;
     NSMutableArray *filteredAuthorData;
+    //make this posts
     NSMutableArray <NSString *> *postsForMapView;
     VolunteerOpportunity *vopp;
+    NSMutableArray<NSString *> *_collectionOfTags;
+    NSMutableArray *postsOfOpps;
 
 }
 
@@ -162,8 +166,43 @@
     [self.tableView reloadData];
 }
 
+-(void)didTapSaveFilter:(NSMutableArray<NSString *> *)tags {
+    _collectionOfTags = [[NSMutableArray alloc] init ];
+    _collectionOfTags = [tags copy];
+    [self filterVopps];
+}
 
 
+
+-(void)filterVopps {
+    PFQuery *query = [VolunteerOpportunity query];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"author"];
+    NSMutableArray *arrayWithObjectIDs = [[NSMutableArray alloc] init];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self->postsOfOpps = posts;
+//            for (VolunteerOpportunity *vopp in self.filteredData){
+//                [self.filteredData removeObject:vopp];
+//            }
+            [self.tableView reloadData];
+            for (VolunteerOpportunity *vopp in posts){
+                for (NSString *tag in _collectionOfTags){
+                    if ([vopp.tags containsObject:tag]){
+                        NSLog(@"%@", vopp.objectId);
+                        [arrayWithObjectIDs addObject:vopp.objectId];
+                    }
+                }
+                [self.tableView reloadData];
+            }
+        }
+        //NSString *string = @"s3GKrB4wQX";
+        self.filteredData = [self.volunteerOpportunities filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(objectId IN %@)",arrayWithObjectIDs]];
+        [self.tableView reloadData];
+    }];
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -198,6 +237,12 @@
     {
         ShowAllLocationsViewController *showAllLocsController = [segue destinationViewController];
         showAllLocsController.allLocs = postsForMapView;
+    }
+    
+    else if ([segue.identifier isEqualToString:@"menuFilterSeg"]) {
+        AddTagViewController *tagViewController =
+        segue.destinationViewController;
+        tagViewController.delegate = self;
     }
 }
 

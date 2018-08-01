@@ -550,7 +550,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGl-AQ-VSx">
-                                <rect key="frame" x="148" y="452" width="79" height="70"/>
+                                <rect key="frame" x="148" y="451" width="79" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="NewsCycle-Bold" family="News Cycle" pointSize="19"/>
                                 <state key="normal" title="Save">
@@ -658,6 +658,9 @@
                                     <rect key="frame" x="266" y="14" width="24" height="24"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="filter"/>
+                                    <connections>
+                                        <segue destination="A0X-vE-sa5" kind="presentation" identifier="menuFilterSeg" modalTransitionStyle="flipHorizontal" id="bxH-x4-wgy"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -806,7 +809,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geJ-Dd-nkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3198" y="130"/>
+            <point key="canvasLocation" x="3197.5999999999999" y="129.98500749625188"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="CqW-Ps-FC9">
@@ -1726,8 +1729,9 @@
         <image name="route" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E0p-CQ-pIu"/>
+        <segue reference="43u-AZ-k2u"/>
         <segue reference="nou-Xg-BJy"/>
-        <segue reference="Ph4-yq-K0q"/>
+        <segue reference="GAf-6l-e0s"/>
+        <segue reference="bxH-x4-wgy"/>
     </inferredMetricsTieBreakers>
 </document>
