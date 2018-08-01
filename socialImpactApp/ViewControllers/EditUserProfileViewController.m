@@ -31,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.scrollView addSubview:self.contentView];
+    //[self.scrollView addSubview:self.contentView];
     
     CALayer *bottomBorder = [CALayer layer];
     bottomBorder.frame = CGRectMake(0.0f, self.nameView.frame.size.height - 1, self.nameView.frame.size.width, 1.0f);
@@ -79,6 +79,7 @@
     UIImage *image = self.proImageView.image;
     if (![image isEqual:[UIImage imageNamed:@"placeholder"]]) {
         user.profileImage = [User getPFFileFromImage:image];
+        [user.profileImage saveInBackground];
     }
     if (![self.nameView.text isEqualToString:@""]){
     user.name = self.nameView.text;

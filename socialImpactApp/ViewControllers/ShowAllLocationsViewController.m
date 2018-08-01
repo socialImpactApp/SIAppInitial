@@ -184,6 +184,7 @@ didSelectAnnotationView:(MKAnnotationView *)view{
                 MKPinAnnotationView *pointView = [[MKPinAnnotationView alloc] initWithAnnotation:point reuseIdentifier:Nil];
                 point.coordinate = center;
                 point.title = address;
+                [pointView setTag:tagNumber];
 //                pointView.tag = i;
 //                __block i = i + 1;
 //                NSLog(@"adding one to i %d", i);

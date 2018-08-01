@@ -964,9 +964,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EV4-BV-LW2">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EV4-BV-LW2">
                                 <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Organization:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKC-nc-Ve1">
                                         <rect key="frame" x="27" y="228" width="124" height="28"/>
@@ -975,15 +974,8 @@
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHc-vc-3F0">
-                                        <rect key="frame" x="20" y="168" width="343" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="NewsCycle-Bold" family="News Cycle" pointSize="25"/>
-                                        <color key="textColor" red="0.01176470588" green="0.47450980390000003" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvt-w5-9rb">
-                                        <rect key="frame" x="27" y="194" width="328" height="26"/>
+                                        <rect key="frame" x="27" y="202" width="328" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="NewsCycle" family="News Cycle" pointSize="21"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1038,15 +1030,34 @@
                                         <color key="textColor" red="0.01176470588" green="0.47450980390000003" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHc-vc-3F0">
+                                        <rect key="frame" x="20" y="176" width="343" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="NewsCycle-Bold" family="News Cycle" pointSize="25"/>
+                                        <color key="textColor" red="0.01176470588" green="0.47450980390000003" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </scrollView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Brk-0k-sdK" customClass="PFImageView">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Brk-0k-sdK" customClass="PFImageView">
                                 <rect key="frame" x="112" y="74" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Br7-8R-Z31"/>
+                                    <constraint firstAttribute="width" constant="150" id="udR-Za-ceQ"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="EV4-BV-LW2" secondAttribute="bottom" id="0Yw-eZ-aKU"/>
+                            <constraint firstItem="0U2-RE-iqw" firstAttribute="trailing" secondItem="Brk-0k-sdK" secondAttribute="trailing" constant="113" id="0fK-7Y-69Z"/>
+                            <constraint firstItem="EV4-BV-LW2" firstAttribute="top" secondItem="Hjd-ca-2No" secondAttribute="top" id="AUk-TV-YbW"/>
+                            <constraint firstItem="EV4-BV-LW2" firstAttribute="leading" secondItem="Hjd-ca-2No" secondAttribute="leading" id="JAd-LT-Fac"/>
+                            <constraint firstAttribute="trailing" secondItem="EV4-BV-LW2" secondAttribute="trailing" id="SUf-yS-blR"/>
+                            <constraint firstItem="Brk-0k-sdK" firstAttribute="top" secondItem="Hjd-ca-2No" secondAttribute="top" constant="74" id="X0f-HL-P15"/>
+                            <constraint firstItem="Brk-0k-sdK" firstAttribute="leading" secondItem="0U2-RE-iqw" secondAttribute="leading" constant="112" id="z9L-Yd-KeD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0U2-RE-iqw"/>
                     </view>
                     <navigationItem key="navigationItem" id="uAX-Lo-alh">
@@ -1717,6 +1728,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="E0p-CQ-pIu"/>
         <segue reference="nou-Xg-BJy"/>
-        <segue reference="GAf-6l-e0s"/>
+        <segue reference="Ph4-yq-K0q"/>
     </inferredMetricsTieBreakers>
 </document>
