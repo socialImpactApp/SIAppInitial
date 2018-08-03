@@ -1,8 +1,17 @@
 PODS:
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
+    - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
   - Colours (5.13.0):
     - Colours/ObjC (= 5.13.0)
   - Colours/ObjC (5.13.0)
+  - FBSDKCoreKit (4.34.0):
+    - Bolts (~> 1.7)
+  - FBSDKShareKit (4.34.0):
+    - FBSDKCoreKit (~> 4.34.0)
   - Parse (1.17.1):
     - Parse/Core (= 1.17.1)
   - Parse/Core (1.17.1):
@@ -13,6 +22,7 @@ PODS:
 
 DEPENDENCIES:
   - Colours
+  - FBSDKShareKit
   - Parse
   - ParseUI
 
@@ -20,15 +30,19 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Bolts
     - Colours
+    - FBSDKCoreKit
+    - FBSDKShareKit
     - Parse
     - ParseUI
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Colours: f24220c38f13deac88612667e9b4a7fb96b871d4
+  FBSDKCoreKit: 0ff57f093b85c8c9d5aba697d3edf68a8960ce78
+  FBSDKShareKit: 511d1dfc71204c0a8d69e6c5e3c964dcf0d4f3d9
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
   ParseUI: 2b37a0bc692a3e7666cf0c37b5521dfddd74a1af
 
-PODFILE CHECKSUM: b0671f36cfda5cd9c5e034b90f60c8768d4486cf
+PODFILE CHECKSUM: 075a284b9125d4b0706fe1d9868f8da666f63e2d
 
 COCOAPODS: 1.5.3

@@ -16,9 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *resultsTableView;
 @property (strong, nonatomic) MKLocalSearchCompleter *searchCompleter;
 @property (strong,nonatomic) NSArray *results;
-@property (strong,nonatomic) NSArray *posts;
 @property (nonatomic) NSInteger *tagNumber;
-
+@property (nonatomic, retain) CLLocationManager *locationManager;
 @end
 
 @implementation ShowAllLocationsViewController {
@@ -28,6 +27,7 @@
     NSString *tappedCity;
     NSString *tappedState;
     NSInteger *tagNumber;
+    VolunteerOpportunity *voppSelected;
 }
 
 - (void)viewDidLoad {
@@ -50,7 +50,17 @@
     
     tagNumber = 0;
     [self.mapView setUserInteractionEnabled:YES];
-    [self showAllLocs:self.allLocs];
+    [self showAllLocs:self.allVopps];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager setDelegate:self];
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]){
+        //lets user authorize own permission
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    self.mapView.showsUserLocation= YES;
+    [self.locationManager requestLocation];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -119,7 +129,8 @@ replacementString:(NSString *)string {
             
             MKCoordinateRegion locationRegion;
             locationRegion.center = center;
-            locationRegion.span = span;
+            //we 
+            //locationRegion.span = span;
             //check if need to allocate
 //            MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
 //            point.coordinate = center;
@@ -135,12 +146,11 @@ replacementString:(NSString *)string {
 - (void)mapView:(MKMapView *)mapView
 didSelectAnnotationView:(MKAnnotationView *)view{
     NSLog(@"we tapped on a pin!!!");
-    DetailViewController *detailView=[[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
-    [[self navigationController] pushViewController:detailView animated:YES];
+    voppSelected = self.allVopps[view.tag];
+//    UIStoryboardSegue *segue;
+     [self performSegueWithIdentifier:@"allLocsDetailSeg" sender:self];
+    //[[self navigationController] pushViewController:detailView animated:YES];
     //[detailView release];
-    [self performSegueWithIdentifier:@"allLocsDetailSeg" sender:self];
-
-
 }
 
 
@@ -155,17 +165,17 @@ didSelectAnnotationView:(MKAnnotationView *)view{
 }
 
 
--(void)showAllLocs:(NSMutableArray <NSString *>*) allLocs{
+-(void)showAllLocs:(NSMutableArray <VolunteerOpportunity *>*)allVopps {
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     self.allLocs = [[NSMutableArray alloc] init];
     //dispatch_group_t group = dispatch_group_create();
     
-    for (NSString *address in allLocs) {
-        NSLog(@"%@",address);
+    for (VolunteerOpportunity *vopp in allVopps) {
+        //NSLog(@"%@",address);
         //dispatch_group_enter(group);
         __weak typeof(self) weakSelf = self;
         _blockCompleted = NO;
-        [geocoder geocodeAddressString:address completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        [geocoder geocodeAddressString:vopp.location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
             if(!error){
                 CLPlacemark *placemark = [placemarks objectAtIndex:0];
                 NSLog(@"%f",placemark.location.coordinate.latitude);
@@ -181,19 +191,13 @@ didSelectAnnotationView:(MKAnnotationView *)view{
                 locationRegion.span = span;
                 //check if need to allocate
                 MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-                MKPinAnnotationView *pointView = [[MKPinAnnotationView alloc] initWithAnnotation:point reuseIdentifier:Nil];
+                MKAnnotationView *pointView = [[MKAnnotationView alloc] initWithAnnotation:point reuseIdentifier:Nil];
                 point.coordinate = center;
-                point.title = address;
-                [pointView setTag:tagNumber];
-//                pointView.tag = i;
-//                __block i = i + 1;
-//                NSLog(@"adding one to i %d", i);
-                //when accessing more than once we need a strong ref of self bc it can be nil at anytime
+                point.title = vopp.location;
+                [pointView setTag:[allVopps indexOfObject:vopp]];
                 __strong ShowAllLocationsViewController *strongself = weakSelf;
-                [pointView setTag:self->tagNumber];
-                self->tagNumber ++;
                 if (strongself){
-                    [strongself.mapView addAnnotation:point];
+                    [strongself.mapView addAnnotation:pointView.annotation];
                     [strongself.mapView setRegion:locationRegion animated:true];
                     strongself->_blockCompleted = YES;
                 }
@@ -216,14 +220,32 @@ didSelectAnnotationView:(MKAnnotationView *)view{
 //        NSLog(@"%@", allLocs);
 //    });
 }
-/*
+
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    
+    CLLocation *location = [locations lastObject];
+    NSLog(@"Lat %f, Long: %f", location.coordinate.latitude, location.coordinate.longitude);
+    //MKCoordinateSpan span;
+    self.mapView.region = MKCoordinateRegionMakeWithDistance(location.coordinate,0.05,0.05);
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    NSLog(@"%@", error.localizedDescription);
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"allLocsDetailSeg"]){
+        DetailViewController *detailView=[(UINavigationController*)segue.destinationViewController topViewController];;
+        detailView.post = voppSelected;
+    }
+ 
 }
-*/
+
 
 @end

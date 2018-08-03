@@ -16,6 +16,8 @@ typedef void (^LocationCompletionBlock) (NSArray<CLPlacemark *> * _Nullable plac
 
 
 @interface ShowAllLocationsViewController : UIViewController
-@property (strong, nonatomic) NSMutableArray <NSString *> *allLocs;
+@property (strong, nonatomic) NSMutableArray <NSString *> * _Nullable allLocs;
+@property (strong, nonatomic) NSMutableArray <VolunteerOpportunity *> * _Nullable allVopps;
+
 
 @end

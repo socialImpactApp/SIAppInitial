@@ -9,7 +9,6 @@
 #import "DetailViewController.h"
 #import "VolunteerOpportunity.h"
 #import "VolunteerOpportunityCell.h"
-#import <ParseUI/ParseUI.h>
 #import "User.h"
 #import "ShowLocationViewController.h"
 
@@ -22,47 +21,50 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    self.backgroundVoppView.layer.zPosition = -1;
     [self configureCell:self.post];
-    
-    UIFont * customFont = [UIFont fontWithName:@"NewsCycle" size:12]; //custom font
-    NSString * text = [self description];
-    
-    CGRect labelSize = [text boundingRectWithSize:CGSizeMake(380.0, 20.0)
-                                          options:NSStringDrawingTruncatesLastVisibleLine
-                                       attributes:nil
-                                          context:nil];
-                        
-    
-
-    
-//                        boundingRectWithSize:CGSizeMake(380.00, 20.00) options:NSStringDrawingTruncatesLastVisibleLine attributes:nil context:nil];
-    
-    UILabel *fromLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 50, 20, 10)];
-    fromLabel.text = text;
-    fromLabel.font = customFont;
-    fromLabel.numberOfLines = 1;
-    fromLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
-    fromLabel.adjustsFontSizeToFitWidth = YES;
-    fromLabel.minimumScaleFactor = 10.0f/12.0f;
-    fromLabel.clipsToBounds = YES;
-    fromLabel.backgroundColor = [UIColor clearColor];
-    fromLabel.textColor = [UIColor blackColor];
-    fromLabel.textAlignment = NSTextAlignmentLeft;
-    [self.view addSubview:fromLabel];
+    self.signButton.layer.cornerRadius = 10.0;
+    self.signButton.layer.borderWidth = 0.7f;
+    self.signButton.layer.borderColor =[[UIColor colorWithRed:3/255.0 green:121/255.0 blue:113/255.0 alpha:0.7] CGColor];
+//    UIFont * customFont = [UIFont fontWithName:@"NewsCycle" size:12]; //custom font
+//    NSString * text = [self description];
+//
+//    CGRect labelSize = [text boundingRectWithSize:CGSizeMake(380.0, 20.0)
+//                                          options:NSStringDrawingTruncatesLastVisibleLine
+//                                       attributes:nil
+//                                          context:nil];
+//
+ 
+//  boundingRectWithSize:CGSizeMake(380.00, 20.00) options:NSStringDrawingTruncatesLastVisibleLine attributes:nil context:nil];
+    //ASK EZRA WHAT THIS IS
+//    UILabel *fromLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 50, 20, 10)];
+//    fromLabel.text = text;
+//    fromLabel.font = customFont;
+//    fromLabel.numberOfLines = 1;
+//    fromLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+//    fromLabel.adjustsFontSizeToFitWidth = YES;
+//    fromLabel.minimumScaleFactor = 10.0f/12.0f;
+//    fromLabel.clipsToBounds = YES;
+//    fromLabel.backgroundColor = [UIColor clearColor];
+//    fromLabel.textColor = [UIColor blackColor];
+//    fromLabel.textAlignment = NSTextAlignmentLeft;
+//    [self.view addSubview:fromLabel];
 }
 
--(void)configureCell: (VolunteerOpportunity *) post {
-    self.backgroundPic.file = post[@"image"];
-    
-    User *user = [User currentUser];
-    self.largeDescription.text = post[@"description"]; // good
-//    self.Location.text = [[self.post[@"lat"] // might use this for location later stringByAppendingString:@" "] stringByAppendingString:self.post[@"lng"]];
-    self.contactInfo.text = user[@"contactNumber"];
-    self.hours.text = post[@"hours"]; // good
-    self.spotsLeft.text = post[@"spotsLeft"]; //good
-    self.volunteerOppTitle.text = post[@"title"];
-    self.Location.text = post[@"location"];
+-(void)configureCell: (VolunteerOpportunity *) volunOpp {
+    PFObject *postAuthor = volunOpp[@"author"];
+    self.backgroundVoppView.file = volunOpp[@"image"];
+    //loadinbackground
+    [self.backgroundVoppView loadInBackground];
+    self.largeDescription.text = volunOpp[@"description"]; // good
+    self.contactInfo.text = postAuthor[@"contactNumber"];
+    self.hours.text = volunOpp[@"hours"]; // good
+    self.spotsLeft.text = volunOpp[@"spotsLeft"]; //good
+    self.volunteerOppTitle.text = volunOpp[@"title"];
+    self.Location.text = volunOpp[@"location"];
+    self.orgLabel.text = postAuthor[@"organization"];
+    self.orgImageView.layer.cornerRadius = self.orgImageView.frame.size.height/2;
+    self.orgImageView.file = postAuthor[@"profileImage"];
 }
 
 
@@ -83,6 +85,9 @@
 
 }
 
+- (IBAction)didTapBack:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
 
 
 

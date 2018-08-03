@@ -60,6 +60,7 @@
     [self.datePicker addTarget:self action:@selector(onDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     self.dateView.inputView = self.datePicker;
     self.scrollView.backgroundColor = [UIColor snowColor];
+    self.postImageView.layer.cornerRadius = self.postImageView.frame.size.height/2;
     
     CALayer *bottomBorder = [CALayer layer];
     bottomBorder.frame = CGRectMake(0.0f, self.titleView.frame.size.height - 1, self.titleView.frame.size.width, 1.0f);

@@ -16,8 +16,6 @@
 #import "ShowAllLocationsViewController.h"
 #import "AddTagViewController.h"
 #import <Parse/Parse.h>
-
-
 #import "Colours.h"
 
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddTagViewControllerDelegate>
@@ -28,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSMutableArray *filteredData;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
 
 
 @end
@@ -64,6 +63,9 @@
     self.volunteerOpportunities = [[NSMutableArray alloc] init];
     postsForMapView = [[NSMutableArray alloc] init];
     
+    NSDictionary *barButtonAppearanceDict = @{NSFontAttributeName : [UIFont fontWithName:@"News Cycle" size:21], NSForegroundColorAttributeName: [UIColor whiteColor]};
+    [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonAppearanceDict forState:UIControlStateNormal];
+
 }
 
 -(void)refreshTableView {
@@ -212,7 +214,7 @@
     
     UITableViewCell *tappedCell = sender;
     UIButton *button = (UIButton *)sender;
-    NSLog(@"we are in prepare for seg %d", button.tag);
+//    NSLog(@"we are in prepare for seg %ld", (long)button.tag);
     vopp = self.posts[button.tag];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
     VolunteerOpportunity *theCurrentVolunOpp = self.posts[indexPath.row];
@@ -224,7 +226,7 @@
 
     if ([segue.identifier isEqualToString:@"detailsSegue"])
     {
-        DetailViewController *detailedController = [segue destinationViewController];
+        DetailViewController *detailedController = [(UINavigationController*)segue.destinationViewController topViewController];
         detailedController.post = theCurrentVolunOpp;
 }
     else if ([segue.identifier isEqualToString:@"showLocationSeg"])
@@ -237,6 +239,7 @@
     {
         ShowAllLocationsViewController *showAllLocsController = [segue destinationViewController];
         showAllLocsController.allLocs = postsForMapView;
+        showAllLocsController.allVopps = self.volunteerOpportunities; 
     }
     
     else if ([segue.identifier isEqualToString:@"menuFilterSeg"]) {
@@ -246,5 +249,14 @@
     }
 }
 
+
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//
+//    GoalDetailsViewController *goalsDetailsViewController = [(UINavigationController*)segue.destinationViewController topViewController];
+//    NSLog(@"%@",[NSString stringWithFormat:@"%@", [[self.arrCategoryTitle objectAtIndex:indexPath.row] objectAtIndex:indexOfCategory]]);
+//    goalsDetailsViewController.goalName = @"Exercise Daily";
+//
+//}
 
 @end
