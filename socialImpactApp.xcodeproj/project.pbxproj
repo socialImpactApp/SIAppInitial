@@ -13,6 +13,7 @@
 		355718C320FC534D00D735EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C220FC534D00D735EA /* LoginViewController.m */; };
 		355718C620FC53AD00D735EA /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C520FC53AD00D735EA /* MenuViewController.m */; };
 		355718C920FC53E600D735EA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C820FC53E600D735EA /* DetailViewController.m */; };
+		35816FCF21151F400075BAAE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35816FCD21150FDA0075BAAE /* Social.framework */; };
 		35AC5DDE210A418A004BF87A /* ShowLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AC5DDD210A418A004BF87A /* ShowLocationViewController.m */; };
 		35B7627021067B500089739D /* NewsCycle-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626D21067B4E0089739D /* NewsCycle-Regular.ttf */; };
 		35B7627121067B500089739D /* NewsCycle-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626E21067B4E0089739D /* NewsCycle-Bold.ttf */; };
@@ -158,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35816FCF21151F400075BAAE /* Social.framework in Frameworks */,
 				35B7627B2107895E0089739D /* CoreLocation.framework in Frameworks */,
 				35B762792106CB3A0089739D /* MapKit.framework in Frameworks */,
 				47D8A038FCB35C7777A968A0 /* libPods-socialImpactApp.a in Frameworks */,
@@ -226,9 +228,9 @@
 				6628860021092C9D0014196F /* TimelineViewController.m */,
 				35B762752106B06D0089739D /* AddLocationViewController.h */,
 				35B762762106B06D0089739D /* AddLocationViewController.m */,
-				66BF560A20FE5DAF00C1E39B /* Models */,
 				35E7D1312113E00D00230A31 /* MapTabViewController.h */,
 				35E7D1322113E00D00230A31 /* MapTabViewController.m */,
+				66BF560A20FE5DAF00C1E39B /* Models */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

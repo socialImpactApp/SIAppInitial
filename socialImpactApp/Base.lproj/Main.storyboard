@@ -937,6 +937,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="NewsCycle" family="News Cycle" pointSize="17"/>
                                 <state key="normal" title="Share FB"/>
+                                <connections>
+                                    <action selector="didTapShare:" destination="uLg-UF-rMn" eventType="touchUpInside" id="KzB-w3-yFA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

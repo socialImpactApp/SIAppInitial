@@ -26,6 +26,7 @@
     self.signButton.layer.cornerRadius = 10.0;
     self.signButton.layer.borderWidth = 0.7f;
     self.signButton.layer.borderColor =[[UIColor colorWithRed:3/255.0 green:121/255.0 blue:113/255.0 alpha:0.7] CGColor];
+ 
 //    UIFont * customFont = [UIFont fontWithName:@"NewsCycle" size:12]; //custom font
 //    NSString * text = [self description];
 //
@@ -89,7 +90,18 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+- (IBAction)didTapShare:(id)sender {
+    NSLog(@"WE ARE SHARING");
+    //FBSDKShareLinkContent *linkContent = [FBSDKShareLinkContent new];
+    FBSDKShareLinkContent *linkContent = [[FBSDKShareLinkContent alloc] init];
+    linkContent.contentURL = [NSURL URLWithString:@"http://voppIshaEzra://"];
+    //linkContent.quote = @"hi i am the description ;)";
+    FBSDKShareDialog *shareDialog = [FBSDKShareDialog new];
+    shareDialog.shareContent = linkContent;
+    [FBSDKShareDialog showFromViewController:self withContent:linkContent delegate:nil];
 
+  
+}
 
 #pragma mark - Navigation
 

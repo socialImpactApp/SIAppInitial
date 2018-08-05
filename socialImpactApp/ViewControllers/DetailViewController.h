@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <ParseUI/ParseUI.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
+#import <Social/Social.h>
 #import "VolunteerOpportunity.h"
 #import "User.h"
 
