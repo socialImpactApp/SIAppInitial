@@ -11,12 +11,15 @@
 #import "VolunteerOpportunityCell.h"
 #import "User.h"
 #import "ShowLocationViewController.h"
+#import "Colours.h"
 
-@interface DetailViewController () 
+@interface DetailViewController () <UIScrollViewDelegate>
 
 @end
 
-@implementation DetailViewController
+@implementation DetailViewController{
+    NSMutableArray *tagArray;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +29,13 @@
     self.signButton.layer.cornerRadius = 10.0;
     self.signButton.layer.borderWidth = 0.7f;
     self.signButton.layer.borderColor =[[UIColor colorWithRed:3/255.0 green:121/255.0 blue:113/255.0 alpha:0.7] CGColor];
+    self.scrollView.delegate = self;
+    self.scrollView.scrollEnabled = YES;
+    CGSize scrollSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 800);
+    self.scrollView.contentSize = scrollSize;
+
+   // self.scrollView.contentSize = CGSizeMake(375, 800);
+    [self.view addSubview:self.scrollView];
  
 //    UIFont * customFont = [UIFont fontWithName:@"NewsCycle" size:12]; //custom font
 //    NSString * text = [self description];
@@ -53,6 +63,7 @@
 }
 
 -(void)configureCell: (VolunteerOpportunity *) volunOpp {
+    tagArray = [[NSMutableArray alloc] init ]; 
     PFObject *postAuthor = volunOpp[@"author"];
     self.backgroundVoppView.file = volunOpp[@"image"];
     //loadinbackground
@@ -64,8 +75,42 @@
     self.volunteerOppTitle.text = volunOpp[@"title"];
     self.Location.text = volunOpp[@"location"];
     self.orgLabel.text = postAuthor[@"organization"];
+    self.orgLabel.layer.shadowRadius = 2.0;
+    self.orgLabel.layer.masksToBounds = NO;
+    self.orgLabel.layer.shadowColor = [[UIColor coolGrayColor] CGColor];
+    self.orgLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+    self.orgLabel.layer.shadowOpacity = 0.5;
     self.orgImageView.layer.cornerRadius = self.orgImageView.frame.size.height/2;
     self.orgImageView.file = postAuthor[@"profileImage"];
+ 
+    for (NSString *tag in volunOpp[@"tags"]){
+        if ([tag isEqualToString:@"animalWelfare"]){
+            [tagArray addObject:@"Animal Welfare"];
+        }
+        else if ([tag isEqualToString:@"childrenAndYouth"]){
+            [tagArray addObject:@"Children and Youth"];
+        }
+        else if ([tag isEqualToString:@"construction"]){
+            [tagArray addObject:@"Construction"];
+        }
+        else if ([tag isEqualToString:@"education"]){
+            [tagArray addObject:@"Education"];
+        }
+        else if ([tag isEqualToString:@"environmental"]){
+            [tagArray addObject:@"Environmental"];
+        }
+        else if ([tag isEqualToString:@"foodService"]){
+            [tagArray addObject:@"Food Service"];
+        }
+        else if ([tag isEqualToString:@"fundraising"]){
+            [tagArray addObject:@"Fundraising"];
+        }
+        else if ([tag isEqualToString:@"medical"]){
+            [tagArray addObject:@"Medical"];
+        }
+        
+    }
+    self.filtersLabel.text = [tagArray componentsJoinedByString:@", " ];
 }
 
 

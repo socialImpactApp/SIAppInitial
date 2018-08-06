@@ -27,5 +27,7 @@
 @property (weak, nonatomic) IBOutlet PFImageView *orgImageView;
 @property (weak, nonatomic) IBOutlet PFImageView *backgroundVoppView;
 @property (weak, nonatomic) IBOutlet UIButton *signButton;
+@property (weak, nonatomic) IBOutlet UILabel *filtersLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

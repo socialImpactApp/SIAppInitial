@@ -30,12 +30,14 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextView *locationView;
 
+@property (weak, nonatomic) IBOutlet UILabel *tagsLabel;
 
 @end
 
 @implementation AddVolunteerOpportunityViewController {
     //this is where our tags of strings array is
     NSMutableArray<NSString *> *_collectionOfTags;
+    NSMutableArray *tagArray;
     NSString *_volunteerLocation;
     NSString *_volunteerAddress;
     NSString *_city;
@@ -129,7 +131,36 @@
 
 -(void)didTapSaveFilter:(NSMutableArray<NSString *> *)tags {
     _collectionOfTags = [[NSMutableArray alloc] init ];
+    tagArray = [[NSMutableArray alloc] init ];
     _collectionOfTags = [tags copy];
+    for (NSString *tag in _collectionOfTags){
+        if ([tag isEqualToString:@"animalWelfare"]){
+            [tagArray addObject:@"Animal Welfare"];
+        }
+        else if ([tag isEqualToString:@"childrenAndYouth"]){
+            [tagArray addObject:@"Children and Youth"];
+        }
+        else if ([tag isEqualToString:@"construction"]){
+            [tagArray addObject:@"Construction"];
+        }
+        else if ([tag isEqualToString:@"education"]){
+            [tagArray addObject:@"Education"];
+        }
+        else if ([tag isEqualToString:@"environmental"]){
+            [tagArray addObject:@"Environmental"];
+        }
+        else if ([tag isEqualToString:@"foodService"]){
+            [tagArray addObject:@"Food Service"];
+        }
+        else if ([tag isEqualToString:@"fundraising"]){
+            [tagArray addObject:@"Fundraising"];
+        }
+        else if ([tag isEqualToString:@"medical"]){
+            [tagArray addObject:@"Medical"];
+        }
+        
+    }
+     self.tagsLabel.text = [tagArray componentsJoinedByString:@", " ];
 }
 
 -(void)didTapAddLocation:(NSString *)locationName withAddress:(NSString *)addressName withCity:(NSString *)cityName withState:(NSString *)stateName{

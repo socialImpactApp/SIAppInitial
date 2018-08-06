@@ -47,18 +47,10 @@
     self.contactLabel.text = user.contactNumber;
     self.emailLabel.text = user.email;
     self.orgLabel.text = user.organization;
+    self.contactLabel.text = user.contactNumber;
 
     self.userView.backgroundColor = [UIColor snowColor];
     [super viewDidLoad];
-//    CGFloat customRefreshControlHeight = 50.0f;
-//    CGFloat customRefreshControlWidth = 320.0f;
-//    CGRect customRefreshControlFrame = CGRectMake(0.0f,
-//                                                  -customRefreshControlHeight,
-//                                                  customRefreshControlWidth,
-//                                                  customRefreshControlHeight);
-//    
-//    self.refreshControl = [[UIRefreshControl alloc] initWithFrame:customRefreshControlFrame]; 
-    
     [self.userView addSubview:self.refreshControl];
 }
 

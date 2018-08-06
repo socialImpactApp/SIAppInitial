@@ -51,7 +51,7 @@
     self.searchBar.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.rowHeight = 200;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.backgroundColor = [UIColor snowColor];
     self.topView.backgroundColor = [UIColor snowColor];
     self.refreshControl = [[UIRefreshControl alloc] init];
