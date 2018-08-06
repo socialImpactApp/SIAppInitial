@@ -13,7 +13,7 @@
 #import "AddVolunteerOpportunityViewController.h"
 #import "AddTagViewController.h"
 #import "VolunteerOpportunity.h"
-#import "LocationViewController.h"
+#import "AddLocationViewController.h"
 #import <UIKit/UIKit.h>
 #import "Colours.h"
 
@@ -38,6 +38,8 @@
     NSMutableArray<NSString *> *_collectionOfTags;
     NSString *_volunteerLocation;
     NSString *_volunteerAddress;
+    NSString *_city;
+    NSString *_state;
 }
 
 
@@ -130,9 +132,11 @@
     _collectionOfTags = [tags copy];
 }
 
--(void)didTapAddLocation:(NSString *)locationName withAddress:(NSString *)addressName{
+-(void)didTapAddLocation:(NSString *)locationName withAddress:(NSString *)addressName withCity:(NSString *)cityName withState:(NSString *)stateName{
     _volunteerLocation = locationName;
     _volunteerAddress = addressName;
+    _city = cityName;
+    _state = stateName;
     self.locationView.text = _volunteerLocation;
 }
 
@@ -147,6 +151,7 @@
             withTags:_collectionOfTags
         withDate:self.dateView.text
          withLocation:[NSString stringWithFormat:@"%@ %@" , _volunteerLocation, _volunteerAddress]
+         withCityState:[NSString stringWithFormat:@"%@, %@", _city, _state]
            withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                if(succeeded){
                    NSLog(@"%@", self->_collectionOfTags);
@@ -160,7 +165,7 @@
                    [self dismissViewControllerAnimated:YES completion:nil];
                }
                else {
-                   NSLog(@"ERROR:@%" , error.localizedDescription);
+                   NSLog(@"ERROR:@%", error.localizedDescription);
                }
            }];
     }
@@ -227,7 +232,7 @@
          tagViewController.delegate = self;
      }
      else if ([segue.identifier isEqualToString:@"locationSeg"]){
-         LocationViewController *locationViewController = segue.destinationViewController;
+         AddLocationViewController *locationViewController = segue.destinationViewController;
          locationViewController.delegate = self;
      }
  }

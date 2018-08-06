@@ -12,6 +12,10 @@
 #import "VolunteerOpportunityCell.h"
 #import "DetailViewController.h"
 #import "LoginViewController.h"
+
+#import "ShowLocationViewController.h"
+
+
 #import "Colours.h"
 
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -20,11 +24,17 @@
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSMutableArray *volunteerOpportunities;
+@property (weak, nonatomic) IBOutlet UIView *topView;
 
 @end
 
 @implementation MenuViewController{
+
+    NSString *volunteerLocation;
+    NSIndexPath *indexPathLocation;
+
     NSMutableArray *postsOne;
+
 }
 
 - (void)viewDidLoad {
@@ -34,6 +44,7 @@
     self.tableView.delegate = self;
     self.tableView.rowHeight = 200;
     self.tableView.backgroundColor = [UIColor snowColor];
+    self.topView.backgroundColor = [UIColor snowColor];
     self.refreshControl = [[UIRefreshControl alloc] init];
      [self.refreshControl addTarget:self action:@selector(fetch) forControlEvents:UIControlEventValueChanged];
     self.refreshControl.layer.zPosition = -1;
@@ -56,7 +67,6 @@
     User *currentUser = [User currentUser];
     postsOne = [[NSMutableArray alloc] init];
     self->postsOne = self.volunteerOpportunities;
-
     PFQuery *query = [VolunteerOpportunity query];
     
     //in the future we will filter the data
@@ -77,8 +87,6 @@
         }
     }];
     [self.refreshControl endRefreshing];
-
-    //[self.refreshControl endRefreshing];
 }
 
 
@@ -104,12 +112,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"we are in cellforRow");
     VolunteerOpportunityCell *postCell = [self.tableView dequeueReusableCellWithIdentifier:@"postCell"];
-    NSLog(@"%@", postCell.volunteerOpportunity.postID);
-    NSLog(@"%@", postCell.descriptionLabel.text);
-    NSLog(@"%@", postCell);
-    VolunteerOpportunity *post = self.volunteerOpportunities[indexPath.row];
+
+    postCell.locationButton.tag = indexPath.row;
+    [postCell.locationButton addTarget:self action:@selector(didTapLocation:) forControlEvents:UIControlEventTouchUpInside];
+
+    VolunteerOpportunity *post = self.posts[indexPath.row];
+//    VolunteerOpportunity *post2 = self.volunteerOpportunities[indexPath.row];
     NSLog(@"checking post");
     NSLog(@"%@", post.postID);
+
     [postCell configureCell:post];
     
     NSDate *newDate = postCell.volunteerOpportunity.createdAt;
@@ -126,6 +137,11 @@
     
     return postCell;
 }
+- (IBAction)didTapLocation:(id)sender {
+    UITableViewCell *postCell = (UITableViewCell *)[sender superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:postCell];
+    indexPathLocation = indexPath;
+}
 
 - (IBAction)didTapLogout:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
@@ -139,6 +155,7 @@
         appDelegate.window.rootViewController = loginViewController;
     }];
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
 
@@ -159,13 +176,25 @@
     
     UITableViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-    VolunteerOpportunity *theCurrentVolunOpp = self.volunteerOpportunities[indexPath.row];
-    
+
+    VolunteerOpportunity *theCurrentVolunOpp = self.posts[indexPath.row];
+    NSLog(@"we are here1 %@", theCurrentVolunOpp[@"location"]);    
+
     if ([segue.identifier isEqualToString:@"detailsSegue"])
     {
+        NSLog(@"we are here2 %@", theCurrentVolunOpp[@"location"]);
         DetailViewController *detailedController = [segue destinationViewController];
         detailedController.post = theCurrentVolunOpp;
+        NSLog(@"we are here3 %@", theCurrentVolunOpp[@"location"]);
         NSLog(@"checking detailedPost");
+
+}
+    else if ([segue.identifier isEqualToString:@"showLocationSeg"])
+    {
+        NSLog(@"we are here4 %@", theCurrentVolunOpp[@"location"]);
+        ShowLocationViewController *showLocationController = [segue destinationViewController];
+        showLocationController.post = theCurrentVolunOpp;
+
     }
 }
 

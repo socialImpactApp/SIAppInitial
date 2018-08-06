@@ -24,7 +24,7 @@
 @property (weak, nonatomic) User *user;
 @property (strong, nonatomic) IBOutlet UIView *userView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -59,7 +59,7 @@
                                                   customRefreshControlWidth,
                                                   customRefreshControlHeight);
     
-    self.refreshControl = [[UIRefreshControl alloc] initWithFrame:customRefreshControlFrame];
+    self.refreshControl = [[UIRefreshControl alloc] initWithFrame:customRefreshControlFrame]; 
     
     [self.userView addSubview:self.refreshControl];
 }

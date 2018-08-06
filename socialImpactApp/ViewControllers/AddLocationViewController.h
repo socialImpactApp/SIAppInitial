@@ -1,5 +1,5 @@
 //
-//  LocationViewController.h
+//  AddLocationViewController.h
 //  socialImpactApp
 //
 //  Created by Roesha Nigos on 7/23/18.
@@ -12,11 +12,11 @@
 
 @protocol AddLocationViewControllerDelegate
 
--(void)didTapAddLocation:(NSString *) locationName withAddress:(NSString *) addressName;
+-(void)didTapAddLocation:(NSString *)locationName withAddress:(NSString *)addressName  withCity:(NSString *)cityName  withState:(NSString *)stateName;
 
 @end
 
-@interface LocationViewController : UIViewController<CLLocationManagerDelegate>
+@interface AddLocationViewController : UIViewController<CLLocationManagerDelegate>
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (strong, nonatomic) id<AddLocationViewControllerDelegate> delegate;

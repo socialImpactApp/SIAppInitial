@@ -13,10 +13,11 @@
 		355718C320FC534D00D735EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C220FC534D00D735EA /* LoginViewController.m */; };
 		355718C620FC53AD00D735EA /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C520FC53AD00D735EA /* MenuViewController.m */; };
 		355718C920FC53E600D735EA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C820FC53E600D735EA /* DetailViewController.m */; };
+		35AC5DDE210A418A004BF87A /* ShowLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AC5DDD210A418A004BF87A /* ShowLocationViewController.m */; };
 		35B7627021067B500089739D /* NewsCycle-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626D21067B4E0089739D /* NewsCycle-Regular.ttf */; };
 		35B7627121067B500089739D /* NewsCycle-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626E21067B4E0089739D /* NewsCycle-Bold.ttf */; };
 		35B7627221067B500089739D /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626F21067B4E0089739D /* OFL.txt */; };
-		35B762772106B06D0089739D /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B762762106B06D0089739D /* LocationViewController.m */; };
+		35B762772106B06D0089739D /* AddLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B762762106B06D0089739D /* AddLocationViewController.m */; };
 		35B762792106CB3A0089739D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B762782106CB3A0089739D /* MapKit.framework */; };
 		35B7627B2107895E0089739D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7627A2107895E0089739D /* CoreLocation.framework */; };
 		35B762D12108E4E60089739D /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B762D02108E4E60089739D /* SearchTableViewCell.m */; };
@@ -115,11 +116,13 @@
 		355718C520FC53AD00D735EA /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		355718C720FC53E600D735EA /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		355718C820FC53E600D735EA /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		35AC5DDC210A418A004BF87A /* ShowLocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowLocationViewController.h; sourceTree = "<group>"; };
+		35AC5DDD210A418A004BF87A /* ShowLocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowLocationViewController.m; sourceTree = "<group>"; };
 		35B7626D21067B4E0089739D /* NewsCycle-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewsCycle-Regular.ttf"; sourceTree = "<group>"; };
 		35B7626E21067B4E0089739D /* NewsCycle-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewsCycle-Bold.ttf"; sourceTree = "<group>"; };
 		35B7626F21067B4E0089739D /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
-		35B762752106B06D0089739D /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
-		35B762762106B06D0089739D /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		35B762752106B06D0089739D /* AddLocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddLocationViewController.h; sourceTree = "<group>"; };
+		35B762762106B06D0089739D /* AddLocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddLocationViewController.m; sourceTree = "<group>"; };
 		35B762782106CB3A0089739D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		35B7627A2107895E0089739D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		35B762CF2108E4E60089739D /* SearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
@@ -286,6 +289,11 @@
 				66379C9520FFF02D00487A3D /* SignUpViewController.m */,
 				354307F2210149B70045A8FD /* EditUserProfileViewController.h */,
 				354307F3210149B70045A8FD /* EditUserProfileViewController.m */,
+				35B762752106B06D0089739D /* AddLocationViewController.h */,
+				35B762762106B06D0089739D /* AddLocationViewController.m */,
+				35AC5DDC210A418A004BF87A /* ShowLocationViewController.h */,
+				35AC5DDD210A418A004BF87A /* ShowLocationViewController.m */,
+
 				662885FF21092C9D0014196F /* TimelineViewController.h */,
 				6628860021092C9D0014196F /* TimelineViewController.m */,
 				35B762752106B06D0089739D /* LocationViewController.h */,
@@ -479,8 +487,10 @@
 		66BF560E20FE5DBB00C1E39B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				66BF560F20FE5DBB00C1E39B /* VolunteerOpportunityCell.m */,
 				66BF561020FE5DBB00C1E39B /* VolunteerOpportunityCell.h */,
+
+				66BF560F20FE5DBB00C1E39B /* VolunteerOpportunityCell.m */,
+
 				667632832107AC6600538E9B /* News_Cycle */,
 				35B762CF2108E4E60089739D /* SearchTableViewCell.h */,
 				35B762D02108E4E60089739D /* SearchTableViewCell.m */,
@@ -798,6 +808,7 @@
 				667EEC54211225DE00F2A0FA /* FSCalendarCollectionView.m in Sources */,
 				35B762772106B06D0089739D /* LocationViewController.m in Sources */,
 				667EEC70211256EB00F2A0FA /* FSCalendarScopeExampleViewController.m in Sources */,
+				35B762772106B06D0089739D /* AddLocationViewController.m in Sources */,
 				35D8D54320EFE04000B5D12C /* main.m in Sources */,
 				66BF561120FE5DBB00C1E39B /* VolunteerOpportunityCell.m in Sources */,
 				66BF561A20FE932E00C1E39B /* SavedViewController.m in Sources */,
@@ -817,6 +828,7 @@
 				667EEC59211225DE00F2A0FA /* FSCalendar.m in Sources */,
 				66D7AFA02114F55D0074562A /* TimelineTableViewCell.m in Sources */,
 				667EEC5F211225DE00F2A0FA /* FSCalendarConstants.m in Sources */,
+				35AC5DDE210A418A004BF87A /* ShowLocationViewController.m in Sources */,
 				355718C920FC53E600D735EA /* DetailViewController.m in Sources */,
 				66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */,
 				66BF560D20FE5DAF00C1E39B /* VolunteerOpportunity.m in Sources */,
@@ -970,7 +982,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1022,7 +1034,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
