@@ -101,9 +101,10 @@
 - (void)onDatePickerValueChanged:(UIDatePicker *)datePicker
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"hh:mm MMMM dd,yyyy";
+    dateFormatter.dateFormat = @"hh:mm MMMM dd,yyyy a";
     //self.dateView.text = [dateFormatter stringFromDate:[NSDate date]];
     self.dateView.text = [dateFormatter stringFromDate:datePicker.date];
+    NSLog(@"%@", self.dateView.text);
 }
 
 
@@ -170,7 +171,7 @@
     //setting the delegates and the data source
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
-    imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+    //imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
     //ASK
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;

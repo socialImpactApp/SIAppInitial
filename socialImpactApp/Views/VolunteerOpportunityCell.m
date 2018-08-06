@@ -37,6 +37,7 @@
     self.volunteerOpportunity = volunOpp;
     //NSLog(@"%@", volunOpp.objectId);
     self.oppImageView.layer.cornerRadius = self.oppImageView.frame.size.height/2;
+    self.oppImageView.clipsToBounds = YES;
     self.oppImageView.file = volunOpp[@"image"];
     [self.oppImageView loadInBackground];
     self.titleLabel.text = volunOpp[@"title"];
@@ -56,7 +57,7 @@
     
     //MERGE CONFLICT
     //self.dateLabel.text = volunOpp[@"date"];
-    self.locationLabel.text = volunOpp[@"location"];
+    self.locationLabel.text = volunOpp[@"cityState"];
     self.backCellView.backgroundColor = [UIColor whiteColor];
     self.backCellView.layer.cornerRadius = 2.0;
     self.contentView.backgroundColor = [UIColor snowColor];
@@ -64,7 +65,6 @@
     self.backCellView.layer.shadowColor = [[UIColor coolGrayColor] CGColor];
     self.backCellView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
     self.backCellView.layer.shadowOpacity = 0.5;
-    
     
     User *loggedInUser = [User currentUser];
     if ([loggedInUser.favoritedOpps containsObject:volunOpp.objectId])
@@ -76,6 +76,50 @@
         self.favoritedButton.selected = NO;
     }
 }
+
+
+
+
+
+//- (IBAction)didTapUnfavorite:(id)sender {
+//    
+//    PFQuery *friendQuery = [PFUser query];
+//    //NSLog(@"%@", user.contactNumber);
+//    //Ask Morgan about whereKey
+//    [friendQuery whereKey:@"username" equalTo:self.loggedInUser.username];
+//    [friendQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error)
+//     {
+//         self.volunteerOpportunity.favorited = NO;
+//         NSLog(@"PRE DELETE");
+//         NSLog(@"%@", self.loggedInUser.favoritedOpps);
+//         
+//         [self.loggedInUser.favoritedOpps removeObject:self.volunteerOpportunity.objectId];
+//         
+//         NSLog(@"POST DELETE");
+//         
+//         NSLog(@"%@", self.loggedInUser.favoritedOpps);
+//         
+//         
+//         [self.loggedInUser setObject:self.loggedInUser.favoritedOpps forKey:@"favoritedOpps"];
+//         [self.loggedInUser saveInBackground];
+//         
+//         NSLog(@"deleted from favoriteOpps and saved in Parse");
+//         self.favoritedButton.selected = YES;
+////         self.delegate =
+////         [self.delegate sendSenderToSaved:sender];
+////         
+////         
+////         
+////         //animate disappear
+////         int index;
+////         for ()
+////         
+////         UITableViewCell *tappedCell = sender;
+////         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+////         VolunteerOpportunity *theCurrentVolunOpp = self.volunteerOpportunities[indexPath.row];
+//         
+//     }];
+//}
 
 - (IBAction)didTapFavorite:(id)sender {
     if (self.favoritedButton.selected)

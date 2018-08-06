@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "VolunteerOpportunityCell.h"
+#import "VolunteerOpportunityCell.h"
 
 @interface SavedViewController : UIViewController
 
+@property User *loggedInUser;
 @end

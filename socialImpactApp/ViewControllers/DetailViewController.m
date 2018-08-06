@@ -11,6 +11,7 @@
 #import "VolunteerOpportunityCell.h"
 #import <ParseUI/ParseUI.h>
 #import "User.h"
+#import <EventKit/EventKit.h>
 
 @interface DetailViewController ()
 
@@ -42,6 +43,7 @@
     fromLabel.textColor = [UIColor blackColor];
     fromLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:fromLabel];
+   
 }
 
 -(void)configureCell: (VolunteerOpportunity *) post {
@@ -73,6 +75,31 @@
     [loggedInUser saveInBackground];
 
 }
+
+- (IBAction)didTapExport:(id)sender {
+    EKEventStore *store = [EKEventStore new];
+    [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+        if (!granted) { return; }
+        EKEvent *event = [EKEvent eventWithEventStore:store];
+        
+        //Convert date format
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@" MMMM d, YYYY"];
+        NSDate *date = [dateFormat dateFromString:self.post.date];
+        
+        // Convert date object to desired output format
+        
+        event.title = self.volunteerOppTitle.text;
+        event.startDate = [NSDate date]; //today
+        NSLog(@"%@", event.startDate);
+        event.endDate = [event.startDate dateByAddingTimeInterval:60*60];  //set 1 hour meeting
+        event.calendar = [store defaultCalendarForNewEvents];
+        NSError *err = nil;
+        [store saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
+        //self.savedEventId = event.eventIdentifier;  //save the event id if you want to access this later
+    }];
+}
+
 
 
 /*

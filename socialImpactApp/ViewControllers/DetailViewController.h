@@ -22,5 +22,6 @@
 @property (strong, nonatomic) VolunteerOpportunity *post;
 @property (strong, nonatomic) User *user;
 @property (weak, nonatomic) IBOutlet UILabel *volunteerOppTitle;
+@property (weak, nonatomic) IBOutlet UIButton *exportButton;
 
 @end

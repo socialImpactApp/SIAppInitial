@@ -11,6 +11,10 @@
 #import <ParseUI/ParseUI.h>
 #import "User.h"
 
+@protocol senderForUnfavoriteDelegate
+
+-(void)sendSenderToSaved:(id)sender;
+@end
 
 @interface VolunteerOpportunityCell : UITableViewCell
 
@@ -27,6 +31,8 @@
 
 @property (strong,nonatomic) User *loggedInUser;
 @property (strong, nonatomic) NSMutableArray <NSString *> *favoritedOpps;
+@property (strong, nonatomic) id<senderForUnfavoriteDelegate> delegate;
+
 
 //going to access this publicly in MenuViewController
 -(void)configureCell: (VolunteerOpportunity *) volunOpp;
