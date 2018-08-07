@@ -64,8 +64,8 @@ NS_ASSUME_NONNULL_END
 {
     [super viewDidLoad];
     
-    self.store = [[EKEventStore alloc] init];
-    
+    self.loggedInUser = [User currentUser];
+
     
     if ([[UIDevice currentDevice].model hasPrefix:@"iPad"]) {
         self.calendarHeightConstraint.constant = 400;
@@ -331,7 +331,7 @@ NS_ASSUME_NONNULL_END
 
 -(BOOL)checkForCalendar:(NSString *)eventName{
     //get an array of the user's calendar using your instance of the eventStore
-    NSArray *calendarArray = [self.store calendarsForEntityType:EKEntityTypeEvent];
+    NSArray *calendarArray = [self.loggedInUser.store calendarsForEntityType:EKEntityTypeEvent];
     
     // The name of the calendar to check for. You can also save the calendarIdentifier and check for that if you want
     NSString *calNameToCheckFor = eventName;
@@ -355,21 +355,24 @@ NS_ASSUME_NONNULL_END
     
 
 }
-    
-    
-- (IBAction)didTapExport:(id)sender {
-    
-}
-    
 
 - (IBAction)didTapExportAll:(id)sender {
-        for (VolunteerOpportunity *vol in self.filteredVolunteerOpportunities)
+    if (self.exportAllButton.selected == NO)
+    {
+        self.exportAllButton.selected = YES;
+    }
+    else
+    {
+        self.exportAllButton.selected = NO;
+    }
+    for (VolunteerOpportunity *vol in self.filteredVolunteerOpportunities)
         {
             if ([self checkForCalendar:vol.title] == NO)
             {
-                [self.store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+                self.exportAllButton.selected = NO;
+                [self.loggedInUser.store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
                     if (!granted) { return; }
-                    EKEvent *event = [EKEvent eventWithEventStore:self.store];
+                    EKEvent *event = [EKEvent eventWithEventStore:self.loggedInUser.store];
                     event.title = vol.title;
                     NSString *fullDateAndTime = vol.date;
                     fullDateAndTime = [fullDateAndTime stringByReplacingOccurrencesOfString:@"," withString:@" "];
@@ -401,10 +404,9 @@ NS_ASSUME_NONNULL_END
                 
                     NSTimeInterval hoursInSeconds = [vol.hours intValue] *60*60;
                     event.endDate = [event.startDate dateByAddingTimeInterval:hoursInSeconds];
-                    //set 1 hour meeting
-                    event.calendar = [self.store defaultCalendarForNewEvents];
+                    event.calendar = [self.loggedInUser.store defaultCalendarForNewEvents];
                     NSError *err = nil;
-                    [self.store saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
+                    [self.loggedInUser.store saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
                     //self.savedEventId = event.eventIdentifier;  //save the event id if you want to access this later
                 }];
         }

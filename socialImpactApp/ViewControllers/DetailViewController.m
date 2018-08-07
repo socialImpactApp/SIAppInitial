@@ -25,6 +25,7 @@
 
     [self configureCell:self.post];
     
+    self.loggedInUser = [User currentUser];
     UIFont * customFont = [UIFont fontWithName:@"NewsCycle" size:12]; //custom font
     NSString * text = [self description];
     
@@ -66,38 +67,113 @@
 }
 
 - (IBAction)didTapSignUp:(id)sender {
-    User *loggedInUser = [User currentUser];
-    if (loggedInUser.timelineOpps == NULL) {
-        loggedInUser.timelineOpps = [[NSMutableArray alloc] init];
+    if (self.loggedInUser.timelineOpps == NULL) {
+        self.loggedInUser.timelineOpps = [[NSMutableArray alloc] init];
     }
-    [loggedInUser.timelineOpps addObject:self.post.objectId];
-    loggedInUser[@"timelineOpps"] = loggedInUser.timelineOpps;
-    [loggedInUser saveInBackground];
+    [self.loggedInUser.timelineOpps addObject:self.post.objectId];
+    self.loggedInUser[@"timelineOpps"] = self.loggedInUser.timelineOpps;
+    [self.loggedInUser saveInBackground];
+}
 
+-(BOOL)checkForCalendar:(NSString *)eventName{
+    //get an array of the user's calendar using your instance of the eventStore
+    NSArray *calendarArray = [self.loggedInUser.store calendarsForEntityType:EKEntityTypeEvent];
+    
+    // The name of the calendar to check for. You can also save the calendarIdentifier and check for that if you want
+    NSString *calNameToCheckFor = eventName;
+    NSDate* endDate =  [NSDate dateWithTimeIntervalSinceNow:[[NSDate distantFuture] timeIntervalSinceReferenceDate]];
+
+    EKCalendar *cal;
+    
+    for (int x = 0; x < [calendarArray count]; x++) {
+        
+        cal = [calendarArray objectAtIndex:x];
+        NSArray *calArray = [NSArray arrayWithObject:cal];
+        NSPredicate *fetchCalendarEvents = [self.loggedInUser.store predicateForEventsWithStartDate:[NSDate date] endDate:endDate calendars:calArray];
+        NSArray *eventList = [self.loggedInUser.store eventsMatchingPredicate:fetchCalendarEvents];
+        for(int i=0; i < eventList.count; i++){
+            NSLog(@"Event Title:%@", [[eventList objectAtIndex:i] title]);
+            NSString *caltitle =[[eventList objectAtIndex:i] title];
+            if ([caltitle isEqualToString:calNameToCheckFor]) {
+                            return YES;
+                }
+            }
+        
+        
+//        NSString *calTitle = [cal title];
+//        
+//        // if the calendar is found, return YES
+//        if ([calTitle isEqualToString:calNameToCheckFor]) {
+//            
+//            return YES;
+//            
+//        }
+    }
+    // Calendar name was not found, return NO;
+    return NO;
+    
+    
 }
 
 - (IBAction)didTapExport:(id)sender {
-    EKEventStore *store = [EKEventStore new];
-    [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+    if ([self checkForCalendar:self.post.title] == NO)
+    {
+        self.exportButton.selected = YES;
+    [self.loggedInUser.store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
         if (!granted) { return; }
-        EKEvent *event = [EKEvent eventWithEventStore:store];
+        EKEvent *event = [EKEvent eventWithEventStore:self.loggedInUser.store];
         
-        //Convert date format
+        // date formatting
+        self.fullDateAndTime = self.post.date;
+        self.fullDateAndTime = [self.fullDateAndTime stringByReplacingOccurrencesOfString:@"," withString:@" "];
+        NSString *day = [self.fullDateAndTime componentsSeparatedByString:@" "][2];
+        NSString *newDay = day;
+        if ([[day substringToIndex:1] isEqualToString:@"0"])
+        {
+            newDay = [day substringFromIndex:1];
+        }
+        day = [[@" " stringByAppendingString:day] stringByAppendingString:@" "];
+        NSString *spaceBeforeAfter = [[@" " stringByAppendingString:newDay] stringByAppendingString:@" "];
+        newDay = spaceBeforeAfter;
+        self.fullDateAndTime = [self.fullDateAndTime stringByReplacingOccurrencesOfString:day withString:newDay];
+        
+        
+        //Date format
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@" MMMM d, YYYY"];
-        NSDate *date = [dateFormat dateFromString:self.post.date];
+        [dateFormat setTimeZone:[NSTimeZone systemTimeZone]];
+        [dateFormat setLocale:[NSLocale currentLocale]];
+        //[dateFormat setDateFormat:@"MMMMdyhma"];
+        [dateFormat setDateFormat:@"hh:mm MMMM dd y a"];
+        [dateFormat setFormatterBehavior:NSDateFormatterBehaviorDefault];
+        NSDate *newDate = [dateFormat dateFromString:self.fullDateAndTime];
+        
+        
         
         // Convert date object to desired output format
         
         event.title = self.volunteerOppTitle.text;
-        event.startDate = [NSDate date]; //today
+        event.startDate = newDate; //today
         NSLog(@"%@", event.startDate);
-        event.endDate = [event.startDate dateByAddingTimeInterval:60*60];  //set 1 hour meeting
-        event.calendar = [store defaultCalendarForNewEvents];
+        NSTimeInterval hoursInSeconds = [self.post.hours intValue]*60*60;
+        event.endDate = [event.startDate dateByAddingTimeInterval:hoursInSeconds];
+        event.calendar = [self.loggedInUser.store defaultCalendarForNewEvents];
         NSError *err = nil;
-        [store saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
-        //self.savedEventId = event.eventIdentifier;  //save the event id if you want to access this later
+        [self.loggedInUser.store saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
+        self.post.savedEventId = event.eventIdentifier;  //save the event id if you want to access this later
     }];
+    }
+    else{
+        self.exportButton.selected = NO;
+        
+        [self.loggedInUser.store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+            if (!granted) { return; }
+            EKEvent* eventToRemove = [self.loggedInUser.store eventWithIdentifier:self.post.savedEventId];
+            if (eventToRemove) {
+                NSError* error = nil;
+                [self.loggedInUser.store removeEvent:eventToRemove span:EKSpanThisEvent commit:YES error:&error];
+            }
+        }];
+    }
 }
 
 

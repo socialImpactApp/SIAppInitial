@@ -59,6 +59,7 @@
         // initalizes a new user object ..  making a new user
         User *newUser = [User user];
         newUser.favoritedOpps = [[NSMutableArray alloc] init];
+        newUser.store = [[EKEventStore alloc] init];
         
         // set user properties
         newUser.username = self.username.text;

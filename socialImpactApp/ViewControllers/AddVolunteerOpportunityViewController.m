@@ -145,6 +145,7 @@
                 withHours:self.hoursView.text
                 withSpots:self.spotsView.text  
             withTags:_collectionOfTags
+                         withSavedEventId:@""
         withDate:self.dateView.text
          withLocation:[NSString stringWithFormat:@"%@ %@" , _volunteerLocation, _volunteerAddress]
            withCompletion:^(BOOL succeeded, NSError * _Nullable error) {

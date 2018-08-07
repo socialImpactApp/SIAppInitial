@@ -10,6 +10,7 @@
 #import <ParseUI/ParseUI.h>
 #import "VolunteerOpportunity.h"
 #import "User.h"
+#import <EventKit/EventKit.h>
 
 @interface DetailViewController : UIViewController
 
@@ -23,5 +24,7 @@
 @property (strong, nonatomic) User *user;
 @property (weak, nonatomic) IBOutlet UILabel *volunteerOppTitle;
 @property (weak, nonatomic) IBOutlet UIButton *exportButton;
+@property (strong, nonatomic) NSString *fullDateAndTime;
+@property (strong, nonatomic) User *loggedInUser;
 
 @end

@@ -19,7 +19,7 @@
 @dynamic username;
 @dynamic oppsDone;
 @dynamic email;
-
+@dynamic store;
 
 
 //if plus cant do self plus is only class

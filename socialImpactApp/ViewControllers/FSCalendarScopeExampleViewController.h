@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <EventKit/EventKit.h>
+#import "User.h"
 
 @interface FSCalendarScopeExampleViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *toggleCalendar;
 
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (nonatomic, assign) BOOL *postedAll;
-@property (nonatomic, retain) EKEventStore *store;
-
+@property (weak, nonatomic) IBOutlet UIButton *exportAllButton;
+@property (strong, nonatomic) User *loggedInUser;
 
 @end
