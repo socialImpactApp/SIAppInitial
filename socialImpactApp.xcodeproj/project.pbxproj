@@ -10,6 +10,7 @@
 		3529DCEC20FFCA150057F133 /* AddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3529DCEB20FFCA150057F133 /* AddTagViewController.m */; };
 		354307EE21013B660045A8FD /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354307ED21013B660045A8FD /* UserProfileViewController.m */; };
 		354307F4210149B70045A8FD /* EditUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354307F3210149B70045A8FD /* EditUserProfileViewController.m */; };
+		35469427211A6F73000176F6 /* DetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35469426211A6F73000176F6 /* DetailTableViewCell.m */; };
 		355718C320FC534D00D735EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C220FC534D00D735EA /* LoginViewController.m */; };
 		355718C620FC53AD00D735EA /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C520FC53AD00D735EA /* MenuViewController.m */; };
 		355718C920FC53E600D735EA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C820FC53E600D735EA /* DetailViewController.m */; };
@@ -82,6 +83,8 @@
 		354307ED21013B660045A8FD /* UserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 		354307F2210149B70045A8FD /* EditUserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditUserProfileViewController.h; sourceTree = "<group>"; };
 		354307F3210149B70045A8FD /* EditUserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditUserProfileViewController.m; sourceTree = "<group>"; };
+		35469425211A6F73000176F6 /* DetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailTableViewCell.h; sourceTree = "<group>"; };
+		35469426211A6F73000176F6 /* DetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewCell.m; sourceTree = "<group>"; };
 		355718C120FC534D00D735EA /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		355718C220FC534D00D735EA /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		355718C420FC53AD00D735EA /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
@@ -371,6 +374,8 @@
 				66BF560F20FE5DBB00C1E39B /* VolunteerOpportunityCell.m */,
 				35B762CF2108E4E60089739D /* SearchTableViewCell.h */,
 				35B762D02108E4E60089739D /* SearchTableViewCell.m */,
+				35469425211A6F73000176F6 /* DetailTableViewCell.h */,
+				35469426211A6F73000176F6 /* DetailTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -682,6 +687,7 @@
 				6628860121092C9D0014196F /* TimelineViewController.m in Sources */,
 				35C63C9A210E5888006C8B32 /* ShowAllLocationsViewController.m in Sources */,
 				355718C620FC53AD00D735EA /* MenuViewController.m in Sources */,
+				35469427211A6F73000176F6 /* DetailTableViewCell.m in Sources */,
 				35AC5DDE210A418A004BF87A /* ShowLocationViewController.m in Sources */,
 				355718C920FC53E600D735EA /* DetailViewController.m in Sources */,
 				66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */,

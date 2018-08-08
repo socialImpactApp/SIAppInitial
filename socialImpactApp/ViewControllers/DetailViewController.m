@@ -9,12 +9,14 @@
 #import "DetailViewController.h"
 #import "VolunteerOpportunity.h"
 #import "VolunteerOpportunityCell.h"
+#import "DetailTableViewCell.h"
 #import "User.h"
 #import "ShowLocationViewController.h"
 #import "Colours.h"
 
-@interface DetailViewController () <UIScrollViewDelegate>
-
+@interface DetailViewController () < UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *backView;
 @end
 
 @implementation DetailViewController{
@@ -23,57 +25,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     // Do any additional setup after loading the view.
     self.backgroundVoppView.layer.zPosition = -1;
-    [self configureCell:self.post];
+    //[self configureCell:self.post];
     self.signButton.layer.cornerRadius = 10.0;
     self.signButton.layer.borderWidth = 0.7f;
     self.signButton.layer.borderColor =[[UIColor colorWithRed:3/255.0 green:121/255.0 blue:113/255.0 alpha:0.7] CGColor];
-    self.scrollView.delegate = self;
-    self.scrollView.scrollEnabled = YES;
-    CGSize scrollSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 800);
-    self.scrollView.contentSize = scrollSize;
-
-   // self.scrollView.contentSize = CGSizeMake(375, 800);
-    [self.view addSubview:self.scrollView];
- 
-//    UIFont * customFont = [UIFont fontWithName:@"NewsCycle" size:12]; //custom font
-//    NSString * text = [self description];
-//
-//    CGRect labelSize = [text boundingRectWithSize:CGSizeMake(380.0, 20.0)
-//                                          options:NSStringDrawingTruncatesLastVisibleLine
-//                                       attributes:nil
-//                                          context:nil];
-//
- 
-//  boundingRectWithSize:CGSizeMake(380.00, 20.00) options:NSStringDrawingTruncatesLastVisibleLine attributes:nil context:nil];
-    //ASK EZRA WHAT THIS IS
-//    UILabel *fromLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 50, 20, 10)];
-//    fromLabel.text = text;
-//    fromLabel.font = customFont;
-//    fromLabel.numberOfLines = 1;
-//    fromLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
-//    fromLabel.adjustsFontSizeToFitWidth = YES;
-//    fromLabel.minimumScaleFactor = 10.0f/12.0f;
-//    fromLabel.clipsToBounds = YES;
-//    fromLabel.backgroundColor = [UIColor clearColor];
-//    fromLabel.textColor = [UIColor blackColor];
-//    fromLabel.textAlignment = NSTextAlignmentLeft;
-//    [self.view addSubview:fromLabel];
-}
-
--(void)configureCell: (VolunteerOpportunity *) volunOpp {
-    tagArray = [[NSMutableArray alloc] init ]; 
-    PFObject *postAuthor = volunOpp[@"author"];
-    self.backgroundVoppView.file = volunOpp[@"image"];
+    PFObject *postAuthor = self.post[@"author"];
+    self.backgroundVoppView.file = self.post[@"image"];
     //loadinbackground
     [self.backgroundVoppView loadInBackground];
-    self.largeDescription.text = volunOpp[@"description"]; // good
-    self.contactInfo.text = postAuthor[@"contactNumber"];
-    self.hours.text = volunOpp[@"hours"]; // good
-    self.spotsLeft.text = volunOpp[@"spotsLeft"]; //good
-    self.volunteerOppTitle.text = volunOpp[@"title"];
-    self.Location.text = volunOpp[@"location"];
     self.orgLabel.text = postAuthor[@"organization"];
     self.orgLabel.layer.shadowRadius = 2.0;
     self.orgLabel.layer.masksToBounds = NO;
@@ -82,36 +46,9 @@
     self.orgLabel.layer.shadowOpacity = 0.5;
     self.orgImageView.layer.cornerRadius = self.orgImageView.frame.size.height/2;
     self.orgImageView.file = postAuthor[@"profileImage"];
- 
-    for (NSString *tag in volunOpp[@"tags"]){
-        if ([tag isEqualToString:@"animalWelfare"]){
-            [tagArray addObject:@"Animal Welfare"];
-        }
-        else if ([tag isEqualToString:@"childrenAndYouth"]){
-            [tagArray addObject:@"Children and Youth"];
-        }
-        else if ([tag isEqualToString:@"construction"]){
-            [tagArray addObject:@"Construction"];
-        }
-        else if ([tag isEqualToString:@"education"]){
-            [tagArray addObject:@"Education"];
-        }
-        else if ([tag isEqualToString:@"environmental"]){
-            [tagArray addObject:@"Environmental"];
-        }
-        else if ([tag isEqualToString:@"foodService"]){
-            [tagArray addObject:@"Food Service"];
-        }
-        else if ([tag isEqualToString:@"fundraising"]){
-            [tagArray addObject:@"Fundraising"];
-        }
-        else if ([tag isEqualToString:@"medical"]){
-            [tagArray addObject:@"Medical"];
-        }
-        
-    }
-    self.filtersLabel.text = [tagArray componentsJoinedByString:@", " ];
+
 }
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -139,7 +76,7 @@
     NSLog(@"WE ARE SHARING");
     //FBSDKShareLinkContent *linkContent = [FBSDKShareLinkContent new];
     FBSDKShareLinkContent *linkContent = [[FBSDKShareLinkContent alloc] init];
-    linkContent.contentURL = [NSURL URLWithString:@"http://voppIshaEzra://"];
+    linkContent.contentURL = [NSURL URLWithString:@"https://dry-meadow-94919.herokuapp.com/"];
     //linkContent.quote = @"hi i am the description ;)";
     FBSDKShareDialog *shareDialog = [FBSDKShareDialog new];
     shareDialog.shareContent = linkContent;
@@ -147,6 +84,18 @@
 
   
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    DetailTableViewCell *postCell = [self.tableView dequeueReusableCellWithIdentifier:@"DetailTableViewCell"];
+    //setting each button to have a tag
+    [postCell configureCell:self.post];
+    return postCell;
+}
+
 
 #pragma mark - Navigation
 
