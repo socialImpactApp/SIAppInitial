@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *locationButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareTitle;
 @property (weak, nonatomic) IBOutlet UIButton *heartButton;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 -(void)configureCell: (VolunteerOpportunity *) volunOpp;
 
 @end

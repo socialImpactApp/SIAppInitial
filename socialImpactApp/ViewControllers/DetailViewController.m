@@ -46,6 +46,10 @@
     self.orgLabel.layer.shadowOpacity = 0.5;
     self.orgImageView.layer.cornerRadius = self.orgImageView.frame.size.height/2;
     self.orgImageView.file = postAuthor[@"profileImage"];
+    CGFloat borderWidth = 2.0f;
+    self.orgImageView.frame = CGRectInset(self.orgImageView. frame, -borderWidth, -borderWidth);
+    self.orgImageView. layer.borderColor = [[UIColor colorWithRed:3/255.0 green:121/255.0 blue:113/255.0 alpha:0.7] CGColor];
+    self.orgImageView. layer.borderWidth = borderWidth;
 
 }
 
@@ -76,7 +80,7 @@
     NSLog(@"WE ARE SHARING");
     //FBSDKShareLinkContent *linkContent = [FBSDKShareLinkContent new];
     FBSDKShareLinkContent *linkContent = [[FBSDKShareLinkContent alloc] init];
-    linkContent.contentURL = [NSURL URLWithString:@"https://dry-meadow-94919.herokuapp.com/"];
+    linkContent.contentURL = [NSURL URLWithString:@"https://vopp.herokuapp.com/"];
     //linkContent.quote = @"hi i am the description ;)";
     FBSDKShareDialog *shareDialog = [FBSDKShareDialog new];
     shareDialog.shareContent = linkContent;

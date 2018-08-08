@@ -7,7 +7,7 @@
 //
 
 #import "DetailTableViewCell.h"
-
+#import "Colours.h"
 @implementation DetailTableViewCell{
      NSMutableArray *tagArray;
 }
@@ -24,7 +24,8 @@
 }
 
 -(void)configureCell: (VolunteerOpportunity *) volunOpp {
-    tagArray = [[NSMutableArray alloc] init ]; 
+    tagArray = [[NSMutableArray alloc] init ];
+    self.contentView.backgroundColor = [UIColor snowColor];
     PFObject *postAuthor = volunOpp[@"author"];
     //loadinbackground
     self.largeDescription.text = volunOpp[@"description"]; // good

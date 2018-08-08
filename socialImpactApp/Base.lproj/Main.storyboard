@@ -872,7 +872,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rU3-07-BLw">
-                                        <rect key="frame" x="0.0" y="214" width="383" height="377"/>
+                                        <rect key="frame" x="0.0" y="203" width="383" height="388"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
@@ -995,7 +995,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu5-XE-wNF">
-                                                            <rect key="frame" x="8" y="3" width="41" height="40"/>
+                                                            <rect key="frame" x="8" y="7" width="41" height="40"/>
                                                             <fontDescription key="fontDescription" name="NewsCycle-Bold" family="News Cycle" pointSize="24"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1055,7 +1055,7 @@
                                                         <constraint firstItem="ddg-cf-ulF" firstAttribute="top" secondItem="ggS-88-LZU" secondAttribute="bottom" constant="7.5" id="Qjk-V1-9Em"/>
                                                         <constraint firstItem="p1Q-bg-uBs" firstAttribute="centerY" secondItem="uDG-eb-fV1" secondAttribute="centerY" id="T81-xm-bgk"/>
                                                         <constraint firstItem="Lr0-Zg-BW4" firstAttribute="leading" secondItem="KtW-P0-CvB" secondAttribute="trailing" constant="49" id="TvE-US-XqJ"/>
-                                                        <constraint firstItem="ggS-88-LZU" firstAttribute="top" secondItem="fu5-XE-wNF" secondAttribute="bottom" constant="8" id="UJG-1k-RNu"/>
+                                                        <constraint firstItem="ggS-88-LZU" firstAttribute="top" secondItem="fu5-XE-wNF" secondAttribute="bottom" constant="4" id="UJG-1k-RNu"/>
                                                         <constraint firstAttribute="bottom" secondItem="uDG-eb-fV1" secondAttribute="bottom" constant="46" id="UYY-HV-K2O"/>
                                                         <constraint firstItem="HT5-5p-HYe" firstAttribute="top" secondItem="KtW-P0-CvB" secondAttribute="bottom" constant="30" id="YTD-DY-cnf"/>
                                                         <constraint firstItem="Cys-Ig-mpj" firstAttribute="leading" secondItem="7ZV-8J-8fj" secondAttribute="leading" constant="8" id="aIN-FY-txU"/>
@@ -1073,17 +1073,18 @@
                                                         <constraint firstItem="Cys-Ig-mpj" firstAttribute="top" secondItem="E7d-QW-0Sz" secondAttribute="bottom" constant="8" id="lBz-Jo-HzN"/>
                                                         <constraint firstItem="Lr0-Zg-BW4" firstAttribute="top" secondItem="KtW-P0-CvB" secondAttribute="top" id="mg6-ei-G29"/>
                                                         <constraint firstItem="RVc-fq-z8t" firstAttribute="top" secondItem="7ZV-8J-8fj" secondAttribute="top" constant="11" id="mjJ-2K-l1U"/>
-                                                        <constraint firstItem="ggS-88-LZU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fu5-XE-wNF" secondAttribute="bottom" constant="8" id="sbT-Li-fUb"/>
+                                                        <constraint firstItem="ggS-88-LZU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fu5-XE-wNF" secondAttribute="bottom" constant="4" id="sbT-Li-fUb"/>
                                                         <constraint firstItem="p1Q-bg-uBs" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Lr0-Zg-BW4" secondAttribute="bottom" constant="30" id="tIy-j5-zaL"/>
                                                         <constraint firstAttribute="trailing" secondItem="ddg-cf-ulF" secondAttribute="trailing" constant="14" id="uEA-rR-P5V"/>
                                                         <constraint firstItem="Qn2-ce-Aue" firstAttribute="top" secondItem="wXK-ZS-DFj" secondAttribute="top" id="wOc-aa-tPe"/>
                                                         <constraint firstItem="E7d-QW-0Sz" firstAttribute="top" secondItem="ggS-88-LZU" secondAttribute="bottom" constant="7.5" id="wbe-4o-rux"/>
-                                                        <constraint firstItem="fu5-XE-wNF" firstAttribute="top" secondItem="7ZV-8J-8fj" secondAttribute="top" constant="3" id="zox-lL-e9G"/>
+                                                        <constraint firstItem="fu5-XE-wNF" firstAttribute="top" secondItem="7ZV-8J-8fj" secondAttribute="top" constant="7" id="zox-lL-e9G"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="Location" destination="ddg-cf-ulF" id="p2m-HC-REN"/>
                                                     <outlet property="contactInfo" destination="Qn2-ce-Aue" id="yFP-aB-zFC"/>
+                                                    <outlet property="contentView" destination="7ZV-8J-8fj" id="BGx-cw-AaW"/>
                                                     <outlet property="filtersLabel" destination="Lr0-Zg-BW4" id="SP7-dy-CDi"/>
                                                     <outlet property="heartButton" destination="uDG-eb-fV1" id="ipe-8U-kdx"/>
                                                     <outlet property="hours" destination="uO0-qT-KGB" id="LKq-cj-1xk"/>
@@ -1962,6 +1963,6 @@
         <segue reference="GAf-6l-e0s"/>
         <segue reference="E0p-CQ-pIu"/>
         <segue reference="nou-Xg-BJy"/>
-        <segue reference="nXC-an-vIg"/>
+        <segue reference="bxH-x4-wgy"/>
     </inferredMetricsTieBreakers>
 </document>
