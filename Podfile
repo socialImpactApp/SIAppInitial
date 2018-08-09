@@ -10,7 +10,7 @@ target 'socialImpactApp' do
   pod 'ParseUI' 
   pod 'Colours'
   pod 'FBSDKShareKit'
-
+  pod 'FSCalendar'
 
   target 'socialImpactAppTests' do
     inherit! :search_paths

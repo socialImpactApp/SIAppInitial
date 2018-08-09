@@ -32,6 +32,7 @@
     UITabBarItem *item = (UITabBarItem *)[tabBarController.tabBar.items objectAtIndex:0];
     item.image = [UIImage imageNamed:@"imageedit__5380272865"];
     
+
     
     
     NSDictionary *itemTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -42,9 +43,30 @@
     [[UIBarButtonItem appearance] setTitleTextAttributes:itemTextAttributes forState:UIControlStateNormal];
    
 
+    [self skipLoginScreenIfLoggedIn];
+
     return YES;
 }
 
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    NSLog(@"hooray this works");
+    [viewController viewWillAppear:YES];
+}
+
+-(void)skipLoginScreenIfLoggedIn {
+    
+    if ([PFUser currentUser]) {
+        NSLog(@"skipLoginScreen");
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"mainNav"];
+        
+        
+        
+        //        [self setRootViewControllerHavingStoryBoardIdentifier:@"mainPics"];  // Overriding Storyboard settings.
+    }
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

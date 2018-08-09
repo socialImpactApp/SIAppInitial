@@ -1,10 +1,12 @@
-             //
+                                                                                                                                                                        
+//
 //  main.m
 //  socialImpactApp
 //
 //  Created by Roesha Nigos on 7/6/18.
 //  Copyright © 2018 teamMorgan. All rights reserved.
 //
+
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"

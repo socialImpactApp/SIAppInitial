@@ -30,6 +30,7 @@
 //***These are the tags for each volunteer post***
 @property (nonatomic, strong) NSMutableArray <NSString *> * _Nullable tags;
 @property (nonatomic) BOOL favorited;
+@property (nonatomic, strong) NSString *savedEventId;
 
 
 + (PFObject *_Nullable) postUserOpp: ( UIImage * _Nullable )image
@@ -37,6 +38,7 @@
             withDescripton:( NSString * _Nullable )description
                  withHours:( NSString * _Nullable )hours withSpots:( NSNumber * _Nullable )spotsLeft
                   withTags:(NSMutableArray <NSString * > *_Nullable)tags
+                   withSavedEventId:(NSString *_Nullable)savedEventId
                   withDate:(NSString * _Nullable)date
                        withLocation:(NSString * _Nullable)location
                 withCityState:(NSString * _Nullable)cityState

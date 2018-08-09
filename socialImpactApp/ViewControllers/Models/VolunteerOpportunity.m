@@ -27,6 +27,7 @@
 @dynamic location;
 @dynamic cityState;
 @dynamic tags;
+@dynamic savedEventId;
 
 
 //this is the parse class name that we have to instantiate
@@ -42,6 +43,7 @@
                  withHours:( NSString * _Nullable )hours
                  withSpots:( NSString * _Nullable )spots
             withTags:(NSMutableArray <NSString * > *_Nullable)tags
+          withSavedEventId:(NSString *_Nullable)savedEventId
             withDate:(NSString * _Nullable)date
             withLocation:(NSString * _Nullable)location
             withCityState:(NSString * _Nullable)cityState
@@ -56,6 +58,20 @@
     newPost.tags = tags;
     newPost.date = date;
     newPost.location = location;
+    newPost.savedEventId = savedEventId;
+    
+   //will use this to get a map view of the actual place later
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if(!error){
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            NSLog(@"%f",placemark.location.coordinate.latitude);
+            NSLog(@"%f",placemark.location.coordinate.longitude);
+        }
+        else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
     newPost.cityState = cityState;
     
     

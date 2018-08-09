@@ -10,6 +10,7 @@
 #import "PFUser.h"
 #import <Parse/Parse.h>
 #import "VolunteerOpportunity.h"
+#import <EventKit/EventKit.h>
 
 @interface User : PFUser<PFSubclassing>
 

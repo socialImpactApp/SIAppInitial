@@ -12,6 +12,8 @@
 #import <Social/Social.h>
 #import "VolunteerOpportunity.h"
 #import "User.h"
+#import <EventKit/EventKit.h>
+#import "CalendarSingleton.h"
 
 @interface DetailViewController : UIViewController
 
@@ -23,6 +25,7 @@
 @property (strong, nonatomic) VolunteerOpportunity *post;
 @property (strong, nonatomic) User *user;
 @property (weak, nonatomic) IBOutlet UILabel *volunteerOppTitle;
+<<<<<<< HEAD
 @property (weak, nonatomic) IBOutlet UILabel *orgLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *orgImageView;
 @property (weak, nonatomic) IBOutlet PFImageView *backgroundVoppView;
@@ -37,5 +40,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *shareTitle;
 @property (weak, nonatomic) IBOutlet UIButton *heartButton;
 
+=======
+@property (weak, nonatomic) IBOutlet UIButton *exportButton;
+@property (strong, nonatomic) NSString *fullDateAndTime;
+@property (strong, nonatomic) User *loggedInUser;
+>>>>>>> ca0f55b2a1e58a3a04ab82521e90e46383348d17
 
 @end

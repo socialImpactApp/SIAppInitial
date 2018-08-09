@@ -14,6 +14,7 @@
 #import <Parse/PFConstants.h>
 #import <Parse/PFObject.h>
 #import <Parse/PFSubclassing.h>
+#import <EventKit/EventKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -20,7 +20,6 @@
 @dynamic organization;
 
 
-
 //if plus cant do self plus is only class
 + (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image {
     

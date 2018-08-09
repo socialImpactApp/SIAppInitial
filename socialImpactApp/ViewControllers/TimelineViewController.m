@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "Colours.h"
 #import "DetailViewController.h"
+#import "TimelineTableViewCell.h"
 
 @interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -90,7 +91,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"we are in cellforRow");
-    VolunteerOpportunityCell *postCell = [self.tableView dequeueReusableCellWithIdentifier:@"postCell"];
+    TimelineTableViewCell *postCell = [self.tableView dequeueReusableCellWithIdentifier:@"tim"];
     VolunteerOpportunity *post = self.filteredVolunteerOpportunities[indexPath.row];
     [postCell configureCell:post];
     
