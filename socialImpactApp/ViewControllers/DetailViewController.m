@@ -12,8 +12,9 @@
 #import <ParseUI/ParseUI.h>
 #import "User.h"
 #import <EventKit/EventKit.h>
+#import "ShowLocationViewController.h"
 
-@interface DetailViewController ()
+@interface DetailViewController () 
 
 @end
 
@@ -57,7 +58,7 @@
     self.hours.text = post[@"hours"]; // good
     self.spotsLeft.text = post[@"spotsLeft"]; //good
     self.volunteerOppTitle.text = post[@"title"];
-
+    self.Location.text = post[@"location"];
 }
 
 
@@ -65,6 +66,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 - (IBAction)didTapSignUp:(id)sender {
     if (self.loggedInUser.timelineOpps == NULL) {
@@ -77,7 +79,7 @@
 
 -(BOOL)checkForCalendar:(NSString *)eventName{
     //get an array of the user's calendar using your instance of the eventStore
-    NSArray *calendarArray = [self.loggedInUser.store calendarsForEntityType:EKEntityTypeEvent];
+    NSArray *calendarArray = [[CalendarSingleton sharedInstance] calendarsForEntityType:EKEntityTypeEvent];
     
     // The name of the calendar to check for. You can also save the calendarIdentifier and check for that if you want
     NSString *calNameToCheckFor = eventName;
@@ -89,8 +91,8 @@
         
         cal = [calendarArray objectAtIndex:x];
         NSArray *calArray = [NSArray arrayWithObject:cal];
-        NSPredicate *fetchCalendarEvents = [self.loggedInUser.store predicateForEventsWithStartDate:[NSDate date] endDate:endDate calendars:calArray];
-        NSArray *eventList = [self.loggedInUser.store eventsMatchingPredicate:fetchCalendarEvents];
+        NSPredicate *fetchCalendarEvents = [[CalendarSingleton sharedInstance] predicateForEventsWithStartDate:[NSDate date] endDate:endDate calendars:calArray];
+        NSArray *eventList = [[CalendarSingleton sharedInstance] eventsMatchingPredicate:fetchCalendarEvents];
         for(int i=0; i < eventList.count; i++){
             NSLog(@"Event Title:%@", [[eventList objectAtIndex:i] title]);
             NSString *caltitle =[[eventList objectAtIndex:i] title];
@@ -119,9 +121,9 @@
     if ([self checkForCalendar:self.post.title] == NO)
     {
         self.exportButton.selected = YES;
-    [self.loggedInUser.store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+    [[CalendarSingleton sharedInstance] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
         if (!granted) { return; }
-        EKEvent *event = [EKEvent eventWithEventStore:self.loggedInUser.store];
+        EKEvent *event = [EKEvent eventWithEventStore:[CalendarSingleton sharedInstance]];
         
         // date formatting
         self.fullDateAndTime = self.post.date;
@@ -156,21 +158,22 @@
         NSLog(@"%@", event.startDate);
         NSTimeInterval hoursInSeconds = [self.post.hours intValue]*60*60;
         event.endDate = [event.startDate dateByAddingTimeInterval:hoursInSeconds];
-        event.calendar = [self.loggedInUser.store defaultCalendarForNewEvents];
+        event.calendar = [[CalendarSingleton sharedInstance] defaultCalendarForNewEvents];
         NSError *err = nil;
-        [self.loggedInUser.store saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
+        [[CalendarSingleton sharedInstance] saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
         self.post.savedEventId = event.eventIdentifier;  //save the event id if you want to access this later
+        [self.post saveInBackground];
     }];
     }
     else{
         self.exportButton.selected = NO;
         
-        [self.loggedInUser.store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+        [[CalendarSingleton sharedInstance] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
             if (!granted) { return; }
-            EKEvent* eventToRemove = [self.loggedInUser.store eventWithIdentifier:self.post.savedEventId];
+            EKEvent* eventToRemove = [[CalendarSingleton sharedInstance] eventWithIdentifier:self.post.savedEventId];
             if (eventToRemove) {
                 NSError* error = nil;
-                [self.loggedInUser.store removeEvent:eventToRemove span:EKSpanThisEvent commit:YES error:&error];
+                [[CalendarSingleton sharedInstance] removeEvent:eventToRemove span:EKSpanThisEvent commit:YES error:&error];
             }
         }];
     }
@@ -179,12 +182,18 @@
 
 
 /*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"showLocSeg"]) {
+        ShowLocationViewController *showLocViewController =
+        segue.destinationViewController;
+        showLocViewController.post = self.post;
+    }
 }
 */
 

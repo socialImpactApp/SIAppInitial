@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <EventKit/EventKit.h>
 #import "User.h"
+#import "CalendarSingleton.h"
 
 @interface FSCalendarScopeExampleViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *toggleCalendar;

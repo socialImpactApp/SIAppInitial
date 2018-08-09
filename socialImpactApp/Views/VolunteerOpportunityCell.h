@@ -16,6 +16,7 @@
 -(void)sendSenderToSaved:(id)sender;
 @end
 
+
 @interface VolunteerOpportunityCell : UITableViewCell
 
 @property (strong, nonatomic)  VolunteerOpportunity *volunteerOpportunity;
@@ -28,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIView *backCellView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UIButton *locationButton;
 
 @property (strong,nonatomic) User *loggedInUser;
 @property (strong, nonatomic) NSMutableArray <NSString *> *favoritedOpps;

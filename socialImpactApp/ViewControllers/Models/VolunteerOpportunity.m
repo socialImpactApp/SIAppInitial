@@ -25,6 +25,7 @@
 //@dynamic lat;
 @dynamic date;
 @dynamic location;
+@dynamic cityState;
 @dynamic tags;
 @dynamic savedEventId;
 
@@ -45,6 +46,7 @@
           withSavedEventId:(NSString *_Nullable)savedEventId
             withDate:(NSString * _Nullable)date
             withLocation:(NSString * _Nullable)location
+            withCityState:(NSString * _Nullable)cityState
             withCompletion: (PFBooleanResultBlock  _Nullable)completion{
     VolunteerOpportunity *newPost = [VolunteerOpportunity new];
     newPost.image = [self getPFFileFromImage:image];
@@ -70,6 +72,7 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+    newPost.cityState = cityState;
     
     
     [newPost saveInBackgroundWithBlock:completion];

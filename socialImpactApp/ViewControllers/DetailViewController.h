@@ -11,6 +11,7 @@
 #import "VolunteerOpportunity.h"
 #import "User.h"
 #import <EventKit/EventKit.h>
+#import "CalendarSingleton.h"
 
 @interface DetailViewController : UIViewController
 

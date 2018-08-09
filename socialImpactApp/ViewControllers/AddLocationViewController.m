@@ -1,16 +1,16 @@
 //
-//  LocationViewController.m
+//  AddLocationViewController.m
 //  socialImpactApp
 //
 //  Created by Roesha Nigos on 7/23/18.
 //  Copyright © 2018 teamMorgan. All rights reserved.
 //
 
-#import "LocationViewController.h"
+#import "AddLocationViewController.h"
 #import "SearchTableViewCell.h"
 #import "Colours.h"
 
-@interface LocationViewController () <CLLocationManagerDelegate,MKLocalSearchCompleterDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface AddLocationViewController () <CLLocationManagerDelegate,MKLocalSearchCompleterDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
 @property (weak, nonatomic) IBOutlet UITableView *resultsTableView;
@@ -20,9 +20,11 @@
 
 @end
 
-@implementation LocationViewController {
+@implementation AddLocationViewController {
     NSString *tappedLocation;
     NSString *tappedAddress;
+    NSString *tappedCity;
+    NSString *tappedState;
 
 }
 
@@ -66,10 +68,18 @@
     [self.view endEditing:YES];
       self.resultsTableView.hidden = true;
 }
-- (IBAction)didTapAddLocation:(id)sender withAddress:(id)senderTwo {
-    [self.delegate didTapAddLocation:tappedLocation withAddress:tappedAddress];
+-(void)didTapAddLocation:(NSString *)locationName withAddress:(NSString *)addressName  withCity:(NSString *)cityName  withState:(NSString *)stateName {
+    [self.delegate didTapAddLocation:tappedLocation withAddress:tappedAddress withCity:tappedCity withState:tappedState];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)didTapSave:(id)sender {
+    [self didTapAddLocation:tappedLocation withAddress:tappedAddress withCity:tappedCity withState:tappedState];
+}
+
+//- (IBAction)didTapAddLocation:(id)sender withAddress:(id)senderTwo withCity:(id)senderThree withState:(id)senderThree{
+//    [self.delegate didTapAddLocation:tappedLocation withAddress:tappedAddress withCity:tappedCity withState:tappedState];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range
@@ -114,6 +124,10 @@ replacementString:(NSString *)string {
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
             NSLog(@"%f",placemark.location.coordinate.latitude);
             NSLog(@"%f",placemark.location.coordinate.longitude);
+            NSLog(@"%@",placemark.locality);
+            self->tappedCity = placemark.locality;
+            self->tappedState = placemark.administrativeArea;
+            
             
             CLLocationCoordinate2D center = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude);
             MKCoordinateSpan span;
@@ -164,7 +178,7 @@ replacementString:(NSString *)string {
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-    NSLog(@"@%", error.localizedDescription);
+    NSLog(@"%@", error.localizedDescription);    
 }
 
 

@@ -14,24 +14,34 @@
 #import "User.h"
 #import "VolunteerOpportunity.h"
 #import "Colours.h"
+
+#import "ShowLocationViewController.h"
+
+
 #import "SavedViewController.h"
+
 
 @implementation VolunteerOpportunityCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+
     self.loggedInUser = [User currentUser];
     if (self.loggedInUser.favoritedOpps == NULL)
     {
         self.loggedInUser.favoritedOpps = [[NSMutableArray alloc] init];
     }
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     // Configure the view for the selected state
 }
+
+
+
 
 -(void)configureCell: (VolunteerOpportunity *) volunOpp {
     self.volunteerOpportunity = volunOpp;
@@ -43,6 +53,9 @@
     self.titleLabel.text = volunOpp[@"title"];
     self.hoursLabel.text = volunOpp[@"hours"];
     self.descriptionLabel.text = volunOpp[@"description"];
+    self.dateLabel.text = volunOpp[@"date"];
+    self.locationLabel.text = volunOpp[@"cityState"];
+
     //self.dateLabel.text = volunOpp[@"date"];
     
     NSDate *newDate = volunOpp.createdAt;
@@ -176,6 +189,19 @@
     }
     
 }
+
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+//    if ([segue.identifier isEqualToString:@"showLocationSeg"]) {
+//        ShowLocationViewController *showController =
+//        segue.destinationViewController;
+//        showController.delegate = self;
+//    }
+    
+}
+
 
 
 

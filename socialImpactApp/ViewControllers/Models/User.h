@@ -23,7 +23,6 @@
 @property (nonatomic, weak) NSString * _Nullable contactNumber;
 @property (nonatomic, weak) NSMutableArray * _Nullable oppsDone;
 @property (nonatomic, strong) NSString * _Nullable email;
-@property (nonatomic, retain) EKEventStore * _Nullable store;
 
 
 + (PFFile *_Nullable)getPFFileFromImage: (UIImage * _Nullable)image;

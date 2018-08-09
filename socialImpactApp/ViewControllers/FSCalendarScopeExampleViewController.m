@@ -1,4 +1,3 @@
-//
 //  FSCalendarScopeExampleViewController.m
 //  socialImpactApp
 //
@@ -34,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) UIPanGestureRecognizer *scopeGesture;
+@property (strong, nonatomic) NSMutableArray *currentDatePosts;
 
 - (IBAction)toggleClicked:(id)sender;
 
@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_END
 
 @implementation FSCalendarScopeExampleViewController {
     NSMutableArray *postsOne;
-
+    NSMutableDictionary *indexPaths;
 }
 
 #pragma mark - Life cycle
@@ -65,10 +65,12 @@ NS_ASSUME_NONNULL_END
     [super viewDidLoad];
     
     self.loggedInUser = [User currentUser];
-
     
     if ([[UIDevice currentDevice].model hasPrefix:@"iPad"]) {
         self.calendarHeightConstraint.constant = 400;
+    }
+    if (self.currentDatePosts == NULL) {
+        self.currentDatePosts = [[NSMutableArray alloc]init];
     }
     
     [self.calendar selectDate:[NSDate date] scrollToDate:YES];
@@ -97,6 +99,7 @@ NS_ASSUME_NONNULL_END
         self.volunteerOpportunities = [[NSMutableArray alloc] init];
     }
     [self fetch];
+    self.exportAllButton.selected = NO;
 }
 
 -(void)fetch {
@@ -189,8 +192,8 @@ NS_ASSUME_NONNULL_END
 
 - (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition
 {
-    
     NSDate *newDate = date;
+    
     NSLog(@"did select date %@",[self.dateFormatter stringFromDate:date]);
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateStyle = NSDateFormatterLongStyle;
@@ -292,9 +295,16 @@ NS_ASSUME_NONNULL_END
 //        return cell;
 //    } else
     
+    indexPaths = [[NSMutableDictionary alloc] init];
+    
         TimelineTableViewCell *postCell = [tableView dequeueReusableCellWithIdentifier:@"timelineCell"];
         
         VolunteerOpportunity *post = self.selectedDateOpps[indexPath.row];
+    
+    postCell.exportToAppleCalendar.tag = indexPath.row;
+    NSString *key = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
+    [indexPaths setObject:indexPath forKey:key];
+    
         [postCell configureCell:post];
 
         return postCell;
@@ -322,57 +332,57 @@ NS_ASSUME_NONNULL_END
 {
     if (self.calendar.scope == FSCalendarScopeMonth) {
         [self.calendar setScope:FSCalendarScopeWeek];
-        self.toggleCalendar.selected = YES;
+        self.toggleCalendar.selected = NO;
     } else {
         [self.calendar setScope:FSCalendarScopeMonth];
-        self.toggleCalendar.selected = NO;
+        self.toggleCalendar.selected = YES;
     }
 }
 
 -(BOOL)checkForCalendar:(NSString *)eventName{
     //get an array of the user's calendar using your instance of the eventStore
-    NSArray *calendarArray = [self.loggedInUser.store calendarsForEntityType:EKEntityTypeEvent];
+    NSArray *calendarArray = [[CalendarSingleton sharedInstance] calendarsForEntityType:EKEntityTypeEvent];
     
     // The name of the calendar to check for. You can also save the calendarIdentifier and check for that if you want
     NSString *calNameToCheckFor = eventName;
+    NSDate* endDate =  [NSDate dateWithTimeIntervalSinceNow:[[NSDate distantFuture] timeIntervalSinceReferenceDate]];
     
     EKCalendar *cal;
     
-    for (int x = 0; x < [calendarArray count]; x++) {
+		    for (int x = 0; x < [calendarArray count]; x++) {
         
         cal = [calendarArray objectAtIndex:x];
-        NSString *calTitle = [cal title];
-        
-        // if the calendar is found, return YES
-        if ([calTitle isEqualToString:calNameToCheckFor]) {
-            
-            return YES;
-        
+        NSArray *calArray = [NSArray arrayWithObject:cal];
+        NSPredicate *fetchCalendarEvents = [[CalendarSingleton sharedInstance] predicateForEventsWithStartDate:[NSDate date] endDate:endDate calendars:calArray];
+        NSArray *eventList = [[CalendarSingleton sharedInstance] eventsMatchingPredicate:fetchCalendarEvents];
+        for(int i=0; i < eventList.count; i++){
+            NSLog(@"Event Title:%@", [[eventList objectAtIndex:i] title]);
+            NSString *caltitle =[[eventList objectAtIndex:i] title];
+            if ([caltitle isEqualToString:calNameToCheckFor]) {
+                return YES;
             }
+        }
     }
-            // Calendar name was not found, return NO;
-            return NO;
-    
-
+    // Calendar name was not found, return NO;
+    return NO;
 }
 
 - (IBAction)didTapExportAll:(id)sender {
-    if (self.exportAllButton.selected == NO)
+    if (self.exportAllButton.selected == YES)
     {
         self.exportAllButton.selected = YES;
     }
     else
     {
-        self.exportAllButton.selected = NO;
+        self.exportAllButton.selected = YES;
     }
     for (VolunteerOpportunity *vol in self.filteredVolunteerOpportunities)
         {
             if ([self checkForCalendar:vol.title] == NO)
             {
-                self.exportAllButton.selected = NO;
-                [self.loggedInUser.store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+                [[CalendarSingleton sharedInstance] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
                     if (!granted) { return; }
-                    EKEvent *event = [EKEvent eventWithEventStore:self.loggedInUser.store];
+                    EKEvent *event = [EKEvent eventWithEventStore:[CalendarSingleton sharedInstance]];
                     event.title = vol.title;
                     NSString *fullDateAndTime = vol.date;
                     fullDateAndTime = [fullDateAndTime stringByReplacingOccurrencesOfString:@"," withString:@" "];
@@ -404,15 +414,87 @@ NS_ASSUME_NONNULL_END
                 
                     NSTimeInterval hoursInSeconds = [vol.hours intValue] *60*60;
                     event.endDate = [event.startDate dateByAddingTimeInterval:hoursInSeconds];
-                    event.calendar = [self.loggedInUser.store defaultCalendarForNewEvents];
+                    event.calendar = [[CalendarSingleton sharedInstance] defaultCalendarForNewEvents];
                     NSError *err = nil;
-                    [self.loggedInUser.store saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
-                    //self.savedEventId = event.eventIdentifier;  //save the event id if you want to access this later
+                    [[CalendarSingleton sharedInstance] saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
+                    vol.savedEventId = event.eventIdentifier;  //save the event id if you want to access this later
+                    [vol saveInBackground];
                 }];
         }
     }
 
 
+}
+
+- (IBAction)didExport:(id)sender {
+    UIButton *exportedButton = sender;
+    NSInteger indexPathRow =  exportedButton.tag;
+    NSString *newKey = [NSString stringWithFormat:@"%ld", exportedButton.tag];
+    NSIndexPath *currentIndexPath = [indexPaths objectForKey:newKey];
+    VolunteerOpportunity *exportedOpp =self.selectedDateOpps[indexPathRow];
+    TimelineTableViewCell *currentCell = [self.tableView cellForRowAtIndexPath:currentIndexPath];
+    
+    if ([self checkForCalendar:exportedOpp.title] == NO)
+    {
+        currentCell.exportToAppleCalendar.selected = YES;
+        if (currentCell.exportToAppleCalendar.selected==NO)
+        {
+            currentCell.exportToAppleCalendar.selected = !!currentCell.exportToAppleCalendar.selected;
+
+        }
+        [[CalendarSingleton sharedInstance] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+            if (!granted) { return; }
+            EKEvent *event = [EKEvent eventWithEventStore:[CalendarSingleton sharedInstance]];
+            event.title = exportedOpp.title;
+            NSString *fullDateAndTime = exportedOpp.date;
+            fullDateAndTime = [fullDateAndTime stringByReplacingOccurrencesOfString:@"," withString:@" "];
+            NSString *day = [fullDateAndTime componentsSeparatedByString:@" "][2];
+            NSString *newDay = day;
+            if ([[day substringToIndex:1] isEqualToString:@"0"])
+            {
+                newDay = [day substringFromIndex:1];
+            }
+            day = [[@" " stringByAppendingString:day] stringByAppendingString:@" "];
+            NSString *spaceBeforeAfter = [[@" " stringByAppendingString:newDay] stringByAppendingString:@" "];
+            newDay = spaceBeforeAfter;
+            fullDateAndTime = [fullDateAndTime stringByReplacingOccurrencesOfString:day withString:newDay];
+            
+            
+            //Date format
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setTimeZone:[NSTimeZone systemTimeZone]];
+            [dateFormat setLocale:[NSLocale currentLocale]];
+            //[dateFormat setDateFormat:@"MMMMdyhma"];
+            [dateFormat setDateFormat:@"hh:mm MMMM dd y a"];
+            [dateFormat setFormatterBehavior:NSDateFormatterBehaviorDefault];
+            NSDate *newDate = [dateFormat dateFromString:fullDateAndTime];
+            
+            
+            
+            event.startDate = newDate; //today
+            NSLog(@"%@", event.startDate);
+            
+            NSTimeInterval hoursInSeconds = [exportedOpp.hours intValue] *60*60;
+            event.endDate = [event.startDate dateByAddingTimeInterval:hoursInSeconds];
+            event.calendar = [[CalendarSingleton sharedInstance] defaultCalendarForNewEvents];
+            NSError *err = nil;
+            [[CalendarSingleton sharedInstance] saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
+            exportedOpp.savedEventId = event.eventIdentifier;  //save the event id if you want to access this later
+            [exportedOpp saveInBackground];
+        }];
+    }
+    else{
+        currentCell.exportToAppleCalendar.selected = YES;
+        
+        [[CalendarSingleton sharedInstance] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+            if (!granted) { return; }
+            EKEvent* eventToRemove = [[CalendarSingleton sharedInstance] eventWithIdentifier:exportedOpp.savedEventId];
+            if (eventToRemove) {
+                NSError* error = nil;
+                [[CalendarSingleton sharedInstance] removeEvent:eventToRemove span:EKSpanThisEvent commit:YES error:&error];
+            }
+        }];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
