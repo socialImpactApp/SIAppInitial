@@ -122,6 +122,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (void) filterPosts
 {
     User *loggedInUser = [User currentUser];

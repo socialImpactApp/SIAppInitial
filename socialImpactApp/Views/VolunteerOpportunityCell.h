@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UIButton *locationButton;
+@property (weak, nonatomic) IBOutlet UILabel *organizationLabel;
 
 @property (strong,nonatomic) User *loggedInUser;
 @property (strong, nonatomic) NSMutableArray <NSString *> *favoritedOpps;

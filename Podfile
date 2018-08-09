@@ -9,6 +9,7 @@ target 'socialImpactApp' do
   pod 'Parse'
   pod 'ParseUI' 
   pod 'Colours'
+  pod 'FBSDKShareKit'
   pod 'FSCalendar'
 
   target 'socialImpactAppTests' do

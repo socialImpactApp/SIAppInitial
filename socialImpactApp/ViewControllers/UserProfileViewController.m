@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IBOutlet UIView *userView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UILabel *orgLabel;
 
 @end
 
@@ -45,37 +46,29 @@
     self.usernameLabel.text = user.username;
     self.contactLabel.text = user.contactNumber;
     self.emailLabel.text = user.email;
+    self.orgLabel.text = user.organization;
+    self.contactLabel.text = user.contactNumber;
 
-     self.userView.backgroundColor = [UIColor snowColor];
-    
-    
-    
+    self.userView.backgroundColor = [UIColor snowColor];
     [super viewDidLoad];
-    
-    CGFloat customRefreshControlHeight = 50.0f;
-    CGFloat customRefreshControlWidth = 320.0f;
-    CGRect customRefreshControlFrame = CGRectMake(0.0f,
-                                                  -customRefreshControlHeight,
-                                                  customRefreshControlWidth,
-                                                  customRefreshControlHeight);
-    
-    self.refreshControl = [[UIRefreshControl alloc] initWithFrame:customRefreshControlFrame]; 
-    
     [self.userView addSubview:self.refreshControl];
 }
 
 
 
-- (void)viewDidAppear {
+- (void)viewDidAppear:(BOOL)isAnimated {
+    [super viewDidAppear:true];
     User *user = [User currentUser];
     self.nameLabel.text = user.name;
     self.usernameLabel.text = user.username;
     self.contactLabel.text = user.contactNumber;
     self.emailLabel.text = user.email;
     self.userImageView.file = user.profileImage;
-    [self.userImageView loadInBackground];
-
-    
+    self.orgLabel.text = user.organization;
+    __weak typeof(self) weakSelf = self;
+    [self.userImageView loadInBackground:^(UIImage * _Nullable image, NSError * _Nullable error) {
+        [weakSelf.userView setNeedsLayout];
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

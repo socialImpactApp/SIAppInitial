@@ -163,7 +163,6 @@ typedef NS_ENUM(NSInteger, ColorComparison) {
 
 /**
  Creates a Color from an array of 4 NSNumbers (C,M,Y,K)
- @param colours   4 NSNumbers for cmyk between 0 - 1
  @return Color
  */
 + (instancetype)colorFromCMYKArray:(NSArray *)cmyk;
@@ -171,7 +170,6 @@ typedef NS_ENUM(NSInteger, ColorComparison) {
 /**
  Creates a Color from a dictionary of 4 NSNumbers
  Keys: kColoursCMYK_C, kColoursCMYK_M, kColoursCMYK_Y, kColoursCMYK_K
- @param colours   4 NSNumbers for smyk between 0 - 1
  @return Color
  */
 + (instancetype)colorFromCMYKDictionary:(NSDictionary *)cmyk;

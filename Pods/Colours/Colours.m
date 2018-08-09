@@ -65,9 +65,9 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
     NSString *green;
     
     if (@available(iOS 6.0, *)) {
-        int r = [colorArray[0] floatValue] * 255;
-        int g = [colorArray[1] floatValue] * 255;
-        int b = [colorArray[2] floatValue] * 255;
+        int r = [[colorArray objectAtIndex:0] floatValue] * 255;
+        int g = [[colorArray objectAtIndex:1] floatValue] * 255;
+        int b = [[colorArray objectAtIndex:2] floatValue] * 255;
         red = [NSString stringWithFormat:@"%02x", r];
         green = [NSString stringWithFormat:@"%02x", g];
         blue = [NSString stringWithFormat:@"%02x", b];
@@ -88,10 +88,10 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
         return [[self class] clearColor];
     }
     
-        return [[self class] colorWithRed:[rgbaArray[0] floatValue]
-                                    green:[rgbaArray[1] floatValue]
-                                     blue:[rgbaArray[2] floatValue]
-                                    alpha:[rgbaArray[3] floatValue]];
+        return [[self class] colorWithRed:[[rgbaArray objectAtIndex:0] floatValue]
+                                    green:[[rgbaArray objectAtIndex:1]  floatValue]
+                                     blue:[[rgbaArray objectAtIndex:2]  floatValue]
+                                    alpha:[[rgbaArray objectAtIndex:3]  floatValue]];
     
 }
 
@@ -211,19 +211,19 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
         return [[self class] clearColor];
     }
     
-    return [[self class] colorWithHue:[hsbaArray[0] doubleValue]
-                           saturation:[hsbaArray[1] doubleValue]
-                           brightness:[hsbaArray[2] doubleValue]
-                                alpha:[hsbaArray[3] doubleValue]];
+    return [[self class] colorWithHue:[[hsbaArray objectAtIndex:0] doubleValue]
+                           saturation:[[hsbaArray objectAtIndex:1] doubleValue]
+                           brightness:[[hsbaArray objectAtIndex:2] doubleValue]
+                                alpha:[[hsbaArray objectAtIndex:3] doubleValue]];
 }
 
 + (instancetype)colorFromHSBADictionary:(NSDictionary *)hsbaDict
 {
-    if (hsbaDict[kColoursHSBA_H] && hsbaDict[kColoursHSBA_S] && hsbaDict[kColoursHSBA_B] && hsbaDict[kColoursHSBA_A]) {
-        return [[self class] colorWithHue:[hsbaDict[kColoursHSBA_H] doubleValue]
-                               saturation:[hsbaDict[kColoursHSBA_S] doubleValue]
-                               brightness:[hsbaDict[kColoursHSBA_B] doubleValue]
-                                    alpha:[hsbaDict[kColoursHSBA_A] doubleValue]];
+    if ([hsbaDict objectForKey:kColoursHSBA_H] && [hsbaDict objectForKey:kColoursHSBA_S] && [hsbaDict objectForKey:kColoursHSBA_B]  && [hsbaDict objectForKey:kColoursHSBA_A] ) {
+        return [[self class] colorWithHue:[[hsbaDict objectForKey:kColoursHSBA_H] doubleValue]
+                               saturation:[[hsbaDict objectForKey:kColoursHSBA_S] doubleValue]
+                               brightness:[[hsbaDict objectForKey:kColoursHSBA_B] doubleValue]
+                                    alpha:[[hsbaDict objectForKey:kColoursHSBA_A] doubleValue]];
     }
     
     return [[self class] clearColor];
@@ -234,9 +234,9 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
 - (NSArray *)CIE_LabArray {
     // Convert Color to XYZ format first
     NSArray *rgba = [self rgbaArray];
-    CGFloat R = [rgba[0] floatValue];
-    CGFloat G = [rgba[1] floatValue];
-    CGFloat B = [rgba[2] floatValue];
+    CGFloat R = [[rgba objectAtIndex:0] floatValue];
+    CGFloat G = [[rgba objectAtIndex:1] floatValue];
+    CGFloat B = [[rgba objectAtIndex:2] floatValue];
     
     // Create deltaR block
     void (^deltaRGB)(CGFloat *R);
@@ -270,15 +270,15 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
     return @[L,
              a,
              b,
-             rgba[3]];
+             [rgba objectAtIndex:3]];
 }
 
 - (NSDictionary *)CIE_LabDictionary {
     NSArray *colors = [self CIE_LabArray];
 
-        return @{kColoursCIE_L:colors[0],
-                 kColoursCIE_A:colors[1],
-                 kColoursCIE_B:colors[2],
+        return @{kColoursCIE_L:[colors objectAtIndex:0],
+                 kColoursCIE_A:[colors objectAtIndex:1],
+                 kColoursCIE_B:[colors objectAtIndex:2],
                  };
   
 }
@@ -290,10 +290,10 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
     NSMutableArray *LCH = [Lab mutableCopy];
     //L = L, a = a
     //C
-    LCH[1] = @(sqrt(pow([Lab[1] doubleValue], 2) + pow([Lab[2] doubleValue], 2)));
+    LCH[1] = @(sqrt(pow([[Lab objectAtIndex:1] doubleValue], 2) + pow([[Lab objectAtIndex:2] doubleValue], 2)));
     
     //H
-    double h = atan2([Lab[2] doubleValue], [Lab[1] doubleValue]);
+    double h = atan2([[Lab objectAtIndex:2] doubleValue], [[Lab objectAtIndex:1] doubleValue]);
     h = h * 180/M_PI;
     if (h < 0) {
         h += 360;
@@ -307,10 +307,10 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
 
 - (NSDictionary *)CIE_LCHDictionary {
     NSArray *colors = [self CIE_LCHArray];
-    return @{kColoursCIE_L:colors[0],
-             kColoursCIE_C:colors[1],
-             kColoursCIE_H:colors[2],
-             kColoursCIE_alpha:colors[3],};
+    return @{kColoursCIE_L:[colors objectAtIndex:0],
+             kColoursCIE_C:[colors objectAtIndex:1],
+             kColoursCIE_H:[colors objectAtIndex:2],
+             kColoursCIE_alpha:[colors objectAtIndex:3],};
 }
 
 
@@ -321,9 +321,9 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
     }
     
     // Convert LAB to XYZ
-    CGFloat L = [colors[0] floatValue];
-    CGFloat A = [colors[1] floatValue];
-    CGFloat B = [colors[2] floatValue];
+    CGFloat L = [[colors objectAtIndex:0] floatValue];
+    CGFloat A = [[colors objectAtIndex:1] floatValue];
+    CGFloat B = [[colors objectAtIndex:2]floatValue];
     CGFloat Y = (L + 16.0)/116.0;
     CGFloat X = A/500 + Y;
     CGFloat Z = Y - B/200;
@@ -356,7 +356,7 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
     
     // return Color
 
-        return [[self class] colorFromRGBAArray:@[@(R), @(G), @(_B), colors[3]]];
+        return [[self class] colorFromRGBAArray:@[@(R), @(G), @(_B), [colors objectAtIndex:3]]];
   
 }
 
@@ -477,10 +477,10 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
 {
     // Convert RGB to CMY
     NSArray *rgb = [self rgbaArray];
-    CGFloat C = 1 - [rgb[0] floatValue];
+    CGFloat C = 1 - [[rgb objectAtIndex:0] floatValue];
 
-        CGFloat M = 1 - [rgb[1] floatValue];
-        CGFloat Y = 1 - [rgb[2] floatValue];
+        CGFloat M = 1 - [[rgb objectAtIndex:1] floatValue];
+        CGFloat Y = 1 - [[rgb objectAtIndex:2]floatValue];
         
         // Find K
         CGFloat K = MIN(1, MIN(C, MIN(Y, M)));
@@ -510,15 +510,15 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
 {
     NSArray *colors = [self cmykArray];
    
-        return @{kColoursCMYK_C:colors[0],
-                 kColoursCMYK_M:colors[1],
-                 kColoursCMYK_Y:colors[2],
-                 kColoursCMYK_K:colors[3]};
+        return @{kColoursCMYK_C:[colors objectAtIndex:0],
+                 kColoursCMYK_M:[colors objectAtIndex:1],
+                 kColoursCMYK_Y:[colors objectAtIndex:2],
+                 kColoursCMYK_K:[colors objectAtIndex:3]};
    
-        return @{kColoursCMYK_C:colors[0],
-                 kColoursCMYK_M:colors[1],
-                 kColoursCMYK_Y:colors[2],
-                 kColoursCMYK_K:colors[3]};
+        return @{kColoursCMYK_C:[colors objectAtIndex:0],
+                 kColoursCMYK_M:[colors objectAtIndex:1],
+                 kColoursCMYK_Y:[colors objectAtIndex:2],
+                 kColoursCMYK_K:[colors objectAtIndex:3]};
 }
 
 #pragma mark - CMYK to Color
@@ -530,10 +530,10 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
     
     // Find CMY values
    
-        CGFloat C = [cmyk[0] floatValue];
-        CGFloat M = [cmyk[1] floatValue];
-        CGFloat Y = [cmyk[2] floatValue];
-        CGFloat K = [cmyk[3] floatValue];
+        CGFloat C = [[cmyk objectAtIndex:0] floatValue];
+        CGFloat M = [[cmyk objectAtIndex:1]floatValue];
+        CGFloat Y = [[cmyk objectAtIndex:2] floatValue];
+        CGFloat K = [[cmyk objectAtIndex:3] floatValue];
         void (^cmyTransform)(CGFloat *);
         cmyTransform = ^(CGFloat *x){
             *x = *x * (1 - K) + K;
@@ -598,68 +598,68 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
 
 - (CGFloat)red
 {
-    return [[self rgbaArray][0] floatValue];
+    return [[[self rgbaArray] objectAtIndex:0] floatValue];
 }
 
 - (CGFloat)green
 {
-    return [[self rgbaArray][1] floatValue];
+    return [[[self rgbaArray] objectAtIndex:1] floatValue];
 }
 
 - (CGFloat)blue
 {
-    return [[self rgbaArray][2] floatValue];
+    return [[[self rgbaArray] objectAtIndex:0] floatValue];
 }
 
 - (CGFloat)hue
 {
-    return [[self hsbaArray][0] floatValue];
+    return [[[self hsbaArray] objectAtIndex:0] floatValue];
 }
 
 - (CGFloat)saturation
 {
-    return [[self hsbaArray][1] floatValue];
+    return [[[self hsbaArray] objectAtIndex:1] floatValue];
 }
 
 - (CGFloat)brightness
 {
-    return [[self hsbaArray][2] floatValue];
+    return [[[self hsbaArray] objectAtIndex:2] floatValue];
 }
 
 - (CGFloat)alpha
 {
-    return [[self rgbaArray][3] floatValue];
+    return [[[self rgbaArray] objectAtIndex:3] floatValue];
 }
 
 - (CGFloat)CIE_Lightness
 {
-    return [[self CIE_LabArray][0] floatValue];
+    return [[[self CIE_LabArray] objectAtIndex:0] floatValue];
 }
 
 - (CGFloat)CIE_a
 {
-    return [[self CIE_LabArray][1] floatValue];
+    return [[[self CIE_LabArray] objectAtIndex:1] floatValue];
 }
 
 - (CGFloat)CIE_b
 {
-    return [[self CIE_LabArray][2] floatValue];
+    return [[[self CIE_LabArray] objectAtIndex:2] floatValue];
 }
 
 - (CGFloat)cyan {
-    return [[self cmykArray][0] floatValue];
+    return [[[self cmykArray] objectAtIndex:3] floatValue];
 }
 
 - (CGFloat)magenta {
-    return [[self cmykArray][1] floatValue];
+    return [[[self cmykArray] objectAtIndex:1] floatValue];
 }
 
 - (CGFloat)yellow {
-    return [[self cmykArray][2] floatValue];
+    return [[[self cmykArray] objectAtIndex:2] floatValue];
 }
 
 - (CGFloat)keyBlack {
-    return [[self cmykArray][3] floatValue];
+    return [[[self cmykArray] objectAtIndex:3] floatValue];
 }
 
 
@@ -674,7 +674,11 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
 
 - (instancetype)modifyBrightnessByPercentage:(CGFloat)percentage {
     NSMutableDictionary *hsba = [[self hsbaDictionary] mutableCopy];
-    [hsba setObject:@([hsba[kColoursHSBA_B] floatValue] * percentage) forKey:kColoursHSBA_B];
+    if (@available(iOS 6.0, *)) {
+        [hsba setObject:@([hsba[kColoursHSBA_B] floatValue] * percentage) forKey:kColoursHSBA_B];
+    } else {
+        // Fallback on earlier versions
+    }
     return [ColorClass colorFromHSBADictionary:hsba];
 }
 
@@ -683,10 +687,10 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
 - (NSArray *)colorSchemeOfType:(ColorScheme)type
 {
     NSArray *hsbArray = [self hsbaArray];
-    float hue = [hsbArray[0] floatValue] * 360;
-    float sat = [hsbArray[1] floatValue] * 100;
-    float bright = [hsbArray[2] floatValue] * 100;
-    float alpha = [hsbArray[3] floatValue];
+    float hue = [[hsbArray objectAtIndex:0] floatValue] * 360;
+    float sat = [[hsbArray objectAtIndex:1] floatValue] * 100;
+    float bright = [[hsbArray objectAtIndex:2] floatValue] * 100;
+    float alpha = [[hsbArray objectAtIndex:3] floatValue];
     
     switch (type) {
         case ColorSchemeAnalagous:
@@ -741,7 +745,7 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
 - (instancetype)blackOrWhiteContrastingColor
 {
     NSArray *rgbaArray = [self rgbaArray];
-    double a = 1 - ((0.299 * [rgbaArray[0] doubleValue]) + (0.587 * [rgbaArray[1] doubleValue]) + (0.114 * [rgbaArray[2] doubleValue]));
+    double a = 1 - ((0.299 * [[rgbaArray objectAtIndex:0] doubleValue]) + (0.587 * [[rgbaArray objectAtIndex:1] doubleValue]) + (0.114 * [[rgbaArray objectAtIndex:2] doubleValue]));
     return a < 0.5 ? [[self class] blackColor] : [[self class] whiteColor];
 }
 
@@ -750,8 +754,12 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
 - (instancetype)complementaryColor
 {
     NSMutableDictionary *hsba = [[self hsbaDictionary] mutableCopy];
-    float newH = [[self class] addDegrees:180.0f toDegree:([hsba[kColoursHSBA_H] floatValue]*360.0f)];
-    [hsba setObject:@(newH/360.0f) forKey:kColoursHSBA_H];
+    if (@available(iOS 6.0, *)) {
+        float newH = [[self class] addDegrees:180.0f toDegree:([hsba[kColoursHSBA_H] floatValue]*360.0f)];
+        [hsba setObject:@(newH/360.0f) forKey:kColoursHSBA_H];
+    } else {
+        // Fallback on earlier versions
+    }
     return [[self class] colorFromHSBADictionary:hsba];
 }
 
@@ -800,12 +808,12 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
     // Set Up Common Variables
     NSArray *lab1 = [self CIE_LabArray];
     NSArray *lab2 = [color CIE_LabArray];
-    CGFloat L1 = [lab1[0] floatValue];
-    CGFloat A1 = [lab1[1] floatValue];
-    CGFloat B1 = [lab1[2] floatValue];
-    CGFloat L2 = [lab2[0] floatValue];
-    CGFloat A2 = [lab2[1] floatValue];
-    CGFloat B2 = [lab2[2] floatValue];
+    CGFloat L1 = [[lab1 objectAtIndex:0] floatValue];
+    CGFloat A1 = [[lab1 objectAtIndex:1] floatValue];
+    CGFloat B1 = [[lab1 objectAtIndex:2]floatValue];
+    CGFloat L2 = [[lab2 objectAtIndex:0] floatValue];
+    CGFloat A2 = [[lab2 objectAtIndex:1] floatValue];
+    CGFloat B2 = [[lab2 objectAtIndex:2] floatValue];
     
     // CIE76 first
     if (distanceType == ColorDistanceCIE76) {
@@ -885,11 +893,11 @@ static CGFloat (^RAD)(CGFloat) = ^CGFloat (CGFloat degree){
     boolean_t greater = true;
     NSDictionary *c1 = [colorA colorsForComparison:comparison key:&key greater:&greater];
     NSDictionary *c2 = [colorB colorsForComparison:comparison key:&key greater:&greater];
-    return [self compareValue:[c1[key] floatValue] andValue:[c2[key] floatValue] greaterThan:greater];
+    return [self compareValue:[[c1 objectForKey:key] floatValue] andValue:[[c2 objectForKey:key] floatValue] greaterThan:greater];
 }
 
 
-#pragma mark - System Colors
+#pragma mark - System Colors`
 + (instancetype)infoBlueColor
 {
 	return [[self class] colorWithR:47 G:112 B:225 A:1.0];
