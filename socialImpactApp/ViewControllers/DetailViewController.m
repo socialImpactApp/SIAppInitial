@@ -32,9 +32,9 @@
     // Do any additional setup after loading the view.
     self.backgroundVoppView.layer.zPosition = -1;
     //[self configureCell:self.post];
-    self.signButton.layer.cornerRadius = 10.0;
-    self.signButton.layer.borderWidth = 0.7f;
-    self.signButton.layer.borderColor =[[UIColor colorWithRed:3/255.0 green:121/255.0 blue:113/255.0 alpha:0.7] CGColor];
+//    self.signButton.layer.cornerRadius = 10.0;
+//    self.signButton.layer.borderWidth = 0.7f;
+//    self.signButton.layer.borderColor =[[UIColor colorWithRed:3/255.0 green:121/255.0 blue:113/255.0 alpha:0.7] CGColor];
     PFObject *postAuthor = self.post[@"author"];
     self.backgroundVoppView.file = self.post[@"image"];
     //loadinbackground
@@ -170,7 +170,7 @@
         
         // Convert date object to desired output format
         
-        event.title = self.volunteerOppTitle.text;
+        //event.title = self.volunteerOppTitle.text;
         event.startDate = newDate; //today
         NSLog(@"%@", event.startDate);
         NSTimeInterval hoursInSeconds = [self.post.hours intValue]*60*60;
