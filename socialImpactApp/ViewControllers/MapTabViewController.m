@@ -39,6 +39,8 @@
 //    [CATransaction setCompletionBlock:^{
 //        [self showAllLocs:vopps];
 //    }];
+    self.mapView.delegate = self;
+    [self.mapView setUserInteractionEnabled:YES];
     self.allVopps = [[NSMutableArray alloc] init];
     [self fetch];
 //    [CATransaction commit];
@@ -73,10 +75,15 @@
 
 -(void)showAllLocs:(NSMutableArray <VolunteerOpportunity *>*)allVopps {
     geocoder = [[CLGeocoder alloc] init];
+    int i = 0;
+    dispatch_group_t myGroup = dispatch_group_create();
     for (VolunteerOpportunity *vopp in allVopps) {
+        i++; 
+        NSLog(@"%@", vopp.location);
+        dispatch_group_enter(myGroup);
         __weak typeof(self) weakSelf = self;
-        _blockCompleted = NO;
-        [geocoder geocodeAddressString:vopp.location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+            [self->geocoder geocodeAddressString:vopp.location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+            dispatch_group_leave(myGroup);
             if(!error){
                 CLPlacemark *placemark = [placemarks objectAtIndex:0];
                 NSLog(@"TEST TEST TEST%f",placemark.location.coordinate.latitude);
@@ -110,13 +117,14 @@
                     strongself->_blockCompleted = YES;
                 }
             }
+            
         }];
-        
-        while(!_blockCompleted) {
-            [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-        }
-    }
 }
+    dispatch_group_notify(myGroup, dispatch_get_main_queue(), ^{
+        NSLog(@"Finished all requests.");
+    });
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MKLocalSearchCompletion *searchResults = self.results[indexPath.row];

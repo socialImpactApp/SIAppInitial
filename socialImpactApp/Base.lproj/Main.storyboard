@@ -1679,9 +1679,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X4I-zh-4xk">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X4I-zh-4xk">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="loO-H1-0vG">
                                 <rect key="frame" x="16" y="35" width="343" height="30"/>
@@ -1723,6 +1722,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="X4I-zh-4xk" firstAttribute="trailing" secondItem="60h-Hk-Jse" secondAttribute="trailing" id="E0L-xa-YHe"/>
+                            <constraint firstAttribute="bottom" secondItem="X4I-zh-4xk" secondAttribute="bottom" id="EZK-1j-rUD"/>
+                            <constraint firstItem="X4I-zh-4xk" firstAttribute="top" secondItem="iQb-Wy-pQb" secondAttribute="top" id="cdA-pX-Ulf"/>
+                            <constraint firstItem="X4I-zh-4xk" firstAttribute="leading" secondItem="60h-Hk-Jse" secondAttribute="leading" id="wqo-51-fx5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="60h-Hk-Jse"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="globe1" id="AL1-lf-fRP"/>

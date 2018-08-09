@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *resultsTableView;
 @property (strong, nonatomic) MKLocalSearchCompleter *searchCompleter;
 @property (strong,nonatomic) NSArray *results;
-@property (nonatomic) NSInteger *tagNumber;
+//@property (nonatomic) NSInteger *tagNumber;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @end
 
