@@ -52,9 +52,8 @@
     self.orgImageView. layer.borderColor = [[UIColor colorWithRed:3/255.0 green:121/255.0 blue:113/255.0 alpha:0.7] CGColor];
     self.orgImageView. layer.borderWidth = borderWidth;
 
-<<<<<<< HEAD
-=======
-    [self configureCell:self.post];
+
+    //[self configureCell:self.post];
     
     self.loggedInUser = [User currentUser];
     UIFont * customFont = [UIFont fontWithName:@"NewsCycle" size:12]; //custom font
@@ -76,7 +75,6 @@
     fromLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:fromLabel];
    
->>>>>>> ca0f55b2a1e58a3a04ab82521e90e46383348d17
 }
 
 
@@ -226,11 +224,8 @@
     return postCell;
 }
 
-<<<<<<< HEAD
-=======
 
 /*
->>>>>>> ca0f55b2a1e58a3a04ab82521e90e46383348d17
 
 #pragma mark - Navigation
 

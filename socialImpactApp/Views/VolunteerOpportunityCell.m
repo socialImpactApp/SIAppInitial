@@ -49,12 +49,8 @@
     self.volunteerOpportunity = volunOpp;
     //NSLog(@"%@", volunOpp.objectId);
     self.oppImageView.layer.cornerRadius = self.oppImageView.frame.size.height/2;
-<<<<<<< HEAD
     self.oppImageView.file = postAuthor[@"profileImage"];
-=======
     self.oppImageView.clipsToBounds = YES;
-    self.oppImageView.file = volunOpp[@"image"];
->>>>>>> ca0f55b2a1e58a3a04ab82521e90e46383348d17
     [self.oppImageView loadInBackground];
     self.titleLabel.text = volunOpp[@"title"];
     self.hoursLabel.text = volunOpp[@"hours"];
@@ -76,10 +72,8 @@
     self.organizationLabel.text = postAuthor[@"organization"];
     //MERGE CONFLICT
     //self.dateLabel.text = volunOpp[@"date"];
-<<<<<<< HEAD
-=======
+
     self.locationLabel.text = volunOpp[@"cityState"];
->>>>>>> ca0f55b2a1e58a3a04ab82521e90e46383348d17
     self.backCellView.backgroundColor = [UIColor whiteColor];
     self.backCellView.layer.cornerRadius = 2.0;
     self.contentView.backgroundColor = [UIColor snowColor];
@@ -199,11 +193,6 @@
     
 }
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> ca0f55b2a1e58a3a04ab82521e90e46383348d17
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
 //    if ([segue.identifier isEqualToString:@"showLocationSeg"]) {

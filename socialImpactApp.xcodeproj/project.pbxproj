@@ -43,7 +43,6 @@
 		66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66379C9520FFF02D00487A3D /* SignUpViewController.m */; };
 		667632922107ACCB00538E9B /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 667632912107ACCB00538E9B /* ActionViewController.m */; };
 		667632952107ACCB00538E9B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 667632932107ACCB00538E9B /* MainInterface.storyboard */; };
-		6676329D2107ACD900538E9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D53920EFE03E00B5D12C /* Main.storyboard */; };
 		667EEC54211225DE00F2A0FA /* FSCalendarCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 667EEC33211225DE00F2A0FA /* FSCalendarCollectionView.m */; };
 		667EEC55211225DE00F2A0FA /* FSCalendarDelegationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 667EEC37211225DE00F2A0FA /* FSCalendarDelegationProxy.m */; };
 		667EEC56211225DE00F2A0FA /* FSCalendarDelegationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 667EEC39211225DE00F2A0FA /* FSCalendarDelegationFactory.m */; };
@@ -229,12 +228,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				35816FCF21151F400075BAAE /* Social.framework in Frameworks */,
-
 				66D7AFA421150EBC0074562A /* EventKitUI.framework in Frameworks */,
 				66D7AFA221150EB60074562A /* EventKit.framework in Frameworks */,
-
 				35B7627B2107895E0089739D /* CoreLocation.framework in Frameworks */,
 				35B762792106CB3A0089739D /* MapKit.framework in Frameworks */,
 				47D8A038FCB35C7777A968A0 /* libPods-socialImpactApp.a in Frameworks */,
@@ -299,21 +295,14 @@
 				354307F3210149B70045A8FD /* EditUserProfileViewController.m */,
 				35AC5DDC210A418A004BF87A /* ShowLocationViewController.h */,
 				35AC5DDD210A418A004BF87A /* ShowLocationViewController.m */,
-
 				35C63C98210E5888006C8B32 /* ShowAllLocationsViewController.h */,
 				35C63C99210E5888006C8B32 /* ShowAllLocationsViewController.m */,
-				662885FF21092C9D0014196F /* TimelineViewController.h */,
-				6628860021092C9D0014196F /* TimelineViewController.m */,
-				35B762752106B06D0089739D /* AddLocationViewController.h */,
-				35B762762106B06D0089739D /* AddLocationViewController.m */,
 				35E7D1312113E00D00230A31 /* MapTabViewController.h */,
 				35E7D1322113E00D00230A31 /* MapTabViewController.m */,
-
 				662885FF21092C9D0014196F /* TimelineViewController.h */,
 				6628860021092C9D0014196F /* TimelineViewController.m */,
 				35B762752106B06D0089739D /* AddLocationViewController.h */,
 				660BA003211A6D9F00C396BC /* AddLocationViewController.m */,
-
 				66BF560A20FE5DAF00C1E39B /* Models */,
 				667EEC6E211256EB00F2A0FA /* FSCalendarScopeExampleViewController.h */,
 				667EEC6F211256EB00F2A0FA /* FSCalendarScopeExampleViewController.m */,
@@ -503,8 +492,6 @@
 				35B762D02108E4E60089739D /* SearchTableViewCell.m */,
 				35469425211A6F73000176F6 /* DetailTableViewCell.h */,
 				35469426211A6F73000176F6 /* DetailTableViewCell.m */,
-				667632832107AC6600538E9B /* News_Cycle */,
-				
 				66D7AF9E2114F55D0074562A /* TimelineTableViewCell.h */,
 				66D7AF9F2114F55D0074562A /* TimelineTableViewCell.m */,
 			);
@@ -514,9 +501,7 @@
 		B869D6796AE17E91CF0BB5B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-
 				35816FCD21150FDA0075BAAE /* Social.framework */,
-
 				66D7AFA321150EBC0074562A /* EventKitUI.framework */,
 				66D7AFA121150EB60074562A /* EventKit.framework */,
 				35B7627A2107895E0089739D /* CoreLocation.framework */,
@@ -714,7 +699,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				667632952107ACCB00538E9B /* MainInterface.storyboard in Resources */,
-				6676329D2107ACD900538E9B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,14 +817,11 @@
 				35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */,
 				66BF561420FE5DF600C1E39B /* AddVolunteerOpportunityViewController.m in Sources */,
 				6628860121092C9D0014196F /* TimelineViewController.m in Sources */,
-
 				35C63C9A210E5888006C8B32 /* ShowAllLocationsViewController.m in Sources */,
 				355718C620FC53AD00D735EA /* MenuViewController.m in Sources */,
 				35469427211A6F73000176F6 /* DetailTableViewCell.m in Sources */,
-
 				667EEC55211225DE00F2A0FA /* FSCalendarDelegationProxy.m in Sources */,
 				667EEC56211225DE00F2A0FA /* FSCalendarDelegationFactory.m in Sources */,
-				355718C620FC53AD00D735EA /* MenuViewController.m in Sources */,
 				667EEC58211225DE00F2A0FA /* FSCalendarStickyHeader.m in Sources */,
 				667EEC59211225DE00F2A0FA /* FSCalendar.m in Sources */,
 				66D7AFA02114F55D0074562A /* TimelineTableViewCell.m in Sources */,
@@ -978,9 +959,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-
-			
-
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1039,7 +1017,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1067,15 +1044,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4XN5UHT2CN;
-
 				INFOPLIST_FILE = socialImpactApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaAndezra.socialImpactApp;
-
-
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1090,7 +1064,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4XN5UHT2CN;
-
 				INFOPLIST_FILE = socialImpactApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1098,7 +1071,6 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaAndezra.socialImpactApp;
-
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

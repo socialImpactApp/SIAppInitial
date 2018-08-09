@@ -122,8 +122,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-<<<<<<< HEAD
-=======
+
 - (void) filterPosts
 {
     User *loggedInUser = [User currentUser];
@@ -144,7 +143,6 @@
     }
 }
 
->>>>>>> ca0f55b2a1e58a3a04ab82521e90e46383348d17
 
 -(void)fetch {
     PFQuery *query = [VolunteerOpportunity query];
