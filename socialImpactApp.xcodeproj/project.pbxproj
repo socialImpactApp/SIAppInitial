@@ -10,9 +10,11 @@
 		3529DCEC20FFCA150057F133 /* AddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3529DCEB20FFCA150057F133 /* AddTagViewController.m */; };
 		354307EE21013B660045A8FD /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354307ED21013B660045A8FD /* UserProfileViewController.m */; };
 		354307F4210149B70045A8FD /* EditUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354307F3210149B70045A8FD /* EditUserProfileViewController.m */; };
+		35469427211A6F73000176F6 /* DetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35469426211A6F73000176F6 /* DetailTableViewCell.m */; };
 		355718C320FC534D00D735EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C220FC534D00D735EA /* LoginViewController.m */; };
 		355718C620FC53AD00D735EA /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C520FC53AD00D735EA /* MenuViewController.m */; };
 		355718C920FC53E600D735EA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355718C820FC53E600D735EA /* DetailViewController.m */; };
+		35816FCF21151F400075BAAE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35816FCD21150FDA0075BAAE /* Social.framework */; };
 		35AC5DDE210A418A004BF87A /* ShowLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AC5DDD210A418A004BF87A /* ShowLocationViewController.m */; };
 		35B7627021067B500089739D /* NewsCycle-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626D21067B4E0089739D /* NewsCycle-Regular.ttf */; };
 		35B7627121067B500089739D /* NewsCycle-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35B7626E21067B4E0089739D /* NewsCycle-Bold.ttf */; };
@@ -21,6 +23,7 @@
 		35B762792106CB3A0089739D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B762782106CB3A0089739D /* MapKit.framework */; };
 		35B7627B2107895E0089739D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B7627A2107895E0089739D /* CoreLocation.framework */; };
 		35B762D12108E4E60089739D /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B762D02108E4E60089739D /* SearchTableViewCell.m */; };
+		35C63C9A210E5888006C8B32 /* ShowAllLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C63C99210E5888006C8B32 /* ShowAllLocationsViewController.m */; };
 		35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53420EFE03E00B5D12C /* AppDelegate.m */; };
 		35D8D53820EFE03E00B5D12C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D53720EFE03E00B5D12C /* ViewController.m */; };
 		35D8D53B20EFE03E00B5D12C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D53920EFE03E00B5D12C /* Main.storyboard */; };
@@ -29,19 +32,15 @@
 		35D8D54320EFE04000B5D12C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D54220EFE04000B5D12C /* main.m */; };
 		35D8D54D20EFE04000B5D12C /* socialImpactAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D54C20EFE04000B5D12C /* socialImpactAppTests.m */; };
 		35D8D55820EFE04000B5D12C /* socialImpactAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D55720EFE04000B5D12C /* socialImpactAppUITests.m */; };
+		35E7D1332113E00D00230A31 /* MapTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E7D1322113E00D00230A31 /* MapTabViewController.m */; };
 		47D8A038FCB35C7777A968A0 /* libPods-socialImpactApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2B5A5065D470831F56D7DE /* libPods-socialImpactApp.a */; };
 		51216213CEC3A0D4FAF43C93 /* libPods-socialImpactAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D1B2DFDE6B4F153928CCBB /* libPods-socialImpactAppUITests.a */; };
 		661BAE7A21062579007363CC /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 661BAE7921062579007363CC /* ActionViewController.m */; };
 		661BAE7D21062579007363CC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 661BAE7B21062579007363CC /* MainInterface.storyboard */; };
-		661BAE8121062579007363CC /* SavedViewController.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 661BAE7621062579007363CC /* SavedViewController.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6628860121092C9D0014196F /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6628860021092C9D0014196F /* TimelineViewController.m */; };
 		66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66379C9520FFF02D00487A3D /* SignUpViewController.m */; };
-		667632872107AC6800538E9B /* NewsCycle-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 667632842107AC6600538E9B /* NewsCycle-Regular.ttf */; };
-		667632882107AC6800538E9B /* NewsCycle-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 667632852107AC6600538E9B /* NewsCycle-Bold.ttf */; };
-		667632892107AC6800538E9B /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 667632862107AC6600538E9B /* OFL.txt */; };
 		667632922107ACCB00538E9B /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 667632912107ACCB00538E9B /* ActionViewController.m */; };
 		667632952107ACCB00538E9B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 667632932107ACCB00538E9B /* MainInterface.storyboard */; };
-		667632992107ACCB00538E9B /* newsCycleFont.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6676328E2107ACCB00538E9B /* newsCycleFont.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6676329D2107ACD900538E9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D53920EFE03E00B5D12C /* Main.storyboard */; };
 		66BF560D20FE5DAF00C1E39B /* VolunteerOpportunity.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560C20FE5DAF00C1E39B /* VolunteerOpportunity.m */; };
 		66BF561120FE5DBB00C1E39B /* VolunteerOpportunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF560F20FE5DBB00C1E39B /* VolunteerOpportunityCell.m */; };
@@ -66,13 +65,6 @@
 			remoteGlobalIDString = 35D8D52F20EFE03E00B5D12C;
 			remoteInfo = socialImpactApp;
 		};
-		661BAE7F21062579007363CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 35D8D52820EFE03E00B5D12C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 661BAE7521062579007363CC;
-			remoteInfo = SavedViewController;
-		};
 		667632972107ACCB00538E9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 35D8D52820EFE03E00B5D12C /* Project object */;
@@ -80,23 +72,6 @@
 			remoteGlobalIDString = 6676328D2107ACCB00538E9B;
 			remoteInfo = newsCycleFont;
 		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		661BAE8521062579007363CC /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				661BAE8121062579007363CC /* SavedViewController.appex in Embed App Extensions */,
-				667632992107ACCB00538E9B /* newsCycleFont.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -108,12 +83,15 @@
 		354307ED21013B660045A8FD /* UserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 		354307F2210149B70045A8FD /* EditUserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditUserProfileViewController.h; sourceTree = "<group>"; };
 		354307F3210149B70045A8FD /* EditUserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditUserProfileViewController.m; sourceTree = "<group>"; };
+		35469425211A6F73000176F6 /* DetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailTableViewCell.h; sourceTree = "<group>"; };
+		35469426211A6F73000176F6 /* DetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewCell.m; sourceTree = "<group>"; };
 		355718C120FC534D00D735EA /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		355718C220FC534D00D735EA /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		355718C420FC53AD00D735EA /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		355718C520FC53AD00D735EA /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		355718C720FC53E600D735EA /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		355718C820FC53E600D735EA /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		35816FCD21150FDA0075BAAE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		35AC5DDC210A418A004BF87A /* ShowLocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowLocationViewController.h; sourceTree = "<group>"; };
 		35AC5DDD210A418A004BF87A /* ShowLocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowLocationViewController.m; sourceTree = "<group>"; };
 		35B7626D21067B4E0089739D /* NewsCycle-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewsCycle-Regular.ttf"; sourceTree = "<group>"; };
@@ -125,6 +103,8 @@
 		35B7627A2107895E0089739D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		35B762CF2108E4E60089739D /* SearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
 		35B762D02108E4E60089739D /* SearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
+		35C63C98210E5888006C8B32 /* ShowAllLocationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowAllLocationsViewController.h; sourceTree = "<group>"; };
+		35C63C99210E5888006C8B32 /* ShowAllLocationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowAllLocationsViewController.m; sourceTree = "<group>"; };
 		35D8D53020EFE03E00B5D12C /* socialImpactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socialImpactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D8D53320EFE03E00B5D12C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35D8D53420EFE03E00B5D12C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -141,6 +121,8 @@
 		35D8D55320EFE04000B5D12C /* socialImpactAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = socialImpactAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D8D55720EFE04000B5D12C /* socialImpactAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = socialImpactAppUITests.m; sourceTree = "<group>"; };
 		35D8D55920EFE04000B5D12C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35E7D1312113E00D00230A31 /* MapTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapTabViewController.h; sourceTree = "<group>"; };
+		35E7D1322113E00D00230A31 /* MapTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapTabViewController.m; sourceTree = "<group>"; };
 		4A2B5A5065D470831F56D7DE /* libPods-socialImpactApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-socialImpactApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E94ED86BAEE91CC6196636C /* Pods-socialImpactApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp.debug.xcconfig"; sourceTree = "<group>"; };
 		63271D50F8E957B54EE730BF /* Pods-socialImpactApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialImpactApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,9 +136,6 @@
 		6628860021092C9D0014196F /* TimelineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		66379C9420FFF02D00487A3D /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		66379C9520FFF02D00487A3D /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		667632842107AC6600538E9B /* NewsCycle-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewsCycle-Regular.ttf"; sourceTree = "<group>"; };
-		667632852107AC6600538E9B /* NewsCycle-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewsCycle-Bold.ttf"; sourceTree = "<group>"; };
-		667632862107AC6600538E9B /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		6676328E2107ACCB00538E9B /* newsCycleFont.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = newsCycleFont.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		667632902107ACCB00538E9B /* ActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
 		667632912107ACCB00538E9B /* ActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
@@ -183,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35816FCF21151F400075BAAE /* Social.framework in Frameworks */,
 				35B7627B2107895E0089739D /* CoreLocation.framework in Frameworks */,
 				35B762792106CB3A0089739D /* MapKit.framework in Frameworks */,
 				47D8A038FCB35C7777A968A0 /* libPods-socialImpactApp.a in Frameworks */,
@@ -243,15 +223,16 @@
 				66379C9520FFF02D00487A3D /* SignUpViewController.m */,
 				354307F2210149B70045A8FD /* EditUserProfileViewController.h */,
 				354307F3210149B70045A8FD /* EditUserProfileViewController.m */,
-				35B762752106B06D0089739D /* AddLocationViewController.h */,
-				35B762762106B06D0089739D /* AddLocationViewController.m */,
 				35AC5DDC210A418A004BF87A /* ShowLocationViewController.h */,
 				35AC5DDD210A418A004BF87A /* ShowLocationViewController.m */,
-
+				35C63C98210E5888006C8B32 /* ShowAllLocationsViewController.h */,
+				35C63C99210E5888006C8B32 /* ShowAllLocationsViewController.m */,
 				662885FF21092C9D0014196F /* TimelineViewController.h */,
 				6628860021092C9D0014196F /* TimelineViewController.m */,
-				35B762752106B06D0089739D /* LocationViewController.h */,
-				35B762762106B06D0089739D /* LocationViewController.m */,
+				35B762752106B06D0089739D /* AddLocationViewController.h */,
+				35B762762106B06D0089739D /* AddLocationViewController.m */,
+				35E7D1312113E00D00230A31 /* MapTabViewController.h */,
+				35E7D1322113E00D00230A31 /* MapTabViewController.m */,
 				66BF560A20FE5DAF00C1E39B /* Models */,
 			);
 			path = ViewControllers;
@@ -364,16 +345,6 @@
 			path = SavedViewController;
 			sourceTree = "<group>";
 		};
-		667632832107AC6600538E9B /* News_Cycle */ = {
-			isa = PBXGroup;
-			children = (
-				667632842107AC6600538E9B /* NewsCycle-Regular.ttf */,
-				667632852107AC6600538E9B /* NewsCycle-Bold.ttf */,
-				667632862107AC6600538E9B /* OFL.txt */,
-			);
-			path = News_Cycle;
-			sourceTree = "<group>";
-		};
 		6676328F2107ACCB00538E9B /* newsCycleFont */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,12 +371,11 @@
 			isa = PBXGroup;
 			children = (
 				66BF561020FE5DBB00C1E39B /* VolunteerOpportunityCell.h */,
-
 				66BF560F20FE5DBB00C1E39B /* VolunteerOpportunityCell.m */,
-
-				667632832107AC6600538E9B /* News_Cycle */,
 				35B762CF2108E4E60089739D /* SearchTableViewCell.h */,
 				35B762D02108E4E60089739D /* SearchTableViewCell.m */,
+				35469425211A6F73000176F6 /* DetailTableViewCell.h */,
+				35469426211A6F73000176F6 /* DetailTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -413,6 +383,7 @@
 		B869D6796AE17E91CF0BB5B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35816FCD21150FDA0075BAAE /* Social.framework */,
 				35B7627A2107895E0089739D /* CoreLocation.framework */,
 				35B762782106CB3A0089739D /* MapKit.framework */,
 				4A2B5A5065D470831F56D7DE /* libPods-socialImpactApp.a */,
@@ -438,9 +409,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				661BAE8021062579007363CC /* PBXTargetDependency */,
 				667632982107ACCB00538E9B /* PBXTargetDependency */,
-
 			);
 			name = socialImpactApp;
 			productName = socialImpactApp;
@@ -575,11 +544,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				35B7627221067B500089739D /* OFL.txt in Resources */,
-				667632882107AC6800538E9B /* NewsCycle-Bold.ttf in Resources */,
 				35D8D54020EFE04000B5D12C /* LaunchScreen.storyboard in Resources */,
-				667632892107AC6800538E9B /* OFL.txt in Resources */,
 				35B7627021067B500089739D /* NewsCycle-Regular.ttf in Resources */,
-				667632872107AC6800538E9B /* NewsCycle-Regular.ttf in Resources */,
 				35D8D53D20EFE04000B5D12C /* Assets.xcassets in Resources */,
 				35D8D53B20EFE03E00B5D12C /* Main.storyboard in Resources */,
 				35B7627121067B500089739D /* NewsCycle-Bold.ttf in Resources */,
@@ -663,6 +629,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
 				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj",
 				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj",
@@ -670,6 +637,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Parse.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fr.lproj",
@@ -717,11 +685,14 @@
 				35D8D53520EFE03E00B5D12C /* AppDelegate.m in Sources */,
 				66BF561420FE5DF600C1E39B /* AddVolunteerOpportunityViewController.m in Sources */,
 				6628860121092C9D0014196F /* TimelineViewController.m in Sources */,
+				35C63C9A210E5888006C8B32 /* ShowAllLocationsViewController.m in Sources */,
 				355718C620FC53AD00D735EA /* MenuViewController.m in Sources */,
+				35469427211A6F73000176F6 /* DetailTableViewCell.m in Sources */,
 				35AC5DDE210A418A004BF87A /* ShowLocationViewController.m in Sources */,
 				355718C920FC53E600D735EA /* DetailViewController.m in Sources */,
 				66379C9620FFF02D00487A3D /* SignUpViewController.m in Sources */,
 				66BF560D20FE5DAF00C1E39B /* VolunteerOpportunity.m in Sources */,
+				35E7D1332113E00D00230A31 /* MapTabViewController.m in Sources */,
 				3529DCEC20FFCA150057F133 /* AddTagViewController.m in Sources */,
 				354307F4210149B70045A8FD /* EditUserProfileViewController.m in Sources */,
 			);
@@ -772,17 +743,11 @@
 			target = 35D8D52F20EFE03E00B5D12C /* socialImpactApp */;
 			targetProxy = 35D8D55420EFE04000B5D12C /* PBXContainerItemProxy */;
 		};
-		661BAE8021062579007363CC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 661BAE7521062579007363CC /* SavedViewController */;
-			targetProxy = 661BAE7F21062579007363CC /* PBXContainerItemProxy */;
-		};
 		667632982107ACCB00538E9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6676328D2107ACCB00538E9B /* newsCycleFont */;
 			targetProxy = 667632972107ACCB00538E9B /* PBXContainerItemProxy */;
 		};
-
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -853,7 +818,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -872,7 +837,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -911,7 +876,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -924,7 +889,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -938,13 +903,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S8MAYBN4P6;
+				DEVELOPMENT_TEAM = 4XN5UHT2CN;
 				INFOPLIST_FILE = socialImpactApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaxezra.socialImpactApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaAndezra.socialImpactApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -958,13 +923,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S8MAYBN4P6;
+				DEVELOPMENT_TEAM = 4XN5UHT2CN;
 				INFOPLIST_FILE = socialImpactApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaxezra.socialImpactApp;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaAndezra.socialImpactApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -976,16 +942,16 @@
 			baseConfigurationReference = 71027CDC2FDD0873B9C15059 /* Pods-socialImpactAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S8MAYBN4P6;
+				DEVELOPMENT_TEAM = 4XN5UHT2CN;
 				INFOPLIST_FILE = socialImpactAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezrazelle.socialImpactAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaxxezra.socialImpactAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -998,16 +964,16 @@
 			baseConfigurationReference = 0920CAF78102BC2876E695E8 /* Pods-socialImpactAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S8MAYBN4P6;
+				DEVELOPMENT_TEAM = 4XN5UHT2CN;
 				INFOPLIST_FILE = socialImpactAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezrazelle.socialImpactAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1019,16 +985,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E3B0A2E856F5A84C19262B7 /* Pods-socialImpactAppUITests.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S8MAYBN4P6;
+				DEVELOPMENT_TEAM = 4XN5UHT2CN;
 				INFOPLIST_FILE = socialImpactAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezrazelle.socialImpactAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1040,16 +1006,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E19E763DFD24563E71E7D3E8 /* Pods-socialImpactAppUITests.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S8MAYBN4P6;
+				DEVELOPMENT_TEAM = 4XN5UHT2CN;
 				INFOPLIST_FILE = socialImpactAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezrazelle.socialImpactAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1060,16 +1026,16 @@
 		661BAE8321062579007363CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S8MAYBN4P6;
+				DEVELOPMENT_TEAM = 4XN5UHT2CN;
 				INFOPLIST_FILE = SavedViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactApp.SavedViewController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaxezra.socialImpactApp.SavedViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1079,16 +1045,16 @@
 		661BAE8421062579007363CC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: roeshanigos@gmail.com (M8RV4T2R8M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S8MAYBN4P6;
+				DEVELOPMENT_TEAM = 4XN5UHT2CN;
 				INFOPLIST_FILE = SavedViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactApp.SavedViewController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaxezra.socialImpactApp.SavedViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1100,14 +1066,14 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6H3UNJFN69;
+				DEVELOPMENT_TEAM = 4XN5UHT2CN;
 				INFOPLIST_FILE = newsCycleFont/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactApp.newsCycleFont;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaxezra.socialImpactApp.newsCycleFont;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1119,14 +1085,14 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6H3UNJFN69;
+				DEVELOPMENT_TEAM = 4XN5UHT2CN;
 				INFOPLIST_FILE = newsCycleFont/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactApp.newsCycleFont;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaxezra.socialImpactApp.newsCycleFont;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";

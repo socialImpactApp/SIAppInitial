@@ -12,19 +12,22 @@
 #import "VolunteerOpportunityCell.h"
 #import "DetailViewController.h"
 #import "LoginViewController.h"
-
 #import "ShowLocationViewController.h"
-
-
+#import "ShowAllLocationsViewController.h"
+#import "AddTagViewController.h"
+#import <Parse/Parse.h>
 #import "Colours.h"
 
-@interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
-
+@interface MenuViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddTagViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSMutableArray *volunteerOpportunities;
 @property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) NSMutableArray *filteredData;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
+
 
 @end
 
@@ -32,17 +35,23 @@
 
     NSString *volunteerLocation;
     NSIndexPath *indexPathLocation;
-
     NSMutableArray *postsOne;
+    NSMutableArray *filteredAuthorData;
+    //make this posts
+    NSMutableArray <NSString *> *postsForMapView;
+    VolunteerOpportunity *vopp;
+    NSMutableArray<NSString *> *_collectionOfTags;
+    NSMutableArray *postsOfOpps;
 
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.searchBar.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.rowHeight = 200;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.backgroundColor = [UIColor snowColor];
     self.topView.backgroundColor = [UIColor snowColor];
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -52,7 +61,11 @@
     
     [self fetch]; 
     self.volunteerOpportunities = [[NSMutableArray alloc] init];
-    NSLog(@"%@", self.volunteerOpportunities);
+    postsForMapView = [[NSMutableArray alloc] init];
+    
+    NSDictionary *barButtonAppearanceDict = @{NSFontAttributeName : [UIFont fontWithName:@"News Cycle" size:21], NSForegroundColorAttributeName: [UIColor whiteColor]};
+    [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonAppearanceDict forState:UIControlStateNormal];
+
 }
 
 -(void)refreshTableView {
@@ -64,7 +77,6 @@
 
 -(void)fetch {
    
-    User *currentUser = [User currentUser];
     postsOne = [[NSMutableArray alloc] init];
     self->postsOne = self.volunteerOpportunities;
     PFQuery *query = [VolunteerOpportunity query];
@@ -72,15 +84,14 @@
     //in the future we will filter the data
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
-
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-
             self.posts = [posts mutableCopy];
-
             self.volunteerOpportunities = posts;
-            self->postsOne = posts; 
+            self.filteredData = self.volunteerOpportunities;
+            self->postsOne = posts;
+            //we have to reload data at
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -88,7 +99,6 @@
     }];
     [self.refreshControl endRefreshing];
 }
-
 
 
 
@@ -102,46 +112,25 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.volunteerOpportunities.count;
+    return self.filteredData.count;
     
 }
 
-// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"we are in cellforRow");
     VolunteerOpportunityCell *postCell = [self.tableView dequeueReusableCellWithIdentifier:@"postCell"];
-
+    //setting each button to have a tag
     postCell.locationButton.tag = indexPath.row;
-    [postCell.locationButton addTarget:self action:@selector(didTapLocation:) forControlEvents:UIControlEventTouchUpInside];
-
-    VolunteerOpportunity *post = self.posts[indexPath.row];
-//    VolunteerOpportunity *post2 = self.volunteerOpportunities[indexPath.row];
-    NSLog(@"checking post");
+    VolunteerOpportunity *post = self.filteredData[indexPath.row];
     NSLog(@"%@", post.postID);
-
     [postCell configureCell:post];
-    
     NSDate *newDate = postCell.volunteerOpportunity.createdAt;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"MM/dd/yy";
     
-    NSString *dateString =  [dateFormatter stringFromDate:newDate];
-
-    
-    NSLog(@"DATE STRING");
-    NSLog(@"%@", dateString);
-
-    
-    
     return postCell;
 }
-- (IBAction)didTapLocation:(id)sender {
-    UITableViewCell *postCell = (UITableViewCell *)[sender superview];
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:postCell];
-    indexPathLocation = indexPath;
-}
+
 
 - (IBAction)didTapLogout:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
@@ -167,6 +156,55 @@
     return 00.0;
 }
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    filteredAuthorData = [[NSMutableArray alloc] init];
+    if (searchText.length != 0) {
+        self.filteredData = [self.volunteerOpportunities filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(title contains[c] %@ OR author.organization contains[c] %@ OR cityState contains[c] %@)", searchText, searchText, searchText]];
+        NSLog(@"%@", self.filteredData);
+    }
+    else {
+        self.filteredData = self.volunteerOpportunities;
+    }
+    [self.tableView reloadData];
+}
+
+-(void)didTapSaveFilter:(NSMutableArray<NSString *> *)tags {
+    _collectionOfTags = [[NSMutableArray alloc] init ];
+    _collectionOfTags = [tags copy];
+    [self filterVopps];
+}
+
+
+
+-(void)filterVopps {
+    PFQuery *query = [VolunteerOpportunity query];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"author"];
+    NSMutableArray *arrayWithObjectIDs = [[NSMutableArray alloc] init];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self->postsOfOpps = posts;
+//            for (VolunteerOpportunity *vopp in self.filteredData){
+//                [self.filteredData removeObject:vopp];
+//            }
+            [self.tableView reloadData];
+            for (VolunteerOpportunity *vopp in posts){
+                for (NSString *tag in _collectionOfTags){
+                    if ([vopp.tags containsObject:tag]){
+                        NSLog(@"%@", vopp.objectId);
+                        [arrayWithObjectIDs addObject:vopp.objectId];
+                    }
+                }
+                [self.tableView reloadData];
+            }
+        }
+        //NSString *string = @"s3GKrB4wQX";
+        self.filteredData = [self.volunteerOpportunities filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(objectId IN %@)",arrayWithObjectIDs]];
+        [self.tableView reloadData];
+    }];
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -175,28 +213,50 @@
     // Pass the selected object to the new view controller.
     
     UITableViewCell *tappedCell = sender;
+    UIButton *button = (UIButton *)sender;
+//    NSLog(@"we are in prepare for seg %ld", (long)button.tag);
+    vopp = self.posts[button.tag];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-
     VolunteerOpportunity *theCurrentVolunOpp = self.posts[indexPath.row];
-    NSLog(@"we are here1 %@", theCurrentVolunOpp[@"location"]);    
+    
+    for (int  i = 0; i<self.volunteerOpportunities.count; i++){
+        NSLog(@"checking location: %@", self.volunteerOpportunities[i][@"location"]);
+        [postsForMapView addObject:self.volunteerOpportunities[i][@"location"]];
+    }
 
     if ([segue.identifier isEqualToString:@"detailsSegue"])
     {
-        NSLog(@"we are here2 %@", theCurrentVolunOpp[@"location"]);
-        DetailViewController *detailedController = [segue destinationViewController];
+        DetailViewController *detailedController = [(UINavigationController*)segue.destinationViewController topViewController];
         detailedController.post = theCurrentVolunOpp;
-        NSLog(@"we are here3 %@", theCurrentVolunOpp[@"location"]);
-        NSLog(@"checking detailedPost");
-
 }
     else if ([segue.identifier isEqualToString:@"showLocationSeg"])
     {
-        NSLog(@"we are here4 %@", theCurrentVolunOpp[@"location"]);
         ShowLocationViewController *showLocationController = [segue destinationViewController];
-        showLocationController.post = theCurrentVolunOpp;
+        showLocationController.post = vopp;
 
+    }
+    else if ([segue.identifier isEqualToString:@"allLocsSeg"])
+    {
+        ShowAllLocationsViewController *showAllLocsController = [segue destinationViewController];
+        showAllLocsController.allLocs = postsForMapView;
+        showAllLocsController.allVopps = self.volunteerOpportunities; 
+    }
+    
+    else if ([segue.identifier isEqualToString:@"menuFilterSeg"]) {
+        AddTagViewController *tagViewController =
+        segue.destinationViewController;
+        tagViewController.delegate = self;
     }
 }
 
+
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//
+//    GoalDetailsViewController *goalsDetailsViewController = [(UINavigationController*)segue.destinationViewController topViewController];
+//    NSLog(@"%@",[NSString stringWithFormat:@"%@", [[self.arrCategoryTitle objectAtIndex:indexPath.row] objectAtIndex:indexOfCategory]]);
+//    goalsDetailsViewController.goalName = @"Exercise Daily";
+//
+//}
 
 @end

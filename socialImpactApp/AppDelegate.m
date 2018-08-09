@@ -32,6 +32,16 @@
     UITabBarItem *item = (UITabBarItem *)[tabBarController.tabBar.items objectAtIndex:0];
     item.image = [UIImage imageNamed:@"imageedit__5380272865"];
     
+    
+    
+    NSDictionary *itemTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        [UIColor whiteColor],NSForegroundColorAttributeName,
+                                        [UIFont fontWithName:@"News Cycle" size:21],NSFontAttributeName,
+                                        nil];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:itemTextAttributes forState:UIControlStateNormal];
+   
+
     return YES;
 }
 
