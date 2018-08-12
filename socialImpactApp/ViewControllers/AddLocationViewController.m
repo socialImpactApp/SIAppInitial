@@ -25,7 +25,8 @@
     NSString *tappedAddress;
     NSString *tappedCity;
     NSString *tappedState;
-
+    NSNumber *tappedLon;
+    NSNumber *tappedLat;
 }
 
 @synthesize locationManager;
@@ -68,12 +69,12 @@
     [self.view endEditing:YES];
       self.resultsTableView.hidden = true;
 }
--(void)didTapAddLocation:(NSString *)locationName withAddress:(NSString *)addressName  withCity:(NSString *)cityName  withState:(NSString *)stateName {
-    [self.delegate didTapAddLocation:tappedLocation withAddress:tappedAddress withCity:tappedCity withState:tappedState];
+-(void)didTapAddLocation:(NSString *)locationName withAddress:(NSString *)addressName  withCity:(NSString *)cityName  withState:(NSString *)stateName withLong:(NSNumber *)lon withLat:(NSNumber*)lat{
+    [self.delegate didTapAddLocation:tappedLocation withAddress:tappedAddress withCity:tappedCity withState:tappedState withLong:tappedLon withLat:tappedLat];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)didTapSave:(id)sender {
-    [self didTapAddLocation:tappedLocation withAddress:tappedAddress withCity:tappedCity withState:tappedState];
+    [self didTapAddLocation:tappedLocation withAddress:tappedAddress withCity:tappedCity withState:tappedState withLong:tappedLon withLat:tappedLat];
 }
 
 //- (IBAction)didTapAddLocation:(id)sender withAddress:(id)senderTwo withCity:(id)senderThree withState:(id)senderThree{
@@ -127,7 +128,8 @@ replacementString:(NSString *)string {
             NSLog(@"%@",placemark.locality);
             self->tappedCity = placemark.locality;
             self->tappedState = placemark.administrativeArea;
-            
+            self->tappedLat = [NSNumber numberWithDouble:placemark.location.coordinate.latitude];
+            self->tappedLon = [NSNumber numberWithDouble:placemark.location.coordinate.longitude];
             
             CLLocationCoordinate2D center = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude);
             MKCoordinateSpan span;

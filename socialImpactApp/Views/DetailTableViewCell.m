@@ -25,22 +25,18 @@
 
 -(void)configureCell: (VolunteerOpportunity *) volunOpp {
     tagArray = [[NSMutableArray alloc] init ];
-    self.contentView.backgroundColor = [UIColor snowColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
+    self.contentView.layer.zPosition = -100;
     PFObject *postAuthor = volunOpp[@"author"];
     //loadinbackground
-    self.largeDescription.text = volunOpp[@"description"]; // good
+    self.largeDescription.text = volunOpp[@"description"];
     self.contactInfo.text = postAuthor[@"contactNumber"];
     self.hours.text = volunOpp[@"hours"]; // good
     self.spotsLeft.text = volunOpp[@"spotsLeft"]; //good
     self.volunteerOppTitle.text = volunOpp[@"title"];
     
-//    CALayer *bottomBorder = [CALayer layer];
-//    bottomBorder.frame = CGRectMake(0.0f, self.volunteerOppTitle.frame.size.height - 1, self.volunteerOppTitle.frame.size.width, 1.0f);
-//    bottomBorder.backgroundColor = [UIColor grayColor].CGColor;
-//    [self.volunteerOppTitle.layer addSublayer:bottomBorder];
-    
     self.Location.text = volunOpp[@"location"];
-    
+    self.signButton.layer.cornerRadius = 10.0;
     for (NSString *tag in volunOpp[@"tags"]){
         if ([tag isEqualToString:@"animalWelfare"]){
             [tagArray addObject:@"Animal Welfare"];

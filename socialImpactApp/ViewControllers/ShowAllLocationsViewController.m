@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *resultsTableView;
 @property (strong, nonatomic) MKLocalSearchCompleter *searchCompleter;
 @property (strong,nonatomic) NSArray *results;
-//@property (nonatomic) NSInteger *tagNumber;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @end
 
@@ -32,7 +31,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.mapView.delegate = self;
+    [self.mapView setUserInteractionEnabled:YES];
+
+    self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager setDelegate:self];
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]){
+        //lets user authorize own permission
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    self.mapView.showsUserLocation= YES;
+    //delays the method by 1 second
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC),dispatch_get_main_queue(), ^{
+        [self.mapView setRegion: MKCoordinateRegionMake(self.mapView.userLocation.coordinate, MKCoordinateSpanMake(0.1, 0.1)) animated:YES];
+    });
+    
     self.searchCompleter =  [[MKLocalSearchCompleter alloc] init];
     self.searchCompleter.delegate = self;
     self.searchCompleter.filterType = MKSearchCompletionFilterTypeLocationsAndQueries;
@@ -42,25 +56,13 @@
     self.searchField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     [self.resultsTableView setHidden:YES];
-    self.mapView.delegate = self;
     
     //setting tableview delegates
     self.resultsTableView.delegate=self;
     self.resultsTableView.dataSource=self;
     
     tagNumber = 0;
-    [self.mapView setUserInteractionEnabled:YES];
     [self showAllLocs:self.allVopps];
-    
-    self.locationManager = [[CLLocationManager alloc] init];
-    [self.locationManager setDelegate:self];
-    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]){
-        //lets user authorize own permission
-        [self.locationManager requestWhenInUseAuthorization];
-    }
-    self.mapView.showsUserLocation= YES;
-    [self.locationManager requestLocation];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -183,8 +185,8 @@ didSelectAnnotationView:(MKAnnotationView *)view{
                 
                 CLLocationCoordinate2D center = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude);
                 MKCoordinateSpan span;
-                span.latitudeDelta = 80;
-                span.longitudeDelta = 10;
+                span.latitudeDelta = 20;
+                span.longitudeDelta = 20;
                 
                 MKCoordinateRegion locationRegion;
                 locationRegion.center = center;
@@ -194,6 +196,7 @@ didSelectAnnotationView:(MKAnnotationView *)view{
                 MKAnnotationView *pointView = [[MKAnnotationView alloc] initWithAnnotation:point reuseIdentifier:Nil];
                 point.coordinate = center;
                 point.title = vopp.location;
+                //this is where I am setting the pin's tag number
                 [pointView setTag:[allVopps indexOfObject:vopp]];
                 __strong ShowAllLocationsViewController *strongself = weakSelf;
                 if (strongself){
