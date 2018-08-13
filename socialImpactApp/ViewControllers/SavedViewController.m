@@ -34,7 +34,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.rowHeight = 200;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.backgroundColor = [UIColor snowColor];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -323,7 +323,8 @@
     
     if ([segue.identifier isEqualToString:@"detailsSegue"])
     {
-        DetailViewController *detailedController = [segue destinationViewController];
+//        DetailViewController *detailedController = [segue destinationViewController];
+        DetailViewController *detailedController = [(UINavigationController*)segue.destinationViewController topViewController];
         detailedController.post = theCurrentVolunOpp;
         NSLog(@"checking detailedPost");
     }
