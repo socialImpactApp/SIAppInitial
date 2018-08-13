@@ -42,6 +42,10 @@
     NSString *_volunteerAddress;
     NSString *_city;
     NSString *_state;
+    NSNumber *_lon;
+    NSNumber *_lat;
+    NSMutableArray<NSNumber*> *_lonLat;
+    
 }
 
 
@@ -49,6 +53,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Do any additional setup after loading the view
+    _lonLat =[[NSMutableArray alloc] init ];
     
     //we declare this in the segue view controller
     //self.tagViewController.delegate = self;
@@ -164,11 +169,14 @@
      self.tagsLabel.text = [tagArray componentsJoinedByString:@", " ];
 }
 
--(void)didTapAddLocation:(NSString *)locationName withAddress:(NSString *)addressName withCity:(NSString *)cityName withState:(NSString *)stateName{
+-(void)didTapAddLocation:(NSString *)locationName withAddress:(NSString *)addressName withCity:(NSString *)cityName withState:(NSString *)stateName withLong:(NSNumber *)lon withLat:(NSNumber *)lat{
     _volunteerLocation = locationName;
     _volunteerAddress = addressName;
     _city = cityName;
     _state = stateName;
+    [_lonLat addObject:lat];
+    [_lonLat addObject:lon];
+
     self.locationView.text = _volunteerLocation;
 }
 
@@ -185,6 +193,7 @@
         withDate:self.dateView.text
          withLocation:[NSString stringWithFormat:@"%@ %@" , _volunteerLocation, _volunteerAddress]
          withCityState:[NSString stringWithFormat:@"%@, %@", _city, _state]
+          withLongLat: _lonLat
            withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                if(succeeded){
                    NSLog(@"%@", self->_collectionOfTags);

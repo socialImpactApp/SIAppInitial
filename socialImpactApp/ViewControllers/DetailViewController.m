@@ -15,9 +15,10 @@
 #import "ShowLocationViewController.h"
 #import "Colours.h"
 
-@interface DetailViewController () < UITableViewDataSource, UITableViewDelegate>
+@interface DetailViewController () < UITableViewDataSource, UITableViewDelegate, FBSDKSharingDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *backView;
+@property (weak, nonatomic) IBOutlet UIButton *heartButton;
 @end
 
 @implementation DetailViewController{
@@ -29,8 +30,8 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    // Do any additional setup after loading the view.
-    self.backgroundVoppView.layer.zPosition = -1;
+    self.view.backgroundColor = [UIColor snowColor];
+  self.backgroundVoppView.layer.zPosition = -1;
     //[self configureCell:self.post];
 //    self.signButton.layer.cornerRadius = 10.0;
 //    self.signButton.layer.borderWidth = 0.7f;
@@ -51,6 +52,8 @@
     self.orgImageView.frame = CGRectInset(self.orgImageView. frame, -borderWidth, -borderWidth);
     self.orgImageView. layer.borderColor = [[UIColor colorWithRed:3/255.0 green:121/255.0 blue:113/255.0 alpha:0.7] CGColor];
     self.orgImageView. layer.borderWidth = borderWidth;
+    self.heartButton.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.8];
+    self.heartButton.layer.cornerRadius = self.heartButton.frame.size.height/2;
 
 
     //[self configureCell:self.post];
@@ -196,6 +199,16 @@
     }
 }
 
+- (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/100001137325839"]
+                                       options:@{}
+     
+     
+     
+                             completionHandler:nil];
+}
+
 - (IBAction)didTapBack:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
@@ -208,8 +221,8 @@
     //linkContent.quote = @"hi i am the description ;)";
     FBSDKShareDialog *shareDialog = [FBSDKShareDialog new];
     shareDialog.shareContent = linkContent;
-    [FBSDKShareDialog showFromViewController:self withContent:linkContent delegate:nil];
-
+    [FBSDKShareDialog showFromViewController:self withContent:linkContent delegate:self];
+    
   
 }
 
@@ -225,7 +238,7 @@
 }
 
 
-/*
+
 
 #pragma mark - Navigation
 
@@ -239,6 +252,6 @@
         showLocViewController.post = self.post;
     }
 }
-*/
+
 
 @end

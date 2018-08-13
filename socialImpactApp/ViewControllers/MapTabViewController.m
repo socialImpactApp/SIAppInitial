@@ -14,10 +14,11 @@
 @property (strong, nonatomic) NSMutableArray *allVopps;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (strong, nonatomic) MKLocalSearchCompleter *searchCompleter;
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
 @property (strong,nonatomic) NSArray *results;
 @property (weak, nonatomic) IBOutlet UITableView *resultsTableView;
+
 
 
 @end
@@ -29,21 +30,50 @@
     NSString *tappedAddress;
     NSString *tappedCity;
     NSString *tappedState;
-    CLGeocoder *geocoder;
+    CLGeocoder *_geocoder;
+    dispatch_group_t _myGroup;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    [CATransaction begin];
-//    [CATransaction setCompletionBlock:^{
-//        [self showAllLocs:vopps];
-//    }];
+    //    [CATransaction begin];
+    //    [CATransaction setCompletionBlock:^{
+    //        [self showAllLocs:vopps];
+    //    }];
+    self.resultsTableView.rowHeight = UITableViewAutomaticDimension;
     self.mapView.delegate = self;
     [self.mapView setUserInteractionEnabled:YES];
+    self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager setDelegate:self];
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]){
+        //lets user authorize own permission
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    self.mapView.showsUserLocation= YES;
+    //delays the method by 1 second
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC),dispatch_get_main_queue(), ^{
+        [self.mapView setRegion: MKCoordinateRegionMake(self.mapView.userLocation.coordinate, MKCoordinateSpanMake(0.1, 0.1)) animated:YES];
+    });
+    self.searchCompleter =  [[MKLocalSearchCompleter alloc] init];
+    self.searchCompleter.delegate = self;
+    self.searchCompleter.filterType = MKSearchCompletionFilterTypeLocationsAndQueries;
+    
+    //setting textfield to self
+    self.searchField.delegate = self;
+    self.searchField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    
+    [self.resultsTableView setHidden:YES];
+    
+    //setting tableview delegates
+    self.resultsTableView.delegate=self;
+    self.resultsTableView.dataSource=self;
+    
+    
     self.allVopps = [[NSMutableArray alloc] init];
     [self fetch];
-//    [CATransaction commit];
+    //    [CATransaction commit];
     //self.allVopps = [[NSMutableArray alloc] init];
 }
 
@@ -64,67 +94,57 @@
                 [self.allVopps addObject:vol];
             }
             [self showAllLocs:self.allVopps];
-
+            
         }
         else {
             NSLog(@"%@", error.localizedDescription);
         }
     }];
-
+    
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range
+replacementString:(NSString *)string {
+    NSLog(@"we are here!!");
+    self.searchCompleter.queryFragment = self.searchField.text;
+    if (self.searchCompleter.results >0){
+        self.resultsTableView.hidden = false;
+        self.results = self.searchCompleter.results;
+        [self.resultsTableView reloadData];
+    }
+    else {
+        self.resultsTableView.hidden = true;
+    }
+    return YES;
 }
 
--(void)showAllLocs:(NSMutableArray <VolunteerOpportunity *>*)allVopps {
-    geocoder = [[CLGeocoder alloc] init];
-    int i = 0;
-    dispatch_group_t myGroup = dispatch_group_create();
+-(void)showAllLocs:(NSMutableArray <VolunteerOpportunity *>*)allVopps{
     for (VolunteerOpportunity *vopp in allVopps) {
-        i++; 
-        NSLog(@"%@", vopp.location);
-        dispatch_group_enter(myGroup);
-        __weak typeof(self) weakSelf = self;
-            [self->geocoder geocodeAddressString:vopp.location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-            dispatch_group_leave(myGroup);
-            if(!error){
-                CLPlacemark *placemark = [placemarks objectAtIndex:0];
-                NSLog(@"TEST TEST TEST%f",placemark.location.coordinate.latitude);
-                NSLog(@"%f",placemark.location.coordinate.longitude);
-                
-                CLLocationCoordinate2D center = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude);
-                MKCoordinateSpan span;
-                span.latitudeDelta = 80;
-                span.longitudeDelta = 10;
-                
-                MKCoordinateRegion locationRegion;
-                locationRegion.center = center;
-                locationRegion.span = span;
-                //check if need to allocate
-                MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-                MKAnnotationView *pointView = [[MKAnnotationView alloc] initWithAnnotation:point reuseIdentifier:Nil];
-                point.coordinate = center;
-                point.title = vopp.location;
-                [pointView setTag:[allVopps indexOfObject:vopp]];
-                __strong MapTabViewController *strongself = weakSelf;
-                if (strongself){
-                    [strongself.mapView addAnnotation:pointView.annotation];
-                    [strongself.mapView setRegion:locationRegion animated:true];
-                    strongself->_blockCompleted = YES;
-                }
-            }
-            else {
-                NSLog(@" ERRRRRROR %@", error.localizedDescription);
-                __strong MapTabViewController *strongself = weakSelf;
-                if (strongself){
-                    strongself->_blockCompleted = YES;
-                }
-            }
-            
-        }];
-}
-    dispatch_group_notify(myGroup, dispatch_get_main_queue(), ^{
-        NSLog(@"Finished all requests.");
-    });
+        NSNumber *lat = vopp.longLat[0];
+        NSNumber *lon = vopp.longLat[1];
+        MKCoordinateSpan span;
+        span.latitudeDelta = 20;
+        span.longitudeDelta = 20;
+        
+        MKCoordinateRegion locationRegion;
+        CLLocationCoordinate2D center = CLLocationCoordinate2DMake([lat doubleValue],[lon doubleValue]);
+        locationRegion.center = center;
+        locationRegion.span = span;
+        //check if need to allocate
+        MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+        MKAnnotationView *pointView = [[MKAnnotationView alloc] initWithAnnotation:point reuseIdentifier:Nil];
+        point.coordinate = center;
+        point.title = vopp.location;
+        //this is where I am setting the pin's tag number
+        [pointView setTag:[allVopps indexOfObject:vopp]];
+        [self.mapView addAnnotation:pointView.annotation];
+        [self.mapView setRegion:locationRegion animated:true];        
+    }
+    
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.results.count;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MKLocalSearchCompletion *searchResults = self.results[indexPath.row];
@@ -161,6 +181,12 @@
             
             MKCoordinateRegion locationRegion;
             locationRegion.center = center;
+            //we
+            //locationRegion.span = span;
+            //check if need to allocate
+            //            MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+            //            point.coordinate = center;
+            //            [self.mapView addAnnotation:point];
             [self.mapView setRegion:locationRegion animated:true];
         }
         else {
@@ -169,14 +195,87 @@
     }];
     
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)completerDidUpdateResults:(MKLocalSearchCompleter *)completer{
+    for (MKLocalSearchCompletion *completion in completer.results) {
+        NSLog(@"---%@",completion.description);
+    }
 }
-*/
+- (void)completer:(MKLocalSearchCompleter *)completer didFailWithError:(NSError *)error{
+    NSLog(@"%@",error.localizedDescription);
+}
+
+//-(void)showAllLocs:(NSMutableArray <VolunteerOpportunity *>*)allVopps {
+//    _geocoder = [[CLGeocoder alloc] init];
+//    _myGroup = dispatch_group_create();
+//
+//    for (VolunteerOpportunity *vopp in allVopps) {
+//        //dispatch_group_enter(_myGroup);
+//        NSLog(@"%@", vopp.location);
+//        __weak __typeof__(self) weakSelf = self;
+//        _blockCompleted = NO;
+//
+//
+//            [_geocoder geocodeAddressString:vopp.location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+//                if(!error){
+//                    CLPlacemark *placemark = [placemarks objectAtIndex:0];
+//                    NSLog(@"TEST TEST TEST%f",placemark.location.coordinate.latitude);
+//                    NSLog(@"%f",placemark.location.coordinate.longitude);
+//
+//                    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude);
+//                    MKCoordinateSpan span;
+//                    span.latitudeDelta = 80;
+//                    span.longitudeDelta = 10;
+//
+//                    MKCoordinateRegion locationRegion;
+//                    locationRegion.center = center;
+//                    locationRegion.span = span;
+//                    //check if need to allocate
+//                    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+//                    MKAnnotationView *pointView = [[MKAnnotationView alloc] initWithAnnotation:point reuseIdentifier:Nil];
+//                    point.coordinate = center;
+//                    point.title = vopp.location;
+//                    [pointView setTag:[allVopps indexOfObject:vopp]];
+//                    __strong __typeof__(self) strongSelf = weakSelf;
+//                    if (strongSelf){
+//                        [strongSelf.mapView addAnnotation:pointView.annotation];
+//                        [strongSelf.mapView setRegion:locationRegion animated:true];
+//                    }
+//                } else {
+//                    NSLog(@" ERRRRRROR %@", error.localizedDescription);
+//                }
+//               // dispatch_group_leave(_myGroup);
+//                __strong __typeof__(self) strongSelf = weakSelf;
+//                if (strongSelf){
+//                    strongSelf->_blockCompleted = YES;
+//                }
+//            }];
+//
+//        //dispatch_group_wait(_myGroup, 0);
+//        while(!_blockCompleted) {
+//            [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+//        }
+//    }
+//    //dispatch_group_wait(_myGroup, 0);
+//
+////    dispatch_group_notify(_myGroup, dispatch_get_main_queue(), ^{
+////        NSLog(@"Finished all requests.");
+////    });
+//}
+
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray<MKAnnotationView *> *)views
+{
+    NSLog(@"Added annotiation");
+}
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

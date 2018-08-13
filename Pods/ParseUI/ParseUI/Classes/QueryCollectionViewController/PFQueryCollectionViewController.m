@@ -250,17 +250,17 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
         self.loading = NO;
 
         if (error) {
-            self->_lastLoadCount = -1;
-            self->_currentNextPageView.animating = NO;
+            _lastLoadCount = -1;
+            _currentNextPageView.animating = NO;
         } else {
-            self->_currentPage = page;
-            self->_lastLoadCount = [foundObjects count];
+            _currentPage = page;
+            _lastLoadCount = [foundObjects count];
 
             if (clear) {
-                [self->_mutableObjects removeAllObjects];
+                [_mutableObjects removeAllObjects];
             }
 
-            [self->_mutableObjects addObjectsFromArray:foundObjects];
+            [_mutableObjects addObjectsFromArray:foundObjects];
             [self.collectionView reloadData];
         }
 

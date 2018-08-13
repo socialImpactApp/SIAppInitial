@@ -12,7 +12,7 @@
 
 @protocol AddLocationViewControllerDelegate
 
--(void)didTapAddLocation:(NSString *)locationName withAddress:(NSString *)addressName  withCity:(NSString *)cityName  withState:(NSString *)stateName;
+-(void)didTapAddLocation:(NSString *)locationName withAddress:(NSString *)addressName  withCity:(NSString *)cityName  withState:(NSString *)stateName withLong:(NSNumber*)lon withLat:(NSNumber *)lat;
 
 @end
 
