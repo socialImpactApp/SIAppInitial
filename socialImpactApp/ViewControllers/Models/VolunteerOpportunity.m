@@ -28,6 +28,7 @@
 @dynamic cityState;
 @dynamic tags;
 @dynamic savedEventId;
+@dynamic longLat;
 
 
 //this is the parse class name that we have to instantiate
@@ -47,6 +48,7 @@
             withDate:(NSString * _Nullable)date
             withLocation:(NSString * _Nullable)location
             withCityState:(NSString * _Nullable)cityState
+         withLongLat: (NSArray <NSNumber *>*  _Nullable) longLat
             withCompletion: (PFBooleanResultBlock  _Nullable)completion{
     VolunteerOpportunity *newPost = [VolunteerOpportunity new];
     newPost.image = [self getPFFileFromImage:image];
@@ -59,6 +61,7 @@
     newPost.date = date;
     newPost.location = location;
     newPost.savedEventId = savedEventId;
+    newPost.longLat = longLat;
     
    //will use this to get a map view of the actual place later
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];

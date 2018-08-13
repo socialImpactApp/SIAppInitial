@@ -525,6 +525,7 @@
 				35D8D52D20EFE03E00B5D12C /* Frameworks */,
 				35D8D52E20EFE03E00B5D12C /* Resources */,
 				EE68753B51F452C1AE6BC386 /* [CP] Copy Pods Resources */,
+				715CCBC0399D6D7603145D7C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -544,6 +545,8 @@
 				35D8D54420EFE04000B5D12C /* Sources */,
 				35D8D54520EFE04000B5D12C /* Frameworks */,
 				35D8D54620EFE04000B5D12C /* Resources */,
+				D3F8C995EBEB39592E7826F4 /* [CP] Embed Pods Frameworks */,
+				0DA4D697C3C2E87F3046F8D3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -563,6 +566,8 @@
 				35D8D54F20EFE04000B5D12C /* Sources */,
 				35D8D55020EFE04000B5D12C /* Frameworks */,
 				35D8D55120EFE04000B5D12C /* Resources */,
+				CB3FF437DD017E6371EC16AE /* [CP] Embed Pods Frameworks */,
+				78C7B519C54C8761E6DF3D69 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -705,6 +710,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0DA4D697C3C2E87F3046F8D3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-socialImpactAppTests/Pods-socialImpactAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		24F62BF0863DD1D3BD5DE81C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -721,6 +741,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		715CCBC0399D6D7603145D7C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-socialImpactApp/Pods-socialImpactApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78C7B519C54C8761E6DF3D69 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-socialImpactAppUITests/Pods-socialImpactAppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB3FF437DD017E6371EC16AE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-socialImpactAppUITests/Pods-socialImpactAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3F8C995EBEB39592E7826F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-socialImpactAppTests/Pods-socialImpactAppTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E3783BE2FE50453421278C16 /* [CP] Check Pods Manifest.lock */ = {
@@ -977,7 +1057,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1029,7 +1109,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1049,7 +1129,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaAndezra.socialImpactApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1070,7 +1150,7 @@
 					"@executable_path/Frameworks",
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaAndezra.socialImpactApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roeshaezra.socialImpactApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

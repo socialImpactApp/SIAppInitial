@@ -38,9 +38,9 @@
 //@property (weak, nonatomic) IBOutlet UILabel *tagsTitle;
 //@property (weak, nonatomic) IBOutlet UIButton *shareTitle;
 //@property (weak, nonatomic) IBOutlet UIButton *heartButton;
-
 @property (weak, nonatomic) IBOutlet UIButton *exportButton;
 @property (strong, nonatomic) NSString *fullDateAndTime;
 @property (strong, nonatomic) User *loggedInUser;
+@property (strong, nonatomic) id<FBSDKSharingDelegate> delegate; 
 
 @end

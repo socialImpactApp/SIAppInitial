@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 
 @interface VolunteerOpportunity : PFObject<PFSubclassing>
@@ -31,6 +32,7 @@
 @property (nonatomic, strong) NSMutableArray <NSString *> * _Nullable tags;
 @property (nonatomic) BOOL favorited;
 @property (nonatomic, strong) NSString *savedEventId;
+@property (strong) NSArray <NSNumber *>* longLat;
 
 
 + (PFObject *_Nullable) postUserOpp: ( UIImage * _Nullable )image
@@ -42,6 +44,7 @@
                   withDate:(NSString * _Nullable)date
                        withLocation:(NSString * _Nullable)location
                 withCityState:(NSString * _Nullable)cityState
+                        withLongLat: (NSArray <NSNumber *>*  _Nullable) longLat
             withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 + (PFFile *_Nullable)getPFFileFromImage: (UIImage * _Nullable)image;
