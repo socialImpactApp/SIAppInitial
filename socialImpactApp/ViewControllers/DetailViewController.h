@@ -38,6 +38,17 @@
 //@property (weak, nonatomic) IBOutlet UILabel *tagsTitle;
 //@property (weak, nonatomic) IBOutlet UIButton *shareTitle;
 //@property (weak, nonatomic) IBOutlet UIButton *heartButton;
+@property (weak, nonatomic) IBOutlet UIButton *signButton;
+@property (weak, nonatomic) IBOutlet UILabel *filtersLabel;
+@property (weak, nonatomic) IBOutlet UIButton *locationButton;
+@property (weak, nonatomic) IBOutlet UILabel *locationTite;
+@property (weak, nonatomic) IBOutlet UILabel *hoursTitle;
+@property (weak, nonatomic) IBOutlet UILabel *contactTitle;
+@property (weak, nonatomic) IBOutlet UILabel *spotsTitle;
+@property (weak, nonatomic) IBOutlet UILabel *tagsTitle;
+@property (weak, nonatomic) IBOutlet UIButton *shareTitle;
+@property (weak, nonatomic) IBOutlet UIButton *heartButton;
+
 @property (weak, nonatomic) IBOutlet UIButton *exportButton;
 @property (strong, nonatomic) NSString *fullDateAndTime;
 @property (strong, nonatomic) User *loggedInUser;

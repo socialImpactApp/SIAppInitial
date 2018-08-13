@@ -173,7 +173,7 @@
         
         // Convert date object to desired output format
         
-        //event.title = self.volunteerOppTitle.text;
+        event.title = self.post.title;
         event.startDate = newDate; //today
         NSLog(@"%@", event.startDate);
         NSTimeInterval hoursInSeconds = [self.post.hours intValue]*60*60;
@@ -211,6 +211,10 @@
 
 - (IBAction)didTapBack:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (IBAction)didTapFavorite:(id)sender {
+    
 }
 
 - (IBAction)didTapShare:(id)sender {

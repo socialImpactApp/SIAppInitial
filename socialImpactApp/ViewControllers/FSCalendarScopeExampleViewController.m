@@ -16,13 +16,16 @@
 #import "DetailViewController.h"
 #import "TimelineTableViewCell.h"
 #import <EventKit/EventKit.h>
+#import "LunarFormatter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FSCalendarScopeExampleViewController()<UITableViewDataSource,UITableViewDelegate,FSCalendarDataSource,FSCalendarDelegate,UIGestureRecognizerDelegate>
 {
     void * _KVOContext;
+    NSInteger *gestureCount;
 }
+
 
 @property (weak, nonatomic) IBOutlet FSCalendar *calendar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarHeightConstraint;
@@ -34,6 +37,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) UIPanGestureRecognizer *scopeGesture;
 @property (strong, nonatomic) NSMutableArray *currentDatePosts;
+@property (strong, nonatomic) NSMutableArray<NSString *> *datesWithEvent;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter2;
+@property (strong, nonatomic) LunarFormatter *lunarFormatter;
+
 
 - (IBAction)toggleClicked:(id)sender;
 
@@ -50,11 +57,27 @@ NS_ASSUME_NONNULL_END
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
+    
+    
     self = [super initWithCoder:coder];
     if (self) {
         self.dateFormatter = [[NSDateFormatter alloc] init];
         self.dateFormatter.dateFormat = @"yyyy/MM/dd";
     }
+    
+    self.dateFormatter2 = [[NSDateFormatter alloc] init];
+    self.dateFormatter2.dateFormat = @"yyyy-MM-dd";
+    
+    if (self.datesWithEvent == NULL) {
+        self.datesWithEvent = [[NSMutableArray alloc] init];
+    }
+    
+    for (VolunteerOpportunity *vol in self.filteredVolunteerOpportunities){
+        if (![self.datesWithEvent containsObject:vol.date]){
+            [self.datesWithEvent addObject:vol.date];
+        }
+    }
+    
     return self;
 }
 
@@ -100,6 +123,26 @@ NS_ASSUME_NONNULL_END
     }
     [self fetch];
     self.exportAllButton.selected = NO;
+    self.toggleCalendar.selected = NO;
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    NSLog(@"INSIDE VIEW WILL APPEAR");
+    [super viewWillAppear:YES];
+    [self fetch];
+    [self.tableView reloadData];
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    [self.tableView reloadData];
+}
+
+- (NSInteger)calendar:(FSCalendar *)calendar numberOfEventsForDate:(NSDate *)date
+{
+    if ([self.datesWithEvent containsObject:[self.dateFormatter2 stringFromDate:date]]) {
+        return 1;
+    }
+    return 0;
 }
 
 -(void)fetch {
@@ -125,11 +168,13 @@ NS_ASSUME_NONNULL_END
             if (self.filteredVolunteerOpportunities == NULL) {
                 self.filteredVolunteerOpportunities = [[NSMutableArray alloc] init];
             }
-            
+            [self.filteredVolunteerOpportunities removeAllObjects];
+
             for (VolunteerOpportunity *vol in self.volunteerOpportunities){
                 if ([timelinePostIDs containsObject:vol.objectId])
                 {
                     [self.filteredVolunteerOpportunities addObject:vol];
+//                    NSString *tempString = [self convertDate:vol];
                 }
             }
             [self.tableView reloadData];
@@ -161,12 +206,90 @@ NS_ASSUME_NONNULL_END
     }
 }
 
+- (NSString *) convertDate:(VolunteerOpportunity *)vol {
+    NSString *oldDate = vol.date;
+    NSString *NoAMPM = [oldDate substringToIndex:(oldDate.length-3)];
+    NSString *justDateOfOpp = [NoAMPM substringFromIndex:6];
+
+    NSString *year = [justDateOfOpp substringFromIndex:justDateOfOpp.length-4];
+    NSString *dayFirst = [justDateOfOpp substringFromIndex:justDateOfOpp.length-8];
+    NSString *daySecond = [dayFirst substringToIndex:2];
+    
+    NSString *month;
+    
+    NSDictionary *months = @{
+                        @"January":
+                            ^{
+                                @"01";
+                            },
+                        @"February":
+                            ^{
+                                @"02";
+                            },
+                        @"March":
+                            ^{
+                                @"03";
+
+                            },
+                        @"April":
+                            ^{
+                                @"04";
+
+                            },
+                        @"May":
+                            ^{
+                                @"05";
+                                
+                            },
+                        @"June":
+                            ^{
+                                @"06";
+                            },
+                        @"July":
+                            ^{
+                                @"07";
+                            },
+                        @"August":
+                            ^{
+                                @"08";
+                            },
+                        @"September":
+                            ^{
+                                @"09";
+                            },
+                        @"October":
+                            ^{
+                                @"10";
+                            },
+                        @"November":
+                            ^{
+                                @"11";
+                            },
+                        @"December":
+                            ^{
+                                @"12";
+                            }
+                        };
+    
+    NSString *finalDate = [[[[year stringByAppendingString:@"-"] stringByAppendingString:month] stringByAppendingString:@"-"]stringByAppendingString:daySecond];
+    
+    
+
+    return finalDate;
+}
+
 #pragma mark - <UIGestureRecognizerDelegate>
 
 // Whether scope gesture should begin
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
+    gestureCount = 0;
     BOOL shouldBegin = self.tableView.contentOffset.y <= -self.tableView.contentInset.top;
+    if (gestureCount == 0)
+    {
+        self.toggleCalendar.selected = YES;
+        gestureCount=1;
+    }
     if (shouldBegin) {
         CGPoint velocity = [self.scopeGesture velocityInView:self.view];
         switch (self.calendar.scope) {
@@ -484,7 +607,7 @@ NS_ASSUME_NONNULL_END
         }];
     }
     else{
-        currentCell.exportToAppleCalendar.selected = YES;
+        currentCell.exportToAppleCalendar.selected = NO;
         
         [[CalendarSingleton sharedInstance] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
             if (!granted) { return; }
@@ -507,7 +630,8 @@ NS_ASSUME_NONNULL_END
 
     if ([segue.identifier isEqualToString:@"timelineDetailsSegue"])
     {
-        DetailViewController *detailedController = [segue destinationViewController];
+        //DetailViewController *detailedController = [segue destinationViewController];
+        DetailViewController *detailedController = [(UINavigationController*)segue.destinationViewController topViewController];
         detailedController.post = post;
         NSLog(@"checking detailedPost");
     }

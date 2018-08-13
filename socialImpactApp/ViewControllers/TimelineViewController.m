@@ -38,6 +38,7 @@
         self.volunteerOpportunities = [[NSMutableArray alloc] init];
     }
     [self fetch];
+    
 }
 
 - (void)didReceiveMemoryWarning {
