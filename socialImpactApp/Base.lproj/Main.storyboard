@@ -396,7 +396,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZo-ZW-Y7u">
                                                     <rect key="frame" x="28" y="0.0" width="292" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="NewsCycle" family="News Cycle" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="NewsCycle-Bold" family="News Cycle" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -408,7 +408,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="45B-wm-888">
-                                                    <rect key="frame" x="8" y="11" width="18" height="19"/>
+                                                    <rect key="frame" x="8" y="4" width="18" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -970,7 +970,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu5-XE-wNF">
-                                                            <rect key="frame" x="8" y="15" width="41" height="39.5"/>
+                                                            <rect key="frame" x="8" y="17" width="41" height="39.5"/>
                                                             <fontDescription key="fontDescription" name="NewsCycle-Bold" family="News Cycle" pointSize="24"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1083,7 +1083,7 @@
                                                         <constraint firstItem="bJv-Bv-FG4" firstAttribute="leading" secondItem="LQH-ld-z4n" secondAttribute="trailing" constant="10" id="Qcf-VR-mxv"/>
                                                         <constraint firstItem="ddg-cf-ulF" firstAttribute="top" secondItem="ggS-88-LZU" secondAttribute="bottom" constant="7.5" id="Qjk-V1-9Em"/>
                                                         <constraint firstItem="Lr0-Zg-BW4" firstAttribute="leading" secondItem="KtW-P0-CvB" secondAttribute="trailing" constant="49" id="TvE-US-XqJ"/>
-                                                        <constraint firstItem="ggS-88-LZU" firstAttribute="top" secondItem="fu5-XE-wNF" secondAttribute="bottom" constant="-4" id="UJG-1k-RNu"/>
+                                                        <constraint firstItem="ggS-88-LZU" firstAttribute="top" secondItem="fu5-XE-wNF" secondAttribute="bottom" constant="-6" id="UJG-1k-RNu"/>
                                                         <constraint firstItem="Cys-Ig-mpj" firstAttribute="leading" secondItem="7ZV-8J-8fj" secondAttribute="leading" constant="8" id="aIN-FY-txU"/>
                                                         <constraint firstAttribute="trailing" secondItem="RVc-fq-z8t" secondAttribute="trailing" constant="20" id="aKm-zg-Apg"/>
                                                         <constraint firstItem="LQH-ld-z4n" firstAttribute="leading" secondItem="7ZV-8J-8fj" secondAttribute="leading" constant="8" id="aQb-sT-hvI"/>
@@ -1100,11 +1100,11 @@
                                                         <constraint firstItem="Lr0-Zg-BW4" firstAttribute="top" secondItem="KtW-P0-CvB" secondAttribute="top" id="mg6-ei-G29"/>
                                                         <constraint firstItem="RVc-fq-z8t" firstAttribute="top" secondItem="7ZV-8J-8fj" secondAttribute="top" constant="22" id="mjJ-2K-l1U"/>
                                                         <constraint firstItem="rmh-4r-rMe" firstAttribute="top" secondItem="KtW-P0-CvB" secondAttribute="bottom" constant="18.5" id="oqs-ef-Dlp"/>
-                                                        <constraint firstItem="ggS-88-LZU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fu5-XE-wNF" secondAttribute="bottom" constant="-4" id="sbT-Li-fUb"/>
+                                                        <constraint firstItem="ggS-88-LZU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fu5-XE-wNF" secondAttribute="bottom" constant="-6" id="sbT-Li-fUb"/>
                                                         <constraint firstAttribute="trailing" secondItem="ddg-cf-ulF" secondAttribute="trailing" constant="14" id="uEA-rR-P5V"/>
                                                         <constraint firstItem="Qn2-ce-Aue" firstAttribute="top" secondItem="wXK-ZS-DFj" secondAttribute="top" id="wOc-aa-tPe"/>
                                                         <constraint firstItem="E7d-QW-0Sz" firstAttribute="top" secondItem="ggS-88-LZU" secondAttribute="bottom" constant="7.5" id="wbe-4o-rux"/>
-                                                        <constraint firstItem="fu5-XE-wNF" firstAttribute="top" secondItem="7ZV-8J-8fj" secondAttribute="top" constant="15" id="zox-lL-e9G"/>
+                                                        <constraint firstItem="fu5-XE-wNF" firstAttribute="top" secondItem="7ZV-8J-8fj" secondAttribute="top" constant="17" id="zox-lL-e9G"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -1128,7 +1128,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUw-7m-unX">
-                                        <rect key="frame" x="344" y="173" width="28" height="28"/>
+                                        <rect key="frame" x="341" y="173" width="29" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="heart"/>
                                     </button>

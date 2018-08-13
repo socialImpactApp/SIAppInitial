@@ -34,8 +34,7 @@
     self.hours.text = volunOpp[@"hours"]; // good
     self.spotsLeft.text = volunOpp[@"spotsLeft"]; //good
     self.volunteerOppTitle.text = volunOpp[@"title"];
-    
-    self.Location.text = volunOpp[@"location"];
+        self.Location.text = volunOpp[@"location"];
     self.signButton.layer.cornerRadius = 10.0;
     for (NSString *tag in volunOpp[@"tags"]){
         if ([tag isEqualToString:@"animalWelfare"]){
