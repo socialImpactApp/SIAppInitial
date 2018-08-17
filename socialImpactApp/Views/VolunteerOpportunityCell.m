@@ -63,15 +63,18 @@
     NSDate *newDate = volunOpp.createdAt;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"MM/dd/yy";
-    NSString *dateString =  [dateFormatter stringFromDate:newDate];
+    //NSString *dateString =  [dateFormatter stringFromDate:volunOpp[@"date"]];
+    NSString *volDate = volunOpp[@"date"];
+    NSString *menuDate = [volDate substringFromIndex:5];
+    menuDate = [menuDate substringToIndex:(menuDate.length-3)];
     NSLog(@"DATE STRING");
     NSLog(@"%@", volunOpp[@"date"]);
-    NSLog(@"%@", dateString);
+    //NSLog(@"%@", dateString);
     NSLog(@"%@", self.dateLabel.text);
-    self.dateLabel.text = dateString;
+    //self.dateLabel.text = dateString;
     self.organizationLabel.text = postAuthor[@"organization"];
     //MERGE CONFLICT
-    //self.dateLabel.text = volunOpp[@"date"];
+    self.dateLabel.text = menuDate;
 
     self.locationLabel.text = volunOpp[@"cityState"];
     self.backCellView.backgroundColor = [UIColor whiteColor];

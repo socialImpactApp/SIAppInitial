@@ -58,7 +58,12 @@ NS_ASSUME_NONNULL_END
     return self;
 }
 
-
+- (void) viewWillAppear:(BOOL)animated {
+    NSLog(@"INSIDE VIEW WILL APPEAR");
+    [super viewWillAppear:YES];
+    [self fetch];
+    [self.tableView reloadData];
+}
 
 - (void)viewDidLoad
 {
@@ -108,6 +113,7 @@ NS_ASSUME_NONNULL_END
     //    self->postsOne = self.volunteerOpportunities;
     
     PFQuery *query = [VolunteerOpportunity query];
+    self.toggleCalendar.selected=NO;
     
     //in the future we will filter the data
     [query orderByAscending:@"createdAt"];
@@ -125,7 +131,7 @@ NS_ASSUME_NONNULL_END
             if (self.filteredVolunteerOpportunities == NULL) {
                 self.filteredVolunteerOpportunities = [[NSMutableArray alloc] init];
             }
-            
+            [self.filteredVolunteerOpportunities removeAllObjects];
             for (VolunteerOpportunity *vol in self.volunteerOpportunities){
                 if ([timelinePostIDs containsObject:vol.objectId])
                 {
@@ -171,10 +177,10 @@ NS_ASSUME_NONNULL_END
         CGPoint velocity = [self.scopeGesture velocityInView:self.view];
         switch (self.calendar.scope) {
             case FSCalendarScopeMonth:
-                self.toggleCalendar.selected = YES;
+                self.toggleCalendar.selected = NO;
                 return velocity.y < 0;
             case FSCalendarScopeWeek:
-                self.toggleCalendar.selected = NO;
+                self.toggleCalendar.selected = YES;
                 return velocity.y > 0;
         }
     }
@@ -484,7 +490,7 @@ NS_ASSUME_NONNULL_END
         }];
     }
     else{
-        currentCell.exportToAppleCalendar.selected = YES;
+        currentCell.exportToAppleCalendar.selected = NO;
         
         [[CalendarSingleton sharedInstance] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
             if (!granted) { return; }
@@ -507,7 +513,7 @@ NS_ASSUME_NONNULL_END
 
     if ([segue.identifier isEqualToString:@"timelineDetailsSegue"])
     {
-        DetailViewController *detailedController = [segue destinationViewController];
+        DetailViewController *detailedController = [(UINavigationController*)segue.destinationViewController topViewController];
         detailedController.post = post;
         NSLog(@"checking detailedPost");
     }

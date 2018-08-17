@@ -81,6 +81,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)didTapAway:(id)sender {
+    [self.view endEditing:YES ];
+    self.resultsTableView.hidden = YES;
+}
 
 -(void)fetch {
     PFQuery *query = [VolunteerOpportunity query];

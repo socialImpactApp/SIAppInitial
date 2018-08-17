@@ -55,7 +55,7 @@
     self.tableView.backgroundColor = [UIColor snowColor];
     self.topView.backgroundColor = [UIColor snowColor];
     self.refreshControl = [[UIRefreshControl alloc] init];
-     [self.refreshControl addTarget:self action:@selector(fetch) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(fetch) forControlEvents:UIControlEventValueChanged];
     self.refreshControl.layer.zPosition = -1;
     [self.view addSubview:self.refreshControl];
     
@@ -156,11 +156,26 @@
     return 00.0;
 }
 
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
+    [self.searchBar resignFirstResponder];
+    return YES;
+}
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    self.searchBar.text = nil;
+    [self.searchBar resignFirstResponder];
+
+}
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     filteredAuthorData = [[NSMutableArray alloc] init];
     if (searchText.length != 0) {
         self.filteredData = [self.volunteerOpportunities filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(title contains[c] %@ OR author.organization contains[c] %@ OR cityState contains[c] %@)", searchText, searchText, searchText]];
         NSLog(@"%@", self.filteredData);
+    }
+    else if ([searchText isEqualToString:@""]){
+        [self.view endEditing:true];
+        
     }
     else {
         self.filteredData = self.volunteerOpportunities;
@@ -173,7 +188,6 @@
     _collectionOfTags = [tags copy];
     [self filterVopps];
 }
-
 
 
 -(void)filterVopps {

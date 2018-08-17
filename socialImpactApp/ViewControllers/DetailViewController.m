@@ -94,6 +94,7 @@
     }
     [self.loggedInUser.timelineOpps addObject:self.post.objectId];
     self.loggedInUser[@"timelineOpps"] = self.loggedInUser.timelineOpps;
+    [self dismissViewControllerAnimated:true completion:nil];
     [self.loggedInUser saveInBackground];
 }
 
