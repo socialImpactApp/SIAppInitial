@@ -89,6 +89,7 @@
 -(void)fetch {
     PFQuery *query = [VolunteerOpportunity query];
     //in the future we will filter the data
+    //edit
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
     // fetch data asynchronously
